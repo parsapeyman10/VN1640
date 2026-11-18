@@ -53,9 +53,14 @@ def parse_vsysvar(path: Path) -> tuple[str, list[dict]]:
         raise SystemExit(f"error: namespace {DEFAULT_NS} not found in {path}")
 
     out = []
+    seen: set[str] = set()
     for v in inner.findall("variable"):
+        name = v.get("name")
+        if name in seen:            # CANoe rejects duplicate names; skip rather
+            continue                # than fail halfway through an import
+        seen.add(name)
         out.append({
-            "name": v.get("name"),
+            "name": name,
             "type": v.get("type") or "int",
             "start": v.get("startValue") or "0",
             "min": v.get("minValue"),

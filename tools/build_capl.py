@@ -79,9 +79,27 @@ def build_vsysvar(signals: list[dict]) -> str:
                 f'name="{name}" comment="{xml_escape(comment)}" encoding="65001" type="float" '
                 f'startValue="{start}" />')
 
+    # A system variable name must be unique inside the namespace: CANoe aborts
+    # the whole import with "Duplicate System Variable" otherwise.  The workbook
+    # reuses some signal names across two messages (21 of them, e.g. LS_ICN_ODO
+    # appears in LS_ID_DENA_ODO_IC and LS_ID_ICNI2_IC), so keep the first
+    # definition and list the other carriers in the comment.
+    carriers: dict[str, list[str]] = {}
+    for s in signals:
+        carriers.setdefault(s["sig"], []).append(s["msg"])
+
+    emitted: set[str] = set()
     for s in signals:
         sig = s["sig"]
+        if sig in emitted:
+            continue
+        emitted.add(sig)
+
+        msgs = carriers.get(sig, [])
         comment = f'{s["node"]} / {s["msg"]}'
+        if len(msgs) > 1:
+            comment += " (also in: " + ", ".join(m for m in msgs if m != s["msg"]) + ")"
+
         if s["kind"] == "bool" or (s["min"] == 0 and s["max"] == 1):
             lines.append(
                 f'      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" '
@@ -103,6 +121,11 @@ def build_vsysvar(signals: list[dict]) -> str:
             f'name="OFFLINE_{n}" comment="1 = {n} stops transmitting (tester controlled)" '
             f'bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" maxValue="1" '
             f'startValue="0" />')
+
+    dupes = {k: v for k, v in carriers.items() if len(v) > 1}
+    if dupes:
+        print(f"  merged {len(dupes)} duplicate signal name(s) "
+              f"(one system variable per name, all carriers listed in the comment)")
 
     lines += ['    </namespace>', '  </namespace>', '</systemvariables>', '']
     return "\n".join(lines)

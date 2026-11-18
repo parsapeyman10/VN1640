@@ -217,7 +217,7 @@ python tools/doctor.py
 
 **۳. نام دقیق سیگنال‌ها** در این دو جا هست:
 
-- `canoe/panel_binding_systemvars.csv` — همه‌ی ۴۹۹ متغیر
+- `canoe/panel_binding_systemvars.csv` — همه‌ی ۴۷۸ متغیر
 - تب «گره‌ها» در تستر — با جستجو
 
 ---

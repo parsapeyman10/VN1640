@@ -30,7 +30,7 @@
 ## گام ۰ — سه فایل تولیدشده را بشناسید
 
 ```
-canoe/NBCM_Test.vsysvar        ← تعریف ۴۹۹ متغیر (سیگنال‌ها + OFFLINE_* + کنترل‌ها)
+canoe/NBCM_Test.vsysvar        ← تعریف ۴۷۸ متغیر (سیگنال‌ها + OFFLINE_* + کنترل‌ها)
 canoe/NBCM_TesterBridge.can    ← نود CAPL: متغیرها را به restbus وصل می‌کند
 canoe/panels/*.xvp             ← ۱۵ پنل آماده (Overview، Smoke، و یک پنل برای هر گره)
 ```
@@ -51,7 +51,7 @@ python tools/build_xvp.py      # پنل‌ها
 
 1. CANoe → تب **Environment** → **System Variables**
 2. دکمه/منوی **Import** → فایل `canoe/NBCM_Test.vsysvar` را انتخاب کنید
-3. در پنجره‌ی متغیرها باید پوشه‌ی `NBCM_Test` با ۴۹۹ متغیر دیده شود
+3. در پنجره‌ی متغیرها باید پوشه‌ی `NBCM_Test` با ۴۷۸ متغیر دیده شود
 4. `Ctrl+S` (ذخیره‌ی کانفیگ)
 
 **راه جایگزین اگر Import مشکل داشت** (CANoe باید باز و کانفیگ باز باشد):

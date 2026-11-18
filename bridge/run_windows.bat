@@ -1,32 +1,20 @@
 @echo off
-rem ===========================================================================
-rem  NBCM CAN tester - one-click start on Windows
-rem   1) starts the bridge (CANoe + COM + WebSocket + HTTP)
-rem   2) opens the tester in a compact app-mode window
-rem  Edit the CONFIG lines below once, then just double-click this file.
-rem ===========================================================================
-setlocal
-
-rem ---- CONFIG ---------------------------------------------------------------
-set CANOE_CFG=C:\CANoe\NBCM\NBCM.cfg
-set PORT=8770
-set WINDOW=1200x900
-rem --------------------------------------------------------------------------
-
+rem Tester + CANoe 12 over COM.  Optional: set CANOE_CFG to the .cfg to open,
+rem or put {"canoe":{"config_path":"...cfg"}} in bridge\config.local.json.
 cd /d "%~dp0.."
-
-where python >nul 2>nul
-if errorlevel 1 (
-  echo [ERROR] python not found in PATH. Install Python 3.9+ and retry.
+set "PY="
+for %%C in ("py -3" "python" "python3") do if not defined PY (
+  %%~C -c "import sys;sys.exit(0 if sys.version_info>=(3,8) else 1)" >nul 2>nul
+  if not errorlevel 1 set "PY=%%~C"
+)
+if not defined PY (
+  echo [ERROR] Python 3.8+ not found. Install it from python.org
+  echo         and tick "Add python.exe to PATH".
   pause & exit /b 1
 )
-
-echo [1/2] starting bridge on port %PORT% ...
-start "NBCM Bridge" cmd /k python bridge\nbcm_bridge.py --canoe --port %PORT% --canoe-config "%CANOE_CFG%"
-
-echo [2/2] waiting for the tester ...
-timeout /t 4 /nobreak >nul
-python bridge\nbcm_window.py --port %PORT% --size %WINDOW% --always-on-top
-
-echo tester closed. The bridge window is still open; close it to stop CANoe access.
-endlocal
+if defined CANOE_CFG (
+  %PY% "bridge\launcher.py" canoe --canoe-config "%CANOE_CFG%" %*
+) else (
+  %PY% "bridge\launcher.py" canoe %*
+)
+if errorlevel 1 pause

@@ -4,7 +4,7 @@
 
 | فایل | کاربرد |
 |---|---|
-| `NBCM_Test.vsysvar` | تعریف ۴۹۹ System Variable: ۴۸۱ سیگنال + ۱۳ کلید `OFFLINE_<NODE>` + ۵ متغیر کنترل |
+| `NBCM_Test.vsysvar` | تعریف ۴۷۸ System Variable: ۴۸۱ سیگنال + ۱۳ کلید `OFFLINE_<NODE>` + ۵ متغیر کنترل |
 | `NBCM_TesterBridge.can` | نود CAPL که هر ۱۰۰ms مقادیر را بین restbus و System Variables جابه‌جا می‌کند |
 | `panel_binding_systemvars.csv` | لیست آماده‌ی بایندینگ برای Panel Designer (نوع System Variable) |
 
