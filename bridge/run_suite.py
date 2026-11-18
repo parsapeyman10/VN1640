@@ -54,6 +54,12 @@ class Bridge:
     def drive(self, tester): return http_json(self.base + "/api/drive", {"tester": bool(tester)})
     def measurement(self, action): return http_json(self.base + "/api/measurement", {"action": action})
 
+    def verdict(self, passed, failed, last_pass, last_fail):
+        """Mirror the result into the NBCM_Test::TC_* variables for the panel."""
+        return http_json(self.base + "/api/verdict", {
+            "passed": passed, "failed": failed,
+            "lastPass": last_pass, "lastFail": last_fail})
+
 
 OPS = {
     "==": lambda a, b: a == b,
@@ -305,6 +311,16 @@ def main(argv=None) -> int:
     if args.junit:
         args.junit.parent.mkdir(parents=True, exist_ok=True)
         args.junit.write_text(to_junit(report), encoding="utf-8")
+
+    # leave the verdict where CANoe can see it (NBCM_Test::TC_*), so the panel
+    # shows the result even when nobody is watching the browser
+    last = runner.results[-1] if runner.results else {}
+    try:
+        bridge.verdict(passed, failed,
+                       last.get("verdict") == "PASS",
+                       last.get("verdict") == "FAIL")
+    except Exception as e:                                       # noqa: BLE001
+        print(f"note: could not publish the verdict to CANoe ({e})")
 
     print(f"\nverdict: {verdict}   pass={passed} fail={failed} inconclusive={inconc} total={total}")
     print(f"report : {out}")

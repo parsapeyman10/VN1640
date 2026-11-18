@@ -45,6 +45,11 @@ CONTROL_VARS = [
     ("MANUAL_SPEED_MODE", "int", 0, "1 = manual speed"),
     ("MANUAL_SPEED_KMH", "float", 0, "manual speed value in km/h"),
     ("HB_BRIDGE", "int", 0, "heartbeat written by the external bridge (optional)"),
+    # test verdicts, so a result is visible inside CANoe without the HTML app
+    ("TC_RESULT_PASS", "int", 0, "number of PASS in the last suite run"),
+    ("TC_RESULT_FAIL", "int", 0, "number of FAIL in the last suite run"),
+    ("TC_LAST_PASS", "int", 0, "1 = the last finished test passed"),
+    ("TC_LAST_FAIL", "int", 0, "1 = the last finished test failed"),
 ]
 
 
@@ -122,9 +127,11 @@ def build_vsysvar(signals: list[dict]) -> str:
              '  <namespace name="" comment="" interface="">',
              f'    <namespace name="{NAMESPACE}" comment="NBCM CAN tester bridge" interface="">']
 
+    LARGE = 100000
     for name, typ, start, comment in CONTROL_VARS:
         if typ == "int":
-            lines.append(_var(name, "int", comment, start, 0, 1))
+            hi = LARGE if name.startswith(("TC_RESULT", "HB_")) else 1
+            lines.append(_var(name, "int", comment, start, 0, hi))
         else:
             lines.append(_var(name, "float", comment, start, 0, 300, unit="km/h"))
 
@@ -173,6 +180,16 @@ def build_vsysvar(signals: list[dict]) -> str:
         print(f"  merged {len(dupes)} duplicate signal name(s) "
               f"(one system variable per name, all carriers listed in the comment)")
 
+    # per-node network health, read by the panel's LEDs and age displays:
+    #   HB_<NODE>  1 = the node's messages were seen in the last 500 ms
+    #   AGE_<NODE> milliseconds since its last message (0 when not seen yet)
+    for n in nodes:
+        lines.append(_var(f"HB_{n}", "int",
+                          f"{n}: 1 = a message from this node was seen < 500 ms ago", 0, 0, 1))
+        lines.append(_var(f"AGE_{n}", "int",
+                          f"{n}: milliseconds since the last message (0 = never seen)",
+                          0, 0, 600000))
+
     lines += ['    </namespace>', '  </namespace>', '</systemvariables>', '']
     return "\n".join(lines)
 
@@ -213,6 +230,24 @@ def build_capl(signals: list[dict]) -> str:
     a("  msTimer tmrTesterBridge;")
     a("  long  gLastDriveMode = 0;")
     a("  long  gTick = 0;")
+    a("")
+    a("  // last time each node was heard on the bus, for the panel health LEDs.");
+    a("  // 0 means nothing seen yet: the panel shows age 0 and a grey LED.")
+    for node in nodes:
+        a(f"  dword gLastSeen_{node};")
+    a("}")
+    a("")
+    a("/*----------------------------------------------------------------------------")
+    a("  Heartbeat.  One receiver for every frame: any frame from a node refreshes")
+    a("  its timestamp, so the panel LED goes green while the node talks and red")
+    a("  once it is killed with OFFLINE_<NODE> -- a real timeout viewer.")
+    a("----------------------------------------------------------------------------*/")
+    a("on message *")
+    a("{")
+    a("  dword now = timeNow();")
+    a("")
+    for node in nodes:
+        a(f"  if (this.{node}) gLastSeen_{node} = now;")
     a("}")
     a("")
     a("on start")
@@ -264,8 +299,40 @@ def build_capl(signals: list[dict]) -> str:
     for n in nodes:
         a(f'  @sysvar::{ns}::OFFLINE_{n} = OFFLINE_{capl_safe(n)};')
     a("")
+    a("  publishHealth();")
+    a("")
     a("  gTick++;")
     a(f'  @sysvar::{ns}::HB_BRIDGE = 0;   // reserved')
+    a("}")
+    a("")
+    a("/*----------------------------------------------------------------------------")
+    a("  Turn the last-seen timestamps into the two numbers the panel binds to:")
+    a("      HB_<NODE>   1 while the node talked within the last 500 ms")
+    a("      AGE_<NODE>  age in milliseconds (0 when it was never seen)")
+    a("----------------------------------------------------------------------------*/")
+    a("void publishHealth()")
+    a("{")
+    a("  dword now = timeNow();")
+    a("")
+    for node in nodes:
+        a(f"  publishNode(now, gLastSeen_{node}, "
+          f"&@sysvar::{ns}::HB_{node}, &@sysvar::{ns}::AGE_{node});")
+    a("}")
+    a("")
+    # CAPL passes long by value, so the two outputs must be pointers
+    a("void publishNode(dword now, dword lastSeen, long *hb, long *age)")
+    a("{")
+    a("  long delta;")
+    a("")
+    a("  if (lastSeen == 0)")
+    a("  {")
+    a("    *hb  = 0;")
+    a("    *age = 0;")
+    a("    return;")
+    a("  }")
+    a("  delta = (long)(now - lastSeen);")
+    a("  *age = delta;")
+    a("  *hb  = (delta < 500) ? 1 : 0;")
     a("}")
     a("")
     a("/*----------------------------------------------------------------------------")

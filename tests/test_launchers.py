@@ -148,6 +148,78 @@ def test_vsysvar_checker_rejects_broken_files():
         Path(path).unlink(missing_ok=True)
 
 
+def test_main_panel_is_self_consistent():
+    """5. The all-in-one panel must not bind anything that does not exist."""
+    import collections
+    panel = ROOT / "canoe" / "panels" / "NBCM_Main.xvp"
+    check("NBCM_Main.xvp exists", panel.exists())
+    if not panel.exists():
+        return
+    root = ET.parse(panel).getroot()
+    declared = {v.get("name") for v in
+                ET.parse(ROOT / "canoe" / "NBCM_Test.vsysvar").iter("variable")}
+    used, malformed = collections.Counter(), []
+    for prop in root.iter("Property"):
+        if prop.get("Name") != "SymbolConfiguration" or not prop.text:
+            continue
+        if not prop.text.startswith("4;16;NBCM_Test;;;"):
+            malformed.append(prop.text[:30])
+            continue
+        used[prop.text.split(";")[5]] += 1
+    missing = sorted(set(used) - declared)
+    check("every panel binding resolves to a variable", not missing,
+          ", ".join(missing[:5]))
+    check("no malformed symbol bindings", not malformed, ", ".join(malformed[:3]))
+
+    tabs = root.find("./Object/Object")
+    pages = tabs.findall("Object") if tabs is not None else []
+    check("panel has the tab control with all pages", len(pages) >= 17,
+          f"{len(pages)} pages")
+    labels = [p.find('Property[@Name="Text"]').text for p in pages]
+    for must in ("Dashboard", "Nodes", "Monitor", "Tests"):
+        check(f"page {must!r} present", must in labels)
+
+    # non-ASCII in panel text renders as a box with the default label font
+    odd = set()
+    for prop in root.iter("Property"):
+        if prop.get("Name") in ("Text", "LegendText") and prop.text:
+            odd |= {c for c in prop.text if ord(c) > 127}
+    check("panel labels are ASCII (no missing-glyph boxes)", not odd, "".join(sorted(odd)))
+
+
+def test_verdict_reaches_the_bridge():
+    """6. A suite verdict must be visible to the CANoe panel."""
+    port = 9840
+    env = {"NBCM_PORT": str(port), "PATH": "/usr/bin:/bin"}
+    proc = subprocess.Popen(
+        [sys.executable, str(BAT / "nbcm_bridge.py"), "--sim", "--port", str(port)],
+        cwd=str(ROOT), env=env, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    try:
+        base = f"http://127.0.0.1:{port + 1}"
+        for _ in range(40):
+            try:
+                urllib.request.urlopen(base + "/api/health", timeout=1)
+                break
+            except Exception:                                    # noqa: BLE001
+                time.sleep(0.3)
+        body = json.dumps({"passed": 6, "failed": 1,
+                           "lastPass": False, "lastFail": True}).encode()
+        req = urllib.request.Request(base + "/api/verdict", data=body,
+                                     headers={"content-type": "application/json"})
+        urllib.request.urlopen(req, timeout=3)
+        state = json.loads(urllib.request.urlopen(base + "/api/state", timeout=3).read())
+        v = state.get("verdict") or {}
+        check("verdict is stored on the bridge",
+              v.get("passed") == 6 and v.get("failed") == 1, str(v))
+        check("verdict marks the last FAIL", v.get("lastFail") is True)
+    finally:
+        proc.terminate()
+        try:
+            proc.wait(timeout=5)
+        except subprocess.TimeoutExpired:
+            proc.kill()
+
+
 def test_bat_line_endings():
     for bat in sorted(BAT.glob("*.bat")):
         raw = bat.read_bytes()
@@ -228,6 +300,8 @@ def main() -> int:
                test_no_hardcoded_url, test_vsysvar_unique,
                test_vsysvar_matches_canoe_shape,
                test_vsysvar_checker_rejects_broken_files,
+               test_main_panel_is_self_consistent,
+               test_verdict_reaches_the_bridge,
                test_find_bridge_fails_cleanly, test_launcher_dry_run,
                test_launcher_reports_missing_files,
                test_find_bridge_against_a_live_bridge):

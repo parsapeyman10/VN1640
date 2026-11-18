@@ -289,6 +289,25 @@ class CanoeLink:
         var_name = self.cfg.get("offline_prefix", "OFFLINE_") + node
         return self.write_var(var_name, 1 if flag else 0)
 
+    def publish_verdict(self, passed: int, failed: int,
+                        last_pass: bool, last_fail: bool) -> bool:
+        """Write the suite verdict into NBCM_Test::TC_*.
+
+        The CANoe panel binds to these four variables, so a run started in the
+        HTML tester (or from run_suite.py) leaves a visible result inside CANoe,
+        including when nobody is looking at the browser.
+        """
+        values = (
+            ("TC_RESULT_PASS", passed),
+            ("TC_RESULT_FAIL", failed),
+            ("TC_LAST_PASS", 1 if last_pass else 0),
+            ("TC_LAST_FAIL", 1 if last_fail else 0),
+        )
+        ok = True
+        for name, value in values:
+            ok = self.write_var(name, value) and ok
+        return ok
+
     def define_sysvars(self, names, type_name: str = "Integer") -> int:
         """Best effort: create the system variables used by the CAPL bridge."""
         created = 0
@@ -330,6 +349,10 @@ class SimLink:
     def set_drive_mode(self, *_): return True
     def define_sysvars(self, *a, **k): return 0
 
+    def publish_verdict(self, passed, failed, last_pass, last_fail):
+        # nothing to write to without CANoe; the hub keeps it for the UI
+        return True
+
 
 # --------------------------------------------------------------------------- #
 # shared state
@@ -338,6 +361,7 @@ class Hub:
     def __init__(self, data: dict, cfg: dict):
         self.data = data
         self.cfg = cfg
+        self.verdict = {"passed": 0, "failed": 0, "lastPass": False, "lastFail": False}
         self.lock = threading.RLock()   # re-entrant: state() calls msg_ages() inside the lock
         self.signals = {}                     # name -> value
         self.meta = {}                        # name -> signal record
@@ -411,6 +435,7 @@ class Hub:
                 "offline": dict(self.offline),
                 "measRunning": self.meas_running,
                 "driveMode": self.drive_mode,
+                "verdict": dict(self.verdict),
                 "msgAge": ages,
                 "t": time.time(),
             }
@@ -786,6 +811,20 @@ class Handler(BaseHTTPRequestHandler):
             self.hub.broadcast({"type": "drive", "driveMode": mode})
             return self._json(200, {"ok": boo(ok), "driveMode": mode,
                                     "error": getattr(self.link, "error", "")})
+        if path == "/api/verdict":
+            # mirror a suite result into the system variables the CANoe panel
+            # binds to, so the verdict is visible inside CANoe without the app
+            passed = int(body.get("passed") or 0)
+            failed = int(body.get("failed") or 0)
+            self.hub.verdict = {"passed": passed, "failed": failed,
+                                "lastPass": bool(body.get("lastPass")),
+                                "lastFail": bool(body.get("lastFail"))}
+            ok = self.link.publish_verdict(passed, failed,
+                                           bool(body.get("lastPass")),
+                                           bool(body.get("lastFail"))) \
+                 if hasattr(self.link, "publish_verdict") else False
+            self.hub.broadcast({"type": "verdict", **self.hub.verdict})
+            return self._json(200, {"ok": boo(ok), "error": getattr(self.link, "error", "")})
         if path == "/api/measurement":
             action = body.get("action")
             if action == "start":
