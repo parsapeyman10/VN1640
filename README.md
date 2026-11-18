@@ -16,6 +16,7 @@
 | `docs/how-to-use.md` | **راهنمای استفاده قدم‌به‌قدم** (شبیه‌ساز → CANoe → تست) |
 | `docs/pdf/` | **همان مستندات به‌صورت PDF فارسی** (۵ فایل) |
 | `docs/launcher.md` | **اجرا کردن تستر** و عیب‌یابی `.bat`ها |
+| `tools/check_vsysvar.py` | **اعتبارسنجی `.vsysvar`** با همان قواعد CANoe |
 | `docs/how-to-add-to-canoe.md` | **افزودن پنل/متغیرها داخل CANoe 12** (همان دیالوگ Add Panel) |
 | `tests/test_suite.json` | سوئیت تست مشترک بین مرورگر و CI |
 

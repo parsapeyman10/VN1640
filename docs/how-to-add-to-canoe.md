@@ -142,6 +142,50 @@ python bridge/nbcm_window.py --always-on-top
 نکتهٔ مهم: در Panel Designer هم `Symbol Filter` را روی **System Variable** بگذارید، نه Signal.
 چون CAPL فقط متغیرهای خودش را می‌بیند و پل ما از طریق System Variable کار می‌کند.
 
+## اگر CANoe دربارهٔ System Variable خطا داد
+
+سه پیام مختلف وجود دارد و هر کدام علت جداگانه‌ای دارد:
+
+| پیام CANoe | علت | وضعیت |
+|---|---|---|
+| `Duplicate System Variable /NBCM_Test/... Line N` | یک نام دو بار تعریف شده | **رفع شد** — اکسل ۲۱ نام را در دو پیام تکرار می‌کند؛ حالا یک متغیر با توضیح «also in: ...» |
+| `The data model contains at least one error` | مدل داده ایراد دارد (نه تکراری) | **رفع شد** — دو قاعدهٔ CANoe رعایت نشده بود |
+| `Error loading file ...` | فایل خوانده نشد | مسیر/دسترسی فایل |
+
+### آن «at least one error» دقیقاً چه بود؟
+
+CANoe این پیام را کلی می‌دهد و شمارهٔ خط نمی‌دهد. با مقایسهٔ فایل خودمان با فایل‌هایی
+که خودِ CANoe نوشته بود، دو تخلف پیدا شد:
+
+1. **`bitcount` برای `float` اجباری است و باید ۶۴ باشد.** من ۱۷۴ متغیر `float` را
+   بدون `bitcount` می‌ساختم.
+2. **`startValue` باید داخل `minValue..maxValue` باشد.** مثلاً `LS_ICN_ODO` مقدار
+   شروع ۱۲٬۳۴۵٬۰۰۰ داشت ولی محدوده‌اش ۰..۱ بود.
+
+شکل درست (از فایل واقعی CANoe):
+
+```xml
+<variable ... bitcount="64" isSigned="true" encoding="65001" type="float"
+          startValue="0" minValue="0" maxValue="300" />
+<variable ... bitcount="32" isSigned="true" encoding="65001" type="int"
+          minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1"
+          startValue="0" />
+```
+
+### چطور خودتان چک کنید
+
+```bash
+python tools/check_vsysvar.py        # همهٔ قواعدی که CANoe بررسی می‌کند
+python tools/doctor.py               # بررسی کل پروژه
+```
+
+`check_vsysvar.py` اگر فایل ایراد داشته باشد با کد خطا خارج می‌شود و دقیقاً می‌گوید
+کدام متغیر و کدام قاعده. برای دیدن تفاوت با فایل واقعی:
+
+```bash
+python tools/check_vsysvar.py --canonical   # ترتیب attributeها مثل CANoe
+```
+
 ## اگر پنل باز نشد
 
 | نشانه | علت | کار |

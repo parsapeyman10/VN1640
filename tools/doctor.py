@@ -91,6 +91,55 @@ def check_canoe_files(data):
             line("PASS", "CAPL bridge references every signal")
 
 
+def check_vsysvar_shape(data):
+    """CANoe says only "the data model contains at least one error"; check the
+    rules it actually enforces (see tools/check_vsysvar.py)."""
+    path = ROOT / "canoe" / "NBCM_Test.vsysvar"
+    if not path.exists():
+        line("WARN", "vsysvar not generated", fix="python tools/build_capl.py")
+        return
+    import xml.etree.ElementTree as ET
+    try:
+        root = ET.parse(path).getroot()
+    except Exception as e:                                       # noqa: BLE001
+        line("FAIL", "vsysvar is not valid XML", str(e), "python tools/build_capl.py")
+        return
+    nss = [n for n in root.iter("namespace") if n.get("name") == "NBCM_Test"]
+    if len(nss) != 1:
+        line("FAIL", "vsysvar has no single NBCM_Test namespace",
+             f"{len(nss)} found", "python tools/build_capl.py")
+        return
+    vars_ = nss[0].findall("variable")
+    no_bc = [v.get("name") for v in vars_ if v.get("bitcount") is None]
+    bad_f = [v.get("name") for v in vars_
+             if v.get("type") == "float" and v.get("bitcount") != "64"]
+    out_rng = []
+    for v in vars_:
+        try:
+            lo, hi = v.get("minValue"), v.get("maxValue")
+            if lo is None or hi is None:
+                continue
+            lo, hi = float(lo), float(hi)
+            st = float(v.get("startValue") or 0)
+        except (TypeError, ValueError):
+            continue
+        if hi <= lo or not (lo <= st <= hi):
+            out_rng.append(v.get("name"))
+    if no_bc or bad_f or out_rng:
+        detail = []
+        if no_bc:
+            detail.append(f"{len(no_bc)} without bitcount")
+        if bad_f:
+            detail.append(f"{len(bad_f)} float without 64 bits")
+        if out_rng:
+            detail.append(f"{len(out_rng)} start value out of range")
+        line("FAIL", "CANoe would reject the system variables",
+             ", ".join(detail), "python tools/build_capl.py")
+    else:
+        line("PASS", "system variables match CANoe's shape",
+             f"{len(vars_)} vars, all with bitcount and a valid range")
+
+
 def check_panels(data):
     pdir = ROOT / "canoe" / "panels"
     if not pdir.exists():
@@ -255,6 +304,7 @@ def main(argv=None) -> int:
 
     print("\n-- CANoe project files ---------------------------------------------")
     check_canoe_files(data)
+    check_vsysvar_shape(data)
     check_panels(data)
 
     print("\n-- CANoe connection ------------------------------------------------")

@@ -80,6 +80,74 @@ def test_vsysvar_unique():
           len(merged) == 21, f"{len(merged)} merged")
 
 
+def test_vsysvar_matches_canoe_shape():
+    """4. CANoe's "data model contains at least one error" has specific causes.
+
+    The reported failure was a float without bitcount (must be 64) and a start
+    value outside [minValue, maxValue] (LS_ICN_ODO = 12345000 in a bool range).
+    """
+    root = ET.parse(ROOT / "canoe" / "NBCM_Test.vsysvar").getroot()
+    ns = [e for e in root.iter("namespace") if e.get("name") == "NBCM_Test"][0]
+    vars_ = ns.findall("variable")
+
+    no_bitcount = [v.get("name") for v in vars_ if v.get("bitcount") is None]
+    check("every variable has bitcount", not no_bitcount,
+          ", ".join(no_bitcount[:3]))
+
+    wrong_float = [v.get("name") for v in vars_
+                   if v.get("type") == "float" and v.get("bitcount") != "64"]
+    check("every float has bitcount 64", not wrong_float,
+          ", ".join(wrong_float[:3]))
+
+    out_of_range, degenerate = [], []
+    for v in vars_:
+        try:
+            st = float(v.get("startValue") or 0)
+            lo = v.get("minValue")
+            hi = v.get("maxValue")
+            if lo is None or hi is None:
+                continue
+            lo, hi = float(lo), float(hi)
+        except (TypeError, ValueError):
+            continue
+        if hi <= lo:
+            degenerate.append(f"{v.get('name')} [{lo},{hi}]")
+        elif not (lo <= st <= hi):
+            out_of_range.append(f"{v.get('name')} start={st} [{lo},{hi}]")
+    check("no degenerate min/max range", not degenerate,
+          "; ".join(degenerate[:3]))
+    check("every startValue inside its range", not out_of_range,
+          "; ".join(out_of_range[:3]))
+
+
+def test_vsysvar_checker_rejects_broken_files():
+    """The checker must fail on the exact bugs that reached the user."""
+    import tempfile
+    broken = {
+        "float-no-bitcount": '<variable anlyzLocal="2" readOnly="false" '
+            'valueSequence="false" unit="" name="A" comment="" '
+            'encoding="65001" type="float" startValue="0" />',
+        "start-outside": '<variable anlyzLocal="2" readOnly="false" '
+            'valueSequence="false" unit="" name="B" comment="" bitcount="32" '
+            'isSigned="true" encoding="65001" type="int" startValue="9" '
+            'minValue="0" maxValue="1" />',
+    }
+    for label, var in broken.items():
+        xml = ('<?xml version="1.0" encoding="utf-8"?>\n'
+               '<systemvariables version="4"><namespace name="" comment="" '
+               'interface=""><namespace name="T" comment="" interface="">'
+               f'{var}</namespace></namespace></systemvariables>')
+        with tempfile.NamedTemporaryFile("w", suffix=".vsysvar",
+                                         delete=False, encoding="utf-8") as f:
+            f.write(xml)
+            path = f.name
+        r = subprocess.run([sys.executable, str(ROOT / "tools" / "check_vsysvar.py"),
+                            path], capture_output=True, text=True)
+        check(f"check_vsysvar.py rejects {label}", r.returncode == 1,
+              f"rc={r.returncode}")
+        Path(path).unlink(missing_ok=True)
+
+
 def test_bat_line_endings():
     for bat in sorted(BAT.glob("*.bat")):
         raw = bat.read_bytes()
@@ -158,6 +226,8 @@ def main() -> int:
     print("launcher and sysvar regression tests\n")
     for fn in (test_bat_targets_exist, test_bat_line_endings,
                test_no_hardcoded_url, test_vsysvar_unique,
+               test_vsysvar_matches_canoe_shape,
+               test_vsysvar_checker_rejects_broken_files,
                test_find_bridge_fails_cleanly, test_launcher_dry_run,
                test_launcher_reports_missing_files,
                test_find_bridge_against_a_live_bridge):

@@ -143,6 +143,16 @@ def main(argv=None) -> int:
         try:
             typ = "Float" if v["type"] == "float" else "Integer"
             var = ns.Variables.Add(v["name"], typ)
+            # set the limits before the value, so the start value cannot fall
+            # outside the range CANoe already knows about
+            for attr, key in (("Min", "min"), ("Max", "max")):
+                raw = v.get(key)
+                if raw is None:
+                    continue
+                try:
+                    setattr(var, attr, float(raw))
+                except Exception:                                # noqa: BLE001
+                    pass
             try:
                 var.Value = float(v["start"])
             except Exception:                                    # noqa: BLE001

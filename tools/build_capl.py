@@ -60,6 +60,62 @@ def capl_safe(name: str) -> str:
     return n if not n[:1].isdigit() else "_" + n
 
 
+def _num(x, fallback: float = 0.0) -> float:
+    try:
+        v = float(x)
+    except (TypeError, ValueError):
+        return fallback
+    return v if v == v and abs(v) != float("inf") else fallback
+
+
+def _fmt(v: float) -> str:
+    """Canonical number for the XML: 1 not 1.0, 0.1 not 0.10000000000000001."""
+    if abs(v - round(v)) < 1e-9:
+        return str(int(round(v)))
+    return f"{v:.9g}"
+
+
+def _var(name, typ, comment, start, lo=None, hi=None, unit="") -> str:
+    """One <variable> element in the exact shape CANoe writes.
+
+    Two things CANoe validates and rejects the whole import over ("The data
+    model contains at least one error"):
+
+      * `bitcount` is mandatory -- 32 for int, **64 for float**.  A float
+        without bitcount is the error that broke the previous file.
+      * `startValue` must lie inside `minValue..maxValue`.
+    """
+    start = _num(start)
+    attrs = [
+        'anlyzLocal="2"', 'readOnly="false"', 'valueSequence="false"',
+        f'unit="{xml_escape(unit or "")}"',
+        f'name="{xml_escape(name)}"',
+        f'comment="{xml_escape(comment or "")}"',
+    ]
+    if typ == "int":
+        lo = -2147483648 if lo is None else int(round(_num(lo)))
+        hi = 2147483647 if hi is None else int(round(_num(hi)))
+        if hi < lo:
+            lo, hi = hi, lo
+        start = min(max(start, lo), hi)
+        attrs += ['bitcount="32"', 'isSigned="true"', 'encoding="65001"',
+                  'type="int"',
+                  f'minValue="{lo}"', f'minValuePhys="{lo}"',
+                  f'maxValue="{hi}"', f'maxValuePhys="{hi}"',
+                  f'startValue="{_fmt(start)}"']
+    else:
+        lo = 0.0 if lo is None else _num(lo)
+        hi = 1.0 if hi is None else _num(hi)
+        if hi <= lo:
+            hi = lo + 1.0
+        start = min(max(start, lo), hi)
+        attrs += ['bitcount="64"', 'isSigned="true"', 'encoding="65001"',
+                  'type="float"',
+                  f'startValue="{_fmt(start)}"',
+                  f'minValue="{_fmt(lo)}"', f'maxValue="{_fmt(hi)}"']
+    return "      <variable " + " ".join(attrs) + " />"
+
+
 def build_vsysvar(signals: list[dict]) -> str:
     lines = ['<?xml version="1.0" encoding="utf-8"?>',
              '<systemvariables version="4">',
@@ -68,16 +124,9 @@ def build_vsysvar(signals: list[dict]) -> str:
 
     for name, typ, start, comment in CONTROL_VARS:
         if typ == "int":
-            lines.append(
-                f'      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" '
-                f'name="{name}" comment="{xml_escape(comment)}" bitcount="32" isSigned="true" '
-                f'encoding="65001" type="int" minValue="-2147483648" maxValue="2147483647" '
-                f'startValue="{start}" />')
+            lines.append(_var(name, "int", comment, start, 0, 1))
         else:
-            lines.append(
-                f'      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" '
-                f'name="{name}" comment="{xml_escape(comment)}" encoding="65001" type="float" '
-                f'startValue="{start}" />')
+            lines.append(_var(name, "float", comment, start, 0, 300, unit="km/h"))
 
     # A system variable name must be unique inside the namespace: CANoe aborts
     # the whole import with "Duplicate System Variable" otherwise.  The workbook
@@ -100,27 +149,24 @@ def build_vsysvar(signals: list[dict]) -> str:
         if len(msgs) > 1:
             comment += " (also in: " + ", ".join(m for m in msgs if m != s["msg"]) + ")"
 
-        if s["kind"] == "bool" or (s["min"] == 0 and s["max"] == 1):
-            lines.append(
-                f'      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" '
-                f'name="{xml_escape(sig)}" comment="{xml_escape(comment)}" bitcount="32" '
-                f'isSigned="true" encoding="65001" type="int" minValue="0" maxValue="1" '
-                f'startValue="{int(s["def"])}" />')
+        lo, hi = _num(s["min"]), _num(s["max"])
+        is_bool = s["kind"] == "bool" or (lo == 0 and hi == 1)
+        if is_bool:
+            lines.append(_var(sig, "int", comment, int(_num(s["def"])), 0, 1))
         else:
-            lines.append(
-                f'      <variable anlyzLocal="2" readOnly="false" valueSequence="false" '
-                f'unit="{xml_escape(s["unit"] or "")}" name="{xml_escape(sig)}" '
-                f'comment="{xml_escape(comment)}" encoding="65001" type="float" '
-                f'startValue="{s["def"]}" />')
+            # keep the workbook range, but never a degenerate one: CANoe needs
+            # max > min and the start value inside the interval
+            if hi <= lo:
+                hi = lo + 1.0
+            start = min(max(_num(s["def"]), lo), hi)
+            lines.append(_var(sig, "float", comment, start, lo, hi,
+                              unit=s.get("unit") or ""))
 
     # node offline switches
     nodes = sorted({s["node"] for s in signals})
     for n in nodes:
-        lines.append(
-            f'      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" '
-            f'name="OFFLINE_{n}" comment="1 = {n} stops transmitting (tester controlled)" '
-            f'bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" maxValue="1" '
-            f'startValue="0" />')
+        lines.append(_var(f"OFFLINE_{n}", "int",
+                          f"1 = {n} stops transmitting (tester controlled)", 0, 0, 1))
 
     dupes = {k: v for k, v in carriers.items() if len(v) > 1}
     if dupes:
