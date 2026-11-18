@@ -1,0 +1,25 @@
+{
+  "host": "0.0.0.0",
+  "port": 8770,
+  "canoe": {
+    "enabled": true,
+    "config_path": "",
+    "autostart_measurement": false,
+    "bus": "CAN",
+    "channel_hs": 1,
+    "channel_ls": 2,
+    "poll_hz": 4,
+    "offline_namespace": "NBCM_Test",
+    "offline_prefix": "OFFLINE_",
+    "poll_signals": [
+      "Hs_Abs_VehicleSpeed",
+      "Hs_Abs_VehicleSpeed_Invalid",
+      "Hs_Ems_Rpm",
+      "Hs_Ems_Fuel_Tank_Level_Out",
+      "LS_ICN_ODO",
+      "Hs_Abs_Active"
+    ],
+    "take_control": false,
+    "drive_mode_sysvar": "NBCM_Test::DRIVE_MODE"
+  }
+}
