@@ -75,6 +75,7 @@ python bridge/nbcm_bridge.py --canoe --canoe-config "C:\CANoe\NBCM\NBCM.cfg"
 3. پنل‌ها: **Home → Panel → Add Panel…** و انتخاب `canoe/panels/NBCM_Smoke.xvp`
    سپس `NBCM_Test_Overview.xvp` — راهنمای کامل: [`how-to-add-to-canoe.md`](how-to-add-to-canoe.md).
 4. استفاده روزمره و نوشتن تست: [`how-to-use.md`](how-to-use.md)
+5. نسخهٔ PDF همهٔ مستندات: [`pdf/README.md`](pdf/README.md)
 3. اگر نام کانال‌ها فرق دارد: تب «اتصال» → «نگاشت کانال» را پر کنید (HS/LS).
 4. در تستر روی نشانگر **«کنترل: CANoe»** کلیک کنید تا `DRIVE_MODE=1` شود
    (یعنی تستر مالک سیگنال‌ها می‌شود؛ با کلیک دوباره به سناریوی CANoe برمی‌گردد).
