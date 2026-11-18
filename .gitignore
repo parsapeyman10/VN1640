@@ -1,0 +1,22 @@
+# generated at runtime, never commit
+reports/
+bridge.log
+bridge.err
+bridge/config.local.json
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# CANoe build artifacts
+*.cbf
+*.log
+!tests/*.log

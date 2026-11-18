@@ -1,0 +1,99 @@
+# Real CANoe runs need the Vector hardware and a licensed CANoe install, so this
+# workflow targets a self-hosted Windows runner labelled `canoe`.
+# The `sim` job also runs on a plain Linux runner: it only exercises the tester
+# engine and the bridge protocol, which is what catches regressions in CI.
+name: CAN tests
+
+on:
+  push:
+    branches: [main, "arena/**"]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  # ---------------------------------------------------------------- sim job --
+  sim:
+    name: Suite against the simulator bridge (no CANoe)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Regenerate data from the workbook
+        run: python tools/build_data.py
+
+      - name: Start the bridge in simulation mode
+        run: |
+          python bridge/nbcm_bridge.py --sim --host 127.0.0.1 --port 8770 &
+          for i in $(seq 1 30); do
+            curl -sf http://127.0.0.1:8771/api/health && break
+            sleep 1
+          done
+
+      - name: Run the suite
+        run: |
+          mkdir -p reports
+          python bridge/run_suite.py \
+            --suite tests/test_suite.json \
+            --bridge http://127.0.0.1:8771 \
+            --junit reports/junit.xml \
+            --report-dir reports
+
+      - name: Publish results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: can-test-reports
+          path: reports/
+          if-no-files-found: warn
+
+  # -------------------------------------------------------------- canoe job --
+  canoe:
+    name: Suite against CANoe 12 (self-hosted Windows runner)
+    runs-on: [self-hosted, windows, canoe]
+    if: github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Prepare bridge config
+        shell: pwsh
+        run: |
+          python -m pip install --quiet pywin32
+          python tools/build_data.py
+          python tools/build_capl.py
+
+      - name: Start bridge against CANoe
+        shell: pwsh
+        run: |
+          $cfg = $env:CANOE_CFG
+          if (-not $cfg) { throw "Set the CANOE_CFG environment variable on the runner." }
+          Start-Process -FilePath python `
+            -ArgumentList "bridge/nbcm_bridge.py","--canoe","--port","8770","--canoe-config","$cfg" `
+            -RedirectStandardOutput bridge.log -RedirectStandardError bridge.err
+          for ($i=0; $i -lt 90; $i++) {
+            try { Invoke-RestMethod http://127.0.0.1:8771/api/health | Out-Null; break }
+            catch { Start-Sleep -Seconds 2 }
+          }
+          Get-Content bridge.log -Tail 20
+
+      - name: Run the suite
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force reports | Out-Null
+          python bridge/run_suite.py `
+            --suite tests/test_suite.json `
+            --bridge http://127.0.0.1:8771 `
+            --take-control `
+            --junit reports/junit.xml --report-dir reports
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: canoe-reports
+          path: |
+            reports/
+            bridge.log
