@@ -20,3 +20,6 @@ Thumbs.db
 *.cbf
 *.log
 !tests/*.log
+
+# generated CANoe package -- build with tools/build_package.py
+dist/

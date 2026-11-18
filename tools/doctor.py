@@ -149,8 +149,17 @@ def check_panels(data):
     if not files:
         line("WARN", "no .xvp panels found", fix="python tools/build_xvp.py")
         return
+    # The panel binds against the imported system variables, so the .vsysvar is
+    # the authority -- not the signal map.  Derived variables (AGE_<node>,
+    # HB_<node>, TC_*) live only in the vsysvar, and checking against the signal
+    # map alone reported every one of them as an unknown binding.
     declared = set()
-    if data:
+    vsysvar = ROOT / "canoe" / "NBCM_Test.vsysvar"
+    if vsysvar.exists():
+        import re as _re
+        declared = set(_re.findall(r'<variable\s[^>]*?name="([^"]+)"',
+                                   vsysvar.read_text(encoding="utf-8")))
+    elif data:
         declared = {s["sig"] for s in data.get("signals", [])}
         declared |= {f"OFFLINE_{n['node']}" for n in data.get("nodes", [])}
         declared |= {"DRIVE_MODE", "SCENARIO_RUNNING", "MANUAL_SPEED_MODE", "MANUAL_SPEED_KMH"}

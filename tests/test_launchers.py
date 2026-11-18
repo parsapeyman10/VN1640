@@ -293,6 +293,75 @@ def test_launcher_reports_missing_files():
     check("launcher.py names the missing file", "nbcm_bridge.py" in r.stdout)
 
 
+
+# --------------------------------------------------------------------------- #
+def test_package_is_consistent():
+    """Build the CANoe package into a temp dir and check it hangs together.
+
+    The package is only useful if the DBC, the restbus and the panel agree: a
+    signal the CAPL writes must exist in the frame it writes it to, every
+    message object must have an id, and the panel must only bind variables the
+    vsysvar declares.  All of those were broken at least once.
+    """
+    import json
+    import re
+    import subprocess
+    import sys
+    import tempfile
+
+    root = Path(__file__).resolve().parents[1]
+    with tempfile.TemporaryDirectory() as td:
+        r = subprocess.run([sys.executable, str(root / "tools" / "build_package.py"),
+                            "--out", td], capture_output=True, text=True)
+        assert r.returncode == 0, r.stderr[-800:]
+        out = Path(td)
+
+        def frames(path):
+            f, cur = {}, None
+            for line in path.read_text(encoding="utf-8").splitlines():
+                m = re.match(r"^BO_ \d+ (\w+):", line)
+                if m:
+                    cur = m.group(1)
+                    f[cur] = set()
+                m = re.match(r"^ SG_ (\w+) ", line)
+                if m and cur:
+                    f[cur].add(m.group(1))
+            return f
+
+        dbc = {}
+        for name in ("NBCM_HS.dbc", "NBCM_LS.dbc"):
+            dbc.update(frames(out / "Database" / name))
+        can = (out / "Nodes" / "Restbus.can").read_text(encoding="utf-8")
+
+        decl = re.findall(r"^\s*message\s+(\w+)\s+msg_(\w+);", can, re.M)
+        assert decl, "restbus declares no messages"
+        assert all(a == b for a, b in decl), "message name != variable name"
+        missing = [a for a, _ in decl if a not in dbc]
+        assert not missing, f"CAPL declares messages with no DBC frame: {missing[:5]}"
+
+        writes = set(re.findall(r"\bmsg_(\w+)\.(\w+)\s*=", can))
+        assert len(writes) == 481, f"expected 481 signal writes, got {len(writes)}"
+        bad = [(m, sg) for m, sg in writes if sg not in dbc.get(m, ())]
+        assert not bad, f"writes to a signal not in that frame: {bad[:5]}"
+
+        # the panel may only bind variables the vsysvar declares
+        vs = (out / "SystemVariables" / "NBCM_Test.vsysvar").read_text(encoding="utf-8")
+        declared = set(re.findall(r'<variable\s[^>]*?name="([^"]+)"', vs))
+        xvp = (out / "Panels" / "NBCM_Main.xvp").read_text(encoding="utf-8")
+        bound = {v for _, v in re.findall(r"4;16;(\w+);;;(\w+);1;;;-1", xvp)}
+        assert bound, "panel has no bindings"
+        assert not bound - declared, f"panel binds undeclared vars: {sorted(bound - declared)[:5]}"
+
+        # no fabricated .cfg, and the manifest must describe what is really there
+        assert not list(out.rglob("*.cfg")), "a .cfg was generated"
+        man = json.loads((out / "manifest.json").read_text(encoding="utf-8"))
+        real = {p.relative_to(out).as_posix() for p in out.rglob("*") if p.is_file()}
+        assert {f["path"] for f in man["files"]} == real, "manifest does not match the files"
+        assert all(f["note"] for f in man["files"]), "manifest entry with no note"
+        assert man["counts"]["signals"] == 481
+    print(f"  PASS  package build is self-consistent (481 writes, {len(bound)} bindings)")
+
+
 # --------------------------------------------------------------------------- #
 def main() -> int:
     print("launcher and sysvar regression tests\n")
@@ -302,6 +371,7 @@ def main() -> int:
                test_vsysvar_checker_rejects_broken_files,
                test_main_panel_is_self_consistent,
                test_verdict_reaches_the_bridge,
+               test_package_is_consistent,
                test_find_bridge_fails_cleanly, test_launcher_dry_run,
                test_launcher_reports_missing_files,
                test_find_bridge_against_a_live_bridge):
