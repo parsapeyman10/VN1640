@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Panel" Children="Controls" ControlName="NBCM ITPMS">
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtTitle" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtTitle</Property>
+      <Property Name="Size">230, 20</Property>
+      <Property Name="Location">10, 8</Property>
+      <Property Name="Text">ITPMS  -  HS-CAN  -  1 messages / 5 signals</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_iTMPS_Fault_MMS" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_iTMPS_Fault_MMS</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 40</Property>
+      <Property Name="Text">Hs_iTMPS_Fault_MMS</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_iTMPS_Fault_MMS" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_iTMPS_Fault_MMS</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 38</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_iTMPS_Fault_MMS;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_iTPMS_Check_Tire_Pressure" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_iTPMS_Check_Tire_Pressure</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 66</Property>
+      <Property Name="Text">Hs_iTPMS_Check_Tire_Pressure</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_iTPMS_Check_Tire_Pressure" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_iTPMS_Check_Tire_Pressure</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 64</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_iTPMS_Check_Tire_Pressure;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_iTPMS_Fault_ICN" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_iTPMS_Fault_ICN</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 92</Property>
+      <Property Name="Text">Hs_iTPMS_Fault_ICN</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_iTPMS_Fault_ICN" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_iTPMS_Fault_ICN</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 90</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_iTPMS_Fault_ICN;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_iTPMS_Reset_Condition_NO" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_iTPMS_Reset_Condition_NO</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 118</Property>
+      <Property Name="Text">Hs_iTPMS_Reset_Condition_NO</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_iTPMS_Reset_Condition_NO" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_iTPMS_Reset_Condition_NO</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 116</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_iTPMS_Reset_Condition_NO;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_iTPMS_Tire_Pressure_Reg" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_iTPMS_Tire_Pressure_Reg</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 144</Property>
+      <Property Name="Text">Hs_iTPMS_Tire_Pressure_Reg</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_iTPMS_Tire_Pressure_Reg" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_iTPMS_Tire_Pressure_Reg</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 142</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_iTPMS_Tire_Pressure_Reg;1;;;-1</Property>
+    </Object>
+    <Property Name="Name">NBCM ITPMS</Property>
+    <Property Name="Size">262, 926</Property>
+    <Property Name="BackColor">White</Property>
+  </Object>
+</Panel>

@@ -1,0 +1,1379 @@
+<?xml version="1.0"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Panel" Children="Controls" ControlName="NBCM ICN">
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtTitle" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtTitle</Property>
+      <Property Name="Size">730, 20</Property>
+      <Property Name="Location">10, 8</Property>
+      <Property Name="Text">ICN  -  LS-CAN  -  22 messages / 106 signals</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_DEBUG1" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_DEBUG1</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 40</Property>
+      <Property Name="Text">LS_ICN_DEBUG1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_DEBUG1" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_ICN_DEBUG1</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 38</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_DEBUG1;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_DEBUG2" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_DEBUG2</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 66</Property>
+      <Property Name="Text">LS_ICN_DEBUG2</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_DEBUG2" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_ICN_DEBUG2</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 64</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_DEBUG2;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_DEBUG3" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_DEBUG3</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 92</Property>
+      <Property Name="Text">LS_ICN_DEBUG3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_DEBUG3" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_ICN_DEBUG3</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 90</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_DEBUG3;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_DEBUG4" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_DEBUG4</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 118</Property>
+      <Property Name="Text">LS_ICN_DEBUG4</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_DEBUG4" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_ICN_DEBUG4</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 116</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_DEBUG4;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_DEBUG5" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_DEBUG5</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 144</Property>
+      <Property Name="Text">LS_ICN_DEBUG5</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_DEBUG5" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_ICN_DEBUG5</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 142</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_DEBUG5;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_DEBUG6" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_DEBUG6</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 170</Property>
+      <Property Name="Text">LS_ICN_DEBUG6</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_DEBUG6" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_ICN_DEBUG6</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 168</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_DEBUG6;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_DEBUG7" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_DEBUG7</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 196</Property>
+      <Property Name="Text">LS_ICN_DEBUG7</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_DEBUG7" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_ICN_DEBUG7</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 194</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_DEBUG7;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_DEBUG8" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_DEBUG8</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 222</Property>
+      <Property Name="Text">LS_ICN_DEBUG8</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_DEBUG8" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_ICN_DEBUG8</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 220</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_DEBUG8;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_BACKLIGHT" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_BACKLIGHT</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 248</Property>
+      <Property Name="Text">LS_ICN_BACKLIGHT</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_ICN_BACKLIGHT" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_LS_ICN_BACKLIGHT</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 249</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_BACKLIGHT;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_DIAG_RESP" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_DIAG_RESP</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 274</Property>
+      <Property Name="Text">LS_ICN_DIAG_RESP</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_DIAG_RESP" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_ICN_DIAG_RESP</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 272</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_DIAG_RESP;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_FAULT_ID" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_FAULT_ID</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 300</Property>
+      <Property Name="Text">LS_ICN_FAULT_ID</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_FAULT_ID" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_ICN_FAULT_ID</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 298</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_FAULT_ID;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_FAULT_STATUS" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_FAULT_STATUS</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 326</Property>
+      <Property Name="Text">LS_ICN_FAULT_STATUS</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_ICN_FAULT_STATUS" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_LS_ICN_FAULT_STATUS</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 327</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_FAULT_STATUS;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_AVS" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_AVS</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 352</Property>
+      <Property Name="Text">LS_ICN_AVS</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_AVS" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_ICN_AVS</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 350</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_AVS;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_MAINT_DIST" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_MAINT_DIST</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 378</Property>
+      <Property Name="Text">LS_ICN_MAINT_DIST</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_MAINT_DIST" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_ICN_MAINT_DIST</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 376</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_MAINT_DIST;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_CHANGE_AIRF" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_CHANGE_AIRF</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 404</Property>
+      <Property Name="Text">LS_ICN_CHANGE_AIRF</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_ICN_CHANGE_AIRF" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_LS_ICN_CHANGE_AIRF</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 405</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_CHANGE_AIRF;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_CHANGE_OIL" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_CHANGE_OIL</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 430</Property>
+      <Property Name="Text">LS_ICN_CHANGE_OIL</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_ICN_CHANGE_OIL" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_LS_ICN_CHANGE_OIL</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 431</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_CHANGE_OIL;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_CHANGE_OILF" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_CHANGE_OILF</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 456</Property>
+      <Property Name="Text">LS_ICN_CHANGE_OILF</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_ICN_CHANGE_OILF" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_LS_ICN_CHANGE_OILF</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 457</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_CHANGE_OILF;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_ODO" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_ODO</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 482</Property>
+      <Property Name="Text">LS_ICN_ODO</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_ODO" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_ICN_ODO</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 480</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_ODO;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_BUSOFF_COUNTER" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_BUSOFF_COUNTER</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 508</Property>
+      <Property Name="Text">LS_ICN_BUSOFF_COUNTER</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_BUSOFF_COUNTER" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_ICN_BUSOFF_COUNTER</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 506</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_BUSOFF_COUNTER;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_BUS_ERROR" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_BUS_ERROR</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 534</Property>
+      <Property Name="Text">LS_ICN_BUS_ERROR</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_ICN_BUS_ERROR" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_LS_ICN_BUS_ERROR</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 535</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_BUS_ERROR;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_BUS_ERROR_COUNTER" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_BUS_ERROR_COUNTER</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 560</Property>
+      <Property Name="Text">LS_ICN_BUS_ERROR_COUNTER</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_BUS_ERROR_COUNTER" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_ICN_BUS_ERROR_COUNTER</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 558</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_BUS_ERROR_COUNTER;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_COM_LOSS" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_COM_LOSS</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 586</Property>
+      <Property Name="Text">LS_ICN_COM_LOSS</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_ICN_COM_LOSS" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_LS_ICN_COM_LOSS</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 587</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_COM_LOSS;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_COM_LOSS_COUNTER" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_COM_LOSS_COUNTER</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 612</Property>
+      <Property Name="Text">LS_ICN_COM_LOSS_COUNTER</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_COM_LOSS_COUNTER" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_ICN_COM_LOSS_COUNTER</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 610</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_COM_LOSS_COUNTER;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_DIAG_MODE" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_DIAG_MODE</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 638</Property>
+      <Property Name="Text">LS_ICN_DIAG_MODE</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_ICN_DIAG_MODE" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_LS_ICN_DIAG_MODE</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 639</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_DIAG_MODE;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_NBCM_DYN_ABSENT" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_NBCM_DYN_ABSENT</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 664</Property>
+      <Property Name="Text">LS_ICN_NBCM_DYN_ABSENT</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_ICN_NBCM_DYN_ABSENT" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_LS_ICN_NBCM_DYN_ABSENT</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 665</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_NBCM_DYN_ABSENT;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_NBCM_STATIC_ABSENT" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_NBCM_STATIC_ABSENT</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 690</Property>
+      <Property Name="Text">LS_ICN_NBCM_STATIC_ABSENT</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_ICN_NBCM_STATIC_ABSENT" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_LS_ICN_NBCM_STATIC_ABSENT</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 691</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_NBCM_STATIC_ABSENT;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_NM_STATE" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_NM_STATE</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 716</Property>
+      <Property Name="Text">LS_ICN_NM_STATE</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_ICN_NM_STATE" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_LS_ICN_NM_STATE</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 717</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_NM_STATE;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_TX_TIMEOUT_COUNTER" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_TX_TIMEOUT_COUNTER</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 742</Property>
+      <Property Name="Text">LS_ICN_TX_TIMEOUT_COUNTER</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_TX_TIMEOUT_COUNTER" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_ICN_TX_TIMEOUT_COUNTER</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 740</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_TX_TIMEOUT_COUNTER;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_DATE_DAY" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_DATE_DAY</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 768</Property>
+      <Property Name="Text">LS_ICN_DATE_DAY</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_DATE_DAY" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_ICN_DATE_DAY</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 766</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_DATE_DAY;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_DATE_MONTH" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_DATE_MONTH</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 794</Property>
+      <Property Name="Text">LS_ICN_DATE_MONTH</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_DATE_MONTH" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_ICN_DATE_MONTH</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 792</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_DATE_MONTH;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_DATE_YEAR" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_DATE_YEAR</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 820</Property>
+      <Property Name="Text">LS_ICN_DATE_YEAR</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_DATE_YEAR" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_ICN_DATE_YEAR</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 818</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_DATE_YEAR;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_TIME_HOURS" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_TIME_HOURS</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 846</Property>
+      <Property Name="Text">LS_ICN_TIME_HOURS</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_TIME_HOURS" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_ICN_TIME_HOURS</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 844</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_TIME_HOURS;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_TIME_MINUTES" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_TIME_MINUTES</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 872</Property>
+      <Property Name="Text">LS_ICN_TIME_MINUTES</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_TIME_MINUTES" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_ICN_TIME_MINUTES</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 870</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_TIME_MINUTES;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_TIME_SECONDS" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_TIME_SECONDS</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 898</Property>
+      <Property Name="Text">LS_ICN_TIME_SECONDS</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_TIME_SECONDS" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_ICN_TIME_SECONDS</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 896</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_TIME_SECONDS;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_OUT_TEMP" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_OUT_TEMP</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 40</Property>
+      <Property Name="Text">LS_ICN_OUT_TEMP</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_ICN_OUT_TEMP" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_LS_ICN_OUT_TEMP</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">416, 41</Property>
+      <Property Name="Minimum">-40</Property>
+      <Property Name="Maximum">86.5</Property>
+      <Property Name="Increment">1.265</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_OUT_TEMP;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_LOW_FLW" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_LOW_FLW</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 66</Property>
+      <Property Name="Text">LS_ICN_LOW_FLW</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_ICN_LOW_FLW" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_LS_ICN_LOW_FLW</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">416, 67</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_LOW_FLW;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_SPD_GWY" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_SPD_GWY</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 92</Property>
+      <Property Name="Text">LS_ICN_SPD_GWY</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_ICN_SPD_GWY" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_LS_ICN_SPD_GWY</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">416, 93</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">4095</Property>
+      <Property Name="Increment">40.95</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_SPD_GWY;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_VERSION_MAJOR" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_VERSION_MAJOR</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 118</Property>
+      <Property Name="Text">LS_ICN_VERSION_MAJOR</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_VERSION_MAJOR" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_ICN_VERSION_MAJOR</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">414, 116</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_VERSION_MAJOR;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_VERSION_MINOR" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_ICN_VERSION_MINOR</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 144</Property>
+      <Property Name="Text">LS_ICN_VERSION_MINOR</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_VERSION_MINOR" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_ICN_VERSION_MINOR</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">414, 142</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_VERSION_MINOR;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Abs_Ehb_FaultLamp" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Abs_Ehb_FaultLamp</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 170</Property>
+      <Property Name="Text">Ls_Icn_Abs_Ehb_FaultLamp</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_Abs_Ehb_FaultLamp" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_Abs_Ehb_FaultLamp</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">416, 171</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Abs_Ehb_FaultLamp;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_BattCharge_FaultLamp" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_BattCharge_FaultLamp</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 196</Property>
+      <Property Name="Text">Ls_Icn_BattCharge_FaultLamp</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_BattCharge_FaultLamp" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_BattCharge_FaultLamp</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">416, 197</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_BattCharge_FaultLamp;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Brake_Fluid_AlarmLamp" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Brake_Fluid_AlarmLamp</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 222</Property>
+      <Property Name="Text">Ls_Icn_Brake_Fluid_AlarmLamp</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_Brake_Fluid_AlarmLamp" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_Brake_Fluid_AlarmLamp</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">416, 223</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Brake_Fluid_AlarmLamp;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Door_Open_Lamp" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Door_Open_Lamp</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 248</Property>
+      <Property Name="Text">Ls_Icn_Door_Open_Lamp</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_Door_Open_Lamp" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_Door_Open_Lamp</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">416, 249</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Door_Open_Lamp;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_ElecBrkSplit_FaultLmp" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_ElecBrkSplit_FaultLmp</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 274</Property>
+      <Property Name="Text">Ls_Icn_ElecBrkSplit_FaultLmp</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_ElecBrkSplit_FaultLmp" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_ElecBrkSplit_FaultLmp</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">416, 275</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_ElecBrkSplit_FaultLmp;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Elec_Genrt_Fault_Lamp" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Elec_Genrt_Fault_Lamp</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 300</Property>
+      <Property Name="Text">Ls_Icn_Elec_Genrt_Fault_Lamp</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_Elec_Genrt_Fault_Lamp" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_Elec_Genrt_Fault_Lamp</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">416, 301</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Elec_Genrt_Fault_Lamp;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Esp_Asr_FaultLamp" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Esp_Asr_FaultLamp</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 326</Property>
+      <Property Name="Text">Ls_Icn_Esp_Asr_FaultLamp</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_Esp_Asr_FaultLamp" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_Esp_Asr_FaultLamp</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">416, 327</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Esp_Asr_FaultLamp;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_FootOnBrake_Lamp" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_FootOnBrake_Lamp</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 352</Property>
+      <Property Name="Text">Ls_Icn_FootOnBrake_Lamp</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_FootOnBrake_Lamp" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_FootOnBrake_Lamp</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">416, 353</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_FootOnBrake_Lamp;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Low_Fuel_Lamp" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Low_Fuel_Lamp</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 378</Property>
+      <Property Name="Text">Ls_Icn_Low_Fuel_Lamp</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_Low_Fuel_Lamp" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_Low_Fuel_Lamp</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">416, 379</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Low_Fuel_Lamp;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_OilPressure_AlarmLamp" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_OilPressure_AlarmLamp</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 404</Property>
+      <Property Name="Text">Ls_Icn_OilPressure_AlarmLamp</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_OilPressure_AlarmLamp" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_OilPressure_AlarmLamp</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">416, 405</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_OilPressure_AlarmLamp;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_ParkingBrakeLamp" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_ParkingBrakeLamp</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 430</Property>
+      <Property Name="Text">Ls_Icn_ParkingBrakeLamp</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_ParkingBrakeLamp" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_ParkingBrakeLamp</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">416, 431</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_ParkingBrakeLamp;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_PasAirbagInhibLamp" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_PasAirbagInhibLamp</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 456</Property>
+      <Property Name="Text">Ls_Icn_PasAirbagInhibLamp</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_PasAirbagInhibLamp" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_PasAirbagInhibLamp</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">416, 457</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_PasAirbagInhibLamp;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_PassiveSafty_FaultLmp" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_PassiveSafty_FaultLmp</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 482</Property>
+      <Property Name="Text">Ls_Icn_PassiveSafty_FaultLmp</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_PassiveSafty_FaultLmp" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_PassiveSafty_FaultLmp</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">416, 483</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_PassiveSafty_FaultLmp;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_PowerSteeringFaultLamp" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_PowerSteeringFaultLamp</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 508</Property>
+      <Property Name="Text">Ls_Icn_PowerSteeringFaultLamp</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_PowerSteeringFaultLamp" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_PowerSteeringFaultLamp</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">416, 509</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_PowerSteeringFaultLamp;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Service_Lamp" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Service_Lamp</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 534</Property>
+      <Property Name="Text">Ls_Icn_Service_Lamp</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_Service_Lamp" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_Service_Lamp</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">416, 535</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Service_Lamp;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Stop_Lamp" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Stop_Lamp</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 560</Property>
+      <Property Name="Text">Ls_Icn_Stop_Lamp</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_Stop_Lamp" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_Stop_Lamp</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">416, 561</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Stop_Lamp;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Tpms_AlarmLamp" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Tpms_AlarmLamp</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 586</Property>
+      <Property Name="Text">Ls_Icn_Tpms_AlarmLamp</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_Tpms_AlarmLamp" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_Tpms_AlarmLamp</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">416, 587</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Tpms_AlarmLamp;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_WaterTemp_AlarmLamp" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_WaterTemp_AlarmLamp</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 612</Property>
+      <Property Name="Text">Ls_Icn_WaterTemp_AlarmLamp</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_WaterTemp_AlarmLamp" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_WaterTemp_AlarmLamp</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">416, 613</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_WaterTemp_AlarmLamp;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icu_Key_Inside" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icu_Key_Inside</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 638</Property>
+      <Property Name="Text">Ls_Icu_Key_Inside</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icu_Key_Inside" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icu_Key_Inside</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">416, 639</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icu_Key_Inside;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icu_TP_Position" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icu_TP_Position</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 664</Property>
+      <Property Name="Text">Ls_Icu_TP_Position</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icu_TP_Position" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icu_TP_Position</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">416, 665</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icu_TP_Position;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Mileage" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Mileage</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 690</Property>
+      <Property Name="Text">Ls_Icn_Mileage</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_Mileage" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_Mileage</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">416, 691</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1.67772e+06</Property>
+      <Property Name="Increment">16777.2</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Mileage;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Mileage_Comp" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Mileage_Comp</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 716</Property>
+      <Property Name="Text">Ls_Icn_Mileage_Comp</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Icn_Mileage_Comp" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Ls_Icn_Mileage_Comp</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">414, 714</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Mileage_Comp;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Uds_Resp" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Uds_Resp</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 742</Property>
+      <Property Name="Text">Ls_Icn_Uds_Resp</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Icn_Uds_Resp" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Ls_Icn_Uds_Resp</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">414, 740</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Uds_Resp;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Abs_Unit1" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Abs_Unit1</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 768</Property>
+      <Property Name="Text">Ls_Icn_Abs_Unit1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Icn_Abs_Unit1" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Ls_Icn_Abs_Unit1</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">414, 766</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Abs_Unit1;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Abs_Unit2" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Abs_Unit2</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 794</Property>
+      <Property Name="Text">Ls_Icn_Abs_Unit2</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Icn_Abs_Unit2" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Ls_Icn_Abs_Unit2</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">414, 792</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Abs_Unit2;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Abs_Unit3" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Abs_Unit3</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 820</Property>
+      <Property Name="Text">Ls_Icn_Abs_Unit3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Icn_Abs_Unit3" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Ls_Icn_Abs_Unit3</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">414, 818</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Abs_Unit3;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Busoff_Cnt" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Busoff_Cnt</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 846</Property>
+      <Property Name="Text">Ls_Icn_Busoff_Cnt</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Icn_Busoff_Cnt" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Ls_Icn_Busoff_Cnt</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">414, 844</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Busoff_Cnt;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Comloss_Cnt" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Comloss_Cnt</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 872</Property>
+      <Property Name="Text">Ls_Icn_Comloss_Cnt</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Icn_Comloss_Cnt" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Ls_Icn_Comloss_Cnt</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">414, 870</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Comloss_Cnt;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Comloss_Fault" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Comloss_Fault</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">260, 898</Property>
+      <Property Name="Text">Ls_Icn_Comloss_Fault</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_Comloss_Fault" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_Comloss_Fault</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">416, 899</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Comloss_Fault;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Nas_Cnt" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Nas_Cnt</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">510, 40</Property>
+      <Property Name="Text">Ls_Icn_Nas_Cnt</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Icn_Nas_Cnt" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Ls_Icn_Nas_Cnt</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">664, 38</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Nas_Cnt;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Nerr" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Nerr</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">510, 66</Property>
+      <Property Name="Text">Ls_Icn_Nerr</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_Nerr" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_Nerr</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">666, 67</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Nerr;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Nerr_Cnt" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Nerr_Cnt</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">510, 92</Property>
+      <Property Name="Text">Ls_Icn_Nerr_Cnt</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Icn_Nerr_Cnt" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Ls_Icn_Nerr_Cnt</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">664, 90</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Nerr_Cnt;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Nm_St" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Nm_St</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">510, 118</Property>
+      <Property Name="Text">Ls_Icn_Nm_St</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_Nm_St" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_Nm_St</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">666, 119</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Nm_St;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Ecu_Num" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Ecu_Num</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">510, 144</Property>
+      <Property Name="Text">Ls_Icn_Ecu_Num</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Icn_Ecu_Num" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Ls_Icn_Ecu_Num</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">664, 142</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Ecu_Num;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Msg_Tab_Dig1" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Msg_Tab_Dig1</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">510, 170</Property>
+      <Property Name="Text">Ls_Icn_Msg_Tab_Dig1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Icn_Msg_Tab_Dig1" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Ls_Icn_Msg_Tab_Dig1</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">664, 168</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Msg_Tab_Dig1;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Msg_Tab_Dig2" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Msg_Tab_Dig2</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">510, 196</Property>
+      <Property Name="Text">Ls_Icn_Msg_Tab_Dig2</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Icn_Msg_Tab_Dig2" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Ls_Icn_Msg_Tab_Dig2</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">664, 194</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Msg_Tab_Dig2;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Msg_Tab_Edition" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Msg_Tab_Edition</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">510, 222</Property>
+      <Property Name="Text">Ls_Icn_Msg_Tab_Edition</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_Msg_Tab_Edition" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_Msg_Tab_Edition</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">666, 223</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">254</Property>
+      <Property Name="Increment">2.54</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Msg_Tab_Edition;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Sw_Ident" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Sw_Ident</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">510, 248</Property>
+      <Property Name="Text">Ls_Icn_Sw_Ident</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Icn_Sw_Ident" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Ls_Icn_Sw_Ident</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">664, 246</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Sw_Ident;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Sw_Ver_Day" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Sw_Ver_Day</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">510, 274</Property>
+      <Property Name="Text">Ls_Icn_Sw_Ver_Day</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_Sw_Ver_Day" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_Sw_Ver_Day</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">666, 275</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">31</Property>
+      <Property Name="Increment">0.31</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Sw_Ver_Day;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Sw_Ver_Month" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Sw_Ver_Month</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">510, 300</Property>
+      <Property Name="Text">Ls_Icn_Sw_Ver_Month</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_Sw_Ver_Month" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_Sw_Ver_Month</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">666, 301</Property>
+      <Property Name="Minimum">1</Property>
+      <Property Name="Maximum">12</Property>
+      <Property Name="Increment">0.11</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Sw_Ver_Month;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Sw_Ver_Year" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Sw_Ver_Year</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">510, 326</Property>
+      <Property Name="Text">Ls_Icn_Sw_Ver_Year</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_Sw_Ver_Year" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_Sw_Ver_Year</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">666, 327</Property>
+      <Property Name="Minimum">2000</Property>
+      <Property Name="Maximum">2200</Property>
+      <Property Name="Increment">2</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Sw_Ver_Year;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Dist_Unit" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Dist_Unit</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">510, 352</Property>
+      <Property Name="Text">Ls_Icn_Dist_Unit</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_Dist_Unit" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_Dist_Unit</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">666, 353</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Dist_Unit;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Esp_Sw_Req" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Esp_Sw_Req</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">510, 378</Property>
+      <Property Name="Text">Ls_Icn_Esp_Sw_Req</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_Esp_Sw_Req" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_Esp_Sw_Req</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">666, 379</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Esp_Sw_Req;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Maint_Reset_Req" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Maint_Reset_Req</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">510, 404</Property>
+      <Property Name="Text">Ls_Icn_Maint_Reset_Req</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_Maint_Reset_Req" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_Maint_Reset_Req</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">666, 405</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Maint_Reset_Req;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Rbg_Fault_St" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Rbg_Fault_St</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">510, 430</Property>
+      <Property Name="Text">Ls_Icn_Rbg_Fault_St</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_Rbg_Fault_St" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_Rbg_Fault_St</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">666, 431</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Rbg_Fault_St;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Rbg_Inhib_St" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Rbg_Inhib_St</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">510, 456</Property>
+      <Property Name="Text">Ls_Icn_Rbg_Inhib_St</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_Rbg_Inhib_St" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_Rbg_Inhib_St</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">666, 457</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Rbg_Inhib_St;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Reset_Partial_Odo" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Reset_Partial_Odo</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">510, 482</Property>
+      <Property Name="Text">Ls_Icn_Reset_Partial_Odo</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_Reset_Partial_Odo" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_Reset_Partial_Odo</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">666, 483</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Reset_Partial_Odo;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Reset_Tot_Trip1" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Reset_Tot_Trip1</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">510, 508</Property>
+      <Property Name="Text">Ls_Icn_Reset_Tot_Trip1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_Reset_Tot_Trip1" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_Reset_Tot_Trip1</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">666, 509</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Reset_Tot_Trip1;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Speed_Display" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Speed_Display</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">510, 534</Property>
+      <Property Name="Text">Ls_Icn_Speed_Display</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_Speed_Display" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_Speed_Display</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">666, 535</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">254</Property>
+      <Property Name="Increment">2.54</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Speed_Display;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Dtc_Info" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Dtc_Info</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">510, 560</Property>
+      <Property Name="Text">Ls_Icn_Dtc_Info</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Icn_Dtc_Info" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Ls_Icn_Dtc_Info</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">664, 558</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Dtc_Info;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Frame_Index" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Frame_Index</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">510, 586</Property>
+      <Property Name="Text">Ls_Icn_Frame_Index</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_Frame_Index" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_Frame_Index</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">666, 587</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Frame_Index;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Icn_Frame_Nb" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Ls_Icn_Frame_Nb</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">510, 612</Property>
+      <Property Name="Text">Ls_Icn_Frame_Nb</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Icn_Frame_Nb" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Ls_Icn_Frame_Nb</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">666, 613</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Icn_Frame_Nb;1;;;-1</Property>
+    </Object>
+    <Property Name="Name">NBCM ICN</Property>
+    <Property Name="Size">762, 926</Property>
+    <Property Name="BackColor">White</Property>
+  </Object>
+</Panel>

@@ -1,0 +1,419 @@
+<?xml version="1.0"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Panel" Children="Controls" ControlName="NBCM ICU">
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtTitle" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtTitle</Property>
+      <Property Name="Size">230, 20</Property>
+      <Property Name="Location">10, 8</Property>
+      <Property Name="Text">ICU  -  HS-CAN  -  9 messages / 27 signals</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Diagnostic_Request" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Icu_Diagnostic_Request</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 40</Property>
+      <Property Name="Text">Hs_Icu_Diagnostic_Request</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Icu_Diagnostic_Request" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Icu_Diagnostic_Request</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 38</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Diagnostic_Request;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Ems_dialog" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Icu_Ems_dialog</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 66</Property>
+      <Property Name="Text">Hs_Icu_Ems_dialog</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Icu_Ems_dialog" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Icu_Ems_dialog</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 64</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Ems_dialog;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Ems_Status" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Icu_Ems_Status</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 92</Property>
+      <Property Name="Text">Hs_Icu_Ems_Status</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Icu_Ems_Status" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Icu_Ems_Status</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 93</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.55</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Ems_Status;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Immo_Hardware_Version" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Icu_Immo_Hardware_Version</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 118</Property>
+      <Property Name="Text">Hs_Icu_Immo_Hardware_Version</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Icu_Immo_Hardware_Version" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Icu_Immo_Hardware_Version</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 119</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.55</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Immo_Hardware_Version;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Immo_Lamp_Command" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Icu_Immo_Lamp_Command</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 144</Property>
+      <Property Name="Text">Hs_Icu_Immo_Lamp_Command</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Icu_Immo_Lamp_Command" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Icu_Immo_Lamp_Command</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 145</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">5</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Immo_Lamp_Command;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Immo_Output_Lamp_St" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Icu_Immo_Output_Lamp_St</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 170</Property>
+      <Property Name="Text">Hs_Icu_Immo_Output_Lamp_St</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Icu_Immo_Output_Lamp_St" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Icu_Immo_Output_Lamp_St</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 168</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Immo_Output_Lamp_St;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Immo_Production_Date" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Icu_Immo_Production_Date</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 196</Property>
+      <Property Name="Text">Hs_Icu_Immo_Production_Date</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Icu_Immo_Production_Date" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Icu_Immo_Production_Date</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 197</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">65535</Property>
+      <Property Name="Increment">655.35</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Immo_Production_Date;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Immo_Software_Version" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Icu_Immo_Software_Version</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 222</Property>
+      <Property Name="Text">Hs_Icu_Immo_Software_Version</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Icu_Immo_Software_Version" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Icu_Immo_Software_Version</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 223</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.55</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Immo_Software_Version;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Key_Inside" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Icu_Key_Inside</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 248</Property>
+      <Property Name="Text">Hs_Icu_Key_Inside</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Icu_Key_Inside" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Icu_Key_Inside</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 246</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Key_Inside;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Tp_Position" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Icu_Tp_Position</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 274</Property>
+      <Property Name="Text">Hs_Icu_Tp_Position</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Icu_Tp_Position" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Icu_Tp_Position</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 275</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">5</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Tp_Position;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Reset_Req_1" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Icu_Reset_Req_1</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 300</Property>
+      <Property Name="Text">Hs_Icu_Reset_Req_1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Icu_Reset_Req_1" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Icu_Reset_Req_1</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 301</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">4294967295</Property>
+      <Property Name="Increment">4.29497e+07</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Reset_Req_1;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Reset_Req_2" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Icu_Reset_Req_2</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 326</Property>
+      <Property Name="Text">Hs_Icu_Reset_Req_2</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Icu_Reset_Req_2" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Icu_Reset_Req_2</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 327</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">4294967295</Property>
+      <Property Name="Increment">4.29497e+07</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Reset_Req_2;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Bus_OFF_Counter" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Icu_Bus_OFF_Counter</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 352</Property>
+      <Property Name="Text">Hs_Icu_Bus_OFF_Counter</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Icu_Bus_OFF_Counter" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Icu_Bus_OFF_Counter</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 353</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.55</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Bus_OFF_Counter;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Com_Loss" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Icu_Com_Loss</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 378</Property>
+      <Property Name="Text">Hs_Icu_Com_Loss</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Icu_Com_Loss" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Icu_Com_Loss</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 376</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Com_Loss;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Com_Loss_Counter" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Icu_Com_Loss_Counter</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 404</Property>
+      <Property Name="Text">Hs_Icu_Com_Loss_Counter</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Icu_Com_Loss_Counter" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Icu_Com_Loss_Counter</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 405</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.55</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Com_Loss_Counter;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Diag_Mode" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Icu_Diag_Mode</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 430</Property>
+      <Property Name="Text">Hs_Icu_Diag_Mode</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Icu_Diag_Mode" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Icu_Diag_Mode</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 428</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Diag_Mode;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Ecu_Dynamic_States" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Icu_Ecu_Dynamic_States</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 456</Property>
+      <Property Name="Text">Hs_Icu_Ecu_Dynamic_States</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Icu_Ecu_Dynamic_States" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Icu_Ecu_Dynamic_States</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 457</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.55</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Ecu_Dynamic_States;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Ecu_Static_States" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Icu_Ecu_Static_States</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 482</Property>
+      <Property Name="Text">Hs_Icu_Ecu_Static_States</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Icu_Ecu_Static_States" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Icu_Ecu_Static_States</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 483</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.55</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Ecu_Static_States;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Net_Management_State" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Icu_Net_Management_State</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 508</Property>
+      <Property Name="Text">Hs_Icu_Net_Management_State</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Icu_Net_Management_State" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Icu_Net_Management_State</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 506</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Net_Management_State;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Tx_TimeOut_Counter" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Icu_Tx_TimeOut_Counter</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 534</Property>
+      <Property Name="Text">Hs_Icu_Tx_TimeOut_Counter</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Icu_Tx_TimeOut_Counter" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Icu_Tx_TimeOut_Counter</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 535</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.55</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Tx_TimeOut_Counter;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Imm_Auth_1" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Imm_Auth_1</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 560</Property>
+      <Property Name="Text">Hs_Imm_Auth_1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Imm_Auth_1" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Imm_Auth_1</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 561</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">4294967295</Property>
+      <Property Name="Increment">4.29497e+07</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Imm_Auth_1;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Imm_Auth_2" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Imm_Auth_2</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 586</Property>
+      <Property Name="Text">Hs_Imm_Auth_2</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Imm_Auth_2" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Imm_Auth_2</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 587</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">4294967295</Property>
+      <Property Name="Increment">4.29497e+07</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Imm_Auth_2;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Imm_LearnSKReq_1" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Imm_LearnSKReq_1</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 612</Property>
+      <Property Name="Text">Hs_Imm_LearnSKReq_1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Imm_LearnSKReq_1" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Imm_LearnSKReq_1</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 613</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">4294967295</Property>
+      <Property Name="Increment">4.29497e+07</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Imm_LearnSKReq_1;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Imm_LearnSKReq_2" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Imm_LearnSKReq_2</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 638</Property>
+      <Property Name="Text">Hs_Imm_LearnSKReq_2</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Imm_LearnSKReq_2" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Imm_LearnSKReq_2</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 639</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">4294967295</Property>
+      <Property Name="Increment">4.29497e+07</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Imm_LearnSKReq_2;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Imm_TeachPINReq_1" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Imm_TeachPINReq_1</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 664</Property>
+      <Property Name="Text">Hs_Imm_TeachPINReq_1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Imm_TeachPINReq_1" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Imm_TeachPINReq_1</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 665</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">4294967295</Property>
+      <Property Name="Increment">4.29497e+07</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Imm_TeachPINReq_1;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Imm_TeachPINReq_2" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Imm_TeachPINReq_2</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 690</Property>
+      <Property Name="Text">Hs_Imm_TeachPINReq_2</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Imm_TeachPINReq_2" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Imm_TeachPINReq_2</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 691</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">4294967295</Property>
+      <Property Name="Increment">4.29497e+07</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Imm_TeachPINReq_2;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Imm_TeachSKReq" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Imm_TeachSKReq</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 716</Property>
+      <Property Name="Text">Hs_Imm_TeachSKReq</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Imm_TeachSKReq" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Imm_TeachSKReq</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 717</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">18446744073709600768</Property>
+      <Property Name="Increment">184467440737096000</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Imm_TeachSKReq;1;;;-1</Property>
+    </Object>
+    <Property Name="Name">NBCM ICU</Property>
+    <Property Name="Size">262, 926</Property>
+    <Property Name="BackColor">White</Property>
+  </Object>
+</Panel>

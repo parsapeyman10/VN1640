@@ -68,9 +68,12 @@ python bridge/nbcm_bridge.py --canoe --canoe-config "C:\CANoe\NBCM\NBCM.cfg"
 
 کارهای یک‌باره در CANoe:
 
-1. `canoe/NBCM_Test.vsysvar` را به کانفیگ اضافه کنید (System Variables → Import).
+1. `canoe/NBCM_Test.vsysvar` را به کانفیگ اضافه کنید (Environment → System Variables → Import).
+   راه جایگزین: `python tools/install_sysvars.py --save`
 2. `canoe/NBCM_TesterBridge.can` را به **همان نود** restbus اضافه کنید
    (یا در `NBCM_Full_Restbus_Simulation.can` با `#include` صدا بزنید).
+3. پنل‌ها: **Home → Panel → Add Panel…** و انتخاب `canoe/panels/NBCM_Smoke.xvp`
+   سپس `NBCM_Test_Overview.xvp` — راهنمای کامل: [`how-to-add-to-canoe.md`](how-to-add-to-canoe.md).
 3. اگر نام کانال‌ها فرق دارد: تب «اتصال» → «نگاشت کانال» را پر کنید (HS/LS).
 4. در تستر روی نشانگر **«کنترل: CANoe»** کلیک کنید تا `DRIVE_MODE=1` شود
    (یعنی تستر مالک سیگنال‌ها می‌شود؛ با کلیک دوباره به سناریوی CANoe برمی‌گردد).
@@ -155,6 +158,9 @@ can_tester/assets/signal_map.json  ← پل، رانر CI و ابزارها
 canoe/NBCM_Test.vsysvar
 canoe/NBCM_TesterBridge.can
 canoe/panel_binding_systemvars.csv
+        │  python tools/build_xvp.py
+        ▼
+canoe/panels/*.xvp                 ← پنل‌های Panel Designer
 ```
 
 اگر DBC عوض شد، فقط دو اسکریپت بالا را اجرا کنید؛ هیچ کد تستری دست‌کاری لازم نیست.

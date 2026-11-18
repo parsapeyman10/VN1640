@@ -1,0 +1,449 @@
+<?xml version="1.0"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Panel" Children="Controls" ControlName="NBCM PEPS">
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtTitle" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtTitle</Property>
+      <Property Name="Size">230, 20</Property>
+      <Property Name="Location">10, 8</Property>
+      <Property Name="Text">PEPS  -  HS-CAN  -  1 messages / 29 signals</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_AuthFailWarning" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_AuthFailWarning</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 40</Property>
+      <Property Name="Text">Hs_Peps_AuthFailWarning</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_AuthFailWarning" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Peps_AuthFailWarning</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 41</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">3</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_AuthFailWarning;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_AuthenticationSt" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_AuthenticationSt</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 66</Property>
+      <Property Name="Text">Hs_Peps_AuthenticationSt</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_AuthenticationSt" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Peps_AuthenticationSt</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 67</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">7</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_AuthenticationSt;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_BrakeSwitchSt" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_BrakeSwitchSt</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 92</Property>
+      <Property Name="Text">Hs_Peps_BrakeSwitchSt</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_BrakeSwitchSt" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Peps_BrakeSwitchSt</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 93</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_BrakeSwitchSt;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_ClutchSwitchSt" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_ClutchSwitchSt</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 118</Property>
+      <Property Name="Text">Hs_Peps_ClutchSwitchSt</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_ClutchSwitchSt" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Peps_ClutchSwitchSt</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 116</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_ClutchSwitchSt;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_DeactivationWarning" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_DeactivationWarning</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 144</Property>
+      <Property Name="Text">Hs_Peps_DeactivationWarning</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_DeactivationWarning" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Peps_DeactivationWarning</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 142</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_DeactivationWarning;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_DoorLockReq" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_DoorLockReq</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 170</Property>
+      <Property Name="Text">Hs_Peps_DoorLockReq</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_DoorLockReq" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Peps_DoorLockReq</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 168</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_DoorLockReq;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_DoorLockWarning" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_DoorLockWarning</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 196</Property>
+      <Property Name="Text">Hs_Peps_DoorLockWarning</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_DoorLockWarning" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Peps_DoorLockWarning</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 197</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">3</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_DoorLockWarning;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_DoorUnlockReq" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_DoorUnlockReq</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 222</Property>
+      <Property Name="Text">Hs_Peps_DoorUnlockReq</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_DoorUnlockReq" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Peps_DoorUnlockReq</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 220</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_DoorUnlockReq;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_DriverButtonSt" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_DriverButtonSt</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 248</Property>
+      <Property Name="Text">Hs_Peps_DriverButtonSt</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_DriverButtonSt" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Peps_DriverButtonSt</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 246</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_DriverButtonSt;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_ESCLLearntMode" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_ESCLLearntMode</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 274</Property>
+      <Property Name="Text">Hs_Peps_ESCLLearntMode</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_ESCLLearntMode" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Peps_ESCLLearntMode</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 275</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">3</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_ESCLLearntMode;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_ESCLLockEnPowerSupplySt" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_ESCLLockEnPowerSupplySt</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 300</Property>
+      <Property Name="Text">Hs_Peps_ESCLLockEnPowerSupplySt</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_ESCLLockEnPowerSupplySt" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Peps_ESCLLockEnPowerSupplySt</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 298</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_ESCLLockEnPowerSupplySt;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_ESCLMotorPowerSupplySt" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_ESCLMotorPowerSupplySt</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 326</Property>
+      <Property Name="Text">Hs_Peps_ESCLMotorPowerSupplySt</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_ESCLMotorPowerSupplySt" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Peps_ESCLMotorPowerSupplySt</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 324</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_ESCLMotorPowerSupplySt;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_ESCLUnlockSt" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_ESCLUnlockSt</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 352</Property>
+      <Property Name="Text">Hs_Peps_ESCLUnlockSt</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_ESCLUnlockSt" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Peps_ESCLUnlockSt</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 350</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_ESCLUnlockSt;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_ESCLWarning" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_ESCLWarning</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 378</Property>
+      <Property Name="Text">Hs_Peps_ESCLWarning</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_ESCLWarning" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Peps_ESCLWarning</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 379</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">7</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_ESCLWarning;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_FOB_ID" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_FOB_ID</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 404</Property>
+      <Property Name="Text">Hs_Peps_FOB_ID</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_FOB_ID" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Peps_FOB_ID</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 405</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">15</Property>
+      <Property Name="Increment">0.15</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_FOB_ID;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_FobBattLowWarning" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_FobBattLowWarning</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 430</Property>
+      <Property Name="Text">Hs_Peps_FobBattLowWarning</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_FobBattLowWarning" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Peps_FobBattLowWarning</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 428</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_FobBattLowWarning;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_KeyOutWarning" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_KeyOutWarning</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 456</Property>
+      <Property Name="Text">Hs_Peps_KeyOutWarning</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_KeyOutWarning" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Peps_KeyOutWarning</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 457</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">3</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_KeyOutWarning;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_LearntMode" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_LearntMode</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 482</Property>
+      <Property Name="Text">Hs_Peps_LearntMode</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_LearntMode" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Peps_LearntMode</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 483</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">3</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_LearntMode;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_OpIndicationWarning" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_OpIndicationWarning</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 508</Property>
+      <Property Name="Text">Hs_Peps_OpIndicationWarning</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_OpIndicationWarning" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Peps_OpIndicationWarning</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 509</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">7</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_OpIndicationWarning;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_PasserngerButtonSt" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_PasserngerButtonSt</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 534</Property>
+      <Property Name="Text">Hs_Peps_PasserngerButtonSt</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_PasserngerButtonSt" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Peps_PasserngerButtonSt</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 532</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_PasserngerButtonSt;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_SSBWarning" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_SSBWarning</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 560</Property>
+      <Property Name="Text">Hs_Peps_SSBWarning</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_SSBWarning" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Peps_SSBWarning</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 561</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">3</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_SSBWarning;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_SSB_SW1St" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_SSB_SW1St</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 586</Property>
+      <Property Name="Text">Hs_Peps_SSB_SW1St</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_SSB_SW1St" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Peps_SSB_SW1St</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 584</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_SSB_SW1St;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_SSB_SW2St" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_SSB_SW2St</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 612</Property>
+      <Property Name="Text">Hs_Peps_SSB_SW2St</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_SSB_SW2St" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Peps_SSB_SW2St</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 610</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_SSB_SW2St;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_SysPowMode" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_SysPowMode</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 638</Property>
+      <Property Name="Text">Hs_Peps_SysPowMode</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_SysPowMode" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Peps_SysPowMode</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 639</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">3</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_SysPowMode;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_TrunkReq" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_TrunkReq</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 664</Property>
+      <Property Name="Text">Hs_Peps_TrunkReq</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_TrunkReq" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Peps_TrunkReq</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 665</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">3</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_TrunkReq;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_VehSpd" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_VehSpd</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 690</Property>
+      <Property Name="Text">Hs_Peps_VehSpd</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_VehSpd" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Peps_VehSpd</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 691</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">240</Property>
+      <Property Name="Increment">2.4</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_VehSpd;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_VehSpdVD" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_VehSpdVD</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 716</Property>
+      <Property Name="Text">Hs_Peps_VehSpdVD</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_VehSpdVD" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Peps_VehSpdVD</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 714</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_VehSpdVD;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_VehSpdWarning" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_VehSpdWarning</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 742</Property>
+      <Property Name="Text">Hs_Peps_VehSpdWarning</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_VehSpdWarning" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Peps_VehSpdWarning</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 740</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_VehSpdWarning;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_keyComdInfo" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Peps_keyComdInfo</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 768</Property>
+      <Property Name="Text">Hs_Peps_keyComdInfo</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_keyComdInfo" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Peps_keyComdInfo</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 769</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">15</Property>
+      <Property Name="Increment">0.15</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_keyComdInfo;1;;;-1</Property>
+    </Object>
+    <Property Name="Name">NBCM PEPS</Property>
+    <Property Name="Size">262, 926</Property>
+    <Property Name="BackColor">White</Property>
+  </Object>
+</Panel>

@@ -1,0 +1,299 @@
+<?xml version="1.0"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Panel" Children="Controls" ControlName="NBCM TPMS">
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtTitle" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtTitle</Property>
+      <Property Name="Size">230, 20</Property>
+      <Property Name="Location">10, 8</Property>
+      <Property Name="Text">TPMS  -  HS-CAN  -  3 messages / 19 signals</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Tpms_Diagnostic_Request" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Tpms_Diagnostic_Request</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 40</Property>
+      <Property Name="Text">Hs_Tpms_Diagnostic_Request</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Tpms_Diagnostic_Request" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Tpms_Diagnostic_Request</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 38</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Tpms_Diagnostic_Request;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_TpmsLearningSt" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_TpmsLearningSt</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 66</Property>
+      <Property Name="Text">Hs_TpmsLearningSt</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_TpmsLearningSt" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_TpmsLearningSt</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 67</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">3</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_TpmsLearningSt;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Tpms_SystemSt" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Tpms_SystemSt</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 92</Property>
+      <Property Name="Text">Hs_Tpms_SystemSt</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Tpms_SystemSt" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Tpms_SystemSt</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 93</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">7</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Tpms_SystemSt;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Tpms_TireBatteryPowerSt" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Tpms_TireBatteryPowerSt</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 118</Property>
+      <Property Name="Text">Hs_Tpms_TireBatteryPowerSt</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Tpms_TireBatteryPowerSt" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Tpms_TireBatteryPowerSt</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 119</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">3</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Tpms_TireBatteryPowerSt;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Tpms_TireId" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Tpms_TireId</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 144</Property>
+      <Property Name="Text">Hs_Tpms_TireId</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Tpms_TireId" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Tpms_TireId</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 145</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">7</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Tpms_TireId;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Tpms_TireInfoInvalid" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Tpms_TireInfoInvalid</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 170</Property>
+      <Property Name="Text">Hs_Tpms_TireInfoInvalid</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Tpms_TireInfoInvalid" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Tpms_TireInfoInvalid</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 168</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Tpms_TireInfoInvalid;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Tpms_TireLeakage" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Tpms_TireLeakage</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 196</Property>
+      <Property Name="Text">Hs_Tpms_TireLeakage</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Tpms_TireLeakage" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Tpms_TireLeakage</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 197</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">3</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Tpms_TireLeakage;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Tpms_TirePressure" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Tpms_TirePressure</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 222</Property>
+      <Property Name="Text">Hs_Tpms_TirePressure</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Tpms_TirePressure" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Tpms_TirePressure</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 223</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">349</Property>
+      <Property Name="Increment">3.49</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Tpms_TirePressure;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Tpms_TirePressureSt" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Tpms_TirePressureSt</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 248</Property>
+      <Property Name="Text">Hs_Tpms_TirePressureSt</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Tpms_TirePressureSt" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Tpms_TirePressureSt</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 249</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">3</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Tpms_TirePressureSt;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Tpms_TireTemperature" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Tpms_TireTemperature</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 274</Property>
+      <Property Name="Text">Hs_Tpms_TireTemperature</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Tpms_TireTemperature" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Tpms_TireTemperature</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 275</Property>
+      <Property Name="Minimum">-40</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.95</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Tpms_TireTemperature;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Tpms_TireTemperatureSt" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Tpms_TireTemperatureSt</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 300</Property>
+      <Property Name="Text">Hs_Tpms_TireTemperatureSt</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Tpms_TireTemperatureSt" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Tpms_TireTemperatureSt</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 301</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">3</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Tpms_TireTemperatureSt;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Tpms_Bus_OFF_Counter" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Tpms_Bus_OFF_Counter</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 326</Property>
+      <Property Name="Text">Hs_Tpms_Bus_OFF_Counter</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Tpms_Bus_OFF_Counter" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Tpms_Bus_OFF_Counter</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 327</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.55</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Tpms_Bus_OFF_Counter;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Tpms_COM_Loss" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Tpms_COM_Loss</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 352</Property>
+      <Property Name="Text">Hs_Tpms_COM_Loss</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Tpms_COM_Loss" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Tpms_COM_Loss</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 350</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Tpms_COM_Loss;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Tpms_Com_Loss_Counter" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Tpms_Com_Loss_Counter</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 378</Property>
+      <Property Name="Text">Hs_Tpms_Com_Loss_Counter</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Tpms_Com_Loss_Counter" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Tpms_Com_Loss_Counter</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 379</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.55</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Tpms_Com_Loss_Counter;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Tpms_Diag_Mode" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Tpms_Diag_Mode</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 404</Property>
+      <Property Name="Text">Hs_Tpms_Diag_Mode</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Tpms_Diag_Mode" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Tpms_Diag_Mode</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 402</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Tpms_Diag_Mode;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Tpms_ECU_Dynamic_States" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Tpms_ECU_Dynamic_States</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 430</Property>
+      <Property Name="Text">Hs_Tpms_ECU_Dynamic_States</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Tpms_ECU_Dynamic_States" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Tpms_ECU_Dynamic_States</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 431</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.55</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Tpms_ECU_Dynamic_States;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Tpms_ECU_Static_States" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Tpms_ECU_Static_States</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 456</Property>
+      <Property Name="Text">Hs_Tpms_ECU_Static_States</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Tpms_ECU_Static_States" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Tpms_ECU_Static_States</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 457</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.55</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Tpms_ECU_Static_States;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Tpms_Network_Management_State" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Tpms_Network_Management_State</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 482</Property>
+      <Property Name="Text">Hs_Tpms_Network_Management_State</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Tpms_Network_Management_State" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Tpms_Network_Management_State</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 480</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Tpms_Network_Management_State;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Tpms_Tx_TimeOut_Counter" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Tpms_Tx_TimeOut_Counter</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 508</Property>
+      <Property Name="Text">Hs_Tpms_Tx_TimeOut_Counter</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Tpms_Tx_TimeOut_Counter" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Tpms_Tx_TimeOut_Counter</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 509</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.55</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Tpms_Tx_TimeOut_Counter;1;;;-1</Property>
+    </Object>
+    <Property Name="Name">NBCM TPMS</Property>
+    <Property Name="Size">262, 926</Property>
+    <Property Name="BackColor">White</Property>
+  </Object>
+</Panel>

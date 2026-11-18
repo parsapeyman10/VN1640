@@ -1,0 +1,239 @@
+<?xml version="1.0"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Panel" Children="Controls" ControlName="NBCM EPS">
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtTitle" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtTitle</Property>
+      <Property Name="Size">230, 20</Property>
+      <Property Name="Location">10, 8</Property>
+      <Property Name="Text">EPS  -  HS-CAN  -  4 messages / 15 signals</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Epas_Warning" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Epas_Warning</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 40</Property>
+      <Property Name="Text">Hs_Epas_Warning</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Epas_Warning" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Epas_Warning</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 41</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Epas_Warning;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Eps_Diagnostic_Request" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Eps_Diagnostic_Request</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 66</Property>
+      <Property Name="Text">Hs_Eps_Diagnostic_Request</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Eps_Diagnostic_Request" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Eps_Diagnostic_Request</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 64</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Eps_Diagnostic_Request;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Eps_Bus_OFF_Counter" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Eps_Bus_OFF_Counter</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 92</Property>
+      <Property Name="Text">Hs_Eps_Bus_OFF_Counter</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Eps_Bus_OFF_Counter" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Eps_Bus_OFF_Counter</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 93</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.55</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Eps_Bus_OFF_Counter;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Eps_COM_Loss" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Eps_COM_Loss</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 118</Property>
+      <Property Name="Text">Hs_Eps_COM_Loss</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Eps_COM_Loss" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Eps_COM_Loss</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 116</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Eps_COM_Loss;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Eps_Com_Loss_Counter" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Eps_Com_Loss_Counter</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 144</Property>
+      <Property Name="Text">Hs_Eps_Com_Loss_Counter</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Eps_Com_Loss_Counter" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Eps_Com_Loss_Counter</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 145</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.55</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Eps_Com_Loss_Counter;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Eps_Diag_Mode" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Eps_Diag_Mode</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 170</Property>
+      <Property Name="Text">Hs_Eps_Diag_Mode</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Eps_Diag_Mode" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Eps_Diag_Mode</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 168</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Eps_Diag_Mode;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Eps_ECU_Dynamic_States" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Eps_ECU_Dynamic_States</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 196</Property>
+      <Property Name="Text">Hs_Eps_ECU_Dynamic_States</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Eps_ECU_Dynamic_States" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Eps_ECU_Dynamic_States</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 197</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.55</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Eps_ECU_Dynamic_States;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Eps_ECU_Static_States" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Eps_ECU_Static_States</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 222</Property>
+      <Property Name="Text">Hs_Eps_ECU_Static_States</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Eps_ECU_Static_States" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Eps_ECU_Static_States</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 223</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.55</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Eps_ECU_Static_States;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Eps_Network_Management_State" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Eps_Network_Management_State</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 248</Property>
+      <Property Name="Text">Hs_Eps_Network_Management_State</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Eps_Network_Management_State" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Eps_Network_Management_State</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 246</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Eps_Network_Management_State;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Eps_Tx_TimeOut_Counter" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Eps_Tx_TimeOut_Counter</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 274</Property>
+      <Property Name="Text">Hs_Eps_Tx_TimeOut_Counter</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Eps_Tx_TimeOut_Counter" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Eps_Tx_TimeOut_Counter</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 275</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.55</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Eps_Tx_TimeOut_Counter;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Sas_Angle" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Sas_Angle</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 300</Property>
+      <Property Name="Text">Hs_Sas_Angle</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Sas_Angle" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Sas_Angle</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 301</Property>
+      <Property Name="Minimum">-3276.8</Property>
+      <Property Name="Maximum">65535</Property>
+      <Property Name="Increment">688.118</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Sas_Angle;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Sas_Message_Number" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Sas_Message_Number</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 326</Property>
+      <Property Name="Text">Hs_Sas_Message_Number</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Sas_Message_Number" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Sas_Message_Number</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 327</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">15</Property>
+      <Property Name="Increment">0.15</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Sas_Message_Number;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Sas_Speed" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Sas_Speed</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 352</Property>
+      <Property Name="Text">Hs_Sas_Speed</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Sas_Speed" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Sas_Speed</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 353</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1020</Property>
+      <Property Name="Increment">10.2</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Sas_Speed;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Sas_Value_check_message_bytes" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Sas_Value_check_message_bytes</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 378</Property>
+      <Property Name="Text">Hs_Sas_Value_check_message_bytes</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Sas_Value_check_message_bytes" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Sas_Value_check_message_bytes</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 379</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">15</Property>
+      <Property Name="Increment">0.15</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Sas_Value_check_message_bytes;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Sas_internal_status_flags" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Sas_internal_status_flags</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 404</Property>
+      <Property Name="Text">Hs_Sas_internal_status_flags</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Sas_internal_status_flags" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Sas_internal_status_flags</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 405</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.55</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Sas_internal_status_flags;1;;;-1</Property>
+    </Object>
+    <Property Name="Name">NBCM EPS</Property>
+    <Property Name="Size">262, 926</Property>
+    <Property Name="BackColor">White</Property>
+  </Object>
+</Panel>

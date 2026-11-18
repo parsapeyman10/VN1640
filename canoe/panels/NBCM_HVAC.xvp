@@ -1,0 +1,254 @@
+<?xml version="1.0"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Panel" Children="Controls" ControlName="NBCM HVAC">
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtTitle" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtTitle</Property>
+      <Property Name="Size">230, 20</Property>
+      <Property Name="Location">10, 8</Property>
+      <Property Name="Text">HVAC  -  LS-CAN  -  4 messages / 16 signals</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_DIAG_RESP" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_HVAC_DIAG_RESP</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 40</Property>
+      <Property Name="Text">LS_HVAC_DIAG_RESP</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_HVAC_DIAG_RESP" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_HVAC_DIAG_RESP</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 38</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_DIAG_RESP;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_FAULT_ID" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_HVAC_FAULT_ID</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 66</Property>
+      <Property Name="Text">LS_HVAC_FAULT_ID</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_HVAC_FAULT_ID" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_HVAC_FAULT_ID</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 64</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_FAULT_ID;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_FAULT_STATUS" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_HVAC_FAULT_STATUS</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 92</Property>
+      <Property Name="Text">LS_HVAC_FAULT_STATUS</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_HVAC_FAULT_STATUS" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_LS_HVAC_FAULT_STATUS</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 93</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_FAULT_STATUS;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_AC_SW" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_HVAC_AC_SW</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 118</Property>
+      <Property Name="Text">LS_HVAC_AC_SW</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_HVAC_AC_SW" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_LS_HVAC_AC_SW</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 119</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_AC_SW;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_INDOOR_TEMP" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_HVAC_INDOOR_TEMP</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 144</Property>
+      <Property Name="Text">LS_HVAC_INDOOR_TEMP</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_HVAC_INDOOR_TEMP" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_HVAC_INDOOR_TEMP</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 142</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_INDOOR_TEMP;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_SHT_SW" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_HVAC_SHT_SW</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 170</Property>
+      <Property Name="Text">LS_HVAC_SHT_SW</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_HVAC_SHT_SW" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_LS_HVAC_SHT_SW</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 171</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_SHT_SW;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_BUSOFF_COUNTER" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_HVAC_BUSOFF_COUNTER</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 196</Property>
+      <Property Name="Text">LS_HVAC_BUSOFF_COUNTER</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_HVAC_BUSOFF_COUNTER" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_HVAC_BUSOFF_COUNTER</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 194</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_BUSOFF_COUNTER;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_BUS_ERROR" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_HVAC_BUS_ERROR</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 222</Property>
+      <Property Name="Text">LS_HVAC_BUS_ERROR</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_HVAC_BUS_ERROR" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_LS_HVAC_BUS_ERROR</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 223</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_BUS_ERROR;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_BUS_ERROR_COUNTER" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_HVAC_BUS_ERROR_COUNTER</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 248</Property>
+      <Property Name="Text">LS_HVAC_BUS_ERROR_COUNTER</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_HVAC_BUS_ERROR_COUNTER" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_HVAC_BUS_ERROR_COUNTER</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 246</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_BUS_ERROR_COUNTER;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_COM_LOSS" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_HVAC_COM_LOSS</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 274</Property>
+      <Property Name="Text">LS_HVAC_COM_LOSS</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_HVAC_COM_LOSS" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_LS_HVAC_COM_LOSS</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 275</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_COM_LOSS;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_COM_LOSS_COUNTER" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_HVAC_COM_LOSS_COUNTER</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 300</Property>
+      <Property Name="Text">LS_HVAC_COM_LOSS_COUNTER</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_HVAC_COM_LOSS_COUNTER" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_HVAC_COM_LOSS_COUNTER</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 298</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_COM_LOSS_COUNTER;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_DIAG_MODE" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_HVAC_DIAG_MODE</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 326</Property>
+      <Property Name="Text">LS_HVAC_DIAG_MODE</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_HVAC_DIAG_MODE" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_LS_HVAC_DIAG_MODE</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 327</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_DIAG_MODE;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_NBCM_DYN_ABSENT" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_HVAC_NBCM_DYN_ABSENT</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 352</Property>
+      <Property Name="Text">LS_HVAC_NBCM_DYN_ABSENT</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_HVAC_NBCM_DYN_ABSENT" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_LS_HVAC_NBCM_DYN_ABSENT</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 353</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_NBCM_DYN_ABSENT;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_NBCM_STATIC_ABSENT" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_HVAC_NBCM_STATIC_ABSENT</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 378</Property>
+      <Property Name="Text">LS_HVAC_NBCM_STATIC_ABSENT</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_HVAC_NBCM_STATIC_ABSENT" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_LS_HVAC_NBCM_STATIC_ABSENT</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 379</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_NBCM_STATIC_ABSENT;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_NM_STATE" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_HVAC_NM_STATE</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 404</Property>
+      <Property Name="Text">LS_HVAC_NM_STATE</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_HVAC_NM_STATE" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_LS_HVAC_NM_STATE</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">166, 405</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_NM_STATE;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_TX_TIMEOUT_COUNTER" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_LS_HVAC_TX_TIMEOUT_COUNTER</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">10, 430</Property>
+      <Property Name="Text">LS_HVAC_TX_TIMEOUT_COUNTER</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_HVAC_TX_TIMEOUT_COUNTER" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_LS_HVAC_TX_TIMEOUT_COUNTER</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">164, 428</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_TX_TIMEOUT_COUNTER;1;;;-1</Property>
+    </Object>
+    <Property Name="Name">NBCM HVAC</Property>
+    <Property Name="Size">262, 926</Property>
+    <Property Name="BackColor">White</Property>
+  </Object>
+</Panel>

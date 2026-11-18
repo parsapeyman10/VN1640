@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Panel" Children="Controls" ControlName="NBCM Smoke">
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtTitle" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtTitle</Property>
+      <Property Name="Size">420, 20</Property>
+      <Property Name="Location">10, 8</Property>
+      <Property Name="Text">NBCM smoke test: flip the switch, value must follow</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="SwDriveMode" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">SwDriveMode</Property>
+      <Property Name="Size">21, 30</Property>
+      <Property Name="Location">10, 34</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;DRIVE_MODE;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtDriveMode" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtDriveMode</Property>
+      <Property Name="Size">110, 18</Property>
+      <Property Name="Location">40, 38</Property>
+      <Property Name="Text">DRIVE_MODE</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LCDControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="LcdDriveMode" Children="Controls" ControlName="LCD Control">
+      <Property Name="Name">LcdDriveMode</Property>
+      <Property Name="Size">70, 26</Property>
+      <Property Name="Location">160, 36</Property>
+      <Property Name="DecimalPlaces">0</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;DRIVE_MODE;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="SwAbsOff" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">SwAbsOff</Property>
+      <Property Name="Size">21, 30</Property>
+      <Property Name="Location">10, 76</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;OFFLINE_ABS;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtAbsOff" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtAbsOff</Property>
+      <Property Name="Size">110, 18</Property>
+      <Property Name="Location">40, 80</Property>
+      <Property Name="Text">OFFLINE_ABS</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LCDControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="LcdAbsOff" Children="Controls" ControlName="LCD Control">
+      <Property Name="Name">LcdAbsOff</Property>
+      <Property Name="Size">70, 26</Property>
+      <Property Name="Location">160, 78</Property>
+      <Property Name="DecimalPlaces">0</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;OFFLINE_ABS;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LCDControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="LcdSpeed" Children="Controls" ControlName="LCD Control">
+      <Property Name="Name">LcdSpeed</Property>
+      <Property Name="Size">110, 26</Property>
+      <Property Name="Location">250, 36</Property>
+      <Property Name="DecimalPlaces">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_VehicleSpeed;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtSpeed" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtSpeed</Property>
+      <Property Name="Size">150, 18</Property>
+      <Property Name="Location">250, 64</Property>
+      <Property Name="Text">Hs_Abs_VehicleSpeed</Property>
+    </Object>
+    <Property Name="Name">NBCM Smoke</Property>
+    <Property Name="Size">380, 120</Property>
+    <Property Name="BackColor">White</Property>
+  </Object>
+</Panel>

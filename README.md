@@ -10,9 +10,10 @@
 | `NBCM_Panel_Binding_Reference.xlsx` | مرجع بایندینگ پنل — **منبع حقیقت** سیگنال‌ها (۴۸۱ سیگنال / ۹۷ پیام) |
 | `can_tester/` | **تستر HTML** — یک صفحه، بدون build step |
 | `bridge/` | پل Python ↔ CANoe (COM) + رانر headless برای CI |
-| `canoe/` | فایل‌های تولیدشده‌ی سمت CANoe: `.vsysvar` و نود CAPL پل |
+| `canoe/` | فایل‌های تولیدشده‌ی سمت CANoe: `.vsysvar`، نود CAPL پل و `panels/*.xvp` (۱۵ پنل) |
 | `tools/` | تولید داده و کد از اکسل |
 | `docs/README.md` | **راهنمای کامل تستر** (معماری، شروع سریع، عیب‌یابی) |
+| `docs/how-to-add-to-canoe.md` | **افزودن پنل/متغیرها داخل CANoe 12** (همان دیالوگ Add Panel) |
 | `tests/test_suite.json` | سوئیت تست مشترک بین مرورگر و CI |
 
 ## شروع در ۶۰ ثانیه (بدون CANoe)

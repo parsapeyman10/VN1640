@@ -91,6 +91,51 @@ def check_canoe_files(data):
             line("PASS", "CAPL bridge references every signal")
 
 
+def check_panels(data):
+    pdir = ROOT / "canoe" / "panels"
+    if not pdir.exists():
+        line("WARN", "panel files not generated", fix="python tools/build_xvp.py")
+        return
+    files = sorted(pdir.glob("*.xvp"))
+    if not files:
+        line("WARN", "no .xvp panels found", fix="python tools/build_xvp.py")
+        return
+    declared = set()
+    if data:
+        declared = {s["sig"] for s in data.get("signals", [])}
+        declared |= {f"OFFLINE_{n['node']}" for n in data.get("nodes", [])}
+        declared |= {"DRIVE_MODE", "SCENARIO_RUNNING", "MANUAL_SPEED_MODE", "MANUAL_SPEED_KMH"}
+    bad_xml, unknown, bindings = [], set(), 0
+    import xml.etree.ElementTree as ET
+    for f in files:
+        try:
+            root = ET.parse(f).getroot()
+        except Exception as e:                                   # noqa: BLE001
+            bad_xml.append(f"{f.name}: {e}")
+            continue
+        for prop in root.findall('.//Property[@Name="SymbolConfiguration"]'):
+            txt = (prop.text or "").strip()
+            if not txt:
+                continue
+            bindings += 1
+            parts = txt.split(";")
+            if len(parts) < 6 or parts[0] != "4" or parts[1] != "16":
+                unknown.add(f"{f.name}: odd binding {txt[:40]}")
+                continue
+            name = parts[5]
+            if declared and name not in declared:
+                unknown.add(f"{f.name}: {name}")
+    if bad_xml:
+        line("FAIL", "invalid .xvp xml", "; ".join(bad_xml[:3]), "python tools/build_xvp.py")
+    else:
+        line("PASS", "panels valid", f"{len(files)} files, {bindings} control bindings")
+    if unknown:
+        line("FAIL", "panel bindings point at unknown variables",
+             ", ".join(sorted(unknown)[:5]), "python tools/build_xvp.py")
+    else:
+        line("PASS", "every panel binding matches a generated variable")
+
+
 def check_pywin32():
     if platform.system() != "Windows":
         line("WARN", "not Windows", "COM/CANoe checks are skipped on this machine",
@@ -194,6 +239,7 @@ def main(argv=None) -> int:
 
     print("\n-- CANoe project files ---------------------------------------------")
     check_canoe_files(data)
+    check_panels(data)
 
     print("\n-- CANoe connection ------------------------------------------------")
     has_pywin32 = check_pywin32()

@@ -1,0 +1,16 @@
+file,target,width,height,content
+NBCM_Smoke.xvp,smoke,380,120,one switch per concept, for the first wiring check
+NBCM_Test_Overview.xvp,overview,680,460,dashboard + offline switches + control source
+NBCM_ABS.xvp,ABS,512,926,51 signals
+NBCM_DIAG.xvp,DIAG,262,926,10 signals
+NBCM_EMS.xvp,EMS,762,926,85 signals
+NBCM_EPS.xvp,EPS,262,926,15 signals
+NBCM_HVAC.xvp,HVAC,262,926,16 signals
+NBCM_ICN.xvp,ICN,762,926,106 signals
+NBCM_ICU.xvp,ICU,262,926,27 signals
+NBCM_ITPMS.xvp,ITPMS,262,926,5 signals
+NBCM_MMS.xvp,MMS,512,926,48 signals
+NBCM_PEPS.xvp,PEPS,262,926,29 signals
+NBCM_RBG.xvp,RBG,262,926,27 signals
+NBCM_TCU.xvp,TCU,512,926,43 signals
+NBCM_TPMS.xvp,TPMS,262,926,19 signals

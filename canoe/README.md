@@ -8,6 +8,11 @@
 | `NBCM_TesterBridge.can` | نود CAPL که هر ۱۰۰ms مقادیر را بین restbus و System Variables جابه‌جا می‌کند |
 | `panel_binding_systemvars.csv` | لیست آماده‌ی بایندینگ برای Panel Designer (نوع System Variable) |
 
+## نصب پنل‌ها (Home → Panel → Add Panel…)
+
+فیلتر `CANoe Panels (*.xvp)` را انتخاب و `panels/NBCM_Smoke.xvp` را اضافه کنید.
+جزئیات گام‌به‌گام: [`docs/how-to-add-to-canoe.md`](../docs/how-to-add-to-canoe.md)
+
 ## نصب در CANoe 12
 
 1. `NBCM_Test.vsysvar` → منوی `Environment` / پنجره‌ی System Variables → **Import** (یا
