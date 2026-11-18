@@ -125,6 +125,22 @@ def check_panels(data):
             name = parts[5]
             if declared and name not in declared:
                 unknown.add(f"{f.name}: {name}")
+    cnps = sorted(pdir.glob("*.cnp"))
+    if cnps:
+        bad_cnp = []
+        for f in cnps:
+            try:
+                first = f.read_text(encoding="utf-8", errors="replace").splitlines()[0]
+                if not first.startswith("VPanel"):
+                    bad_cnp.append(f.name + ": missing VPanel header")
+            except Exception as e:                               # noqa: BLE001
+                bad_cnp.append(f"{f.name}: {e}")
+        if bad_cnp:
+            line("FAIL", "invalid .cnp files", "; ".join(bad_cnp[:3]), "python tools/build_xvp.py")
+        else:
+            line("PASS", "legacy .cnp present", f"{len(cnps)} file(s), VPanel header ok "
+                                                "(converted by CANoe 12)")
+
     if bad_xml:
         line("FAIL", "invalid .xvp xml", "; ".join(bad_xml[:3]), "python tools/build_xvp.py")
     else:

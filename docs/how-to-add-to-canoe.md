@@ -10,9 +10,20 @@
 
 | گزینه | یعنی | برای شما |
 |---|---|---|
-| `*.xvp` — CANoe Panels | پنل Panel Designer (XML) | ✅ همین را می‌خواهیم؛ ۱۵ فایل آماده است |
+| `*.xvp` — CANoe Panels | پنل Panel Designer (XML) | ✅ **این را انتخاب کنید**؛ ۱۵ فایل آماده است |
 | `*.ocx / *.dll` — ActiveX Libraries | کنترل ActiveX سفارشی | ❌ لازم نیست؛ کنترل مرورگر قابل‌اتکا نیست |
-| `*.cnp` — Panel Editor | فرمت قدیمی پنل | ❌ منسوخ؛ Panel Designer بهتر است |
+| `*.cnp` — Panel Editor | فرمت قدیمی پنل (متنی، `VPanel`) | ⚠️ کار می‌کند ولی **میراثی** است — توضیح پایین |
+
+### دربارهٔ `.cnp` (چون پرسیدید)
+
+`.cnp` هم متنی است و CANoe 12 آن را می‌خواند و به `.xvp` تبدیل می‌کند، اما ریسک‌هایی دارد:
+
+- از CANoe **۱۹** به بعد تبدیل خودکار انجام نمی‌شود (باید در Panel Configuration فعالش کنید)
+- Vector اعلام کرده پشتیبانی از تبدیل **در نسخه بعدی حذف می‌شود**
+- برخی کنترل‌های جدید Panel Designer در `.cnp` وجود ندارند
+
+من یک نمونهٔ `canoe/panels/NBCM_Smoke.cnp` هم تولید کرده‌ام؛ اگر باز شد، خیالتان راحت و
+نسخهٔ `.xvp` معادلش هم همان کار را می‌کند. **توصیه: `.xvp`**.
 
 ---
 
@@ -115,6 +126,21 @@ python bridge/nbcm_window.py --always-on-top
 پس هر کدام را جدا یا هم‌زمان می‌توانید استفاده کنید.
 
 ---
+
+## اگر می‌خواهید پنل را خودتان بسازید (مطمئن‌ترین راه)
+
+اگر از فایل‌های تولیدشده چیزی باز نشد، در ۲ دقیقه پنل خودتان را بسازید — بقیهٔ سیستم همان می‌ماند:
+
+1. تب **Home** → **Panel** → **New Panel**
+2. **File → Save** → نام `NBCM_Test.xvp` در پوشهٔ `Panels`
+3. از **Tool Box** یک **Switch/Indicator** روی پنل بکشید
+4. در **Properties** → `Symbol Filter` = **System Variable** → `Symbol` = `NBCM_Test` → `DRIVE_MODE`
+5. یک **Numeric Up/Down** بگذارید و به `NBCM_Test::MANUAL_SPEED_KMH` ببندید
+6. برای هر گره یک Switch بگذارید و به `NBCM_Test::OFFLINE_<NODE>` ببندید
+7. **Save** — پنل خودش به کانفیگ اضافه می‌شود
+
+نکتهٔ مهم: در Panel Designer هم `Symbol Filter` را روی **System Variable** بگذارید، نه Signal.
+چون CAPL فقط متغیرهای خودش را می‌بیند و پل ما از طریق System Variable کار می‌کند.
 
 ## اگر پنل باز نشد
 

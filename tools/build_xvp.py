@@ -63,6 +63,49 @@ LCD_T = ("Vector.CANalyzer.Panels.Design.LCDControl, Vector.CANalyzer.Panels.Com
          "Version={v}, Culture=neutral, PublicKeyToken=null")
 
 # --------------------------------------------------------------------------- #
+# .cnp writer (legacy Panel Editor format)
+# --------------------------------------------------------------------------- #
+# .cnp is the text format of the retired Panel Editor ("VPanel").  CANoe 12 still
+# converts it on open, but Vector announced: conversion is no longer automatic
+# from CANoe 19 and will be dropped afterwards.  Which is why .xvp stays the
+# primary output -- but a .cnp is produced too, because:
+#   * it is a second, independent way into the same configuration, and
+#   * its signal binding (Sig:<SignalName>) is positional (bus signal, no DBC
+#     name needed), so a converted panel can bind *without* system variables.
+# Element layouts below follow panels in the wild, e.g.
+#   ElemSwitchAndDisplay 29 30 440 105 Sig:WN_Position <PE> EnvVar:X 0 0 0 17
+#   ElemBN 0 240 270 35 EnvVar:Errframe -16
+#   ElemMeter 70 71 175 150 EnvVar:evengspeedrec 0 -130 110 1000 8000 3 1 255 0 0 0 0
+
+def cnp_q(text: str) -> str:
+    return '"' + str(text).replace('"', "'") + '"'
+
+
+def cnp_panel(name: str, elements: list[str], width: int, height: int) -> str:
+    """Build a VPanel document.  Every element is one line; '@' terminates."""
+    head = [
+        f"VPanel {len(elements)} {int(width)} {int(height)} 0 0 255{cnp_q(name)}",
+        "192 192 192",
+        str(len(elements)),
+    ]
+    return "\n".join(head + elements) + "\n@\n"
+
+
+def cnp_switch(x, y, var, w=21, h=30) -> str:
+    return f"ElemSwitchAndDisplay {x} {y} {w} {h} SysSig:{var} <PE> 0 0 0 17 1 1 0 1"
+
+
+def cnp_button(x, y, var, w=70, h=20) -> str:
+    return f"ElemBN {x} {y} {w} {h} SysSig:{var} -16"
+
+
+def cnp_meter(x, y, var, lo, hi, w=120, h=110) -> str:
+    return (f"ElemMeter {x} {y} {w} {h} SysSig:{var} 0 0 0 "
+            f"{int(lo) if float(lo).is_integer() else lo} "
+            f"{int(hi) if float(hi).is_integer() else hi} 1 1 255 0 0 0 0")
+
+
+# --------------------------------------------------------------------------- #
 # small XML helpers
 # --------------------------------------------------------------------------- #
 def sym_conf(var: str, namespace: str = NAMESPACE) -> str:
@@ -303,6 +346,16 @@ def main(argv=None) -> int:
     p = outdir / "NBCM_Smoke.xvp"
     p.write_text(xml, encoding="utf-8")
     produced.append((p.name, "smoke", w, h, "one switch per concept, for the first wiring check"))
+
+    # legacy twin of the smoke panel, context-menu variant for the panel itself
+    els = [
+        cnp_switch(10, 34, "NBCM_Test::DRIVE_MODE"),
+        cnp_switch(10, 76, "NBCM_Test::OFFLINE_ABS"),
+        cnp_meter(250, 30, "NBCM_Test::Hs_Abs_VehicleSpeed", 0, 200, 120, 110),
+    ]
+    p = outdir / "NBCM_Smoke.cnp"
+    p.write_text(cnp_panel("NBCM Smoke (cnp)", els, 380, 150), encoding="utf-8")
+    produced.append((p.name, "smoke (legacy)", 380, 150, "legacy Panel Editor variant"))
 
     xml, w, h = build_overview(nodes, signals, args.version)
     p = outdir / "NBCM_Test_Overview.xvp"

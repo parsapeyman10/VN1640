@@ -1,5 +1,6 @@
 file,target,width,height,content
 NBCM_Smoke.xvp,smoke,380,120,one switch per concept, for the first wiring check
+NBCM_Smoke.cnp,smoke (legacy),380,150,legacy Panel Editor variant
 NBCM_Test_Overview.xvp,overview,680,460,dashboard + offline switches + control source
 NBCM_ABS.xvp,ABS,512,926,51 signals
 NBCM_DIAG.xvp,DIAG,262,926,10 signals
