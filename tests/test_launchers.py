@@ -344,6 +344,42 @@ def test_package_is_consistent():
         bad = [(m, sg) for m, sg in writes if sg not in dbc.get(m, ())]
         assert not bad, f"writes to a signal not in that frame: {bad[:5]}"
 
+        # the ids and bit layout must be the official ones, not invented: compare
+        # the generated database against the network map it claims to come from
+        sys.path.insert(0, str(root / "tools"))
+        import build_package as bp
+        netmap = bp.load_netmap(root / "NBCM_CAN_Simulation_Package" / "1_Final"
+                                / "NBCM_Dena_CAN_Network_Map.xlsx")
+        exp = {m["MessageName"]: (int(m["MessageID_Dec"]), int(m["DLC"]))
+               for m in netmap["messages"]}
+        assert len(exp) == 188, f"expected 188 frames in the workbook, got {len(exp)}"
+        got_ids = {}
+        for name in ("NBCM_HS.dbc", "NBCM_LS.dbc"):
+            for line in (out / "Database" / name).read_text(encoding="utf-8").splitlines():
+                m = re.match(r"^BO_ (\d+) (\w+): (\d+) ", line)
+                if m:
+                    got_ids[m.group(2)] = (int(m.group(1)), int(m.group(3)))
+        assert got_ids == exp, ("generated ids/DLCs differ from the network map: "
+                                f"{[(k, got_ids.get(k), exp[k]) for k in exp if got_ids.get(k) != exp[k]][:3]}")
+
+        # and the bits: start|length@order must round-trip for every signal
+        want = {}
+        for sg in netmap["signals"]:
+            order = "1" if sg["ByteOrder"].lower().startswith("intel") else "0"
+            want[(sg["MessageName"], sg["SignalName"])] = (
+                int(sg["StartBit"]), int(sg["Length_bit"]), order)
+        have, cur = {}, None
+        for name in ("NBCM_HS.dbc", "NBCM_LS.dbc"):
+            for line in (out / "Database" / name).read_text(encoding="utf-8").splitlines():
+                m = re.match(r"^BO_ \d+ (\w+):", line)
+                if m:
+                    cur = m.group(1)
+                m = re.match(r"^ SG_ (\w+) : (\d+)\|(\d+)@([01])", line)
+                if m:
+                    have[(cur, m.group(1))] = (int(m.group(2)), int(m.group(3)), m.group(4))
+        assert have == want, (f"bit layout differs for "
+                             f"{[(k, have.get(k), want[k]) for k in want if have.get(k) != want[k]][:3]}")
+
         # the panel may only bind variables the vsysvar declares
         vs = (out / "SystemVariables" / "NBCM_Test.vsysvar").read_text(encoding="utf-8")
         declared = set(re.findall(r'<variable\s[^>]*?name="([^"]+)"', vs))
