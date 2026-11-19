@@ -25,7 +25,7 @@
 ```bash
 python tools/build_data.py
 python bridge/nbcm_bridge.py --sim
-# مرورگر: http://127.0.0.1:8771/
+# مرورگر: http://127.0.0.1:8770/   (هر دو پورت ۸۷۷۰ و ۸۷۷۱ صفحه را می‌دهند)
 ```
 
 ## شروع با CANoe 12

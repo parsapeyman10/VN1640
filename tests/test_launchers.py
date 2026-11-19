@@ -244,6 +244,93 @@ def test_every_signal_has_an_explanation():
               txt.count("{") > 400 and "window.NBCM_DESCRIPTIONS" in txt, "")
 
 
+def test_one_port_serves_page_websocket_and_api():
+    """The port the docs call "the bridge" must work in a browser.
+
+    A user (or a preview proxy) opens the bridge port directly.  Historically
+    that port was WebSocket-only and answered a plain GET with an empty reply,
+    which looks exactly like a dead server -- the UI lived one port higher.  It
+    now serves the page as well, and HEAD must work because probes use it first.
+    """
+    import json as _json
+    import urllib.request
+    import base64
+    import os
+    import socket
+    import struct
+
+    port = 9860
+    env = {"NBCM_PORT": str(port), "PATH": "/usr/bin:/bin"}
+    proc = subprocess.Popen(
+        [sys.executable, str(BAT / "nbcm_bridge.py"), "--sim", "--port", str(port)],
+        cwd=str(ROOT), env=env, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    try:
+        for _ in range(60):
+            try:
+                socket.create_connection(("127.0.0.1", port), timeout=0.3).close()
+                break
+            except OSError:
+                time.sleep(0.2)
+
+        # 1) a plain GET on the websocket port returns the tester, not nothing
+        with urllib.request.urlopen(f"http://127.0.0.1:{port}/", timeout=5) as r:
+            body = r.read()
+        check("GET on the bridge port serves the tester", b"infoBox" in body,
+              f"{len(body)} bytes, status ok")
+
+        # 2) HEAD works (preview proxies probe with it)
+        req = urllib.request.Request(f"http://127.0.0.1:{port}/", method="HEAD")
+        with urllib.request.urlopen(req, timeout=5) as r:
+            check("HEAD on the bridge port answers 200", r.status == 200, str(r.status))
+            check("HEAD sends no body", not r.read(), "")
+
+        # 3) REST still answers on the same port
+        with urllib.request.urlopen(f"http://127.0.0.1:{port}/api/health", timeout=5) as r:
+            health = _json.loads(r.read())
+        check("REST works on the bridge port", health.get("ok") is True, str(health)[:60])
+
+        # 4) and the websocket upgrade still succeeds on that same port
+        s_ = socket.create_connection(("127.0.0.1", port), timeout=5)
+        key = base64.b64encode(os.urandom(16)).decode()
+        s_.sendall((f"GET / HTTP/1.1\r\nHost: 127.0.0.1\r\nUpgrade: websocket\r\n"
+                    f"Connection: Upgrade\r\nSec-WebSocket-Key: {key}\r\n"
+                    f"Sec-WebSocket-Version: 13\r\n\r\n").encode())
+        handshake = s_.recv(4096)
+        head = handshake.split(b"\r\n\r\n")[0].decode("latin-1")
+        check("websocket upgrade still works on that port", "101" in head.splitlines()[0],
+              head.splitlines()[0])
+
+        # 5) the first frame is real state.  The frame may arrive split across
+        #    reads and may use the 16-bit length form, so buffer until complete.
+        buf = handshake.split(b"\r\n\r\n", 1)[1] if b"\r\n\r\n" in handshake else b""
+        def need(n):
+            nonlocal buf
+            while len(buf) < n:
+                chunk = s_.recv(4096)
+                if not chunk:
+                    raise AssertionError("socket closed while reading a frame")
+                buf += chunk
+        need(2)
+        ln, off = buf[1] & 0x7F, 2
+        if ln == 126:
+            need(4)
+            ln, off = struct.unpack(">H", buf[2:4])[0], 4
+        elif ln == 127:
+            need(10)
+            ln, off = struct.unpack(">Q", buf[2:10])[0], 10
+        need(off + ln)
+        state = _json.loads(buf[off:off + ln].decode("utf-8"))
+        check("websocket sends state on connect", "offline" in state or "frames" in state,
+              str(sorted(state))[:60])
+        s_.close()
+    finally:
+        proc.terminate()
+        try:
+            proc.wait(timeout=5)
+        except subprocess.TimeoutExpired:
+            proc.kill()
+
+
 def test_verdict_reaches_the_bridge():
     """6. A suite verdict must be visible to the CANoe panel."""
     port = 9840
@@ -464,6 +551,7 @@ def main() -> int:
                test_vsysvar_checker_rejects_broken_files,
                test_main_panel_is_self_consistent,
                test_every_signal_has_an_explanation,
+               test_one_port_serves_page_websocket_and_api,
                test_verdict_reaches_the_bridge,
                test_package_is_consistent,
                test_find_bridge_fails_cleanly, test_launcher_dry_run,

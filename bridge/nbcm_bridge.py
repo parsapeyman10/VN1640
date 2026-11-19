@@ -593,7 +593,8 @@ class WSClient:
             pass
 
 
-def ws_serve(hub: Hub, link, host: str, port: int, stop: threading.Event):
+def ws_serve(hub: Hub, link, host: str, port: int, stop: threading.Event,
+             http_fallback: bool = False):
     srv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     srv.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     srv.bind((host, port))
@@ -607,11 +608,68 @@ def ws_serve(hub: Hub, link, host: str, port: int, stop: threading.Event):
             continue
         except OSError:
             break
-        threading.Thread(target=ws_client_thread, args=(hub, link, conn, addr), daemon=True).start()
+        threading.Thread(target=ws_client_thread,
+                         args=(hub, link, conn, addr, http_fallback),
+                         daemon=True).start()
     srv.close()
 
 
-def ws_client_thread(hub: Hub, link, conn: socket.socket, addr):
+def _serve_http_on_ws_port(conn: socket.socket, raw: bytes, head: str):
+    """Run one plain HTTP request through the regular REST/static handler.
+
+    The request bytes are already partly consumed by the WebSocket sniffing, so
+    they are pushed back into a fake rfile before the handler runs.  Everything
+    after the header block (a POST body) is already in ``raw`` as well.
+    """
+    import io
+
+    class _Conn:
+        """Just enough of a socket for BaseHTTPRequestHandler."""
+
+        def __init__(self, sock):
+            self._sock = sock
+
+        def makefile(self, mode="rb", *a, **k):
+            return io.BytesIO(raw) if "r" in mode else _Writer(self._sock)
+
+        def sendall(self, data):
+            self._sock.sendall(data)
+
+        def close(self):
+            self._sock.close()
+
+        def settimeout(self, t):
+            try:
+                self._sock.settimeout(t)
+            except OSError:
+                pass
+
+        def getsockname(self):
+            return self._sock.getsockname()
+
+    class _Writer:
+        def __init__(self, sock):
+            self._sock = sock
+
+        def write(self, b):
+            self._sock.sendall(b)
+            return len(b)
+
+        def flush(self):
+            pass
+
+    try:
+        Handler(_Conn(conn), ("0.0.0.0", 0), None)
+    except Exception as e:                                        # noqa: BLE001
+        log("http-fallback failed:", e)
+        try:
+            conn.close()
+        except OSError:
+            pass
+
+
+def ws_client_thread(hub: Hub, link, conn: socket.socket, addr,
+                     http_fallback: bool = False):
     raw = b""
     conn.settimeout(5)
     try:
@@ -633,7 +691,15 @@ def ws_client_thread(hub: Hub, link, conn: socket.socket, addr):
             headers[k.strip().lower()] = v.strip()
 
     if headers.get("upgrade", "").lower() != "websocket":
-        conn.close()
+        # Not a WebSocket.  On the UI port this ends the connection (that is how
+        # it behaved historically).  On the WebSocket port we answer it as a
+        # normal HTTP request instead, so the same port can be opened in a
+        # browser and used by the preview proxy -- the two things a user is
+        # most likely to point at the port the docs call "the bridge".
+        if http_fallback:
+            _serve_http_on_ws_port(conn, raw, head)
+        else:
+            conn.close()
         return
 
     client = WSClient(conn, addr)
@@ -746,7 +812,8 @@ class Handler(BaseHTTPRequestHandler):
         for k, v in (extra or {}).items():
             self.send_header(k, v)
         self.end_headers()
-        self.wfile.write(body)
+        if not getattr(self, "_head_only", False):
+            self.wfile.write(body)
 
     def _json(self, code: int, obj):
         self._send(code, json.dumps(obj, ensure_ascii=False).encode("utf-8"))
@@ -761,6 +828,18 @@ class Handler(BaseHTTPRequestHandler):
             return {}
 
     # -- routes -------------------------------------------------------------
+    def do_HEAD(self):                                           # noqa: N802
+        # Tools that probe a URL (preview proxies, health checks, curl -I) use
+        # HEAD first.  BaseHTTPRequestHandler answers 501 for it unless it is
+        # implemented, which makes a perfectly good server look dead.
+        # Answer with the same status/headers as GET and no body, which is what
+        # the headers already promise via Content-Length.
+        self._head_only = True
+        try:
+            self.do_GET()
+        finally:
+            self._head_only = False
+
     def do_OPTIONS(self):                                        # noqa: N802
         self._send(204, b"")
 
@@ -918,17 +997,21 @@ def main(argv=None) -> int:
     poll_thread = threading.Thread(target=poll_loop, args=(hub, link, stop_flag), daemon=True)
     poll_thread.start()
 
-    ws_thread = threading.Thread(
-        target=ws_serve, args=(hub, link, cfg["host"], cfg["port"], stop_flag), daemon=True)
-    ws_thread.start()
-
     Handler.hub = hub
     Handler.link = link
     http_port = int(cfg["port"]) + 1
 
+    # The WebSocket port answers plain HTTP too, so opening the port named on the
+    # command line in a browser shows the tester instead of an empty page.  The
+    # dedicated UI port (port + 1) keeps working exactly as before.
+    ws_thread = threading.Thread(
+        target=ws_serve, args=(hub, link, cfg["host"], cfg["port"], stop_flag, True),
+        daemon=True)
+    ws_thread.start()
+
     httpd = ThreadingHTTPServer((cfg["host"], http_port), Handler)
     log(f"tester UI  : http://{cfg['host']}:{http_port}/")
-    log(f"websocket  : ws://{cfg['host']}:{cfg['port']}/")
+    log(f"websocket  : ws://{cfg['host']}:{cfg['port']}/   (also serves the UI over http)")
     log(f"CANoe      : {'connected' if link.available and isinstance(link, CanoeLink) else 'simulation'}")
     log("Ctrl+C to stop")
     try:
