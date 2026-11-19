@@ -23,3 +23,7 @@ Thumbs.db
 
 # generated CANoe package -- build with tools/build_package.py
 dist/
+
+# tools used only to test the HTML tester in this sandbox
+node_modules/
+package-lock.json

@@ -258,6 +258,15 @@ def write_outputs(model: dict, outdir: Path) -> None:
     (outdir / "signal_map.json").write_text(
         json.dumps(model, ensure_ascii=False, indent=1), encoding="utf-8")
 
+    # The explanations behind the (i) button and the CANoe tooltips are derived
+    # from the signal map, so they are rebuilt here: one command keeps the model
+    # and the text that describes it in step.
+    try:
+        import signal_glossary
+        signal_glossary.write_outputs()
+    except Exception as e:                                        # noqa: BLE001
+        print(f"  warning: could not write descriptions: {e}", file=sys.stderr)
+
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])

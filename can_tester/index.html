@@ -201,6 +201,42 @@ textarea.err{border-color:var(--bad)}
   .kpis{grid-template-columns:repeat(4,1fr)}
   .console{display:none}
 }
+
+/* ---- the (i) buttons and the explanation popup ------------------------- */
+.infobtn{
+  width:16px;height:16px;line-height:14px;padding:0;margin-inline-start:6px;
+  border-radius:50%;border:1px solid var(--line,#3a4358);background:transparent;
+  color:var(--muted,#8b95a8);font-size:10px;font-weight:700;cursor:pointer;
+  vertical-align:middle;flex:0 0 auto;font-family:inherit
+}
+.infobtn:hover,.infobtn:focus{background:#2d6cdf;border-color:#2d6cdf;color:#fff;outline:none}
+.infobtn::after{content:''}
+.infooverlay{
+  position:fixed;inset:0;background:rgba(8,11,18,.66);display:none;
+  align-items:center;justify-content:center;z-index:60;padding:24px
+}
+.infooverlay.show{display:flex}
+.infocard{
+  background:#151a24;border:1px solid #3a4358;border-radius:12px;
+  max-width:640px;width:100%;max-height:80vh;overflow:auto;padding:18px 20px;
+  box-shadow:0 18px 48px rgba(0,0,0,.5);direction:rtl;text-align:right
+}
+.infocard header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.infocard h3{margin:2px 0 8px;font-size:16px}
+.infocard h4{margin:14px 0 4px;font-size:12px;color:#8fb4ff;font-weight:700}
+.infocard p{margin:4px 0;font-size:12.5px;line-height:1.75}
+.infocard ul{margin:4px 18px 0 0;padding:0;font-size:12.5px;line-height:1.8}
+.infocard .infosub{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 2px}
+.infocard .chip{background:#1f2735;border:1px solid #333e52;border-radius:999px;
+  padding:1px 9px;font-size:11px;color:#b9c4d6}
+.infocard .muted{color:#8b95a8}
+.infocard .liveval{font-size:18px;font-weight:700;color:#6ee7a8;font-family:ui-monospace,monospace}
+.infocard .infoclose{background:transparent;border:1px solid #3a4358;color:#b9c4d6;
+  border-radius:8px;padding:2px 10px;cursor:pointer;font-family:inherit;font-size:12px}
+.infocard .infoclose:hover{background:#243044}
+.infotbl{width:100%;border-collapse:collapse;font-size:12px;margin-top:2px}
+.infotbl td{border-top:1px solid #26303f;padding:4px 6px;vertical-align:top}
+.infotbl td.k{color:#8b95a8;white-space:nowrap;width:34%}
 </style>
 </head>
 <body>
@@ -477,10 +513,23 @@ textarea.err{border-color:var(--bad)}
   </section>
 </main>
 
+<!-- ==================================================== INFO POPUP -->
+<div class="infooverlay" id="infoBox" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="infocard">
+    <header>
+      <strong id="infoTitle">راهنمای سیگنال</strong>
+      <button class="infoclose" type="button">بستن ✕</button>
+    </header>
+    <div id="infoBody"></div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script src="assets/data.js"></script>
+<script src="assets/descriptions.js"></script>
 <script src="js/core.js"></script>
+<script src="js/info.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/tests.js"></script>
 <script src="js/boot.js"></script>

@@ -30,10 +30,12 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
 from pathlib import Path
 from xml.sax.saxutils import escape
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 DEFAULT_MAP = ROOT / "can_tester" / "assets" / "signal_map.json"
 DEFAULT_OUT = ROOT / "canoe" / "panels" / "NBCM_Main.xvp"
 FONT = "Microsoft Sans Serif, 8.25pt"
@@ -87,6 +89,44 @@ def ident(s: str) -> str:
 
 
 # --------------------------------------------------------------------------- #
+# tooltips: the same explanation the HTML tester shows behind the (i) button
+# --------------------------------------------------------------------------- #
+def _glossary():
+    import signal_glossary
+    return signal_glossary
+
+
+def signal_tip(sig: dict) -> str:
+    """Hover text for one signal control, straight from signal_glossary."""
+    try:
+        rec = _glossary().build()["signals"].get(sig.get("id") or sig["sig"])
+        if rec is None:
+            rec = _glossary().build()["signals"].get(
+                f"{sig['node']}:{sig['msg']}:{sig['sig']}")
+        if rec:
+            return _glossary().tooltip_text(rec)
+    except Exception:                                             # noqa: BLE001
+        pass
+    # never leave a control without a tooltip: fall back to the facts we know
+    return (f"{sig['sig']} — {sig['node']} / {sig['msg']}\n"
+            f"{'دوحالته' if sig['kind'] == 'bool' else 'عددی'} · "
+            f"{sig['min']}..{sig['max']} {sig['unit'] or ''} · هر {sig.get('cycle', 0)} ms")
+
+
+def node_tip(node: dict) -> str:
+    """Hover text for a whole node."""
+    try:
+        info = _glossary().build()["nodes"].get(node["node"])
+        if info:
+            return (f"{node['node']} — {info['title']}\n{info['about']}\n"
+                    f"{node.get('nMsg', 0)} پیام · {node.get('nSig', 0)} سیگنال · "
+                    f"{node['net']}-CAN")
+    except Exception:                                             # noqa: BLE001
+        pass
+    return f"{node['node']} — {node['net']}-CAN"
+
+
+# --------------------------------------------------------------------------- #
 class Ctl:
     def __init__(self, kind, name, caption, loc, size, props=None):
         self.kind, self.name, self.caption = kind, name, caption
@@ -119,6 +159,20 @@ def text(name, caption, loc, body, size=(120, 16), small=False, bold=False):
     if bold:
         props["Font"] = "Microsoft Sans Serif, 8.25pt, style=B"
     return Ctl("text", name, "Static Text", loc, size, props)
+
+
+def infobtn(name, loc, tip, size=(13, 13)):
+    """A small circled "!" next to a control; CANoe shows `tip` on hover.
+
+    Static Text is used rather than a button because it takes no focus and cannot
+    be clicked by mistake while the panel is live.
+    """
+    return Ctl("text", name, "Static Text", loc, size, {
+        "Text": "(i)",
+        "Font": FONT_SMALL,
+        "ForeColor": "0, 90, 170",
+        "CustomToolTipText": tip,
+    })
 
 
 def switch(name, loc, var, size=(21, 26)):
@@ -161,10 +215,17 @@ def page_dashboard(nodes) -> str:
     c.append(text("TxtTitle", "Static Text", (10, 6),
                   "NBCM DENA - CANoe 12 tester   |   one panel for the whole bench",
                   (600, 20), bold=True))
-    c.append(text("TxtHint", "Static Text", (10, 26),
-                  "Set DRIVE_MODE=1 (TESTER) to let this panel and the HTML tester write "
-                  "the bus.  DRIVE_MODE=0 gives the bus back to the restbus.",
-                  (620, 16), small=True))
+    hint = text("TxtHint", "Static Text", (10, 26),
+                "Set DRIVE_MODE=1 (TESTER) to let this panel and the HTML tester write "
+                "the bus.  DRIVE_MODE=0 gives the bus back to the restbus.",
+                (596, 16), small=True)
+    hint.props["CustomToolTipText"] = (
+        "این پنل و تستر HTML هر دو روی یک شبیه‌سازی کار می‌کنند.\n"
+        "DRIVE_MODE=0 : اتوبوس دست restbus است و سناریو خودش رانندگی می‌کند.\n"
+        "DRIVE_MODE=1 : کنترل به تستر می‌رسد و هر چه در پنل یا HTML تغییر دهید روی باس می‌رود.\n"
+        "علامت (i) کنار هر سیگنال: نگه داشتن موس توضیح کوتاه، کلیک برای توضیح کامل در تستر HTML.")
+    c.append(hint)
+    c.append(infobtn("I_Hint", (614, 26), hint.props["CustomToolTipText"]))
 
     # --- instrument cluster ------------------------------------------------
     c.append(Ctl("group", "GrpCluster", "Group Box", (10, 46), (388, 150),
@@ -243,10 +304,15 @@ def page_nodes(nodes) -> str:
         c.append(switch(f"Sw_{ident(n['node'])}", (x + 10, y + 16), f"OFFLINE_{n['node']}"))
         c.append(led(f"Led_{ident(n['node'])}", (x + 36, y + 20),
                      f"OFFLINE_{n['node']}", (14, 14), on=(220, 60, 60), off=(0, 190, 90)))
-        c.append(text(f"Txt_{ident(n['node'])}", "Static Text", (x + 56, y + 18),
-                      "OFFLINE switch", (90, 15), small=True))
-        c.append(text(f"TxtCount_{ident(n['node'])}", "Static Text", (x + 56, y + 30),
-                      f"{n['nMsg']} msgs / {n['nSig']} sigs", (110, 15), small=True))
+        tip = node_tip(n)
+        nm = text(f"Txt_{ident(n['node'])}", "Static Text", (x + 56, y + 18),
+                  f"{n['node']} - OFFLINE switch", (100, 15), small=True)
+        cnt = text(f"TxtCount_{ident(n['node'])}", "Static Text", (x + 56, y + 30),
+                   f"{n['nMsg']} msgs / {n['nSig']} sigs", (110, 15), small=True)
+        for extra in (nm, cnt):
+            extra.props["CustomToolTipText"] = tip
+            c.append(extra)
+        c.append(infobtn(f"I_{ident(n['node'])}", (x + 178, y + 17), tip))
     return render_page("Nodes", c, 670, 312)
 
 
@@ -268,15 +334,29 @@ def page_signals(node, sigs) -> str:
         x = 8 + col * col_w
         yy = y + row * lh
         name = s["sig"]
-        c.append(text(f"L_{ident(name)}", "Static Text", (x, yy), name, (140, 14), small=True))
+        tip = signal_tip(s)
+        # the label and every control on the row carry the same explanation, so a
+        # hover anywhere on the row answers "what is this signal".
+        lbl = text(f"L_{ident(name)}", "Static Text", (x, yy), name, (128, 14), small=True)
+        lbl.props["CustomToolTipText"] = tip
+        c.append(lbl)
+        c.append(infobtn(f"I_{ident(name)}", (x + 130, yy - 1), tip))
         if s["kind"] == "bool":
-            c.append(led(f"V_{ident(name)}", (x + 142, yy + 1), name, (12, 12)))
-            c.append(switch(f"S_{ident(name)}", (x + 172, yy - 3), name, (18, 20)))
+            ledc = led(f"V_{ident(name)}", (x + 150, yy + 1), name, (12, 12))
+            swc = switch(f"S_{ident(name)}", (x + 180, yy - 3), name, (18, 20))
+            ledc.props["CustomToolTipText"] = tip
+            swc.props["CustomToolTipText"] = tip
+            c.append(ledc)
+            c.append(swc)
         else:
-            c.append(lcd(f"V_{ident(name)}", (x + 124, yy - 3), name, (52, 19), 0))
+            lcdc = lcd(f"V_{ident(name)}", (x + 150, yy - 3), name, (52, 19), 0)
             step = 1 if s["kind"] == "enum" else max(1, round((s["max"] - s["min"]) / 50))
-            c.append(num(f"S_{ident(name)}", (x + 180, yy - 2), name,
-                         s["min"], s["max"], step, (58, 18)))
+            numc = num(f"S_{ident(name)}", (x + 206, yy - 2), name,
+                       s["min"], s["max"], step, (58, 18))
+            lcdc.props["CustomToolTipText"] = tip
+            numc.props["CustomToolTipText"] = tip
+            c.append(lcdc)
+            c.append(numc)
     return render_page(node["node"], c, 670, 312)
 
 

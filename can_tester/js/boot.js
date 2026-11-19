@@ -7,6 +7,7 @@
 
   document.addEventListener('DOMContentLoaded', async () => {
     try {
+      global.Info.init();
       global.UI.init();
       global.Tests.init();
       const mode = C.settings.mode || 'sim';

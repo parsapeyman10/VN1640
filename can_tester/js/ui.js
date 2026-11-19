@@ -148,7 +148,11 @@
 
   function controlRow(s) {
     const tr = el('tr', { 'data-sig': s.sig, 'data-id': s.id });
-    tr.appendChild(el('td', { class: 'sigcol mono', title: s.sig + '\n' + s.id, text: s.sig }));
+    const nametd = el('td', { class: 'sigcol mono', title: s.sig + '\n' + s.id });
+    nametd.appendChild(el('span', { text: s.sig }));
+    // the circled "!" that explains the signal on hover and on click
+    if (global.Info) nametd.appendChild(global.Info.button(global.Info.record(s.id, s.sig), s.sig));
+    tr.appendChild(nametd);
 
     const vtd = el('td', { class: 'valcol' });
     const m = C.meta[s.sig];
@@ -190,7 +194,8 @@
     } else rtd.appendChild(el('span', { class: 'hint', text: '—' }));
     tr.appendChild(rtd);
 
-    tr.appendChild(el('td', { class: 'unitcol mono', title: s.msg, text: s.msg.replace(/^(HS|LS)_ID_/, '') + ' · ' + s.cycle + 'ms' }));
+    tr.appendChild(el('td', { class: 'unitcol mono', title: s.msg,
+      text: s.msg.replace(/^(HS|LS)_ID_/, '') + ' · ' + s.cycle + 'ms' }));
 
     const act = el('td');
     const tag = el('span', { class: 'out-tag' + (m.overridden ? ' on' : ''), text: m.overridden ? 'دستی' : 'باس' });
@@ -241,7 +246,9 @@
       if (!off) online += 1;
       const card = el('div', { class: 'node' + (off ? ' off' : ''), 'data-node': n.node });
       const top = el('div', { class: 'top' });
-      top.appendChild(el('span', { class: 'nm', text: n.node }));
+      const nm = el('span', { class: 'nm', text: n.node });
+      if (global.Info) nm.appendChild(global.Info.button(global.Info.record(null, null, n.node), n.node));
+      top.appendChild(nm);
       top.appendChild(el('span', { class: 'badge ' + n.net.toLowerCase(), text: n.net + '-CAN' }));
       card.appendChild(top);
       card.appendChild(el('div', { class: 'meta', text: n.nMsg + ' پیام · ' + n.nSig + ' سیگنال' }));

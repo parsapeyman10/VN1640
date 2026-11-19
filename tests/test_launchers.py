@@ -179,12 +179,69 @@ def test_main_panel_is_self_consistent():
     for must in ("Dashboard", "Nodes", "Monitor", "Tests"):
         check(f"page {must!r} present", must in labels)
 
-    # non-ASCII in panel text renders as a box with the default label font
+    # Labels must stay ASCII: the panel label font has no Persian glyphs, so a
+    # non-ASCII label renders as a row of empty boxes.  Tooltips are different
+    # (they are drawn by the OS tooltip window, not by the panel font), so they
+    # are allowed to carry the Persian explanation -- and must.
     odd = set()
     for prop in root.iter("Property"):
         if prop.get("Name") in ("Text", "LegendText") and prop.text:
             odd |= {c for c in prop.text if ord(c) > 127}
     check("panel labels are ASCII (no missing-glyph boxes)", not odd, "".join(sorted(odd)))
+
+    tips = [p.text for p in root.iter("Property")
+            if p.get("Name") == "CustomToolTipText" and p.text]
+    check("every signal row has a tooltip", len(tips) >= 1500, f"{len(tips)} tooltips")
+    check("tooltips carry a real explanation (not just a name)",
+          sum(1 for t in tips if len(t) > 120) > len(tips) * 0.95,
+          f"{sum(1 for t in tips if len(t) > 120)} long ones")
+    # a tooltip is useless if it repeats the label only.  Signal tooltips must
+    # name their message; a handful of panel-level tooltips explain a whole page
+    # or node and legitimately have none, so they are allowed to be the minority.
+    no_msg = [t for t in tips if "پیام" not in t]
+    check("signal tooltips name their message", len(no_msg) < 20,
+          f"{len(no_msg)} without a message line")
+    check("tooltips are Persian (the explanation the user asked for)",
+          sum(1 for t in tips if any('\u0600' <= c <= '\u06ff' for c in t)) > len(tips) * 0.95,
+          "most tooltips contain Persian")
+
+
+def test_every_signal_has_an_explanation():
+    """Every one of the 481 signals must answer "what is this?" somewhere.
+
+    The (i) button in the HTML tester and the tooltip in the CANoe panel read the
+    same generated data; if a signal is missing from it, one of the two shows
+    nothing, so the data is checked against the signal map instead of trusted.
+    """
+    import json
+    sys.path.insert(0, str(ROOT / "tools"))
+    import signal_glossary as gl
+
+    recs = gl.build()["signals"]
+    data = json.loads((ROOT / "can_tester" / "assets" / "signal_map.json")
+                      .read_text(encoding="utf-8"))
+    ids = {x["id"] for x in data["signals"]}
+    check("every signal has a record", not ids - set(recs),
+          ", ".join(sorted(ids - set(recs))[:5]))
+    empty = [k for k, r in recs.items() if not r["title"] or not r["about"]]
+    check("every record has a title and an explanation", not empty,
+          ", ".join(empty[:5]))
+    # a description that is only the raw name adds nothing the label did not say
+    thin = [k for k, r in recs.items() if r["title"] == r["name"]]
+    check("titles are human words, not raw names", len(thin) < len(recs) * 0.1,
+          f"{len(thin)} of {len(recs)}")
+    check("every node is explained", len(recs) and
+          set(gl.NODE_INFO) >= {n["node"] for n in data["nodes"]}, "")
+
+    # the browser twin must be written and agree with the python source
+    js = (ROOT / "can_tester" / "assets" / "descriptions.js")
+    check("descriptions.js exists (the tester loads it)", js.exists())
+    if js.exists():
+        txt = js.read_text(encoding="utf-8")
+        check("descriptions.js carries every signal",
+              all(f'"{k}":' in txt for k in list(ids)[:50]), "")
+        check("descriptions.js is valid JSON payload",
+              txt.count("{") > 400 and "window.NBCM_DESCRIPTIONS" in txt, "")
 
 
 def test_verdict_reaches_the_bridge():
@@ -406,6 +463,7 @@ def main() -> int:
                test_vsysvar_matches_canoe_shape,
                test_vsysvar_checker_rejects_broken_files,
                test_main_panel_is_self_consistent,
+               test_every_signal_has_an_explanation,
                test_verdict_reaches_the_bridge,
                test_package_is_consistent,
                test_find_bridge_fails_cleanly, test_launcher_dry_run,

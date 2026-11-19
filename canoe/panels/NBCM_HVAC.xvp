@@ -3,249 +3,889 @@
   <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Panel" Children="Controls" ControlName="NBCM HVAC">
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtTitle" Children="Controls" ControlName="Static Text">
       <Property Name="Name">TxtTitle</Property>
-      <Property Name="Size">230, 20</Property>
+      <Property Name="Size">210, 20</Property>
       <Property Name="Location">10, 8</Property>
       <Property Name="Text">HVAC  -  LS-CAN  -  4 messages / 16 signals</Property>
+      <Property Name="CustomToolTipText">HVAC — تهویه و کولر
+وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+4 پیام · 16 سیگنال · LS-CAN</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Node" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Node</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">224, 7</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">HVAC — تهویه و کولر
+وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+4 پیام · 16 سیگنال · LS-CAN</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_DIAG_RESP" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_LS_HVAC_DIAG_RESP</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 40</Property>
       <Property Name="Text">LS_HVAC_DIAG_RESP</Property>
+      <Property Name="CustomToolTipText">دیباگ · پاسخ — HVAC / LS_ID_DIAG_RESP_HVAC
+فریم LS_ID_DIAG_RESP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+تشخیص عیب
+جواب درخواست رسیده
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_DIAG_RESP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_LS_HVAC_DIAG_RESP" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_LS_HVAC_DIAG_RESP</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 39</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">دیباگ · پاسخ — HVAC / LS_ID_DIAG_RESP_HVAC
+فریم LS_ID_DIAG_RESP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+تشخیص عیب
+جواب درخواست رسیده
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_DIAG_RESP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_HVAC_DIAG_RESP" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_LS_HVAC_DIAG_RESP</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 38</Property>
+      <Property Name="Location">172, 38</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_DIAG_RESP;1;;;-1</Property>
+      <Property Name="CustomToolTipText">دیباگ · پاسخ — HVAC / LS_ID_DIAG_RESP_HVAC
+فریم LS_ID_DIAG_RESP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+تشخیص عیب
+جواب درخواست رسیده
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_DIAG_RESP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_FAULT_ID" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_LS_HVAC_FAULT_ID</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 66</Property>
       <Property Name="Text">LS_HVAC_FAULT_ID</Property>
+      <Property Name="CustomToolTipText">خطا · شناسه — HVAC / LS_ID_FR_HVAC
+فریم LS_ID_FR_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+وقتی ۱ شود یعنی آن بخش ایراد دارد
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_FR_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_LS_HVAC_FAULT_ID" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_LS_HVAC_FAULT_ID</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 65</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">خطا · شناسه — HVAC / LS_ID_FR_HVAC
+فریم LS_ID_FR_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+وقتی ۱ شود یعنی آن بخش ایراد دارد
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_FR_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_HVAC_FAULT_ID" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_LS_HVAC_FAULT_ID</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 64</Property>
+      <Property Name="Location">172, 64</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_FAULT_ID;1;;;-1</Property>
+      <Property Name="CustomToolTipText">خطا · شناسه — HVAC / LS_ID_FR_HVAC
+فریم LS_ID_FR_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+وقتی ۱ شود یعنی آن بخش ایراد دارد
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_FR_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_FAULT_STATUS" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_LS_HVAC_FAULT_STATUS</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 92</Property>
       <Property Name="Text">LS_HVAC_FAULT_STATUS</Property>
+      <Property Name="CustomToolTipText">خطا · وضعیت — HVAC / LS_ID_FR_HVAC
+فریم LS_ID_FR_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+وقتی ۱ شود یعنی آن بخش ایراد دارد
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_FR_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_LS_HVAC_FAULT_STATUS" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_LS_HVAC_FAULT_STATUS</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 91</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">خطا · وضعیت — HVAC / LS_ID_FR_HVAC
+فریم LS_ID_FR_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+وقتی ۱ شود یعنی آن بخش ایراد دارد
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_FR_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_HVAC_FAULT_STATUS" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_LS_HVAC_FAULT_STATUS</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 93</Property>
+      <Property Name="Location">174, 93</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_FAULT_STATUS;1;;;-1</Property>
+      <Property Name="CustomToolTipText">خطا · وضعیت — HVAC / LS_ID_FR_HVAC
+فریم LS_ID_FR_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+وقتی ۱ شود یعنی آن بخش ایراد دارد
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_FR_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_AC_SW" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_LS_HVAC_AC_SW</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 118</Property>
       <Property Name="Text">LS_HVAC_AC_SW</Property>
+      <Property Name="CustomToolTipText">کولر · کلید — HVAC / LS_ID_INFO_HVAC
+فریم LS_ID_INFO_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+سوئیچ نرم‌افزاری
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_INFO_HVAC
+چرخه ارسال: هر 100 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_LS_HVAC_AC_SW" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_LS_HVAC_AC_SW</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 117</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">کولر · کلید — HVAC / LS_ID_INFO_HVAC
+فریم LS_ID_INFO_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+سوئیچ نرم‌افزاری
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_INFO_HVAC
+چرخه ارسال: هر 100 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_HVAC_AC_SW" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_LS_HVAC_AC_SW</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 119</Property>
+      <Property Name="Location">174, 119</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_AC_SW;1;;;-1</Property>
+      <Property Name="CustomToolTipText">کولر · کلید — HVAC / LS_ID_INFO_HVAC
+فریم LS_ID_INFO_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+سوئیچ نرم‌افزاری
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_INFO_HVAC
+چرخه ارسال: هر 100 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_INDOOR_TEMP" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_LS_HVAC_INDOOR_TEMP</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 144</Property>
       <Property Name="Text">LS_HVAC_INDOOR_TEMP</Property>
+      <Property Name="CustomToolTipText">نشانگر · دما — HVAC / LS_ID_INFO_HVAC
+فریم LS_ID_INFO_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+درجه سانتی‌گراد
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_INFO_HVAC
+چرخه ارسال: هر 100 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_LS_HVAC_INDOOR_TEMP" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_LS_HVAC_INDOOR_TEMP</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 143</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">نشانگر · دما — HVAC / LS_ID_INFO_HVAC
+فریم LS_ID_INFO_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+درجه سانتی‌گراد
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_INFO_HVAC
+چرخه ارسال: هر 100 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_HVAC_INDOOR_TEMP" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_LS_HVAC_INDOOR_TEMP</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 142</Property>
+      <Property Name="Location">172, 142</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_INDOOR_TEMP;1;;;-1</Property>
+      <Property Name="CustomToolTipText">نشانگر · دما — HVAC / LS_ID_INFO_HVAC
+فریم LS_ID_INFO_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+درجه سانتی‌گراد
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_INFO_HVAC
+چرخه ارسال: هر 100 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_SHT_SW" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_LS_HVAC_SHT_SW</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 170</Property>
       <Property Name="Text">LS_HVAC_SHT_SW</Property>
+      <Property Name="CustomToolTipText">LS_HVAC_SHT_SW — HVAC — HVAC / LS_ID_INFO_HVAC
+تهویه و کولر این سیگنال را در فریم LS_ID_INFO_HVAC می‌فرستد. نامش در مجموعه داده اصلی توضیح داده نشده، پس معنی بیت‌به‌بیت آن را نمی‌سازیم؛ فقط مشخصات فنی همین فریم و بازه مقدار معتبر است.
+سوئیچ نرم‌افزاری
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_INFO_HVAC
+چرخه ارسال: هر 100 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_LS_HVAC_SHT_SW" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_LS_HVAC_SHT_SW</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 169</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">LS_HVAC_SHT_SW — HVAC — HVAC / LS_ID_INFO_HVAC
+تهویه و کولر این سیگنال را در فریم LS_ID_INFO_HVAC می‌فرستد. نامش در مجموعه داده اصلی توضیح داده نشده، پس معنی بیت‌به‌بیت آن را نمی‌سازیم؛ فقط مشخصات فنی همین فریم و بازه مقدار معتبر است.
+سوئیچ نرم‌افزاری
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_INFO_HVAC
+چرخه ارسال: هر 100 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_HVAC_SHT_SW" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_LS_HVAC_SHT_SW</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 171</Property>
+      <Property Name="Location">174, 171</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_SHT_SW;1;;;-1</Property>
+      <Property Name="CustomToolTipText">LS_HVAC_SHT_SW — HVAC — HVAC / LS_ID_INFO_HVAC
+تهویه و کولر این سیگنال را در فریم LS_ID_INFO_HVAC می‌فرستد. نامش در مجموعه داده اصلی توضیح داده نشده، پس معنی بیت‌به‌بیت آن را نمی‌سازیم؛ فقط مشخصات فنی همین فریم و بازه مقدار معتبر است.
+سوئیچ نرم‌افزاری
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_INFO_HVAC
+چرخه ارسال: هر 100 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_BUSOFF_COUNTER" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_LS_HVAC_BUSOFF_COUNTER</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 196</Property>
       <Property Name="Text">LS_HVAC_BUSOFF_COUNTER</Property>
+      <Property Name="CustomToolTipText">Bus Off · شمارنده — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+کنترلر CAN از باس جدا شده و تا ریست برنمی‌گردد
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_LS_HVAC_BUSOFF_COUNTER" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_LS_HVAC_BUSOFF_COUNTER</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 195</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">Bus Off · شمارنده — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+کنترلر CAN از باس جدا شده و تا ریست برنمی‌گردد
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_HVAC_BUSOFF_COUNTER" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_LS_HVAC_BUSOFF_COUNTER</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 194</Property>
+      <Property Name="Location">172, 194</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_BUSOFF_COUNTER;1;;;-1</Property>
+      <Property Name="CustomToolTipText">Bus Off · شمارنده — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+کنترلر CAN از باس جدا شده و تا ریست برنمی‌گردد
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_BUS_ERROR" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_LS_HVAC_BUS_ERROR</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 222</Property>
       <Property Name="Text">LS_HVAC_BUS_ERROR</Property>
+      <Property Name="CustomToolTipText">باس · خطا — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_LS_HVAC_BUS_ERROR" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_LS_HVAC_BUS_ERROR</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 221</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">باس · خطا — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_HVAC_BUS_ERROR" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_LS_HVAC_BUS_ERROR</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 223</Property>
+      <Property Name="Location">174, 223</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_BUS_ERROR;1;;;-1</Property>
+      <Property Name="CustomToolTipText">باس · خطا — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_BUS_ERROR_COUNTER" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_LS_HVAC_BUS_ERROR_COUNTER</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 248</Property>
       <Property Name="Text">LS_HVAC_BUS_ERROR_COUNTER</Property>
+      <Property Name="CustomToolTipText">باس · خطا · شمارنده — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_LS_HVAC_BUS_ERROR_COUNTER" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_LS_HVAC_BUS_ERROR_COUNTER</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 247</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">باس · خطا · شمارنده — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_HVAC_BUS_ERROR_COUNTER" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_LS_HVAC_BUS_ERROR_COUNTER</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 246</Property>
+      <Property Name="Location">172, 246</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_BUS_ERROR_COUNTER;1;;;-1</Property>
+      <Property Name="CustomToolTipText">باس · خطا · شمارنده — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_COM_LOSS" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_LS_HVAC_COM_LOSS</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 274</Property>
       <Property Name="Text">LS_HVAC_COM_LOSS</Property>
+      <Property Name="CustomToolTipText">ارتباط · از دست رفتن — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+قطع ارتباط با آن بخش
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_LS_HVAC_COM_LOSS" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_LS_HVAC_COM_LOSS</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 273</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ارتباط · از دست رفتن — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+قطع ارتباط با آن بخش
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_HVAC_COM_LOSS" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_LS_HVAC_COM_LOSS</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 275</Property>
+      <Property Name="Location">174, 275</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_COM_LOSS;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ارتباط · از دست رفتن — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+قطع ارتباط با آن بخش
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_COM_LOSS_COUNTER" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_LS_HVAC_COM_LOSS_COUNTER</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 300</Property>
       <Property Name="Text">LS_HVAC_COM_LOSS_COUNTER</Property>
+      <Property Name="CustomToolTipText">ارتباط · از دست رفتن · شمارنده — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+قطع ارتباط با آن بخش
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_LS_HVAC_COM_LOSS_COUNTER" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_LS_HVAC_COM_LOSS_COUNTER</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 299</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ارتباط · از دست رفتن · شمارنده — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+قطع ارتباط با آن بخش
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_HVAC_COM_LOSS_COUNTER" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_LS_HVAC_COM_LOSS_COUNTER</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 298</Property>
+      <Property Name="Location">172, 298</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_COM_LOSS_COUNTER;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ارتباط · از دست رفتن · شمارنده — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+قطع ارتباط با آن بخش
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_DIAG_MODE" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_LS_HVAC_DIAG_MODE</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 326</Property>
       <Property Name="Text">LS_HVAC_DIAG_MODE</Property>
+      <Property Name="CustomToolTipText">دیباگ · حالت — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+تشخیص عیب
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_LS_HVAC_DIAG_MODE" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_LS_HVAC_DIAG_MODE</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 325</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">دیباگ · حالت — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+تشخیص عیب
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_HVAC_DIAG_MODE" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_LS_HVAC_DIAG_MODE</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 327</Property>
+      <Property Name="Location">174, 327</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_DIAG_MODE;1;;;-1</Property>
+      <Property Name="CustomToolTipText">دیباگ · حالت — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+تشخیص عیب
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_NBCM_DYN_ABSENT" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_LS_HVAC_NBCM_DYN_ABSENT</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 352</Property>
       <Property Name="Text">LS_HVAC_NBCM_DYN_ABSENT</Property>
+      <Property Name="CustomToolTipText">NBCM · تعداد · غایب — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+بدنه و شبکه
+نبودن یا قطع‌بودن مؤلفه
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_LS_HVAC_NBCM_DYN_ABSENT" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_LS_HVAC_NBCM_DYN_ABSENT</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 351</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">NBCM · تعداد · غایب — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+بدنه و شبکه
+نبودن یا قطع‌بودن مؤلفه
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_HVAC_NBCM_DYN_ABSENT" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_LS_HVAC_NBCM_DYN_ABSENT</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 353</Property>
+      <Property Name="Location">174, 353</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_NBCM_DYN_ABSENT;1;;;-1</Property>
+      <Property Name="CustomToolTipText">NBCM · تعداد · غایب — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+بدنه و شبکه
+نبودن یا قطع‌بودن مؤلفه
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_NBCM_STATIC_ABSENT" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_LS_HVAC_NBCM_STATIC_ABSENT</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 378</Property>
       <Property Name="Text">LS_HVAC_NBCM_STATIC_ABSENT</Property>
+      <Property Name="CustomToolTipText">NBCM · ثابت · غایب — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+بدنه و شبکه
+نبودن یا قطع‌بودن مؤلفه
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_LS_HVAC_NBCM_STATIC_ABSENT" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_LS_HVAC_NBCM_STATIC_ABSENT</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 377</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">NBCM · ثابت · غایب — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+بدنه و شبکه
+نبودن یا قطع‌بودن مؤلفه
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_HVAC_NBCM_STATIC_ABSENT" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_LS_HVAC_NBCM_STATIC_ABSENT</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 379</Property>
+      <Property Name="Location">174, 379</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_NBCM_STATIC_ABSENT;1;;;-1</Property>
+      <Property Name="CustomToolTipText">NBCM · ثابت · غایب — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+بدنه و شبکه
+نبودن یا قطع‌بودن مؤلفه
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_NM_STATE" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_LS_HVAC_NM_STATE</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 404</Property>
       <Property Name="Text">LS_HVAC_NM_STATE</Property>
+      <Property Name="CustomToolTipText">مدیریت شبکه · وضعیت — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+فریم‌های بیدارباش و خواب
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_LS_HVAC_NM_STATE" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_LS_HVAC_NM_STATE</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 403</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مدیریت شبکه · وضعیت — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+فریم‌های بیدارباش و خواب
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_LS_HVAC_NM_STATE" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_LS_HVAC_NM_STATE</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 405</Property>
+      <Property Name="Location">174, 405</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_NM_STATE;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مدیریت شبکه · وضعیت — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+فریم‌های بیدارباش و خواب
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_HVAC_TX_TIMEOUT_COUNTER" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_LS_HVAC_TX_TIMEOUT_COUNTER</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 430</Property>
       <Property Name="Text">LS_HVAC_TX_TIMEOUT_COUNTER</Property>
+      <Property Name="CustomToolTipText">ارسال · تایم‌اوت · شمارنده — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+این گره فرستنده است
+طولانی‌شدن فاصله فریم‌ها
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_LS_HVAC_TX_TIMEOUT_COUNTER" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_LS_HVAC_TX_TIMEOUT_COUNTER</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 429</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ارسال · تایم‌اوت · شمارنده — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+این گره فرستنده است
+طولانی‌شدن فاصله فریم‌ها
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_HVAC_TX_TIMEOUT_COUNTER" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_LS_HVAC_TX_TIMEOUT_COUNTER</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 428</Property>
+      <Property Name="Location">172, 428</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_HVAC_TX_TIMEOUT_COUNTER;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ارسال · تایم‌اوت · شمارنده — HVAC / LS_ID_SUP_HVAC
+فریم LS_ID_SUP_HVAC که HVAC روی شبکه LS می‌فرستد. وضعیت کولر، دمای تنظیم‌شده، سرعت فن و وضعیت دریچه‌ها را گزارش می‌کند.
+این گره فرستنده است
+طولانی‌شدن فاصله فریم‌ها
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: HVAC — تهویه و کولر
+پیام: LS_ID_SUP_HVAC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Property Name="Name">NBCM HVAC</Property>
     <Property Name="Size">262, 926</Property>

@@ -3,414 +3,1472 @@
   <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Panel" Children="Controls" ControlName="NBCM ICU">
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtTitle" Children="Controls" ControlName="Static Text">
       <Property Name="Name">TxtTitle</Property>
-      <Property Name="Size">230, 20</Property>
+      <Property Name="Size">210, 20</Property>
       <Property Name="Location">10, 8</Property>
       <Property Name="Text">ICU  -  HS-CAN  -  9 messages / 27 signals</Property>
+      <Property Name="CustomToolTipText">ICU — دستگاه نشانگر (پشت آمپر)
+کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+9 پیام · 27 سیگنال · HS-CAN</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Node" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Node</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">224, 7</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ICU — دستگاه نشانگر (پشت آمپر)
+کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+9 پیام · 27 سیگنال · HS-CAN</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Diagnostic_Request" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Icu_Diagnostic_Request</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 40</Property>
       <Property Name="Text">Hs_Icu_Diagnostic_Request</Property>
+      <Property Name="CustomToolTipText">تشخیص عیب · درخواست — ICU / HS_ID_ICU_DIAG_REQ
+فریم HS_ID_ICU_DIAG_REQ که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_DIAG_REQ
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Icu_Diagnostic_Request" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Icu_Diagnostic_Request</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 39</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">تشخیص عیب · درخواست — ICU / HS_ID_ICU_DIAG_REQ
+فریم HS_ID_ICU_DIAG_REQ که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_DIAG_REQ
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Icu_Diagnostic_Request" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Icu_Diagnostic_Request</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 38</Property>
+      <Property Name="Location">172, 38</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Diagnostic_Request;1;;;-1</Property>
+      <Property Name="CustomToolTipText">تشخیص عیب · درخواست — ICU / HS_ID_ICU_DIAG_REQ
+فریم HS_ID_ICU_DIAG_REQ که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_DIAG_REQ
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Ems_dialog" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Icu_Ems_dialog</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 66</Property>
       <Property Name="Text">Hs_Icu_Ems_dialog</Property>
+      <Property Name="CustomToolTipText">EMS · دیالوگ — ICU / HS_ID_ICU_E1
+فریم HS_ID_ICU_E1 که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+مدیریت موتور
+تبادل پیام برای تأیید دسترسی
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_E1
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Icu_Ems_dialog" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Icu_Ems_dialog</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 65</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">EMS · دیالوگ — ICU / HS_ID_ICU_E1
+فریم HS_ID_ICU_E1 که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+مدیریت موتور
+تبادل پیام برای تأیید دسترسی
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_E1
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Icu_Ems_dialog" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Icu_Ems_dialog</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 64</Property>
+      <Property Name="Location">172, 64</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Ems_dialog;1;;;-1</Property>
+      <Property Name="CustomToolTipText">EMS · دیالوگ — ICU / HS_ID_ICU_E1
+فریم HS_ID_ICU_E1 که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+مدیریت موتور
+تبادل پیام برای تأیید دسترسی
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_E1
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Ems_Status" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Icu_Ems_Status</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 92</Property>
       <Property Name="Text">Hs_Icu_Ems_Status</Property>
+      <Property Name="CustomToolTipText">EMS · وضعیت — ICU / HS_ID_ICU_INFO
+فریم HS_ID_ICU_INFO که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+مدیریت موتور
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_INFO
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Icu_Ems_Status" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Icu_Ems_Status</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 91</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">EMS · وضعیت — ICU / HS_ID_ICU_INFO
+فریم HS_ID_ICU_INFO که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+مدیریت موتور
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_INFO
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Icu_Ems_Status" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Icu_Ems_Status</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 93</Property>
+      <Property Name="Location">174, 93</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">255</Property>
       <Property Name="Increment">2.55</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Ems_Status;1;;;-1</Property>
+      <Property Name="CustomToolTipText">EMS · وضعیت — ICU / HS_ID_ICU_INFO
+فریم HS_ID_ICU_INFO که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+مدیریت موتور
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_INFO
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Immo_Hardware_Version" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Icu_Immo_Hardware_Version</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 118</Property>
       <Property Name="Text">Hs_Icu_Immo_Hardware_Version</Property>
+      <Property Name="CustomToolTipText">IMMO · نسخه — ICU / HS_ID_ICU_INFO
+فریم HS_ID_ICU_INFO که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_INFO
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Icu_Immo_Hardware_Version" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Icu_Immo_Hardware_Version</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 117</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">IMMO · نسخه — ICU / HS_ID_ICU_INFO
+فریم HS_ID_ICU_INFO که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_INFO
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Icu_Immo_Hardware_Version" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Icu_Immo_Hardware_Version</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 119</Property>
+      <Property Name="Location">174, 119</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">255</Property>
       <Property Name="Increment">2.55</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Immo_Hardware_Version;1;;;-1</Property>
+      <Property Name="CustomToolTipText">IMMO · نسخه — ICU / HS_ID_ICU_INFO
+فریم HS_ID_ICU_INFO که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_INFO
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Immo_Lamp_Command" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Icu_Immo_Lamp_Command</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 144</Property>
       <Property Name="Text">Hs_Icu_Immo_Lamp_Command</Property>
+      <Property Name="CustomToolTipText">IMMO · چراغ · فرمان — ICU / HS_ID_ICU_INFO
+فریم HS_ID_ICU_INFO که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+لامپ روی آمپر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_INFO
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 5 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Icu_Immo_Lamp_Command" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Icu_Immo_Lamp_Command</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 143</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">IMMO · چراغ · فرمان — ICU / HS_ID_ICU_INFO
+فریم HS_ID_ICU_INFO که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+لامپ روی آمپر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_INFO
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 5 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Icu_Immo_Lamp_Command" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Icu_Immo_Lamp_Command</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 145</Property>
+      <Property Name="Location">174, 145</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">5</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Immo_Lamp_Command;1;;;-1</Property>
+      <Property Name="CustomToolTipText">IMMO · چراغ · فرمان — ICU / HS_ID_ICU_INFO
+فریم HS_ID_ICU_INFO که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+لامپ روی آمپر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_INFO
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 5 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Immo_Output_Lamp_St" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Icu_Immo_Output_Lamp_St</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 170</Property>
       <Property Name="Text">Hs_Icu_Immo_Output_Lamp_St</Property>
+      <Property Name="CustomToolTipText">IMMO · موقعیت دریچه · چراغ · وضعیت — ICU / HS_ID_ICU_INFO
+فریم HS_ID_ICU_INFO که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+درجه
+لامپ روی آمپر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_INFO
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Icu_Immo_Output_Lamp_St" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Icu_Immo_Output_Lamp_St</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 169</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">IMMO · موقعیت دریچه · چراغ · وضعیت — ICU / HS_ID_ICU_INFO
+فریم HS_ID_ICU_INFO که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+درجه
+لامپ روی آمپر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_INFO
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Icu_Immo_Output_Lamp_St" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Icu_Immo_Output_Lamp_St</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 168</Property>
+      <Property Name="Location">172, 168</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Immo_Output_Lamp_St;1;;;-1</Property>
+      <Property Name="CustomToolTipText">IMMO · موقعیت دریچه · چراغ · وضعیت — ICU / HS_ID_ICU_INFO
+فریم HS_ID_ICU_INFO که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+درجه
+لامپ روی آمپر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_INFO
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Immo_Production_Date" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Icu_Immo_Production_Date</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 196</Property>
       <Property Name="Text">Hs_Icu_Immo_Production_Date</Property>
+      <Property Name="CustomToolTipText">IMMO · روشن · تاریخ — ICU / HS_ID_ICU_INFO
+فریم HS_ID_ICU_INFO که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_INFO
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 65535 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Icu_Immo_Production_Date" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Icu_Immo_Production_Date</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 195</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">IMMO · روشن · تاریخ — ICU / HS_ID_ICU_INFO
+فریم HS_ID_ICU_INFO که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_INFO
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 65535 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Icu_Immo_Production_Date" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Icu_Immo_Production_Date</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 197</Property>
+      <Property Name="Location">174, 197</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">65535</Property>
       <Property Name="Increment">655.35</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Immo_Production_Date;1;;;-1</Property>
+      <Property Name="CustomToolTipText">IMMO · روشن · تاریخ — ICU / HS_ID_ICU_INFO
+فریم HS_ID_ICU_INFO که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_INFO
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 65535 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Immo_Software_Version" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Icu_Immo_Software_Version</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 222</Property>
       <Property Name="Text">Hs_Icu_Immo_Software_Version</Property>
+      <Property Name="CustomToolTipText">IMMO · F · نسخه — ICU / HS_ID_ICU_INFO
+فریم HS_ID_ICU_INFO که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_INFO
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Icu_Immo_Software_Version" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Icu_Immo_Software_Version</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 221</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">IMMO · F · نسخه — ICU / HS_ID_ICU_INFO
+فریم HS_ID_ICU_INFO که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_INFO
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Icu_Immo_Software_Version" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Icu_Immo_Software_Version</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 223</Property>
+      <Property Name="Location">174, 223</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">255</Property>
       <Property Name="Increment">2.55</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Immo_Software_Version;1;;;-1</Property>
+      <Property Name="CustomToolTipText">IMMO · F · نسخه — ICU / HS_ID_ICU_INFO
+فریم HS_ID_ICU_INFO که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_INFO
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Key_Inside" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Icu_Key_Inside</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 248</Property>
       <Property Name="Text">Hs_Icu_Key_Inside</Property>
+      <Property Name="CustomToolTipText">کلید · داخل — ICU / HS_ID_ICU_INFO
+فریم HS_ID_ICU_INFO که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_INFO
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Icu_Key_Inside" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Icu_Key_Inside</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 247</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">کلید · داخل — ICU / HS_ID_ICU_INFO
+فریم HS_ID_ICU_INFO که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_INFO
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Icu_Key_Inside" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Icu_Key_Inside</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 246</Property>
+      <Property Name="Location">172, 246</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Key_Inside;1;;;-1</Property>
+      <Property Name="CustomToolTipText">کلید · داخل — ICU / HS_ID_ICU_INFO
+فریم HS_ID_ICU_INFO که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_INFO
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Tp_Position" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Icu_Tp_Position</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 274</Property>
       <Property Name="Text">Hs_Icu_Tp_Position</Property>
+      <Property Name="CustomToolTipText">موقعیت دریچه · موقعیت — ICU / HS_ID_ICU_INFO
+فریم HS_ID_ICU_INFO که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+درجه
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_INFO
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 5 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Icu_Tp_Position" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Icu_Tp_Position</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 273</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">موقعیت دریچه · موقعیت — ICU / HS_ID_ICU_INFO
+فریم HS_ID_ICU_INFO که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+درجه
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_INFO
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 5 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Icu_Tp_Position" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Icu_Tp_Position</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 275</Property>
+      <Property Name="Location">174, 275</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">5</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Tp_Position;1;;;-1</Property>
+      <Property Name="CustomToolTipText">موقعیت دریچه · موقعیت — ICU / HS_ID_ICU_INFO
+فریم HS_ID_ICU_INFO که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+درجه
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_INFO
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 5 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Reset_Req_1" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Icu_Reset_Req_1</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 300</Property>
       <Property Name="Text">Hs_Icu_Reset_Req_1</Property>
+      <Property Name="CustomToolTipText">ریست · درخواست — ICU / HS_ID_ICU_RESET_REQ
+فریم HS_ID_ICU_RESET_REQ که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+شروع دوباره و صفرشدن مقادیر
+این ECU از دیگری کاری می‌خواهد
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_RESET_REQ
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4294967295 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Icu_Reset_Req_1" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Icu_Reset_Req_1</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 299</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ریست · درخواست — ICU / HS_ID_ICU_RESET_REQ
+فریم HS_ID_ICU_RESET_REQ که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+شروع دوباره و صفرشدن مقادیر
+این ECU از دیگری کاری می‌خواهد
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_RESET_REQ
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4294967295 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Icu_Reset_Req_1" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Icu_Reset_Req_1</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 301</Property>
+      <Property Name="Location">174, 301</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">4294967295</Property>
       <Property Name="Increment">4.29497e+07</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Reset_Req_1;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ریست · درخواست — ICU / HS_ID_ICU_RESET_REQ
+فریم HS_ID_ICU_RESET_REQ که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+شروع دوباره و صفرشدن مقادیر
+این ECU از دیگری کاری می‌خواهد
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_RESET_REQ
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4294967295 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Reset_Req_2" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Icu_Reset_Req_2</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 326</Property>
       <Property Name="Text">Hs_Icu_Reset_Req_2</Property>
+      <Property Name="CustomToolTipText">ریست · درخواست — ICU / HS_ID_ICU_RESET_REQ
+فریم HS_ID_ICU_RESET_REQ که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+شروع دوباره و صفرشدن مقادیر
+این ECU از دیگری کاری می‌خواهد
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_RESET_REQ
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4294967295 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Icu_Reset_Req_2" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Icu_Reset_Req_2</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 325</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ریست · درخواست — ICU / HS_ID_ICU_RESET_REQ
+فریم HS_ID_ICU_RESET_REQ که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+شروع دوباره و صفرشدن مقادیر
+این ECU از دیگری کاری می‌خواهد
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_RESET_REQ
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4294967295 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Icu_Reset_Req_2" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Icu_Reset_Req_2</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 327</Property>
+      <Property Name="Location">174, 327</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">4294967295</Property>
       <Property Name="Increment">4.29497e+07</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Reset_Req_2;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ریست · درخواست — ICU / HS_ID_ICU_RESET_REQ
+فریم HS_ID_ICU_RESET_REQ که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+شروع دوباره و صفرشدن مقادیر
+این ECU از دیگری کاری می‌خواهد
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_RESET_REQ
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4294967295 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Bus_OFF_Counter" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Icu_Bus_OFF_Counter</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 352</Property>
       <Property Name="Text">Hs_Icu_Bus_OFF_Counter</Property>
+      <Property Name="CustomToolTipText">باس · خاموش · شمارنده — ICU / HS_ID_ICU_SUP
+فریم HS_ID_ICU_SUP که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Icu_Bus_OFF_Counter" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Icu_Bus_OFF_Counter</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 351</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">باس · خاموش · شمارنده — ICU / HS_ID_ICU_SUP
+فریم HS_ID_ICU_SUP که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Icu_Bus_OFF_Counter" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Icu_Bus_OFF_Counter</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 353</Property>
+      <Property Name="Location">174, 353</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">255</Property>
       <Property Name="Increment">2.55</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Bus_OFF_Counter;1;;;-1</Property>
+      <Property Name="CustomToolTipText">باس · خاموش · شمارنده — ICU / HS_ID_ICU_SUP
+فریم HS_ID_ICU_SUP که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Com_Loss" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Icu_Com_Loss</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 378</Property>
       <Property Name="Text">Hs_Icu_Com_Loss</Property>
+      <Property Name="CustomToolTipText">ارتباط · از دست رفتن — ICU / HS_ID_ICU_SUP
+فریم HS_ID_ICU_SUP که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+قطع ارتباط با آن بخش
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Icu_Com_Loss" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Icu_Com_Loss</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 377</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ارتباط · از دست رفتن — ICU / HS_ID_ICU_SUP
+فریم HS_ID_ICU_SUP که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+قطع ارتباط با آن بخش
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Icu_Com_Loss" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Icu_Com_Loss</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 376</Property>
+      <Property Name="Location">172, 376</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Com_Loss;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ارتباط · از دست رفتن — ICU / HS_ID_ICU_SUP
+فریم HS_ID_ICU_SUP که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+قطع ارتباط با آن بخش
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Com_Loss_Counter" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Icu_Com_Loss_Counter</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 404</Property>
       <Property Name="Text">Hs_Icu_Com_Loss_Counter</Property>
+      <Property Name="CustomToolTipText">ارتباط · از دست رفتن · شمارنده — ICU / HS_ID_ICU_SUP
+فریم HS_ID_ICU_SUP که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+قطع ارتباط با آن بخش
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Icu_Com_Loss_Counter" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Icu_Com_Loss_Counter</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 403</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ارتباط · از دست رفتن · شمارنده — ICU / HS_ID_ICU_SUP
+فریم HS_ID_ICU_SUP که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+قطع ارتباط با آن بخش
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Icu_Com_Loss_Counter" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Icu_Com_Loss_Counter</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 405</Property>
+      <Property Name="Location">174, 405</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">255</Property>
       <Property Name="Increment">2.55</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Com_Loss_Counter;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ارتباط · از دست رفتن · شمارنده — ICU / HS_ID_ICU_SUP
+فریم HS_ID_ICU_SUP که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+قطع ارتباط با آن بخش
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Diag_Mode" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Icu_Diag_Mode</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 430</Property>
       <Property Name="Text">Hs_Icu_Diag_Mode</Property>
+      <Property Name="CustomToolTipText">دیباگ · حالت — ICU / HS_ID_ICU_SUP
+فریم HS_ID_ICU_SUP که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+تشخیص عیب
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Icu_Diag_Mode" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Icu_Diag_Mode</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 429</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">دیباگ · حالت — ICU / HS_ID_ICU_SUP
+فریم HS_ID_ICU_SUP که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+تشخیص عیب
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Icu_Diag_Mode" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Icu_Diag_Mode</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 428</Property>
+      <Property Name="Location">172, 428</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Diag_Mode;1;;;-1</Property>
+      <Property Name="CustomToolTipText">دیباگ · حالت — ICU / HS_ID_ICU_SUP
+فریم HS_ID_ICU_SUP که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+تشخیص عیب
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Ecu_Dynamic_States" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Icu_Ecu_Dynamic_States</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 456</Property>
       <Property Name="Text">Hs_Icu_Ecu_Dynamic_States</Property>
+      <Property Name="CustomToolTipText">ECU · پویا · وضعیت — ICU / HS_ID_ICU_SUP
+فریم HS_ID_ICU_SUP که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+کنترل‌کننده
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Icu_Ecu_Dynamic_States" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Icu_Ecu_Dynamic_States</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 455</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ECU · پویا · وضعیت — ICU / HS_ID_ICU_SUP
+فریم HS_ID_ICU_SUP که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+کنترل‌کننده
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Icu_Ecu_Dynamic_States" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Icu_Ecu_Dynamic_States</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 457</Property>
+      <Property Name="Location">174, 457</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">255</Property>
       <Property Name="Increment">2.55</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Ecu_Dynamic_States;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ECU · پویا · وضعیت — ICU / HS_ID_ICU_SUP
+فریم HS_ID_ICU_SUP که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+کنترل‌کننده
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Ecu_Static_States" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Icu_Ecu_Static_States</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 482</Property>
       <Property Name="Text">Hs_Icu_Ecu_Static_States</Property>
+      <Property Name="CustomToolTipText">ECU · ثابت · وضعیت — ICU / HS_ID_ICU_SUP
+فریم HS_ID_ICU_SUP که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+کنترل‌کننده
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Icu_Ecu_Static_States" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Icu_Ecu_Static_States</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 481</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ECU · ثابت · وضعیت — ICU / HS_ID_ICU_SUP
+فریم HS_ID_ICU_SUP که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+کنترل‌کننده
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Icu_Ecu_Static_States" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Icu_Ecu_Static_States</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 483</Property>
+      <Property Name="Location">174, 483</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">255</Property>
       <Property Name="Increment">2.55</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Ecu_Static_States;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ECU · ثابت · وضعیت — ICU / HS_ID_ICU_SUP
+فریم HS_ID_ICU_SUP که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+کنترل‌کننده
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Net_Management_State" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Icu_Net_Management_State</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 508</Property>
       <Property Name="Text">Hs_Icu_Net_Management_State</Property>
+      <Property Name="CustomToolTipText">تعداد · مدیریت · وضعیت — ICU / HS_ID_ICU_SUP
+فریم HS_ID_ICU_SUP که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Icu_Net_Management_State" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Icu_Net_Management_State</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 507</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">تعداد · مدیریت · وضعیت — ICU / HS_ID_ICU_SUP
+فریم HS_ID_ICU_SUP که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Icu_Net_Management_State" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Icu_Net_Management_State</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 506</Property>
+      <Property Name="Location">172, 506</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Net_Management_State;1;;;-1</Property>
+      <Property Name="CustomToolTipText">تعداد · مدیریت · وضعیت — ICU / HS_ID_ICU_SUP
+فریم HS_ID_ICU_SUP که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Tx_TimeOut_Counter" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Icu_Tx_TimeOut_Counter</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 534</Property>
       <Property Name="Text">Hs_Icu_Tx_TimeOut_Counter</Property>
+      <Property Name="CustomToolTipText">ارسال · تایم‌اوت · شمارنده — ICU / HS_ID_ICU_SUP
+فریم HS_ID_ICU_SUP که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+این گره فرستنده است
+طولانی‌شدن فاصله فریم‌ها
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Icu_Tx_TimeOut_Counter" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Icu_Tx_TimeOut_Counter</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 533</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ارسال · تایم‌اوت · شمارنده — ICU / HS_ID_ICU_SUP
+فریم HS_ID_ICU_SUP که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+این گره فرستنده است
+طولانی‌شدن فاصله فریم‌ها
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Icu_Tx_TimeOut_Counter" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Icu_Tx_TimeOut_Counter</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 535</Property>
+      <Property Name="Location">174, 535</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">255</Property>
       <Property Name="Increment">2.55</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Tx_TimeOut_Counter;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ارسال · تایم‌اوت · شمارنده — ICU / HS_ID_ICU_SUP
+فریم HS_ID_ICU_SUP که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+این گره فرستنده است
+طولانی‌شدن فاصله فریم‌ها
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_ICU_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Imm_Auth_1" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Imm_Auth_1</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 560</Property>
       <Property Name="Text">Hs_Imm_Auth_1</Property>
+      <Property Name="CustomToolTipText">IMM · احراز هویت — ICU / HS_ID_IMM_AUTH
+فریم HS_ID_IMM_AUTH که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_IMM_AUTH
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4294967295 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Imm_Auth_1" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Imm_Auth_1</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 559</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">IMM · احراز هویت — ICU / HS_ID_IMM_AUTH
+فریم HS_ID_IMM_AUTH که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_IMM_AUTH
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4294967295 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Imm_Auth_1" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Imm_Auth_1</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 561</Property>
+      <Property Name="Location">174, 561</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">4294967295</Property>
       <Property Name="Increment">4.29497e+07</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Imm_Auth_1;1;;;-1</Property>
+      <Property Name="CustomToolTipText">IMM · احراز هویت — ICU / HS_ID_IMM_AUTH
+فریم HS_ID_IMM_AUTH که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_IMM_AUTH
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4294967295 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Imm_Auth_2" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Imm_Auth_2</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 586</Property>
       <Property Name="Text">Hs_Imm_Auth_2</Property>
+      <Property Name="CustomToolTipText">IMM · احراز هویت — ICU / HS_ID_IMM_AUTH
+فریم HS_ID_IMM_AUTH که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_IMM_AUTH
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4294967295 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Imm_Auth_2" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Imm_Auth_2</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 585</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">IMM · احراز هویت — ICU / HS_ID_IMM_AUTH
+فریم HS_ID_IMM_AUTH که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_IMM_AUTH
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4294967295 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Imm_Auth_2" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Imm_Auth_2</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 587</Property>
+      <Property Name="Location">174, 587</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">4294967295</Property>
       <Property Name="Increment">4.29497e+07</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Imm_Auth_2;1;;;-1</Property>
+      <Property Name="CustomToolTipText">IMM · احراز هویت — ICU / HS_ID_IMM_AUTH
+فریم HS_ID_IMM_AUTH که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_IMM_AUTH
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4294967295 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Imm_LearnSKReq_1" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Imm_LearnSKReq_1</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 612</Property>
       <Property Name="Text">Hs_Imm_LearnSKReq_1</Property>
+      <Property Name="CustomToolTipText">IMM · درخواست یادگیری کلید — ICU / HS_ID_IMM_LearnSKReq
+فریم HS_ID_IMM_LearnSKReq که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_IMM_LearnSKReq
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4294967295 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Imm_LearnSKReq_1" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Imm_LearnSKReq_1</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 611</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">IMM · درخواست یادگیری کلید — ICU / HS_ID_IMM_LearnSKReq
+فریم HS_ID_IMM_LearnSKReq که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_IMM_LearnSKReq
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4294967295 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Imm_LearnSKReq_1" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Imm_LearnSKReq_1</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 613</Property>
+      <Property Name="Location">174, 613</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">4294967295</Property>
       <Property Name="Increment">4.29497e+07</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Imm_LearnSKReq_1;1;;;-1</Property>
+      <Property Name="CustomToolTipText">IMM · درخواست یادگیری کلید — ICU / HS_ID_IMM_LearnSKReq
+فریم HS_ID_IMM_LearnSKReq که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_IMM_LearnSKReq
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4294967295 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Imm_LearnSKReq_2" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Imm_LearnSKReq_2</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 638</Property>
       <Property Name="Text">Hs_Imm_LearnSKReq_2</Property>
+      <Property Name="CustomToolTipText">IMM · درخواست یادگیری کلید — ICU / HS_ID_IMM_LearnSKReq
+فریم HS_ID_IMM_LearnSKReq که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_IMM_LearnSKReq
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4294967295 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Imm_LearnSKReq_2" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Imm_LearnSKReq_2</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 637</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">IMM · درخواست یادگیری کلید — ICU / HS_ID_IMM_LearnSKReq
+فریم HS_ID_IMM_LearnSKReq که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_IMM_LearnSKReq
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4294967295 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Imm_LearnSKReq_2" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Imm_LearnSKReq_2</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 639</Property>
+      <Property Name="Location">174, 639</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">4294967295</Property>
       <Property Name="Increment">4.29497e+07</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Imm_LearnSKReq_2;1;;;-1</Property>
+      <Property Name="CustomToolTipText">IMM · درخواست یادگیری کلید — ICU / HS_ID_IMM_LearnSKReq
+فریم HS_ID_IMM_LearnSKReq که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_IMM_LearnSKReq
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4294967295 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Imm_TeachPINReq_1" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Imm_TeachPINReq_1</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 664</Property>
       <Property Name="Text">Hs_Imm_TeachPINReq_1</Property>
+      <Property Name="CustomToolTipText">IMM · درخواست تعریف پین — ICU / HS_ID_IMM_TeachPINReq
+فریم HS_ID_IMM_TeachPINReq که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_IMM_TeachPINReq
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4294967295 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Imm_TeachPINReq_1" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Imm_TeachPINReq_1</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 663</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">IMM · درخواست تعریف پین — ICU / HS_ID_IMM_TeachPINReq
+فریم HS_ID_IMM_TeachPINReq که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_IMM_TeachPINReq
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4294967295 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Imm_TeachPINReq_1" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Imm_TeachPINReq_1</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 665</Property>
+      <Property Name="Location">174, 665</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">4294967295</Property>
       <Property Name="Increment">4.29497e+07</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Imm_TeachPINReq_1;1;;;-1</Property>
+      <Property Name="CustomToolTipText">IMM · درخواست تعریف پین — ICU / HS_ID_IMM_TeachPINReq
+فریم HS_ID_IMM_TeachPINReq که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_IMM_TeachPINReq
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4294967295 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Imm_TeachPINReq_2" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Imm_TeachPINReq_2</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 690</Property>
       <Property Name="Text">Hs_Imm_TeachPINReq_2</Property>
+      <Property Name="CustomToolTipText">IMM · درخواست تعریف پین — ICU / HS_ID_IMM_TeachPINReq
+فریم HS_ID_IMM_TeachPINReq که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_IMM_TeachPINReq
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4294967295 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Imm_TeachPINReq_2" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Imm_TeachPINReq_2</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 689</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">IMM · درخواست تعریف پین — ICU / HS_ID_IMM_TeachPINReq
+فریم HS_ID_IMM_TeachPINReq که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_IMM_TeachPINReq
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4294967295 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Imm_TeachPINReq_2" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Imm_TeachPINReq_2</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 691</Property>
+      <Property Name="Location">174, 691</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">4294967295</Property>
       <Property Name="Increment">4.29497e+07</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Imm_TeachPINReq_2;1;;;-1</Property>
+      <Property Name="CustomToolTipText">IMM · درخواست تعریف پین — ICU / HS_ID_IMM_TeachPINReq
+فریم HS_ID_IMM_TeachPINReq که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_IMM_TeachPINReq
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4294967295 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Imm_TeachSKReq" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Imm_TeachSKReq</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 716</Property>
       <Property Name="Text">Hs_Imm_TeachSKReq</Property>
+      <Property Name="CustomToolTipText">IMM · درخواست تعریف کلید — ICU / HS_ID_IMM_TeachSKReq
+فریم HS_ID_IMM_TeachSKReq که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_IMM_TeachSKReq
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 18446744073709600768 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Imm_TeachSKReq" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Imm_TeachSKReq</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 715</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">IMM · درخواست تعریف کلید — ICU / HS_ID_IMM_TeachSKReq
+فریم HS_ID_IMM_TeachSKReq که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_IMM_TeachSKReq
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 18446744073709600768 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Imm_TeachSKReq" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Imm_TeachSKReq</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 717</Property>
+      <Property Name="Location">174, 717</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">18446744073709600768</Property>
       <Property Name="Increment">184467440737096000</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Imm_TeachSKReq;1;;;-1</Property>
+      <Property Name="CustomToolTipText">IMM · درخواست تعریف کلید — ICU / HS_ID_IMM_TeachSKReq
+فریم HS_ID_IMM_TeachSKReq که ICU روی شبکه HS می‌فرستد. کیلومتر، سفر، مصرف سوخت و چراغ‌های هشدار را جمع می‌کند و روی صفحه نمایش می‌دهد.
+ایموبیلایزر
+گره: ICU — دستگاه نشانگر (پشت آمپر)
+پیام: HS_ID_IMM_TeachSKReq
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 18446744073709600768 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Property Name="Name">NBCM ICU</Property>
     <Property Name="Size">262, 926</Property>

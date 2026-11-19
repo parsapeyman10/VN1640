@@ -3,729 +3,2570 @@
   <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Panel" Children="Controls" ControlName="NBCM MMS">
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtTitle" Children="Controls" ControlName="Static Text">
       <Property Name="Name">TxtTitle</Property>
-      <Property Name="Size">480, 20</Property>
+      <Property Name="Size">460, 20</Property>
       <Property Name="Location">10, 8</Property>
       <Property Name="Text">MMS  -  LS-CAN  -  8 messages / 48 signals</Property>
+      <Property Name="CustomToolTipText">MMS — چندرسانه‌ای
+نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+8 پیام · 48 سیگنال · LS-CAN</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Node" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Node</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">474, 7</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">MMS — چندرسانه‌ای
+نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+8 پیام · 48 سیگنال · LS-CAN</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_MMS_DIAG_RESP" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_LS_MMS_DIAG_RESP</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 40</Property>
       <Property Name="Text">LS_MMS_DIAG_RESP</Property>
+      <Property Name="CustomToolTipText">دیباگ · پاسخ — MMS / LS_ID_DIAG_RESP_MMS
+فریم LS_ID_DIAG_RESP_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+تشخیص عیب
+جواب درخواست رسیده
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_DIAG_RESP_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_LS_MMS_DIAG_RESP" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_LS_MMS_DIAG_RESP</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 39</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">دیباگ · پاسخ — MMS / LS_ID_DIAG_RESP_MMS
+فریم LS_ID_DIAG_RESP_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+تشخیص عیب
+جواب درخواست رسیده
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_DIAG_RESP_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_MMS_DIAG_RESP" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_LS_MMS_DIAG_RESP</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 38</Property>
+      <Property Name="Location">172, 38</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_MMS_DIAG_RESP;1;;;-1</Property>
+      <Property Name="CustomToolTipText">دیباگ · پاسخ — MMS / LS_ID_DIAG_RESP_MMS
+فریم LS_ID_DIAG_RESP_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+تشخیص عیب
+جواب درخواست رسیده
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_DIAG_RESP_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Icn_Set_Day" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Icn_Set_Day</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 66</Property>
       <Property Name="Text">Ls_Mms_Icn_Set_Day</Property>
+      <Property Name="CustomToolTipText">ICN · تنظیم · روز — MMS / LS_ID_TARA_DMD_MAJ_DATE_HEURE
+فریم LS_ID_TARA_DMD_MAJ_DATE_HEURE که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کلاستر
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_DMD_MAJ_DATE_HEURE
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+عددی
+بازه: 1 تا 31 بدون واحد
+مقدار پیش‌فرض: 1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Icn_Set_Day" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Icn_Set_Day</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 65</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ICN · تنظیم · روز — MMS / LS_ID_TARA_DMD_MAJ_DATE_HEURE
+فریم LS_ID_TARA_DMD_MAJ_DATE_HEURE که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کلاستر
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_DMD_MAJ_DATE_HEURE
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+عددی
+بازه: 1 تا 31 بدون واحد
+مقدار پیش‌فرض: 1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Mms_Icn_Set_Day" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Ls_Mms_Icn_Set_Day</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 67</Property>
+      <Property Name="Location">174, 67</Property>
       <Property Name="Minimum">1</Property>
       <Property Name="Maximum">31</Property>
       <Property Name="Increment">0.3</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Icn_Set_Day;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ICN · تنظیم · روز — MMS / LS_ID_TARA_DMD_MAJ_DATE_HEURE
+فریم LS_ID_TARA_DMD_MAJ_DATE_HEURE که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کلاستر
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_DMD_MAJ_DATE_HEURE
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+عددی
+بازه: 1 تا 31 بدون واحد
+مقدار پیش‌فرض: 1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Icn_Set_Hour" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Icn_Set_Hour</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 92</Property>
       <Property Name="Text">Ls_Mms_Icn_Set_Hour</Property>
+      <Property Name="CustomToolTipText">ICN · تنظیم · ساعت — MMS / LS_ID_TARA_DMD_MAJ_DATE_HEURE
+فریم LS_ID_TARA_DMD_MAJ_DATE_HEURE که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کلاستر
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_DMD_MAJ_DATE_HEURE
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+عددی
+بازه: 0 تا 23 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Icn_Set_Hour" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Icn_Set_Hour</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 91</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ICN · تنظیم · ساعت — MMS / LS_ID_TARA_DMD_MAJ_DATE_HEURE
+فریم LS_ID_TARA_DMD_MAJ_DATE_HEURE که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کلاستر
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_DMD_MAJ_DATE_HEURE
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+عددی
+بازه: 0 تا 23 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Mms_Icn_Set_Hour" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Ls_Mms_Icn_Set_Hour</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 93</Property>
+      <Property Name="Location">174, 93</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">23</Property>
       <Property Name="Increment">0.23</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Icn_Set_Hour;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ICN · تنظیم · ساعت — MMS / LS_ID_TARA_DMD_MAJ_DATE_HEURE
+فریم LS_ID_TARA_DMD_MAJ_DATE_HEURE که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کلاستر
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_DMD_MAJ_DATE_HEURE
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+عددی
+بازه: 0 تا 23 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Icn_Set_Hour_Mode" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Icn_Set_Hour_Mode</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 118</Property>
       <Property Name="Text">Ls_Mms_Icn_Set_Hour_Mode</Property>
+      <Property Name="CustomToolTipText">ICN · تنظیم · ساعت · حالت — MMS / LS_ID_TARA_DMD_MAJ_DATE_HEURE
+فریم LS_ID_TARA_DMD_MAJ_DATE_HEURE که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کلاستر
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_DMD_MAJ_DATE_HEURE
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Icn_Set_Hour_Mode" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Icn_Set_Hour_Mode</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 117</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ICN · تنظیم · ساعت · حالت — MMS / LS_ID_TARA_DMD_MAJ_DATE_HEURE
+فریم LS_ID_TARA_DMD_MAJ_DATE_HEURE که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کلاستر
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_DMD_MAJ_DATE_HEURE
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Mms_Icn_Set_Hour_Mode" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Ls_Mms_Icn_Set_Hour_Mode</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 119</Property>
+      <Property Name="Location">174, 119</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Icn_Set_Hour_Mode;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ICN · تنظیم · ساعت · حالت — MMS / LS_ID_TARA_DMD_MAJ_DATE_HEURE
+فریم LS_ID_TARA_DMD_MAJ_DATE_HEURE که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کلاستر
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_DMD_MAJ_DATE_HEURE
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Icn_Set_Min" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Icn_Set_Min</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 144</Property>
       <Property Name="Text">Ls_Mms_Icn_Set_Min</Property>
+      <Property Name="CustomToolTipText">ICN · تنظیم · تعداد — MMS / LS_ID_TARA_DMD_MAJ_DATE_HEURE
+فریم LS_ID_TARA_DMD_MAJ_DATE_HEURE که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کلاستر
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_DMD_MAJ_DATE_HEURE
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+عددی
+بازه: 0 تا 59 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Icn_Set_Min" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Icn_Set_Min</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 143</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ICN · تنظیم · تعداد — MMS / LS_ID_TARA_DMD_MAJ_DATE_HEURE
+فریم LS_ID_TARA_DMD_MAJ_DATE_HEURE که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کلاستر
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_DMD_MAJ_DATE_HEURE
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+عددی
+بازه: 0 تا 59 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Mms_Icn_Set_Min" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Ls_Mms_Icn_Set_Min</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 145</Property>
+      <Property Name="Location">174, 145</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">59</Property>
       <Property Name="Increment">0.59</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Icn_Set_Min;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ICN · تنظیم · تعداد — MMS / LS_ID_TARA_DMD_MAJ_DATE_HEURE
+فریم LS_ID_TARA_DMD_MAJ_DATE_HEURE که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کلاستر
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_DMD_MAJ_DATE_HEURE
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+عددی
+بازه: 0 تا 59 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Icn_Set_Month" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Icn_Set_Month</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 170</Property>
       <Property Name="Text">Ls_Mms_Icn_Set_Month</Property>
+      <Property Name="CustomToolTipText">ICN · تنظیم · ماه — MMS / LS_ID_TARA_DMD_MAJ_DATE_HEURE
+فریم LS_ID_TARA_DMD_MAJ_DATE_HEURE که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کلاستر
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_DMD_MAJ_DATE_HEURE
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Icn_Set_Month" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Icn_Set_Month</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 169</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ICN · تنظیم · ماه — MMS / LS_ID_TARA_DMD_MAJ_DATE_HEURE
+فریم LS_ID_TARA_DMD_MAJ_DATE_HEURE که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کلاستر
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_DMD_MAJ_DATE_HEURE
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Mms_Icn_Set_Month" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Ls_Mms_Icn_Set_Month</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 168</Property>
+      <Property Name="Location">172, 168</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Icn_Set_Month;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ICN · تنظیم · ماه — MMS / LS_ID_TARA_DMD_MAJ_DATE_HEURE
+فریم LS_ID_TARA_DMD_MAJ_DATE_HEURE که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کلاستر
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_DMD_MAJ_DATE_HEURE
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Icn_Set_Year" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Icn_Set_Year</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 196</Property>
       <Property Name="Text">Ls_Mms_Icn_Set_Year</Property>
+      <Property Name="CustomToolTipText">ICN · تنظیم · سال — MMS / LS_ID_TARA_DMD_MAJ_DATE_HEURE
+فریم LS_ID_TARA_DMD_MAJ_DATE_HEURE که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کلاستر
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_DMD_MAJ_DATE_HEURE
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+عددی
+بازه: 2000 تا 2125 بدون واحد
+مقدار پیش‌فرض: 2000</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Icn_Set_Year" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Icn_Set_Year</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 195</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ICN · تنظیم · سال — MMS / LS_ID_TARA_DMD_MAJ_DATE_HEURE
+فریم LS_ID_TARA_DMD_MAJ_DATE_HEURE که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کلاستر
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_DMD_MAJ_DATE_HEURE
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+عددی
+بازه: 2000 تا 2125 بدون واحد
+مقدار پیش‌فرض: 2000</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Mms_Icn_Set_Year" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Ls_Mms_Icn_Set_Year</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 197</Property>
+      <Property Name="Location">174, 197</Property>
       <Property Name="Minimum">2000</Property>
       <Property Name="Maximum">2125</Property>
       <Property Name="Increment">1.25</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Icn_Set_Year;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ICN · تنظیم · سال — MMS / LS_ID_TARA_DMD_MAJ_DATE_HEURE
+فریم LS_ID_TARA_DMD_MAJ_DATE_HEURE که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کلاستر
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_DMD_MAJ_DATE_HEURE
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+عددی
+بازه: 2000 تا 2125 بدون واحد
+مقدار پیش‌فرض: 2000</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Amb_Bkl_Level" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Amb_Bkl_Level</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 222</Property>
       <Property Name="Text">Ls_Mms_Amb_Bkl_Level</Property>
+      <Property Name="CustomToolTipText">Ls_Mms_Amb_Bkl_Level — MMS — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+چندرسانه‌ای این سیگنال را در فریم LS_ID_TARA_ECRAN_INFO_PROFILS می‌فرستد. نامش در مجموعه داده اصلی توضیح داده نشده، پس معنی بیت‌به‌بیت آن را نمی‌سازیم؛ فقط مشخصات فنی همین فریم و بازه مقدار معتبر است.
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Amb_Bkl_Level" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Amb_Bkl_Level</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 221</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">Ls_Mms_Amb_Bkl_Level — MMS — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+چندرسانه‌ای این سیگنال را در فریم LS_ID_TARA_ECRAN_INFO_PROFILS می‌فرستد. نامش در مجموعه داده اصلی توضیح داده نشده، پس معنی بیت‌به‌بیت آن را نمی‌سازیم؛ فقط مشخصات فنی همین فریم و بازه مقدار معتبر است.
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Mms_Amb_Bkl_Level" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Ls_Mms_Amb_Bkl_Level</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 223</Property>
+      <Property Name="Location">174, 223</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Amb_Bkl_Level;1;;;-1</Property>
+      <Property Name="CustomToolTipText">Ls_Mms_Amb_Bkl_Level — MMS — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+چندرسانه‌ای این سیگنال را در فریم LS_ID_TARA_ECRAN_INFO_PROFILS می‌فرستد. نامش در مجموعه داده اصلی توضیح داده نشده، پس معنی بیت‌به‌بیت آن را نمی‌سازیم؛ فقط مشخصات فنی همین فریم و بازه مقدار معتبر است.
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Bluetooth_Active" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Bluetooth_Active</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 248</Property>
       <Property Name="Text">Ls_Mms_Bluetooth_Active</Property>
+      <Property Name="CustomToolTipText">Ls_Mms_Bluetooth_Active — MMS — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+چندرسانه‌ای این سیگنال را در فریم LS_ID_TARA_ECRAN_INFO_PROFILS می‌فرستد. نامش در مجموعه داده اصلی توضیح داده نشده، پس معنی بیت‌به‌بیت آن را نمی‌سازیم؛ فقط مشخصات فنی همین فریم و بازه مقدار معتبر است.
+در این لحظه کار می‌کند
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Bluetooth_Active" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Bluetooth_Active</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 247</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">Ls_Mms_Bluetooth_Active — MMS — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+چندرسانه‌ای این سیگنال را در فریم LS_ID_TARA_ECRAN_INFO_PROFILS می‌فرستد. نامش در مجموعه داده اصلی توضیح داده نشده، پس معنی بیت‌به‌بیت آن را نمی‌سازیم؛ فقط مشخصات فنی همین فریم و بازه مقدار معتبر است.
+در این لحظه کار می‌کند
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Mms_Bluetooth_Active" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Ls_Mms_Bluetooth_Active</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 249</Property>
+      <Property Name="Location">174, 249</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Bluetooth_Active;1;;;-1</Property>
+      <Property Name="CustomToolTipText">Ls_Mms_Bluetooth_Active — MMS — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+چندرسانه‌ای این سیگنال را در فریم LS_ID_TARA_ECRAN_INFO_PROFILS می‌فرستد. نامش در مجموعه داده اصلی توضیح داده نشده، پس معنی بیت‌به‌بیت آن را نمی‌سازیم؛ فقط مشخصات فنی همین فریم و بازه مقدار معتبر است.
+در این لحظه کار می‌کند
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Config_Valid" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Config_Valid</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 274</Property>
       <Property Name="Text">Ls_Mms_Config_Valid</Property>
+      <Property Name="CustomToolTipText">روشن · F · معتبر — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+فریم LS_ID_TARA_ECRAN_INFO_PROFILS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+۱ یعنی مقدار قابل استفاده است
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Config_Valid" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Config_Valid</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 273</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">روشن · F · معتبر — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+فریم LS_ID_TARA_ECRAN_INFO_PROFILS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+۱ یعنی مقدار قابل استفاده است
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Mms_Config_Valid" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Ls_Mms_Config_Valid</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 275</Property>
+      <Property Name="Location">174, 275</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Config_Valid;1;;;-1</Property>
+      <Property Name="CustomToolTipText">روشن · F · معتبر — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+فریم LS_ID_TARA_ECRAN_INFO_PROFILS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+۱ یعنی مقدار قابل استفاده است
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Drl_Active" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Drl_Active</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 300</Property>
       <Property Name="Text">Ls_Mms_Drl_Active</Property>
+      <Property Name="CustomToolTipText">Ls_Mms_Drl_Active — MMS — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+چندرسانه‌ای این سیگنال را در فریم LS_ID_TARA_ECRAN_INFO_PROFILS می‌فرستد. نامش در مجموعه داده اصلی توضیح داده نشده، پس معنی بیت‌به‌بیت آن را نمی‌سازیم؛ فقط مشخصات فنی همین فریم و بازه مقدار معتبر است.
+در این لحظه کار می‌کند
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Drl_Active" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Drl_Active</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 299</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">Ls_Mms_Drl_Active — MMS — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+چندرسانه‌ای این سیگنال را در فریم LS_ID_TARA_ECRAN_INFO_PROFILS می‌فرستد. نامش در مجموعه داده اصلی توضیح داده نشده، پس معنی بیت‌به‌بیت آن را نمی‌سازیم؛ فقط مشخصات فنی همین فریم و بازه مقدار معتبر است.
+در این لحظه کار می‌کند
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Mms_Drl_Active" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Ls_Mms_Drl_Active</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 301</Property>
+      <Property Name="Location">174, 301</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Drl_Active;1;;;-1</Property>
+      <Property Name="CustomToolTipText">Ls_Mms_Drl_Active — MMS — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+چندرسانه‌ای این سیگنال را در فریم LS_ID_TARA_ECRAN_INFO_PROFILS می‌فرستد. نامش در مجموعه داده اصلی توضیح داده نشده، پس معنی بیت‌به‌بیت آن را نمی‌سازیم؛ فقط مشخصات فنی همین فریم و بازه مقدار معتبر است.
+در این لحظه کار می‌کند
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Esc_Active" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Esc_Active</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 326</Property>
       <Property Name="Text">Ls_Mms_Esc_Active</Property>
+      <Property Name="CustomToolTipText">ESC · فعال — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+فریم LS_ID_TARA_ECRAN_INFO_PROFILS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کنترل پایداری
+در این لحظه کار می‌کند
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Esc_Active" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Esc_Active</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 325</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ESC · فعال — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+فریم LS_ID_TARA_ECRAN_INFO_PROFILS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کنترل پایداری
+در این لحظه کار می‌کند
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Mms_Esc_Active" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Ls_Mms_Esc_Active</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 327</Property>
+      <Property Name="Location">174, 327</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Esc_Active;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ESC · فعال — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+فریم LS_ID_TARA_ECRAN_INFO_PROFILS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کنترل پایداری
+در این لحظه کار می‌کند
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Pas_Func_Permanent" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Pas_Func_Permanent</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 352</Property>
       <Property Name="Text">Ls_Mms_Pas_Func_Permanent</Property>
+      <Property Name="CustomToolTipText">فرمان کمکی · عملکرد · تعداد — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+فریم LS_ID_TARA_ECRAN_INFO_PROFILS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Pas_Func_Permanent" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Pas_Func_Permanent</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 351</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">فرمان کمکی · عملکرد · تعداد — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+فریم LS_ID_TARA_ECRAN_INFO_PROFILS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Mms_Pas_Func_Permanent" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Ls_Mms_Pas_Func_Permanent</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 353</Property>
+      <Property Name="Location">174, 353</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Pas_Func_Permanent;1;;;-1</Property>
+      <Property Name="CustomToolTipText">فرمان کمکی · عملکرد · تعداد — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+فریم LS_ID_TARA_ECRAN_INFO_PROFILS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Pas_Func_Temporary" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Pas_Func_Temporary</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 378</Property>
       <Property Name="Text">Ls_Mms_Pas_Func_Temporary</Property>
+      <Property Name="CustomToolTipText">فرمان کمکی · عملکرد · دما — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+فریم LS_ID_TARA_ECRAN_INFO_PROFILS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+درجه سانتی‌گراد
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Pas_Func_Temporary" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Pas_Func_Temporary</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 377</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">فرمان کمکی · عملکرد · دما — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+فریم LS_ID_TARA_ECRAN_INFO_PROFILS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+درجه سانتی‌گراد
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Mms_Pas_Func_Temporary" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Ls_Mms_Pas_Func_Temporary</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 379</Property>
+      <Property Name="Location">174, 379</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Pas_Func_Temporary;1;;;-1</Property>
+      <Property Name="CustomToolTipText">فرمان کمکی · عملکرد · دما — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+فریم LS_ID_TARA_ECRAN_INFO_PROFILS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+درجه سانتی‌گراد
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Recognize_Trip" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Recognize_Trip</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 404</Property>
       <Property Name="Text">Ls_Mms_Recognize_Trip</Property>
+      <Property Name="CustomToolTipText">Ls_Mms_Recognize_Trip — MMS — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+چندرسانه‌ای این سیگنال را در فریم LS_ID_TARA_ECRAN_INFO_PROFILS می‌فرستد. نامش در مجموعه داده اصلی توضیح داده نشده، پس معنی بیت‌به‌بیت آن را نمی‌سازیم؛ فقط مشخصات فنی همین فریم و بازه مقدار معتبر است.
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Recognize_Trip" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Recognize_Trip</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 403</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">Ls_Mms_Recognize_Trip — MMS — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+چندرسانه‌ای این سیگنال را در فریم LS_ID_TARA_ECRAN_INFO_PROFILS می‌فرستد. نامش در مجموعه داده اصلی توضیح داده نشده، پس معنی بیت‌به‌بیت آن را نمی‌سازیم؛ فقط مشخصات فنی همین فریم و بازه مقدار معتبر است.
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Mms_Recognize_Trip" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Ls_Mms_Recognize_Trip</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 405</Property>
+      <Property Name="Location">174, 405</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Recognize_Trip;1;;;-1</Property>
+      <Property Name="CustomToolTipText">Ls_Mms_Recognize_Trip — MMS — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+چندرسانه‌ای این سیگنال را در فریم LS_ID_TARA_ECRAN_INFO_PROFILS می‌فرستد. نامش در مجموعه داده اصلی توضیح داده نشده، پس معنی بیت‌به‌بیت آن را نمی‌سازیم؛ فقط مشخصات فنی همین فریم و بازه مقدار معتبر است.
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Request_Trip1_reset" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Request_Trip1_reset</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 430</Property>
       <Property Name="Text">Ls_Mms_Request_Trip1_reset</Property>
+      <Property Name="CustomToolTipText">درخواست · سفر ۱ · ریست — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+فریم LS_ID_TARA_ECRAN_INFO_PROFILS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کیلومترشمار قابل صفر کردن
+شروع دوباره و صفرشدن مقادیر
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Request_Trip1_reset" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Request_Trip1_reset</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 429</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">درخواست · سفر ۱ · ریست — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+فریم LS_ID_TARA_ECRAN_INFO_PROFILS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کیلومترشمار قابل صفر کردن
+شروع دوباره و صفرشدن مقادیر
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Mms_Request_Trip1_reset" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Ls_Mms_Request_Trip1_reset</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 431</Property>
+      <Property Name="Location">174, 431</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Request_Trip1_reset;1;;;-1</Property>
+      <Property Name="CustomToolTipText">درخواست · سفر ۱ · ریست — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+فریم LS_ID_TARA_ECRAN_INFO_PROFILS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کیلومترشمار قابل صفر کردن
+شروع دوباره و صفرشدن مقادیر
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Request_Trip2_reset" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Request_Trip2_reset</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 456</Property>
       <Property Name="Text">Ls_Mms_Request_Trip2_reset</Property>
+      <Property Name="CustomToolTipText">درخواست · سفر ۲ · ریست — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+فریم LS_ID_TARA_ECRAN_INFO_PROFILS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کیلومترشمار قابل صفر کردن
+شروع دوباره و صفرشدن مقادیر
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Request_Trip2_reset" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Request_Trip2_reset</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 455</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">درخواست · سفر ۲ · ریست — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+فریم LS_ID_TARA_ECRAN_INFO_PROFILS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کیلومترشمار قابل صفر کردن
+شروع دوباره و صفرشدن مقادیر
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Mms_Request_Trip2_reset" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Ls_Mms_Request_Trip2_reset</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 457</Property>
+      <Property Name="Location">174, 457</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Request_Trip2_reset;1;;;-1</Property>
+      <Property Name="CustomToolTipText">درخواست · سفر ۲ · ریست — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+فریم LS_ID_TARA_ECRAN_INFO_PROFILS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کیلومترشمار قابل صفر کردن
+شروع دوباره و صفرشدن مقادیر
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Road_Finder_Active" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Road_Finder_Active</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 482</Property>
       <Property Name="Text">Ls_Mms_Road_Finder_Active</Property>
+      <Property Name="CustomToolTipText">جاده · یابنده · فعال — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+فریم LS_ID_TARA_ECRAN_INFO_PROFILS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+در این لحظه کار می‌کند
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Road_Finder_Active" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Road_Finder_Active</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 481</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">جاده · یابنده · فعال — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+فریم LS_ID_TARA_ECRAN_INFO_PROFILS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+در این لحظه کار می‌کند
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Mms_Road_Finder_Active" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Ls_Mms_Road_Finder_Active</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 483</Property>
+      <Property Name="Location">174, 483</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Road_Finder_Active;1;;;-1</Property>
+      <Property Name="CustomToolTipText">جاده · یابنده · فعال — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+فریم LS_ID_TARA_ECRAN_INFO_PROFILS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+در این لحظه کار می‌کند
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Road_Finder_Time" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Road_Finder_Time</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 508</Property>
       <Property Name="Text">Ls_Mms_Road_Finder_Time</Property>
+      <Property Name="CustomToolTipText">جاده · یابنده · زمان — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+فریم LS_ID_TARA_ECRAN_INFO_PROFILS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Road_Finder_Time" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Road_Finder_Time</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 507</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">جاده · یابنده · زمان — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+فریم LS_ID_TARA_ECRAN_INFO_PROFILS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Mms_Road_Finder_Time" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Ls_Mms_Road_Finder_Time</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 509</Property>
+      <Property Name="Location">174, 509</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Road_Finder_Time;1;;;-1</Property>
+      <Property Name="CustomToolTipText">جاده · یابنده · زمان — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+فریم LS_ID_TARA_ECRAN_INFO_PROFILS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Tpms_Active_Req" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Tpms_Active_Req</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 534</Property>
       <Property Name="Text">Ls_Mms_Tpms_Active_Req</Property>
+      <Property Name="CustomToolTipText">TPMS · فعال · درخواست — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+فریم LS_ID_TARA_ECRAN_INFO_PROFILS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+فشار باد چرخ
+در این لحظه کار می‌کند
+این ECU از دیگری کاری می‌خواهد
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Tpms_Active_Req" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Tpms_Active_Req</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 533</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">TPMS · فعال · درخواست — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+فریم LS_ID_TARA_ECRAN_INFO_PROFILS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+فشار باد چرخ
+در این لحظه کار می‌کند
+این ECU از دیگری کاری می‌خواهد
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Mms_Tpms_Active_Req" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Ls_Mms_Tpms_Active_Req</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 535</Property>
+      <Property Name="Location">174, 535</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Tpms_Active_Req;1;;;-1</Property>
+      <Property Name="CustomToolTipText">TPMS · فعال · درخواست — MMS / LS_ID_TARA_ECRAN_INFO_PROFILS
+فریم LS_ID_TARA_ECRAN_INFO_PROFILS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+فشار باد چرخ
+در این لحظه کار می‌کند
+این ECU از دیگری کاری می‌خواهد
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_ECRAN_INFO_PROFILS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Dtc_Info" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Dtc_Info</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 560</Property>
       <Property Name="Text">Ls_Mms_Dtc_Info</Property>
+      <Property Name="CustomToolTipText">کد عیب DTC · اطلاعات — MMS / LS_ID_TARA_EVT_DEFAUT_MMS
+فریم LS_ID_TARA_EVT_DEFAUT_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+شناسه خطای ذخیره‌شده
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_EVT_DEFAUT_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Dtc_Info" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Dtc_Info</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 559</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">کد عیب DTC · اطلاعات — MMS / LS_ID_TARA_EVT_DEFAUT_MMS
+فریم LS_ID_TARA_EVT_DEFAUT_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+شناسه خطای ذخیره‌شده
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_EVT_DEFAUT_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Mms_Dtc_Info" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Ls_Mms_Dtc_Info</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 558</Property>
+      <Property Name="Location">172, 558</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Dtc_Info;1;;;-1</Property>
+      <Property Name="CustomToolTipText">کد عیب DTC · اطلاعات — MMS / LS_ID_TARA_EVT_DEFAUT_MMS
+فریم LS_ID_TARA_EVT_DEFAUT_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+شناسه خطای ذخیره‌شده
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_EVT_DEFAUT_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Frame_Index" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Frame_Index</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 586</Property>
       <Property Name="Text">Ls_Mms_Frame_Index</Property>
+      <Property Name="CustomToolTipText">فریم · شماره — MMS / LS_ID_TARA_EVT_DEFAUT_MMS
+فریم LS_ID_TARA_EVT_DEFAUT_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_EVT_DEFAUT_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Frame_Index" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Frame_Index</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 585</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">فریم · شماره — MMS / LS_ID_TARA_EVT_DEFAUT_MMS
+فریم LS_ID_TARA_EVT_DEFAUT_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_EVT_DEFAUT_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Mms_Frame_Index" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Ls_Mms_Frame_Index</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 587</Property>
+      <Property Name="Location">174, 587</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Frame_Index;1;;;-1</Property>
+      <Property Name="CustomToolTipText">فریم · شماره — MMS / LS_ID_TARA_EVT_DEFAUT_MMS
+فریم LS_ID_TARA_EVT_DEFAUT_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_EVT_DEFAUT_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Frame_Nb" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Frame_Nb</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 612</Property>
       <Property Name="Text">Ls_Mms_Frame_Nb</Property>
+      <Property Name="CustomToolTipText">فریم · نویز باس — MMS / LS_ID_TARA_EVT_DEFAUT_MMS
+فریم LS_ID_TARA_EVT_DEFAUT_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_EVT_DEFAUT_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Frame_Nb" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Frame_Nb</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 611</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">فریم · نویز باس — MMS / LS_ID_TARA_EVT_DEFAUT_MMS
+فریم LS_ID_TARA_EVT_DEFAUT_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_EVT_DEFAUT_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Mms_Frame_Nb" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Ls_Mms_Frame_Nb</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 613</Property>
+      <Property Name="Location">174, 613</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Frame_Nb;1;;;-1</Property>
+      <Property Name="CustomToolTipText">فریم · نویز باس — MMS / LS_ID_TARA_EVT_DEFAUT_MMS
+فریم LS_ID_TARA_EVT_DEFAUT_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_EVT_DEFAUT_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Uds_Resp" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Uds_Resp</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 638</Property>
       <Property Name="Text">Ls_Mms_Uds_Resp</Property>
+      <Property Name="CustomToolTipText">UDS · پاسخ — MMS / LS_ID_TARA_REP_DIAG_MMS
+فریم LS_ID_TARA_REP_DIAG_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+پروتکل تشخیص عیب
+جواب درخواست رسیده
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_REP_DIAG_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Uds_Resp" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Uds_Resp</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 637</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">UDS · پاسخ — MMS / LS_ID_TARA_REP_DIAG_MMS
+فریم LS_ID_TARA_REP_DIAG_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+پروتکل تشخیص عیب
+جواب درخواست رسیده
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_REP_DIAG_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Mms_Uds_Resp" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Ls_Mms_Uds_Resp</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 636</Property>
+      <Property Name="Location">172, 636</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Uds_Resp;1;;;-1</Property>
+      <Property Name="CustomToolTipText">UDS · پاسخ — MMS / LS_ID_TARA_REP_DIAG_MMS
+فریم LS_ID_TARA_REP_DIAG_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+پروتکل تشخیص عیب
+جواب درخواست رسیده
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_REP_DIAG_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Abs_Unit1" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Abs_Unit1</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 664</Property>
       <Property Name="Text">Ls_Mms_Abs_Unit1</Property>
+      <Property Name="CustomToolTipText">ABS · واحد ۱ — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کنترل ترمز و پایداری
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Abs_Unit1" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Abs_Unit1</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 663</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ABS · واحد ۱ — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کنترل ترمز و پایداری
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Mms_Abs_Unit1" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Ls_Mms_Abs_Unit1</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 662</Property>
+      <Property Name="Location">172, 662</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Abs_Unit1;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ABS · واحد ۱ — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کنترل ترمز و پایداری
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Abs_Unit2" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Abs_Unit2</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 690</Property>
       <Property Name="Text">Ls_Mms_Abs_Unit2</Property>
+      <Property Name="CustomToolTipText">ABS · واحد ۲ — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کنترل ترمز و پایداری
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Abs_Unit2" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Abs_Unit2</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 689</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ABS · واحد ۲ — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کنترل ترمز و پایداری
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Mms_Abs_Unit2" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Ls_Mms_Abs_Unit2</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 688</Property>
+      <Property Name="Location">172, 688</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Abs_Unit2;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ABS · واحد ۲ — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کنترل ترمز و پایداری
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Abs_Unit3" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Abs_Unit3</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 716</Property>
       <Property Name="Text">Ls_Mms_Abs_Unit3</Property>
+      <Property Name="CustomToolTipText">ABS · واحد ۳ — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کنترل ترمز و پایداری
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Abs_Unit3" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Abs_Unit3</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 715</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ABS · واحد ۳ — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کنترل ترمز و پایداری
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Mms_Abs_Unit3" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Ls_Mms_Abs_Unit3</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 714</Property>
+      <Property Name="Location">172, 714</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Abs_Unit3;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ABS · واحد ۳ — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کنترل ترمز و پایداری
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Busoff_Cnt" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Busoff_Cnt</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 742</Property>
       <Property Name="Text">Ls_Mms_Busoff_Cnt</Property>
+      <Property Name="CustomToolTipText">Bus Off · شمارنده — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کنترلر CAN از باس جدا شده و تا ریست برنمی‌گردد
+با هر ارسال یکی زیاد می‌شود
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Busoff_Cnt" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Busoff_Cnt</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 741</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">Bus Off · شمارنده — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کنترلر CAN از باس جدا شده و تا ریست برنمی‌گردد
+با هر ارسال یکی زیاد می‌شود
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Mms_Busoff_Cnt" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Ls_Mms_Busoff_Cnt</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 740</Property>
+      <Property Name="Location">172, 740</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Busoff_Cnt;1;;;-1</Property>
+      <Property Name="CustomToolTipText">Bus Off · شمارنده — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کنترلر CAN از باس جدا شده و تا ریست برنمی‌گردد
+با هر ارسال یکی زیاد می‌شود
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Comloss_Cnt" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Comloss_Cnt</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 768</Property>
       <Property Name="Text">Ls_Mms_Comloss_Cnt</Property>
+      <Property Name="CustomToolTipText">قطع ارتباط · شمارنده — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+گیرنده دیگر فریم این ECU را نمی‌بیند
+با هر ارسال یکی زیاد می‌شود
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Comloss_Cnt" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Comloss_Cnt</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 767</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">قطع ارتباط · شمارنده — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+گیرنده دیگر فریم این ECU را نمی‌بیند
+با هر ارسال یکی زیاد می‌شود
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Mms_Comloss_Cnt" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Ls_Mms_Comloss_Cnt</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 766</Property>
+      <Property Name="Location">172, 766</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Comloss_Cnt;1;;;-1</Property>
+      <Property Name="CustomToolTipText">قطع ارتباط · شمارنده — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+گیرنده دیگر فریم این ECU را نمی‌بیند
+با هر ارسال یکی زیاد می‌شود
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Comloss_Fault" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Comloss_Fault</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 794</Property>
       <Property Name="Text">Ls_Mms_Comloss_Fault</Property>
+      <Property Name="CustomToolTipText">قطع ارتباط · خطا — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+گیرنده دیگر فریم این ECU را نمی‌بیند
+وقتی ۱ شود یعنی آن بخش ایراد دارد
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Comloss_Fault" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Comloss_Fault</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 793</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">قطع ارتباط · خطا — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+گیرنده دیگر فریم این ECU را نمی‌بیند
+وقتی ۱ شود یعنی آن بخش ایراد دارد
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Mms_Comloss_Fault" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Ls_Mms_Comloss_Fault</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 795</Property>
+      <Property Name="Location">174, 795</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Comloss_Fault;1;;;-1</Property>
+      <Property Name="CustomToolTipText">قطع ارتباط · خطا — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+گیرنده دیگر فریم این ECU را نمی‌بیند
+وقتی ۱ شود یعنی آن بخش ایراد دارد
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Nas_Cnt" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Nas_Cnt</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 820</Property>
       <Property Name="Text">Ls_Mms_Nas_Cnt</Property>
+      <Property Name="CustomToolTipText">NAS · شمارنده — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+شبکه‌ای‌نشدن
+با هر ارسال یکی زیاد می‌شود
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Nas_Cnt" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Nas_Cnt</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 819</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">NAS · شمارنده — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+شبکه‌ای‌نشدن
+با هر ارسال یکی زیاد می‌شود
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Mms_Nas_Cnt" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Ls_Mms_Nas_Cnt</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 818</Property>
+      <Property Name="Location">172, 818</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Nas_Cnt;1;;;-1</Property>
+      <Property Name="CustomToolTipText">NAS · شمارنده — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+شبکه‌ای‌نشدن
+با هر ارسال یکی زیاد می‌شود
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Nerr" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Nerr</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 846</Property>
       <Property Name="Text">Ls_Mms_Nerr</Property>
+      <Property Name="CustomToolTipText">خطای شبکه — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Nerr" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Nerr</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 845</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">خطای شبکه — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Mms_Nerr" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Ls_Mms_Nerr</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 847</Property>
+      <Property Name="Location">174, 847</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Nerr;1;;;-1</Property>
+      <Property Name="CustomToolTipText">خطای شبکه — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Nerr_Cnt" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Nerr_Cnt</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 872</Property>
       <Property Name="Text">Ls_Mms_Nerr_Cnt</Property>
+      <Property Name="CustomToolTipText">خطای شبکه · شمارنده — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+با هر ارسال یکی زیاد می‌شود
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Nerr_Cnt" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Nerr_Cnt</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 871</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">خطای شبکه · شمارنده — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+با هر ارسال یکی زیاد می‌شود
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Mms_Nerr_Cnt" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Ls_Mms_Nerr_Cnt</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 870</Property>
+      <Property Name="Location">172, 870</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Nerr_Cnt;1;;;-1</Property>
+      <Property Name="CustomToolTipText">خطای شبکه · شمارنده — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+با هر ارسال یکی زیاد می‌شود
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Nm_St" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Nm_St</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 898</Property>
       <Property Name="Text">Ls_Mms_Nm_St</Property>
+      <Property Name="CustomToolTipText">مدیریت شبکه · وضعیت — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+فریم‌های بیدارباش و خواب
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Nm_St" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Nm_St</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 897</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مدیریت شبکه · وضعیت — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+فریم‌های بیدارباش و خواب
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Mms_Nm_St" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Ls_Mms_Nm_St</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 899</Property>
+      <Property Name="Location">174, 899</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Nm_St;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مدیریت شبکه · وضعیت — MMS / LS_ID_TARA_SUPERVISION_MMS
+فریم LS_ID_TARA_SUPERVISION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+فریم‌های بیدارباش و خواب
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_SUPERVISION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Ecu_Num" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Ecu_Num</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 40</Property>
       <Property Name="Text">Ls_Mms_Ecu_Num</Property>
+      <Property Name="CustomToolTipText">ECU · تعداد — MMS / LS_ID_TARA_VERSION_MMS
+فریم LS_ID_TARA_VERSION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کنترل‌کننده
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_VERSION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Ecu_Num" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Ecu_Num</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 39</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ECU · تعداد — MMS / LS_ID_TARA_VERSION_MMS
+فریم LS_ID_TARA_VERSION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کنترل‌کننده
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_VERSION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Mms_Ecu_Num" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Ls_Mms_Ecu_Num</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">414, 38</Property>
+      <Property Name="Location">422, 38</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Ecu_Num;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ECU · تعداد — MMS / LS_ID_TARA_VERSION_MMS
+فریم LS_ID_TARA_VERSION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+کنترل‌کننده
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_VERSION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Msg_Tab_Dig1" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Msg_Tab_Dig1</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 66</Property>
       <Property Name="Text">Ls_Mms_Msg_Tab_Dig1</Property>
+      <Property Name="CustomToolTipText">پیام · جدول · دیجیتال ۱ — MMS / LS_ID_TARA_VERSION_MMS
+فریم LS_ID_TARA_VERSION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+متن یا شناسه پیام
+جدول داده داخل نرم‌افزار
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_VERSION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Msg_Tab_Dig1" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Msg_Tab_Dig1</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 65</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">پیام · جدول · دیجیتال ۱ — MMS / LS_ID_TARA_VERSION_MMS
+فریم LS_ID_TARA_VERSION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+متن یا شناسه پیام
+جدول داده داخل نرم‌افزار
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_VERSION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Mms_Msg_Tab_Dig1" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Ls_Mms_Msg_Tab_Dig1</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">414, 64</Property>
+      <Property Name="Location">422, 64</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Msg_Tab_Dig1;1;;;-1</Property>
+      <Property Name="CustomToolTipText">پیام · جدول · دیجیتال ۱ — MMS / LS_ID_TARA_VERSION_MMS
+فریم LS_ID_TARA_VERSION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+متن یا شناسه پیام
+جدول داده داخل نرم‌افزار
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_VERSION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Msg_Tab_Dig2" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Msg_Tab_Dig2</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 92</Property>
       <Property Name="Text">Ls_Mms_Msg_Tab_Dig2</Property>
+      <Property Name="CustomToolTipText">پیام · جدول · دیجیتال ۲ — MMS / LS_ID_TARA_VERSION_MMS
+فریم LS_ID_TARA_VERSION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+متن یا شناسه پیام
+جدول داده داخل نرم‌افزار
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_VERSION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Msg_Tab_Dig2" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Msg_Tab_Dig2</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 91</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">پیام · جدول · دیجیتال ۲ — MMS / LS_ID_TARA_VERSION_MMS
+فریم LS_ID_TARA_VERSION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+متن یا شناسه پیام
+جدول داده داخل نرم‌افزار
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_VERSION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Mms_Msg_Tab_Dig2" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Ls_Mms_Msg_Tab_Dig2</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">414, 90</Property>
+      <Property Name="Location">422, 90</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Msg_Tab_Dig2;1;;;-1</Property>
+      <Property Name="CustomToolTipText">پیام · جدول · دیجیتال ۲ — MMS / LS_ID_TARA_VERSION_MMS
+فریم LS_ID_TARA_VERSION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+متن یا شناسه پیام
+جدول داده داخل نرم‌افزار
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_VERSION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Msg_Tab_Edition" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Msg_Tab_Edition</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 118</Property>
       <Property Name="Text">Ls_Mms_Msg_Tab_Edition</Property>
+      <Property Name="CustomToolTipText">پیام · جدول · نسخه — MMS / LS_ID_TARA_VERSION_MMS
+فریم LS_ID_TARA_VERSION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+متن یا شناسه پیام
+جدول داده داخل نرم‌افزار
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_VERSION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Msg_Tab_Edition" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Msg_Tab_Edition</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 117</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">پیام · جدول · نسخه — MMS / LS_ID_TARA_VERSION_MMS
+فریم LS_ID_TARA_VERSION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+متن یا شناسه پیام
+جدول داده داخل نرم‌افزار
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_VERSION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Mms_Msg_Tab_Edition" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Ls_Mms_Msg_Tab_Edition</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">414, 116</Property>
+      <Property Name="Location">422, 116</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Msg_Tab_Edition;1;;;-1</Property>
+      <Property Name="CustomToolTipText">پیام · جدول · نسخه — MMS / LS_ID_TARA_VERSION_MMS
+فریم LS_ID_TARA_VERSION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+متن یا شناسه پیام
+جدول داده داخل نرم‌افزار
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_VERSION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Sw_Ident" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Sw_Ident</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 144</Property>
       <Property Name="Text">Ls_Mms_Sw_Ident</Property>
+      <Property Name="CustomToolTipText">کلید · شناسه — MMS / LS_ID_TARA_VERSION_MMS
+فریم LS_ID_TARA_VERSION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+سوئیچ نرم‌افزاری
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_VERSION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Sw_Ident" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Sw_Ident</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 143</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">کلید · شناسه — MMS / LS_ID_TARA_VERSION_MMS
+فریم LS_ID_TARA_VERSION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+سوئیچ نرم‌افزاری
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_VERSION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Ls_Mms_Sw_Ident" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Ls_Mms_Sw_Ident</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">414, 142</Property>
+      <Property Name="Location">422, 142</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Sw_Ident;1;;;-1</Property>
+      <Property Name="CustomToolTipText">کلید · شناسه — MMS / LS_ID_TARA_VERSION_MMS
+فریم LS_ID_TARA_VERSION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+سوئیچ نرم‌افزاری
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_VERSION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Sw_Ver_Day" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Sw_Ver_Day</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 170</Property>
       <Property Name="Text">Ls_Mms_Sw_Ver_Day</Property>
+      <Property Name="CustomToolTipText">کلید · نسخه · روز — MMS / LS_ID_TARA_VERSION_MMS
+فریم LS_ID_TARA_VERSION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+سوئیچ نرم‌افزاری
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_VERSION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+عددی
+بازه: 1 تا 31 بدون واحد
+مقدار پیش‌فرض: 1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Sw_Ver_Day" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Sw_Ver_Day</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 169</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">کلید · نسخه · روز — MMS / LS_ID_TARA_VERSION_MMS
+فریم LS_ID_TARA_VERSION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+سوئیچ نرم‌افزاری
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_VERSION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+عددی
+بازه: 1 تا 31 بدون واحد
+مقدار پیش‌فرض: 1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Mms_Sw_Ver_Day" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Ls_Mms_Sw_Ver_Day</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">416, 171</Property>
+      <Property Name="Location">424, 171</Property>
       <Property Name="Minimum">1</Property>
       <Property Name="Maximum">31</Property>
       <Property Name="Increment">0.3</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Sw_Ver_Day;1;;;-1</Property>
+      <Property Name="CustomToolTipText">کلید · نسخه · روز — MMS / LS_ID_TARA_VERSION_MMS
+فریم LS_ID_TARA_VERSION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+سوئیچ نرم‌افزاری
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_VERSION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+عددی
+بازه: 1 تا 31 بدون واحد
+مقدار پیش‌فرض: 1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Sw_Ver_Month" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Sw_Ver_Month</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 196</Property>
       <Property Name="Text">Ls_Mms_Sw_Ver_Month</Property>
+      <Property Name="CustomToolTipText">کلید · نسخه · ماه — MMS / LS_ID_TARA_VERSION_MMS
+فریم LS_ID_TARA_VERSION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+سوئیچ نرم‌افزاری
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_VERSION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+عددی
+بازه: 1 تا 12 بدون واحد
+مقدار پیش‌فرض: 1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Sw_Ver_Month" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Sw_Ver_Month</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 195</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">کلید · نسخه · ماه — MMS / LS_ID_TARA_VERSION_MMS
+فریم LS_ID_TARA_VERSION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+سوئیچ نرم‌افزاری
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_VERSION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+عددی
+بازه: 1 تا 12 بدون واحد
+مقدار پیش‌فرض: 1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Mms_Sw_Ver_Month" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Ls_Mms_Sw_Ver_Month</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">416, 197</Property>
+      <Property Name="Location">424, 197</Property>
       <Property Name="Minimum">1</Property>
       <Property Name="Maximum">12</Property>
       <Property Name="Increment">0.11</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Sw_Ver_Month;1;;;-1</Property>
+      <Property Name="CustomToolTipText">کلید · نسخه · ماه — MMS / LS_ID_TARA_VERSION_MMS
+فریم LS_ID_TARA_VERSION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+سوئیچ نرم‌افزاری
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_VERSION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+عددی
+بازه: 1 تا 12 بدون واحد
+مقدار پیش‌فرض: 1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Ls_Mms_Sw_Ver_Year" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Ls_Mms_Sw_Ver_Year</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 222</Property>
       <Property Name="Text">Ls_Mms_Sw_Ver_Year</Property>
+      <Property Name="CustomToolTipText">کلید · نسخه · سال — MMS / LS_ID_TARA_VERSION_MMS
+فریم LS_ID_TARA_VERSION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+سوئیچ نرم‌افزاری
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_VERSION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+عددی
+بازه: 2000 تا 2200 بدون واحد
+مقدار پیش‌فرض: 2000</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Ls_Mms_Sw_Ver_Year" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Ls_Mms_Sw_Ver_Year</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 221</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">کلید · نسخه · سال — MMS / LS_ID_TARA_VERSION_MMS
+فریم LS_ID_TARA_VERSION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+سوئیچ نرم‌افزاری
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_VERSION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+عددی
+بازه: 2000 تا 2200 بدون واحد
+مقدار پیش‌فرض: 2000</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Ls_Mms_Sw_Ver_Year" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Ls_Mms_Sw_Ver_Year</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">416, 223</Property>
+      <Property Name="Location">424, 223</Property>
       <Property Name="Minimum">2000</Property>
       <Property Name="Maximum">2200</Property>
       <Property Name="Increment">2</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Ls_Mms_Sw_Ver_Year;1;;;-1</Property>
+      <Property Name="CustomToolTipText">کلید · نسخه · سال — MMS / LS_ID_TARA_VERSION_MMS
+فریم LS_ID_TARA_VERSION_MMS که MMS روی شبکه LS می‌فرستد. نسخه نرم‌افزار، پروفایل صوتی و درخواست‌های دیاگ خودش را می‌فرستد.
+سوئیچ نرم‌افزاری
+گره: MMS — چندرسانه‌ای
+پیام: LS_ID_TARA_VERSION_MMS
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+عددی
+بازه: 2000 تا 2200 بدون واحد
+مقدار پیش‌فرض: 2000</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_DATE_DAY" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_LS_ICN_DATE_DAY</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 248</Property>
       <Property Name="Text">LS_ICN_DATE_DAY</Property>
+      <Property Name="CustomToolTipText">تاریخ · روز — ICN / LS_ID_DENA_TIME_IC
+فریم LS_ID_DENA_TIME_IC که ICN روی شبکه LS می‌فرستد. روی شبکه کم‌سرعت، وضعیت چراغ‌ها، سفر، دمای آب و تنظیمات نمایش را می‌فرستد.
+گره: ICN — کلاستر / صفحه نشانگر
+پیام: LS_ID_DENA_TIME_IC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_LS_ICN_DATE_DAY" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_LS_ICN_DATE_DAY</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 247</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">تاریخ · روز — ICN / LS_ID_DENA_TIME_IC
+فریم LS_ID_DENA_TIME_IC که ICN روی شبکه LS می‌فرستد. روی شبکه کم‌سرعت، وضعیت چراغ‌ها، سفر، دمای آب و تنظیمات نمایش را می‌فرستد.
+گره: ICN — کلاستر / صفحه نشانگر
+پیام: LS_ID_DENA_TIME_IC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_DATE_DAY" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_LS_ICN_DATE_DAY</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">414, 246</Property>
+      <Property Name="Location">422, 246</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_DATE_DAY;1;;;-1</Property>
+      <Property Name="CustomToolTipText">تاریخ · روز — ICN / LS_ID_DENA_TIME_IC
+فریم LS_ID_DENA_TIME_IC که ICN روی شبکه LS می‌فرستد. روی شبکه کم‌سرعت، وضعیت چراغ‌ها، سفر، دمای آب و تنظیمات نمایش را می‌فرستد.
+گره: ICN — کلاستر / صفحه نشانگر
+پیام: LS_ID_DENA_TIME_IC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_DATE_MONTH" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_LS_ICN_DATE_MONTH</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 274</Property>
       <Property Name="Text">LS_ICN_DATE_MONTH</Property>
+      <Property Name="CustomToolTipText">تاریخ · ماه — ICN / LS_ID_DENA_TIME_IC
+فریم LS_ID_DENA_TIME_IC که ICN روی شبکه LS می‌فرستد. روی شبکه کم‌سرعت، وضعیت چراغ‌ها، سفر، دمای آب و تنظیمات نمایش را می‌فرستد.
+گره: ICN — کلاستر / صفحه نشانگر
+پیام: LS_ID_DENA_TIME_IC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_LS_ICN_DATE_MONTH" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_LS_ICN_DATE_MONTH</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 273</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">تاریخ · ماه — ICN / LS_ID_DENA_TIME_IC
+فریم LS_ID_DENA_TIME_IC که ICN روی شبکه LS می‌فرستد. روی شبکه کم‌سرعت، وضعیت چراغ‌ها، سفر، دمای آب و تنظیمات نمایش را می‌فرستد.
+گره: ICN — کلاستر / صفحه نشانگر
+پیام: LS_ID_DENA_TIME_IC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_DATE_MONTH" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_LS_ICN_DATE_MONTH</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">414, 272</Property>
+      <Property Name="Location">422, 272</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_DATE_MONTH;1;;;-1</Property>
+      <Property Name="CustomToolTipText">تاریخ · ماه — ICN / LS_ID_DENA_TIME_IC
+فریم LS_ID_DENA_TIME_IC که ICN روی شبکه LS می‌فرستد. روی شبکه کم‌سرعت، وضعیت چراغ‌ها، سفر، دمای آب و تنظیمات نمایش را می‌فرستد.
+گره: ICN — کلاستر / صفحه نشانگر
+پیام: LS_ID_DENA_TIME_IC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_DATE_YEAR" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_LS_ICN_DATE_YEAR</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 300</Property>
       <Property Name="Text">LS_ICN_DATE_YEAR</Property>
+      <Property Name="CustomToolTipText">تاریخ · سال — ICN / LS_ID_DENA_TIME_IC
+فریم LS_ID_DENA_TIME_IC که ICN روی شبکه LS می‌فرستد. روی شبکه کم‌سرعت، وضعیت چراغ‌ها، سفر، دمای آب و تنظیمات نمایش را می‌فرستد.
+گره: ICN — کلاستر / صفحه نشانگر
+پیام: LS_ID_DENA_TIME_IC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_LS_ICN_DATE_YEAR" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_LS_ICN_DATE_YEAR</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 299</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">تاریخ · سال — ICN / LS_ID_DENA_TIME_IC
+فریم LS_ID_DENA_TIME_IC که ICN روی شبکه LS می‌فرستد. روی شبکه کم‌سرعت، وضعیت چراغ‌ها، سفر، دمای آب و تنظیمات نمایش را می‌فرستد.
+گره: ICN — کلاستر / صفحه نشانگر
+پیام: LS_ID_DENA_TIME_IC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_DATE_YEAR" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_LS_ICN_DATE_YEAR</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">414, 298</Property>
+      <Property Name="Location">422, 298</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_DATE_YEAR;1;;;-1</Property>
+      <Property Name="CustomToolTipText">تاریخ · سال — ICN / LS_ID_DENA_TIME_IC
+فریم LS_ID_DENA_TIME_IC که ICN روی شبکه LS می‌فرستد. روی شبکه کم‌سرعت، وضعیت چراغ‌ها، سفر، دمای آب و تنظیمات نمایش را می‌فرستد.
+گره: ICN — کلاستر / صفحه نشانگر
+پیام: LS_ID_DENA_TIME_IC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_TIME_HOURS" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_LS_ICN_TIME_HOURS</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 326</Property>
       <Property Name="Text">LS_ICN_TIME_HOURS</Property>
+      <Property Name="CustomToolTipText">زمان · ساعت — ICN / LS_ID_DENA_TIME_IC
+فریم LS_ID_DENA_TIME_IC که ICN روی شبکه LS می‌فرستد. روی شبکه کم‌سرعت، وضعیت چراغ‌ها، سفر، دمای آب و تنظیمات نمایش را می‌فرستد.
+گره: ICN — کلاستر / صفحه نشانگر
+پیام: LS_ID_DENA_TIME_IC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_LS_ICN_TIME_HOURS" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_LS_ICN_TIME_HOURS</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 325</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">زمان · ساعت — ICN / LS_ID_DENA_TIME_IC
+فریم LS_ID_DENA_TIME_IC که ICN روی شبکه LS می‌فرستد. روی شبکه کم‌سرعت، وضعیت چراغ‌ها، سفر، دمای آب و تنظیمات نمایش را می‌فرستد.
+گره: ICN — کلاستر / صفحه نشانگر
+پیام: LS_ID_DENA_TIME_IC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_TIME_HOURS" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_LS_ICN_TIME_HOURS</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">414, 324</Property>
+      <Property Name="Location">422, 324</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_TIME_HOURS;1;;;-1</Property>
+      <Property Name="CustomToolTipText">زمان · ساعت — ICN / LS_ID_DENA_TIME_IC
+فریم LS_ID_DENA_TIME_IC که ICN روی شبکه LS می‌فرستد. روی شبکه کم‌سرعت، وضعیت چراغ‌ها، سفر، دمای آب و تنظیمات نمایش را می‌فرستد.
+گره: ICN — کلاستر / صفحه نشانگر
+پیام: LS_ID_DENA_TIME_IC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_TIME_MINUTES" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_LS_ICN_TIME_MINUTES</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 352</Property>
       <Property Name="Text">LS_ICN_TIME_MINUTES</Property>
+      <Property Name="CustomToolTipText">زمان · دقیقه — ICN / LS_ID_DENA_TIME_IC
+فریم LS_ID_DENA_TIME_IC که ICN روی شبکه LS می‌فرستد. روی شبکه کم‌سرعت، وضعیت چراغ‌ها، سفر، دمای آب و تنظیمات نمایش را می‌فرستد.
+گره: ICN — کلاستر / صفحه نشانگر
+پیام: LS_ID_DENA_TIME_IC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_LS_ICN_TIME_MINUTES" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_LS_ICN_TIME_MINUTES</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 351</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">زمان · دقیقه — ICN / LS_ID_DENA_TIME_IC
+فریم LS_ID_DENA_TIME_IC که ICN روی شبکه LS می‌فرستد. روی شبکه کم‌سرعت، وضعیت چراغ‌ها، سفر، دمای آب و تنظیمات نمایش را می‌فرستد.
+گره: ICN — کلاستر / صفحه نشانگر
+پیام: LS_ID_DENA_TIME_IC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_TIME_MINUTES" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_LS_ICN_TIME_MINUTES</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">414, 350</Property>
+      <Property Name="Location">422, 350</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_TIME_MINUTES;1;;;-1</Property>
+      <Property Name="CustomToolTipText">زمان · دقیقه — ICN / LS_ID_DENA_TIME_IC
+فریم LS_ID_DENA_TIME_IC که ICN روی شبکه LS می‌فرستد. روی شبکه کم‌سرعت، وضعیت چراغ‌ها، سفر، دمای آب و تنظیمات نمایش را می‌فرستد.
+گره: ICN — کلاستر / صفحه نشانگر
+پیام: LS_ID_DENA_TIME_IC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_LS_ICN_TIME_SECONDS" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_LS_ICN_TIME_SECONDS</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 378</Property>
       <Property Name="Text">LS_ICN_TIME_SECONDS</Property>
+      <Property Name="CustomToolTipText">زمان · ثانیه — ICN / LS_ID_DENA_TIME_IC
+فریم LS_ID_DENA_TIME_IC که ICN روی شبکه LS می‌فرستد. روی شبکه کم‌سرعت، وضعیت چراغ‌ها، سفر، دمای آب و تنظیمات نمایش را می‌فرستد.
+گره: ICN — کلاستر / صفحه نشانگر
+پیام: LS_ID_DENA_TIME_IC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_LS_ICN_TIME_SECONDS" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_LS_ICN_TIME_SECONDS</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 377</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">زمان · ثانیه — ICN / LS_ID_DENA_TIME_IC
+فریم LS_ID_DENA_TIME_IC که ICN روی شبکه LS می‌فرستد. روی شبکه کم‌سرعت، وضعیت چراغ‌ها، سفر، دمای آب و تنظیمات نمایش را می‌فرستد.
+گره: ICN — کلاستر / صفحه نشانگر
+پیام: LS_ID_DENA_TIME_IC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_LS_ICN_TIME_SECONDS" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_LS_ICN_TIME_SECONDS</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">414, 376</Property>
+      <Property Name="Location">422, 376</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_TIME_SECONDS;1;;;-1</Property>
+      <Property Name="CustomToolTipText">زمان · ثانیه — ICN / LS_ID_DENA_TIME_IC
+فریم LS_ID_DENA_TIME_IC که ICN روی شبکه LS می‌فرستد. روی شبکه کم‌سرعت، وضعیت چراغ‌ها، سفر، دمای آب و تنظیمات نمایش را می‌فرستد.
+گره: ICN — کلاستر / صفحه نشانگر
+پیام: LS_ID_DENA_TIME_IC
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: LS (Low-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Property Name="Name">NBCM MMS</Property>
     <Property Name="Size">512, 926</Property>

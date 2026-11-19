@@ -33,6 +33,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import sys
 from pathlib import Path
 from xml.sax.saxutils import escape
 
@@ -41,6 +42,14 @@ DEFAULT_MAP = ROOT / "can_tester" / "assets" / "signal_map.json"
 DEFAULT_OUT = ROOT / "canoe" / "panels"
 
 NAMESPACE = "NBCM_Test"
+
+# The same explanations the HTML tester shows behind its (i) button: the text
+# lives in tools/signal_glossary.py so the two can never drift apart.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+try:
+    import signal_glossary as _glossary
+except Exception:                                                 # noqa: BLE001
+    _glossary = None
 # A real, older assembly version. CANoe upgrades panels on open, so stamping an
 # older version is safer than inventing a version number that does not exist.
 DEFAULT_VERSION = "8.5.80.0"
@@ -157,6 +166,45 @@ def numeric(name, caption, loc, var, lo, hi, step=1, size=(86, 20)):
     })
 
 
+def tip_for(sig: dict) -> str:
+    """Hover text for a signal control."""
+    if _glossary is not None:
+        try:
+            recs = _glossary.build()["signals"]
+            rec = recs.get(sig.get("id")) or recs.get(f"{sig['node']}:{sig['msg']}:{sig['sig']}")
+            if rec:
+                return _glossary.tooltip_text(rec)
+        except Exception:                                         # noqa: BLE001
+            pass
+    return (f"{sig['sig']} — {sig['node']} / {sig['msg']}\n"
+            f"{'دوحالته' if sig['kind'] == 'bool' else 'عددی'} · "
+            f"{sig['min']}..{sig['max']} {sig['unit'] or ''} · هر {sig.get('cycle', 0)} ms")
+
+
+def tip_for_node(node: dict) -> str:
+    """Hover text for a node."""
+    if _glossary is not None:
+        try:
+            info = _glossary.build()["nodes"].get(node["node"])
+            if info:
+                return (f"{node['node']} — {info['title']}\n{info['about']}\n"
+                        f"{node.get('nMsg', 0)} پیام · {node.get('nSig', 0)} سیگنال · "
+                        f"{node['net']}-CAN")
+        except Exception:                                         # noqa: BLE001
+            pass
+    return f"{node['node']} — {node['net']}-CAN"
+
+
+def infobtn(name: str, loc, tip: str, size=(13, 16)) -> "Control":
+    """A small circled "!" next to a control; CANoe shows `tip` on hover."""
+    return Control("text", name, "Static Text", loc, size, {
+        "Text": "(i)",
+        "Font": "Microsoft Sans Serif, 7.5pt",
+        "ForeColor": "0, 90, 170",
+        "CustomToolTipText": tip,
+    })
+
+
 def label(name, caption, loc, text, size=(120, 18)):
     return Control("text", name, caption, loc, size, {"Text": text})
 
@@ -267,24 +315,35 @@ def build_node_panel(node: dict, signals_by_sig: dict, version: str) -> tuple[st
     height = 42 + rows_per_col * 26
 
     c: list[Control] = []
-    c.append(label("TxtTitle", "Static Text", (10, 8),
-                   f"{node['node']}  -  {node['net']}-CAN  -  "
-                   f"{node['nMsg']} messages / {node['nSig']} signals", (cols * col_w - 20, 20)))
+    ttl = label("TxtTitle", "Static Text", (10, 8),
+                f"{node['node']}  -  {node['net']}-CAN  -  "
+                f"{node['nMsg']} messages / {node['nSig']} signals", (cols * col_w - 40, 20))
+    ttl.props["CustomToolTipText"] = tip_for_node(node)
+    c.append(ttl)
+    c.append(infobtn("I_Node", (cols * col_w - 26, 7), tip_for_node(node)))
 
     for i, s in enumerate(sigs):
         col = i // rows_per_col
         row = i % rows_per_col
         x = 10 + col * col_w
         y = 38 + row * 26
-        c.append(label(f"Txt_{clean_id(s['sig'])}", "Static Text", (x, y + 2),
-                       s["sig"], (150, 18)))
+        tip = tip_for(s)
+        lbl = label(f"Txt_{clean_id(s['sig'])}", "Static Text", (x, y + 2),
+                    s["sig"], (138, 18))
+        lbl.props["CustomToolTipText"] = tip
+        c.append(lbl)
+        c.append(infobtn(f"I_{clean_id(s['sig'])}", (x + 140, y + 1), tip))
         if s["kind"] == "bool":
-            c.append(switch(f"Sw_{clean_id(s['sig'])}", "Switch/Indicator", (x + 154, y),
-                            s["sig"], (20, 24)))
+            sw = switch(f"Sw_{clean_id(s['sig'])}", "Switch/Indicator", (x + 162, y),
+                        s["sig"], (20, 24))
+            sw.props["CustomToolTipText"] = tip
+            c.append(sw)
         else:
             step = 1 if s["kind"] == "enum" else max(0.1, round((s["max"] - s["min"]) / 100, 3))
-            c.append(numeric(f"Num_{clean_id(s['sig'])}", "Numeric Up/Down", (x + 156, y + 3),
-                             s["sig"], s["min"], s["max"], step, (72, 20)))
+            nb = numeric(f"Num_{clean_id(s['sig'])}", "Numeric Up/Down", (x + 164, y + 3),
+                         s["sig"], s["min"], s["max"], step, (72, 20))
+            nb.props["CustomToolTipText"] = tip
+            c.append(nb)
     return render_panel(f"NBCM {node['node']}", c, width, height, version), width, height
 
 

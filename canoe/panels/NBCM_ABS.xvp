@@ -3,774 +3,2765 @@
   <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Panel" Children="Controls" ControlName="NBCM ABS">
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtTitle" Children="Controls" ControlName="Static Text">
       <Property Name="Name">TxtTitle</Property>
-      <Property Name="Size">480, 20</Property>
+      <Property Name="Size">460, 20</Property>
       <Property Name="Location">10, 8</Property>
       <Property Name="Text">ABS  -  HS-CAN  -  7 messages / 51 signals</Property>
+      <Property Name="CustomToolTipText">ABS — ترمز ضدقفل و کنترل پایداری
+دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+7 پیام · 51 سیگنال · HS-CAN</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Node" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Node</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">474, 7</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ABS — ترمز ضدقفل و کنترل پایداری
+دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+7 پیام · 51 سیگنال · HS-CAN</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Active" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Abs_Active</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 40</Property>
       <Property Name="Text">Hs_Abs_Active</Property>
+      <Property Name="CustomToolTipText">فعال — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+در این لحظه کار می‌کند
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Active" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Active</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 39</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">فعال — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+در این لحظه کار می‌کند
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Abs_Active" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Abs_Active</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 38</Property>
+      <Property Name="Location">172, 38</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Active;1;;;-1</Property>
+      <Property Name="CustomToolTipText">فعال — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+در این لحظه کار می‌کند
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_DiagMode" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Abs_DiagMode</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 66</Property>
       <Property Name="Text">Hs_Abs_DiagMode</Property>
+      <Property Name="CustomToolTipText">حالت دیباگ — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+حالت سرویس/تشخیص
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_DiagMode" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_DiagMode</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 65</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">حالت دیباگ — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+حالت سرویس/تشخیص
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Abs_DiagMode" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Abs_DiagMode</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 64</Property>
+      <Property Name="Location">172, 64</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_DiagMode;1;;;-1</Property>
+      <Property Name="CustomToolTipText">حالت دیباگ — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+حالت سرویس/تشخیص
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Ebd_Active" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Abs_Ebd_Active</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 92</Property>
       <Property Name="Text">Hs_Abs_Ebd_Active</Property>
+      <Property Name="CustomToolTipText">EBD · فعال — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+توزیع الکترونیکی ترمز
+در این لحظه کار می‌کند
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Ebd_Active" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Ebd_Active</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 91</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">EBD · فعال — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+توزیع الکترونیکی ترمز
+در این لحظه کار می‌کند
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Abs_Ebd_Active" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Abs_Ebd_Active</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 90</Property>
+      <Property Name="Location">172, 90</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Ebd_Active;1;;;-1</Property>
+      <Property Name="CustomToolTipText">EBD · فعال — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+توزیع الکترونیکی ترمز
+در این لحظه کار می‌کند
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Ebd_Error" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Abs_Ebd_Error</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 118</Property>
       <Property Name="Text">Hs_Abs_Ebd_Error</Property>
+      <Property Name="CustomToolTipText">EBD · خطا — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+توزیع الکترونیکی ترمز
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Ebd_Error" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Ebd_Error</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 117</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">EBD · خطا — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+توزیع الکترونیکی ترمز
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Abs_Ebd_Error" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Abs_Ebd_Error</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 116</Property>
+      <Property Name="Location">172, 116</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Ebd_Error;1;;;-1</Property>
+      <Property Name="CustomToolTipText">EBD · خطا — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+توزیع الکترونیکی ترمز
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Ebd_Warning" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Abs_Ebd_Warning</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 144</Property>
       <Property Name="Text">Hs_Abs_Ebd_Warning</Property>
+      <Property Name="CustomToolTipText">EBD · هشدار — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+توزیع الکترونیکی ترمز
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Ebd_Warning" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Ebd_Warning</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 143</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">EBD · هشدار — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+توزیع الکترونیکی ترمز
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Abs_Ebd_Warning" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Abs_Ebd_Warning</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 142</Property>
+      <Property Name="Location">172, 142</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Ebd_Warning;1;;;-1</Property>
+      <Property Name="CustomToolTipText">EBD · هشدار — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+توزیع الکترونیکی ترمز
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Error" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Abs_Error</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 170</Property>
       <Property Name="Text">Hs_Abs_Error</Property>
+      <Property Name="CustomToolTipText">خطا — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Error" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Error</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 169</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">خطا — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Abs_Error" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Abs_Error</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 168</Property>
+      <Property Name="Location">172, 168</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Error;1;;;-1</Property>
+      <Property Name="CustomToolTipText">خطا — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Esp_Enable" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Abs_Esp_Enable</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 196</Property>
       <Property Name="Text">Hs_Abs_Esp_Enable</Property>
+      <Property Name="CustomToolTipText">ESP · فعال‌سازی — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Esp_Enable" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Esp_Enable</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 195</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ESP · فعال‌سازی — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Abs_Esp_Enable" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Abs_Esp_Enable</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 194</Property>
+      <Property Name="Location">172, 194</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Esp_Enable;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ESP · فعال‌سازی — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Esp_Warning" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Abs_Esp_Warning</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 222</Property>
       <Property Name="Text">Hs_Abs_Esp_Warning</Property>
+      <Property Name="CustomToolTipText">ESP · هشدار — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 3 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Esp_Warning" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Esp_Warning</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 221</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ESP · هشدار — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 3 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Esp_Warning" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Abs_Esp_Warning</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 223</Property>
+      <Property Name="Location">174, 223</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">3</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Esp_Warning;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ESP · هشدار — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 3 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Warning" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Abs_Warning</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 248</Property>
       <Property Name="Text">Hs_Abs_Warning</Property>
+      <Property Name="CustomToolTipText">هشدار — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Warning" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Warning</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 247</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">هشدار — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Abs_Warning" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Abs_Warning</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 246</Property>
+      <Property Name="Location">172, 246</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Warning;1;;;-1</Property>
+      <Property Name="CustomToolTipText">هشدار — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Wheel_Speed_Fl" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Abs_Wheel_Speed_Fl</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 274</Property>
       <Property Name="Text">Hs_Abs_Wheel_Speed_Fl</Property>
+      <Property Name="CustomToolTipText">چرخ · سرعت · F — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+km/h
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4095 Km/h
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Wheel_Speed_Fl" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Wheel_Speed_Fl</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 273</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">چرخ · سرعت · F — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+km/h
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4095 Km/h
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Wheel_Speed_Fl" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Abs_Wheel_Speed_Fl</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 275</Property>
+      <Property Name="Location">174, 275</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">4095</Property>
       <Property Name="Increment">40.95</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Wheel_Speed_Fl;1;;;-1</Property>
+      <Property Name="CustomToolTipText">چرخ · سرعت · F — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+km/h
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4095 Km/h
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Wheel_Speed_Fr" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Abs_Wheel_Speed_Fr</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 300</Property>
       <Property Name="Text">Hs_Abs_Wheel_Speed_Fr</Property>
+      <Property Name="CustomToolTipText">چرخ · سرعت · F — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+km/h
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4095 Km/h
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Wheel_Speed_Fr" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Wheel_Speed_Fr</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 299</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">چرخ · سرعت · F — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+km/h
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4095 Km/h
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Wheel_Speed_Fr" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Abs_Wheel_Speed_Fr</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 301</Property>
+      <Property Name="Location">174, 301</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">4095</Property>
       <Property Name="Increment">40.95</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Wheel_Speed_Fr;1;;;-1</Property>
+      <Property Name="CustomToolTipText">چرخ · سرعت · F — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+km/h
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4095 Km/h
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Wheel_Speed_Rl" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Abs_Wheel_Speed_Rl</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 326</Property>
       <Property Name="Text">Hs_Abs_Wheel_Speed_Rl</Property>
+      <Property Name="CustomToolTipText">چرخ · سرعت — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+km/h
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4095 Km/h
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Wheel_Speed_Rl" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Wheel_Speed_Rl</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 325</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">چرخ · سرعت — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+km/h
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4095 Km/h
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Wheel_Speed_Rl" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Abs_Wheel_Speed_Rl</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 327</Property>
+      <Property Name="Location">174, 327</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">4095</Property>
       <Property Name="Increment">40.95</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Wheel_Speed_Rl;1;;;-1</Property>
+      <Property Name="CustomToolTipText">چرخ · سرعت — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+km/h
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4095 Km/h
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Wheel_Speed_Rr" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Abs_Wheel_Speed_Rr</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 352</Property>
       <Property Name="Text">Hs_Abs_Wheel_Speed_Rr</Property>
+      <Property Name="CustomToolTipText">چرخ · سرعت — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+km/h
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4095 Km/h
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Wheel_Speed_Rr" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Wheel_Speed_Rr</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 351</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">چرخ · سرعت — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+km/h
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4095 Km/h
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Wheel_Speed_Rr" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Abs_Wheel_Speed_Rr</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 353</Property>
+      <Property Name="Location">174, 353</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">4095</Property>
       <Property Name="Increment">40.95</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Wheel_Speed_Rr;1;;;-1</Property>
+      <Property Name="CustomToolTipText">چرخ · سرعت — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+km/h
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4095 Km/h
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_GearShiftInhibit" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Esc_GearShiftInhibit</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 378</Property>
       <Property Name="Text">Hs_Esc_GearShiftInhibit</Property>
+      <Property Name="CustomToolTipText">ESC · ممانعت تعویض دنده — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+در این وضعیت تعویض دنده مجاز نیست
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_GearShiftInhibit" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_GearShiftInhibit</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 377</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ESC · ممانعت تعویض دنده — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+در این وضعیت تعویض دنده مجاز نیست
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Esc_GearShiftInhibit" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Esc_GearShiftInhibit</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 376</Property>
+      <Property Name="Location">172, 376</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_GearShiftInhibit;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ESC · ممانعت تعویض دنده — ABS / HS_ID_ABS
+وضعیت کلی ABS: فعال بودن، حالت دیباگ و چراغ‌های خطا. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+در این وضعیت تعویض دنده مجاز نیست
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Brake_Checksum" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Brake_Checksum</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 404</Property>
       <Property Name="Text">Hs_Brake_Checksum</Property>
+      <Property Name="CustomToolTipText">ترمز · چک‌سام — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+جمع کنترلی برای تشخیص خرابی داده
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Brake_Checksum" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Brake_Checksum</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 403</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ترمز · چک‌سام — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+جمع کنترلی برای تشخیص خرابی داده
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Brake_Checksum" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Brake_Checksum</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 405</Property>
+      <Property Name="Location">174, 405</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">255</Property>
       <Property Name="Increment">2.55</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Brake_Checksum;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ترمز · چک‌سام — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+جمع کنترلی برای تشخیص خرابی داده
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Brake_RollCntr" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Brake_RollCntr</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 430</Property>
       <Property Name="Text">Hs_Brake_RollCntr</Property>
+      <Property Name="CustomToolTipText">ترمز · شمارنده چرخشی — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+شمارنده‌ای که تا سقف می‌رود و صفر می‌شود
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 14 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Brake_RollCntr" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Brake_RollCntr</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 429</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ترمز · شمارنده چرخشی — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+شمارنده‌ای که تا سقف می‌رود و صفر می‌شود
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 14 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Brake_RollCntr" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Brake_RollCntr</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 431</Property>
+      <Property Name="Location">174, 431</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">14</Property>
       <Property Name="Increment">0.14</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Brake_RollCntr;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ترمز · شمارنده چرخشی — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+شمارنده‌ای که تا سقف می‌رود و صفر می‌شود
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 14 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_EmergBrakeStatus" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Esc_EmergBrakeStatus</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 456</Property>
       <Property Name="Text">Hs_Esc_EmergBrakeStatus</Property>
+      <Property Name="CustomToolTipText">ESC · وضعیت ترمز اضطراری — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 3 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_EmergBrakeStatus" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_EmergBrakeStatus</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 455</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ESC · وضعیت ترمز اضطراری — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 3 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Esc_EmergBrakeStatus" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Esc_EmergBrakeStatus</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 457</Property>
+      <Property Name="Location">174, 457</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">3</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_EmergBrakeStatus;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ESC · وضعیت ترمز اضطراری — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 3 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_EscDisableStatus" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Esc_EscDisableStatus</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 482</Property>
       <Property Name="Text">Hs_Esc_EscDisableStatus</Property>
+      <Property Name="CustomToolTipText">ESC · وضعیت غیرفعالی ESC — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_EscDisableStatus" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_EscDisableStatus</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 481</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ESC · وضعیت غیرفعالی ESC — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Esc_EscDisableStatus" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Esc_EscDisableStatus</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 480</Property>
+      <Property Name="Location">172, 480</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_EscDisableStatus;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ESC · وضعیت غیرفعالی ESC — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_EscError" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Esc_EscError</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 508</Property>
       <Property Name="Text">Hs_Esc_EscError</Property>
+      <Property Name="CustomToolTipText">ESC · خطای ESC — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_EscError" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_EscError</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 507</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ESC · خطای ESC — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Esc_EscError" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Esc_EscError</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 506</Property>
+      <Property Name="Location">172, 506</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_EscError;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ESC · خطای ESC — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_HacActive" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Esc_HacActive</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 534</Property>
       <Property Name="Text">Hs_Esc_HacActive</Property>
+      <Property Name="CustomToolTipText">ESC · فعال بودن HAC — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+کمک در سربالایی
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_HacActive" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_HacActive</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 533</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ESC · فعال بودن HAC — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+کمک در سربالایی
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Esc_HacActive" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Esc_HacActive</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 532</Property>
+      <Property Name="Location">172, 532</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_HacActive;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ESC · فعال بودن HAC — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+کمک در سربالایی
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_HacError" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Esc_HacError</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 560</Property>
       <Property Name="Text">Hs_Esc_HacError</Property>
+      <Property Name="CustomToolTipText">ESC · خطای HAC — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_HacError" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_HacError</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 559</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ESC · خطای HAC — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Esc_HacError" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Esc_HacError</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 558</Property>
+      <Property Name="Location">172, 558</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_HacError;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ESC · خطای HAC — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_LongAcceleration" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Esc_LongAcceleration</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 586</Property>
       <Property Name="Text">Hs_Esc_LongAcceleration</Property>
+      <Property Name="CustomToolTipText">ESC · شتاب طولی — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+m/s²
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: -10.23 تا 2047 m
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_LongAcceleration" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_LongAcceleration</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 585</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ESC · شتاب طولی — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+m/s²
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: -10.23 تا 2047 m
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Esc_LongAcceleration" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Esc_LongAcceleration</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 587</Property>
+      <Property Name="Location">174, 587</Property>
       <Property Name="Minimum">-10.23</Property>
       <Property Name="Maximum">2047</Property>
       <Property Name="Increment">20.572</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_LongAcceleration;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ESC · شتاب طولی — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+m/s²
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: -10.23 تا 2047 m
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_LongAccelerationValid" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Esc_LongAccelerationValid</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 612</Property>
       <Property Name="Text">Hs_Esc_LongAccelerationValid</Property>
+      <Property Name="CustomToolTipText">ESC · اعتبار شتاب طولی — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_LongAccelerationValid" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_LongAccelerationValid</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 611</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ESC · اعتبار شتاب طولی — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Esc_LongAccelerationValid" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Esc_LongAccelerationValid</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 610</Property>
+      <Property Name="Location">172, 610</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_LongAccelerationValid;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ESC · اعتبار شتاب طولی — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_TcsActive" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Esc_TcsActive</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 638</Property>
       <Property Name="Text">Hs_Esc_TcsActive</Property>
+      <Property Name="CustomToolTipText">ESC · فعال بودن TCS — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+کنترل کشش
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_TcsActive" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_TcsActive</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 637</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ESC · فعال بودن TCS — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+کنترل کشش
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Esc_TcsActive" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Esc_TcsActive</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 636</Property>
+      <Property Name="Location">172, 636</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_TcsActive;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ESC · فعال بودن TCS — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+کنترل کشش
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_TcsDisableStatus" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Esc_TcsDisableStatus</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 664</Property>
       <Property Name="Text">Hs_Esc_TcsDisableStatus</Property>
+      <Property Name="CustomToolTipText">ESC · وضعیت غیرفعالی TCS — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_TcsDisableStatus" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_TcsDisableStatus</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 663</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ESC · وضعیت غیرفعالی TCS — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Esc_TcsDisableStatus" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Esc_TcsDisableStatus</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 662</Property>
+      <Property Name="Location">172, 662</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_TcsDisableStatus;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ESC · وضعیت غیرفعالی TCS — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_TcsError" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Esc_TcsError</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 690</Property>
       <Property Name="Text">Hs_Esc_TcsError</Property>
+      <Property Name="CustomToolTipText">ESC · خطای TCS — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_TcsError" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_TcsError</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 689</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ESC · خطای TCS — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Esc_TcsError" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Esc_TcsError</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 688</Property>
+      <Property Name="Location">172, 688</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_TcsError;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ESC · خطای TCS — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_TorqReductValid" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Esc_TorqReductValid</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 716</Property>
       <Property Name="Text">Hs_Esc_TorqReductValid</Property>
+      <Property Name="CustomToolTipText">ESC · اعتبار کاهش گشتاور — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_TorqReductValid" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_TorqReductValid</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 715</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ESC · اعتبار کاهش گشتاور — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Esc_TorqReductValid" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Esc_TorqReductValid</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 714</Property>
+      <Property Name="Location">172, 714</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_TorqReductValid;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ESC · اعتبار کاهش گشتاور — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_TorqueReductType" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Esc_TorqueReductType</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 742</Property>
       <Property Name="Text">Hs_Esc_TorqueReductType</Property>
+      <Property Name="CustomToolTipText">ESC · نوع کاهش گشتاور — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_TorqueReductType" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_TorqueReductType</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 741</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ESC · نوع کاهش گشتاور — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Esc_TorqueReductType" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Esc_TorqueReductType</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 740</Property>
+      <Property Name="Location">172, 740</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_TorqueReductType;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ESC · نوع کاهش گشتاور — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_TorqueReductValue" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Esc_TorqueReductValue</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 768</Property>
       <Property Name="Text">Hs_Esc_TorqueReductValue</Property>
+      <Property Name="CustomToolTipText">ESC · مقدار کاهش گشتاور — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_TorqueReductValue" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_TorqueReductValue</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 767</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ESC · مقدار کاهش گشتاور — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Esc_TorqueReductValue" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Esc_TorqueReductValue</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 769</Property>
+      <Property Name="Location">174, 769</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">255</Property>
       <Property Name="Increment">2.55</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_TorqueReductValue;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ESC · مقدار کاهش گشتاور — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esp_Ctl" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Esp_Ctl</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 794</Property>
       <Property Name="Text">Hs_Esp_Ctl</Property>
+      <Property Name="CustomToolTipText">ESP · کنترل — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esp_Ctl" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esp_Ctl</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 793</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ESP · کنترل — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Esp_Ctl" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Esp_Ctl</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 792</Property>
+      <Property Name="Location">172, 792</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esp_Ctl;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ESP · کنترل — ABS / HS_ID_ABS_BRAKE
+وضعیت پدال ترمز، فشار ترمز و درگیری ترمز اضطراری. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_BRAKE
+چرخه ارسال: هر 10 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_AbsEsp_Sup_DiagMode" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_AbsEsp_Sup_DiagMode</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 820</Property>
       <Property Name="Text">Hs_AbsEsp_Sup_DiagMode</Property>
+      <Property Name="CustomToolTipText">ABS/ESP · پشتیبان · حالت دیباگ — ABS / HS_ID_ABS_ESP_SUP
+فریم نظارتی ABS/ESP: خطا، قطع ارتباط و شمارنده Bus Off. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+فریم نظارتی
+حالت سرویس/تشخیص
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_ESP_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_AbsEsp_Sup_DiagMode" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_AbsEsp_Sup_DiagMode</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 819</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ABS/ESP · پشتیبان · حالت دیباگ — ABS / HS_ID_ABS_ESP_SUP
+فریم نظارتی ABS/ESP: خطا، قطع ارتباط و شمارنده Bus Off. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+فریم نظارتی
+حالت سرویس/تشخیص
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_ESP_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_AbsEsp_Sup_DiagMode" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_AbsEsp_Sup_DiagMode</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 818</Property>
+      <Property Name="Location">172, 818</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_AbsEsp_Sup_DiagMode;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ABS/ESP · پشتیبان · حالت دیباگ — ABS / HS_ID_ABS_ESP_SUP
+فریم نظارتی ABS/ESP: خطا، قطع ارتباط و شمارنده Bus Off. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+فریم نظارتی
+حالت سرویس/تشخیص
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_ESP_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Bus_Off_Counter" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Abs_Bus_Off_Counter</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 846</Property>
       <Property Name="Text">Hs_Abs_Bus_Off_Counter</Property>
+      <Property Name="CustomToolTipText">باس · خاموش · شمارنده — ABS / HS_ID_ABS_ESP_SUP
+فریم نظارتی ABS/ESP: خطا، قطع ارتباط و شمارنده Bus Off. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_ESP_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Bus_Off_Counter" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Bus_Off_Counter</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 845</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">باس · خاموش · شمارنده — ABS / HS_ID_ABS_ESP_SUP
+فریم نظارتی ABS/ESP: خطا، قطع ارتباط و شمارنده Bus Off. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_ESP_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Bus_Off_Counter" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Abs_Bus_Off_Counter</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 847</Property>
+      <Property Name="Location">174, 847</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">255</Property>
       <Property Name="Increment">2.55</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Bus_Off_Counter;1;;;-1</Property>
+      <Property Name="CustomToolTipText">باس · خاموش · شمارنده — ABS / HS_ID_ABS_ESP_SUP
+فریم نظارتی ABS/ESP: خطا، قطع ارتباط و شمارنده Bus Off. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_ESP_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Com_Loss" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Abs_Com_Loss</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 872</Property>
       <Property Name="Text">Hs_Abs_Com_Loss</Property>
+      <Property Name="CustomToolTipText">ارتباط · از دست رفتن — ABS / HS_ID_ABS_ESP_SUP
+فریم نظارتی ABS/ESP: خطا، قطع ارتباط و شمارنده Bus Off. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+قطع ارتباط با آن بخش
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_ESP_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Com_Loss" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Com_Loss</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 871</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ارتباط · از دست رفتن — ABS / HS_ID_ABS_ESP_SUP
+فریم نظارتی ABS/ESP: خطا، قطع ارتباط و شمارنده Bus Off. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+قطع ارتباط با آن بخش
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_ESP_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Abs_Com_Loss" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Abs_Com_Loss</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">164, 870</Property>
+      <Property Name="Location">172, 870</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Com_Loss;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ارتباط · از دست رفتن — ABS / HS_ID_ABS_ESP_SUP
+فریم نظارتی ABS/ESP: خطا، قطع ارتباط و شمارنده Bus Off. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+قطع ارتباط با آن بخش
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_ESP_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Com_Loss_Counter" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Abs_Com_Loss_Counter</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 898</Property>
       <Property Name="Text">Hs_Abs_Com_Loss_Counter</Property>
+      <Property Name="CustomToolTipText">ارتباط · از دست رفتن · شمارنده — ABS / HS_ID_ABS_ESP_SUP
+فریم نظارتی ABS/ESP: خطا، قطع ارتباط و شمارنده Bus Off. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+قطع ارتباط با آن بخش
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_ESP_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Com_Loss_Counter" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Com_Loss_Counter</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 897</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ارتباط · از دست رفتن · شمارنده — ABS / HS_ID_ABS_ESP_SUP
+فریم نظارتی ABS/ESP: خطا، قطع ارتباط و شمارنده Bus Off. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+قطع ارتباط با آن بخش
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_ESP_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Com_Loss_Counter" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Abs_Com_Loss_Counter</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">166, 899</Property>
+      <Property Name="Location">174, 899</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">255</Property>
       <Property Name="Increment">2.55</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Com_Loss_Counter;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ارتباط · از دست رفتن · شمارنده — ABS / HS_ID_ABS_ESP_SUP
+فریم نظارتی ABS/ESP: خطا، قطع ارتباط و شمارنده Bus Off. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+قطع ارتباط با آن بخش
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_ESP_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Ecu_Dynamic_States" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Abs_Ecu_Dynamic_States</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 40</Property>
       <Property Name="Text">Hs_Abs_Ecu_Dynamic_States</Property>
+      <Property Name="CustomToolTipText">ECU · پویا · وضعیت — ABS / HS_ID_ABS_ESP_SUP
+فریم نظارتی ABS/ESP: خطا، قطع ارتباط و شمارنده Bus Off. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل‌کننده
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_ESP_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Ecu_Dynamic_States" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Ecu_Dynamic_States</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 39</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ECU · پویا · وضعیت — ABS / HS_ID_ABS_ESP_SUP
+فریم نظارتی ABS/ESP: خطا، قطع ارتباط و شمارنده Bus Off. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل‌کننده
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_ESP_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Ecu_Dynamic_States" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Abs_Ecu_Dynamic_States</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">416, 41</Property>
+      <Property Name="Location">424, 41</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">255</Property>
       <Property Name="Increment">2.55</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Ecu_Dynamic_States;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ECU · پویا · وضعیت — ABS / HS_ID_ABS_ESP_SUP
+فریم نظارتی ABS/ESP: خطا، قطع ارتباط و شمارنده Bus Off. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل‌کننده
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_ESP_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Ecu_Static_States" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Abs_Ecu_Static_States</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 66</Property>
       <Property Name="Text">Hs_Abs_Ecu_Static_States</Property>
+      <Property Name="CustomToolTipText">ECU · ثابت · وضعیت — ABS / HS_ID_ABS_ESP_SUP
+فریم نظارتی ABS/ESP: خطا، قطع ارتباط و شمارنده Bus Off. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل‌کننده
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_ESP_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Ecu_Static_States" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Ecu_Static_States</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 65</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ECU · ثابت · وضعیت — ABS / HS_ID_ABS_ESP_SUP
+فریم نظارتی ABS/ESP: خطا، قطع ارتباط و شمارنده Bus Off. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل‌کننده
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_ESP_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Ecu_Static_States" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Abs_Ecu_Static_States</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">416, 67</Property>
+      <Property Name="Location">424, 67</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">255</Property>
       <Property Name="Increment">2.55</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Ecu_Static_States;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ECU · ثابت · وضعیت — ABS / HS_ID_ABS_ESP_SUP
+فریم نظارتی ABS/ESP: خطا، قطع ارتباط و شمارنده Bus Off. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل‌کننده
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_ESP_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Network_Management_State" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Abs_Network_Management_State</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 92</Property>
       <Property Name="Text">Hs_Abs_Network_Management_State</Property>
+      <Property Name="CustomToolTipText">شبکه · مدیریت · وضعیت — ABS / HS_ID_ABS_ESP_SUP
+فریم نظارتی ABS/ESP: خطا، قطع ارتباط و شمارنده Bus Off. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_ESP_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Network_Management_State" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Network_Management_State</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 91</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">شبکه · مدیریت · وضعیت — ABS / HS_ID_ABS_ESP_SUP
+فریم نظارتی ABS/ESP: خطا، قطع ارتباط و شمارنده Bus Off. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_ESP_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Abs_Network_Management_State" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Abs_Network_Management_State</Property>
       <Property Name="Size">20, 24</Property>
-      <Property Name="Location">414, 90</Property>
+      <Property Name="Location">422, 90</Property>
       <Property Name="StateCnt">2</Property>
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Network_Management_State;1;;;-1</Property>
+      <Property Name="CustomToolTipText">شبکه · مدیریت · وضعیت — ABS / HS_ID_ABS_ESP_SUP
+فریم نظارتی ABS/ESP: خطا، قطع ارتباط و شمارنده Bus Off. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_ESP_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
+بازه: ۰ یا ۱
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Tx_TimeOut_Counter" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Abs_Tx_TimeOut_Counter</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 118</Property>
       <Property Name="Text">Hs_Abs_Tx_TimeOut_Counter</Property>
+      <Property Name="CustomToolTipText">ارسال · تایم‌اوت · شمارنده — ABS / HS_ID_ABS_ESP_SUP
+فریم نظارتی ABS/ESP: خطا، قطع ارتباط و شمارنده Bus Off. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+این گره فرستنده است
+طولانی‌شدن فاصله فریم‌ها
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_ESP_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Tx_TimeOut_Counter" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Tx_TimeOut_Counter</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 117</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ارسال · تایم‌اوت · شمارنده — ABS / HS_ID_ABS_ESP_SUP
+فریم نظارتی ABS/ESP: خطا، قطع ارتباط و شمارنده Bus Off. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+این گره فرستنده است
+طولانی‌شدن فاصله فریم‌ها
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_ESP_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Tx_TimeOut_Counter" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Abs_Tx_TimeOut_Counter</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">416, 119</Property>
+      <Property Name="Location">424, 119</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">255</Property>
       <Property Name="Increment">2.55</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Tx_TimeOut_Counter;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ارسال · تایم‌اوت · شمارنده — ABS / HS_ID_ABS_ESP_SUP
+فریم نظارتی ABS/ESP: خطا، قطع ارتباط و شمارنده Bus Off. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+این گره فرستنده است
+طولانی‌شدن فاصله فریم‌ها
+با هر ارسال یکی زیاد می‌شود؛ گیرنده از پرشِ آن بسته‌شدن فریم را می‌فهمد
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_ESP_SUP
+چرخه ارسال: هر 1000 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_VehicleSpeed" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Abs_VehicleSpeed</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 144</Property>
       <Property Name="Text">Hs_Abs_VehicleSpeed</Property>
+      <Property Name="CustomToolTipText">سرعت خودرو — ABS / HS_ID_ABS_INFO2
+فریم HS_ID_ABS_INFO2 که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+km/h
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_INFO2
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 8189 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_VehicleSpeed" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_VehicleSpeed</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 143</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">سرعت خودرو — ABS / HS_ID_ABS_INFO2
+فریم HS_ID_ABS_INFO2 که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+km/h
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_INFO2
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 8189 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_VehicleSpeed" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Abs_VehicleSpeed</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">416, 145</Property>
+      <Property Name="Location">424, 145</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">8189</Property>
       <Property Name="Increment">81.89</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_VehicleSpeed;1;;;-1</Property>
+      <Property Name="CustomToolTipText">سرعت خودرو — ABS / HS_ID_ABS_INFO2
+فریم HS_ID_ABS_INFO2 که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+km/h
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_INFO2
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 8189 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_VehicleSpeed_Invalid" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Abs_VehicleSpeed_Invalid</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 170</Property>
       <Property Name="Text">Hs_Abs_VehicleSpeed_Invalid</Property>
+      <Property Name="CustomToolTipText">سرعت خودرو · نامعتبر — ABS / HS_ID_ABS_INFO2
+فریم HS_ID_ABS_INFO2 که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+km/h
+مقدار فعلی معتبر نیست و نباید استفاده شود
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_INFO2
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_VehicleSpeed_Invalid" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_VehicleSpeed_Invalid</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 169</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">سرعت خودرو · نامعتبر — ABS / HS_ID_ABS_INFO2
+فریم HS_ID_ABS_INFO2 که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+km/h
+مقدار فعلی معتبر نیست و نباید استفاده شود
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_INFO2
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_VehicleSpeed_Invalid" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Abs_VehicleSpeed_Invalid</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">416, 171</Property>
+      <Property Name="Location">424, 171</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_VehicleSpeed_Invalid;1;;;-1</Property>
+      <Property Name="CustomToolTipText">سرعت خودرو · نامعتبر — ABS / HS_ID_ABS_INFO2
+فریم HS_ID_ABS_INFO2 که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+km/h
+مقدار فعلی معتبر نیست و نباید استفاده شود
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_INFO2
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_Mcylinder_Pressure" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Esc_Mcylinder_Pressure</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 196</Property>
       <Property Name="Text">Hs_Esc_Mcylinder_Pressure</Property>
+      <Property Name="CustomToolTipText">ESC · سیلندر اصلی · فشار — ABS / HS_ID_ABS_INFO2
+فریم HS_ID_ABS_INFO2 که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_INFO2
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 bar
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_Mcylinder_Pressure" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_Mcylinder_Pressure</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 195</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ESC · سیلندر اصلی · فشار — ABS / HS_ID_ABS_INFO2
+فریم HS_ID_ABS_INFO2 که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_INFO2
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 bar
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Esc_Mcylinder_Pressure" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Esc_Mcylinder_Pressure</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">416, 197</Property>
+      <Property Name="Location">424, 197</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">255</Property>
       <Property Name="Increment">2.55</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_Mcylinder_Pressure;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ESC · سیلندر اصلی · فشار — ABS / HS_ID_ABS_INFO2
+فریم HS_ID_ABS_INFO2 که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_INFO2
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 255 bar
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_Mcylinder_PressureInvalid" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Esc_Mcylinder_PressureInvalid</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 222</Property>
       <Property Name="Text">Hs_Esc_Mcylinder_PressureInvalid</Property>
+      <Property Name="CustomToolTipText">ESC · سیلندر اصلی · فشار نامعتبر — ABS / HS_ID_ABS_INFO2
+فریم HS_ID_ABS_INFO2 که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_INFO2
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_Mcylinder_PressureInvalid" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_Mcylinder_PressureInvalid</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 221</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ESC · سیلندر اصلی · فشار نامعتبر — ABS / HS_ID_ABS_INFO2
+فریم HS_ID_ABS_INFO2 که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_INFO2
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Esc_Mcylinder_PressureInvalid" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Esc_Mcylinder_PressureInvalid</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">416, 223</Property>
+      <Property Name="Location">424, 223</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_Mcylinder_PressureInvalid;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ESC · سیلندر اصلی · فشار نامعتبر — ABS / HS_ID_ABS_INFO2
+فریم HS_ID_ABS_INFO2 که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_INFO2
+چرخه ارسال: هر 20 میلی‌ثانیه
+شبکه: HS (High-Speed)
+چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
+بازه: 0 تا 1 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Wheel_Pcnt_Fl" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Abs_Wheel_Pcnt_Fl</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 248</Property>
       <Property Name="Text">Hs_Abs_Wheel_Pcnt_Fl</Property>
+      <Property Name="CustomToolTipText">چرخ · شمارنده کارکرد · F — ABS / HS_ID_ABS_PULSE
+فریم HS_ID_ABS_PULSE که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+تعداد دفعات وقوع
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_PULSE
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 65530 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Wheel_Pcnt_Fl" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Wheel_Pcnt_Fl</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 247</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">چرخ · شمارنده کارکرد · F — ABS / HS_ID_ABS_PULSE
+فریم HS_ID_ABS_PULSE که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+تعداد دفعات وقوع
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_PULSE
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 65530 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Wheel_Pcnt_Fl" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Abs_Wheel_Pcnt_Fl</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">416, 249</Property>
+      <Property Name="Location">424, 249</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">65530</Property>
       <Property Name="Increment">655.3</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Wheel_Pcnt_Fl;1;;;-1</Property>
+      <Property Name="CustomToolTipText">چرخ · شمارنده کارکرد · F — ABS / HS_ID_ABS_PULSE
+فریم HS_ID_ABS_PULSE که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+تعداد دفعات وقوع
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_PULSE
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 65530 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Wheel_Pcnt_Fr" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Abs_Wheel_Pcnt_Fr</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 274</Property>
       <Property Name="Text">Hs_Abs_Wheel_Pcnt_Fr</Property>
+      <Property Name="CustomToolTipText">چرخ · شمارنده کارکرد · F — ABS / HS_ID_ABS_PULSE
+فریم HS_ID_ABS_PULSE که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+تعداد دفعات وقوع
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_PULSE
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 65530 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Wheel_Pcnt_Fr" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Wheel_Pcnt_Fr</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 273</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">چرخ · شمارنده کارکرد · F — ABS / HS_ID_ABS_PULSE
+فریم HS_ID_ABS_PULSE که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+تعداد دفعات وقوع
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_PULSE
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 65530 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Wheel_Pcnt_Fr" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Abs_Wheel_Pcnt_Fr</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">416, 275</Property>
+      <Property Name="Location">424, 275</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">65530</Property>
       <Property Name="Increment">655.3</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Wheel_Pcnt_Fr;1;;;-1</Property>
+      <Property Name="CustomToolTipText">چرخ · شمارنده کارکرد · F — ABS / HS_ID_ABS_PULSE
+فریم HS_ID_ABS_PULSE که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+تعداد دفعات وقوع
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_PULSE
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 65530 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Wheel_Pcnt_Rl" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Abs_Wheel_Pcnt_Rl</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 300</Property>
       <Property Name="Text">Hs_Abs_Wheel_Pcnt_Rl</Property>
+      <Property Name="CustomToolTipText">چرخ · شمارنده کارکرد — ABS / HS_ID_ABS_PULSE
+فریم HS_ID_ABS_PULSE که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+تعداد دفعات وقوع
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_PULSE
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 65530 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Wheel_Pcnt_Rl" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Wheel_Pcnt_Rl</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 299</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">چرخ · شمارنده کارکرد — ABS / HS_ID_ABS_PULSE
+فریم HS_ID_ABS_PULSE که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+تعداد دفعات وقوع
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_PULSE
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 65530 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Wheel_Pcnt_Rl" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Abs_Wheel_Pcnt_Rl</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">416, 301</Property>
+      <Property Name="Location">424, 301</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">65530</Property>
       <Property Name="Increment">655.3</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Wheel_Pcnt_Rl;1;;;-1</Property>
+      <Property Name="CustomToolTipText">چرخ · شمارنده کارکرد — ABS / HS_ID_ABS_PULSE
+فریم HS_ID_ABS_PULSE که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+تعداد دفعات وقوع
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_PULSE
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 65530 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Wheel_Pcnt_Rr" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Abs_Wheel_Pcnt_Rr</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 326</Property>
       <Property Name="Text">Hs_Abs_Wheel_Pcnt_Rr</Property>
+      <Property Name="CustomToolTipText">چرخ · شمارنده کارکرد — ABS / HS_ID_ABS_PULSE
+فریم HS_ID_ABS_PULSE که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+تعداد دفعات وقوع
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_PULSE
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 65530 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Wheel_Pcnt_Rr" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Wheel_Pcnt_Rr</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 325</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">چرخ · شمارنده کارکرد — ABS / HS_ID_ABS_PULSE
+فریم HS_ID_ABS_PULSE که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+تعداد دفعات وقوع
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_PULSE
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 65530 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Wheel_Pcnt_Rr" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Abs_Wheel_Pcnt_Rr</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">416, 327</Property>
+      <Property Name="Location">424, 327</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">65530</Property>
       <Property Name="Increment">655.3</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Wheel_Pcnt_Rr;1;;;-1</Property>
+      <Property Name="CustomToolTipText">چرخ · شمارنده کارکرد — ABS / HS_ID_ABS_PULSE
+فریم HS_ID_ABS_PULSE که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+تعداد دفعات وقوع
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ABS_PULSE
+چرخه ارسال: هر 200 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 65530 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_iTpms_Reset_Progress" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Esc_iTpms_Reset_Progress</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 352</Property>
       <Property Name="Text">Hs_Esc_iTpms_Reset_Progress</Property>
+      <Property Name="CustomToolTipText">ESC · ITPMS · ریست · در حال انجام — ABS / HS_ID_ESC_ITPMS
+فریم HS_ID_ESC_ITPMS که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+فشار باد غیرمستقیم
+شروع دوباره و صفرشدن مقادیر
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ESC_ITPMS
+چرخه ارسال: هر 100 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 3 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_iTpms_Reset_Progress" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_iTpms_Reset_Progress</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 351</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ESC · ITPMS · ریست · در حال انجام — ABS / HS_ID_ESC_ITPMS
+فریم HS_ID_ESC_ITPMS که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+فشار باد غیرمستقیم
+شروع دوباره و صفرشدن مقادیر
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ESC_ITPMS
+چرخه ارسال: هر 100 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 3 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Esc_iTpms_Reset_Progress" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Esc_iTpms_Reset_Progress</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">416, 353</Property>
+      <Property Name="Location">424, 353</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">3</Property>
       <Property Name="Increment">0.1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_iTpms_Reset_Progress;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ESC · ITPMS · ریست · در حال انجام — ABS / HS_ID_ESC_ITPMS
+فریم HS_ID_ESC_ITPMS که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+فشار باد غیرمستقیم
+شروع دوباره و صفرشدن مقادیر
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ESC_ITPMS
+چرخه ارسال: هر 100 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 3 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_iTpms_Status" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Esc_iTpms_Status</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 378</Property>
       <Property Name="Text">Hs_Esc_iTpms_Status</Property>
+      <Property Name="CustomToolTipText">ESC · ITPMS · وضعیت — ABS / HS_ID_ESC_ITPMS
+فریم HS_ID_ESC_ITPMS که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+فشار باد غیرمستقیم
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ESC_ITPMS
+چرخه ارسال: هر 100 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4 بدون واحد
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_iTpms_Status" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_iTpms_Status</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 377</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ESC · ITPMS · وضعیت — ABS / HS_ID_ESC_ITPMS
+فریم HS_ID_ESC_ITPMS که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+فشار باد غیرمستقیم
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ESC_ITPMS
+چرخه ارسال: هر 100 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Esc_iTpms_Status" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Esc_iTpms_Status</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">416, 379</Property>
+      <Property Name="Location">424, 379</Property>
       <Property Name="Minimum">0</Property>
       <Property Name="Maximum">4</Property>
       <Property Name="Increment">0.1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_iTpms_Status;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ESC · ITPMS · وضعیت — ABS / HS_ID_ESC_ITPMS
+فریم HS_ID_ESC_ITPMS که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+فشار باد غیرمستقیم
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ESC_ITPMS
+چرخه ارسال: هر 100 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: 0 تا 4 بدون واحد
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_PitchAngle" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Esc_PitchAngle</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 404</Property>
       <Property Name="Text">Hs_Esc_PitchAngle</Property>
+      <Property Name="CustomToolTipText">ESC · زاویه پیچ — ABS / HS_ID_ESP_1
+فریم HS_ID_ESP_1 که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+درجه
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ESP_1
+چرخه ارسال: هر 100 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: -90 تا 90 deg
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_PitchAngle" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_PitchAngle</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 403</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ESC · زاویه پیچ — ABS / HS_ID_ESP_1
+فریم HS_ID_ESP_1 که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+درجه
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ESP_1
+چرخه ارسال: هر 100 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: -90 تا 90 deg
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Esc_PitchAngle" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Esc_PitchAngle</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">416, 405</Property>
+      <Property Name="Location">424, 405</Property>
       <Property Name="Minimum">-90</Property>
       <Property Name="Maximum">90</Property>
       <Property Name="Increment">1.8</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_PitchAngle;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ESC · زاویه پیچ — ABS / HS_ID_ESP_1
+فریم HS_ID_ESP_1 که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+درجه
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ESP_1
+چرخه ارسال: هر 100 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: -90 تا 90 deg
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_RollAngle" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Esc_RollAngle</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 430</Property>
       <Property Name="Text">Hs_Esc_RollAngle</Property>
+      <Property Name="CustomToolTipText">ESC · زاویه رول — ABS / HS_ID_ESP_1
+فریم HS_ID_ESP_1 که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+درجه
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ESP_1
+چرخه ارسال: هر 100 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: -90 تا 90 deg
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_RollAngle" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_RollAngle</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 429</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ESC · زاویه رول — ABS / HS_ID_ESP_1
+فریم HS_ID_ESP_1 که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+درجه
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ESP_1
+چرخه ارسال: هر 100 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: -90 تا 90 deg
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Esc_RollAngle" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Esc_RollAngle</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">416, 431</Property>
+      <Property Name="Location">424, 431</Property>
       <Property Name="Minimum">-90</Property>
       <Property Name="Maximum">90</Property>
       <Property Name="Increment">1.8</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_RollAngle;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ESC · زاویه رول — ABS / HS_ID_ESP_1
+فریم HS_ID_ESP_1 که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+درجه
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ESP_1
+چرخه ارسال: هر 100 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: -90 تا 90 deg
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_YawRate" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Esc_YawRate</Property>
-      <Property Name="Size">150, 18</Property>
+      <Property Name="Size">138, 18</Property>
       <Property Name="Location">260, 456</Property>
       <Property Name="Text">Hs_Esc_YawRate</Property>
+      <Property Name="CustomToolTipText">ESC · نرخ چرخش حول محور عمودی — ABS / HS_ID_ESP_1
+فریم HS_ID_ESP_1 که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+deg/s
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ESP_1
+چرخه ارسال: هر 100 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: -120 تا 120 deg/s
+مقدار پیش‌فرض: 0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_YawRate" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_YawRate</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 455</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ESC · نرخ چرخش حول محور عمودی — ABS / HS_ID_ESP_1
+فریم HS_ID_ESP_1 که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+deg/s
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ESP_1
+چرخه ارسال: هر 100 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: -120 تا 120 deg/s
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Esc_YawRate" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Esc_YawRate</Property>
       <Property Name="Size">72, 20</Property>
-      <Property Name="Location">416, 457</Property>
+      <Property Name="Location">424, 457</Property>
       <Property Name="Minimum">-120</Property>
       <Property Name="Maximum">120</Property>
       <Property Name="Increment">2.4</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_YawRate;1;;;-1</Property>
+      <Property Name="CustomToolTipText">ESC · نرخ چرخش حول محور عمودی — ABS / HS_ID_ESP_1
+فریم HS_ID_ESP_1 که ABS روی شبکه HS می‌فرستد. دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+کنترل پایداری
+deg/s
+گره: ABS — ترمز ضدقفل و کنترل پایداری
+پیام: HS_ID_ESP_1
+چرخه ارسال: هر 100 میلی‌ثانیه
+شبکه: HS (High-Speed)
+عددی
+بازه: -120 تا 120 deg/s
+مقدار پیش‌فرض: 0</Property>
     </Object>
     <Property Name="Name">NBCM ABS</Property>
     <Property Name="Size">512, 926</Property>
