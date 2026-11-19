@@ -26,17 +26,11 @@
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 40</Property>
       <Property Name="Text">Hs_Diag_Req_Broadcast</Property>
-      <Property Name="CustomToolTipText">درخواست · همگانی — DIAG / HS_ID_DIAG_REQ_BROADCAST
-فریم HS_ID_DIAG_REQ_BROADCAST که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-این ECU از دیگری کاری می‌خواهد
-برای همه ECUها
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_DIAG_REQ_BROADCAST
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_BROADCAST · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Diag_Req_Broadcast" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Diag_Req_Broadcast</Property>
@@ -45,17 +39,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">درخواست · همگانی — DIAG / HS_ID_DIAG_REQ_BROADCAST
-فریم HS_ID_DIAG_REQ_BROADCAST که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-این ECU از دیگری کاری می‌خواهد
-برای همه ECUها
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_DIAG_REQ_BROADCAST
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_BROADCAST · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Diag_Req_Broadcast" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Diag_Req_Broadcast</Property>
@@ -65,34 +53,22 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Diag_Req_Broadcast;1;;;-1</Property>
-      <Property Name="CustomToolTipText">درخواست · همگانی — DIAG / HS_ID_DIAG_REQ_BROADCAST
-فریم HS_ID_DIAG_REQ_BROADCAST که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-این ECU از دیگری کاری می‌خواهد
-برای همه ECUها
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_DIAG_REQ_BROADCAST
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_BROADCAST · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Diag_Req_Icn_Data" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Diag_Req_Icn_Data</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 66</Property>
       <Property Name="Text">Hs_Diag_Req_Icn_Data</Property>
-      <Property Name="CustomToolTipText">درخواست · ICN · داده — DIAG / HS_ID_DIAG_REQ_ICN
-فریم HS_ID_DIAG_REQ_ICN که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-این ECU از دیگری کاری می‌خواهد
-کلاستر
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_DIAG_REQ_ICN
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_ICN · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Diag_Req_Icn_Data" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Diag_Req_Icn_Data</Property>
@@ -101,17 +77,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">درخواست · ICN · داده — DIAG / HS_ID_DIAG_REQ_ICN
-فریم HS_ID_DIAG_REQ_ICN که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-این ECU از دیگری کاری می‌خواهد
-کلاستر
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_DIAG_REQ_ICN
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_ICN · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Diag_Req_Icn_Data" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Diag_Req_Icn_Data</Property>
@@ -121,34 +91,22 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Diag_Req_Icn_Data;1;;;-1</Property>
-      <Property Name="CustomToolTipText">درخواست · ICN · داده — DIAG / HS_ID_DIAG_REQ_ICN
-فریم HS_ID_DIAG_REQ_ICN که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-این ECU از دیگری کاری می‌خواهد
-کلاستر
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_DIAG_REQ_ICN
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_ICN · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Diag_Req_Mms_Data" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Diag_Req_Mms_Data</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 92</Property>
       <Property Name="Text">Hs_Diag_Req_Mms_Data</Property>
-      <Property Name="CustomToolTipText">درخواست · MMS · داده — DIAG / HS_ID_DIAG_REQ_MMS
-فریم HS_ID_DIAG_REQ_MMS که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-این ECU از دیگری کاری می‌خواهد
-چندرسانه‌ای
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_DIAG_REQ_MMS
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_MMS · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Diag_Req_Mms_Data" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Diag_Req_Mms_Data</Property>
@@ -157,17 +115,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">درخواست · MMS · داده — DIAG / HS_ID_DIAG_REQ_MMS
-فریم HS_ID_DIAG_REQ_MMS که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-این ECU از دیگری کاری می‌خواهد
-چندرسانه‌ای
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_DIAG_REQ_MMS
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_MMS · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Diag_Req_Mms_Data" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Diag_Req_Mms_Data</Property>
@@ -177,34 +129,22 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Diag_Req_Mms_Data;1;;;-1</Property>
-      <Property Name="CustomToolTipText">درخواست · MMS · داده — DIAG / HS_ID_DIAG_REQ_MMS
-فریم HS_ID_DIAG_REQ_MMS که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-این ECU از دیگری کاری می‌خواهد
-چندرسانه‌ای
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_DIAG_REQ_MMS
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_MMS · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Diag_Req_Nbcm_Data" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Diag_Req_Nbcm_Data</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 118</Property>
       <Property Name="Text">Hs_Diag_Req_Nbcm_Data</Property>
-      <Property Name="CustomToolTipText">درخواست · NBCM · داده — DIAG / HS_ID_DIAG_REQ_NBCM
-فریم HS_ID_DIAG_REQ_NBCM که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-این ECU از دیگری کاری می‌خواهد
-بدنه و شبکه
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_DIAG_REQ_NBCM
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_NBCM · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Diag_Req_Nbcm_Data" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Diag_Req_Nbcm_Data</Property>
@@ -213,17 +153,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">درخواست · NBCM · داده — DIAG / HS_ID_DIAG_REQ_NBCM
-فریم HS_ID_DIAG_REQ_NBCM که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-این ECU از دیگری کاری می‌خواهد
-بدنه و شبکه
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_DIAG_REQ_NBCM
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_NBCM · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Diag_Req_Nbcm_Data" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Diag_Req_Nbcm_Data</Property>
@@ -233,34 +167,22 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Diag_Req_Nbcm_Data;1;;;-1</Property>
-      <Property Name="CustomToolTipText">درخواست · NBCM · داده — DIAG / HS_ID_DIAG_REQ_NBCM
-فریم HS_ID_DIAG_REQ_NBCM که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-این ECU از دیگری کاری می‌خواهد
-بدنه و شبکه
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_DIAG_REQ_NBCM
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_NBCM · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Diag_Req_Rbg_Data" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Diag_Req_Rbg_Data</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 144</Property>
       <Property Name="Text">Hs_Diag_Req_Rbg_Data</Property>
-      <Property Name="CustomToolTipText">درخواست · RBG · داده — DIAG / HS_ID_DIAG_REQ_RBG
-فریم HS_ID_DIAG_REQ_RBG که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-این ECU از دیگری کاری می‌خواهد
-رادیو و بلوتوث
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_DIAG_REQ_RBG
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_RBG · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Diag_Req_Rbg_Data" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Diag_Req_Rbg_Data</Property>
@@ -269,17 +191,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">درخواست · RBG · داده — DIAG / HS_ID_DIAG_REQ_RBG
-فریم HS_ID_DIAG_REQ_RBG که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-این ECU از دیگری کاری می‌خواهد
-رادیو و بلوتوث
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_DIAG_REQ_RBG
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_RBG · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Diag_Req_Rbg_Data" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Diag_Req_Rbg_Data</Property>
@@ -289,33 +205,22 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Diag_Req_Rbg_Data;1;;;-1</Property>
-      <Property Name="CustomToolTipText">درخواست · RBG · داده — DIAG / HS_ID_DIAG_REQ_RBG
-فریم HS_ID_DIAG_REQ_RBG که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-این ECU از دیگری کاری می‌خواهد
-رادیو و بلوتوث
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_DIAG_REQ_RBG
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_RBG · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Ems_Diagnostic_Answer" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Ems_Diagnostic_Answer</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 170</Property>
       <Property Name="Text">Hs_Ems_Diagnostic_Answer</Property>
-      <Property Name="CustomToolTipText">EMS · تشخیص عیب · پاسخ — DIAG / HS_ID_EMS_DIAG_ANS
-فریم HS_ID_EMS_DIAG_ANS که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-مدیریت موتور
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_EMS_DIAG_ANS
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_EMS_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Ems_Diagnostic_Answer" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Ems_Diagnostic_Answer</Property>
@@ -324,16 +229,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">EMS · تشخیص عیب · پاسخ — DIAG / HS_ID_EMS_DIAG_ANS
-فریم HS_ID_EMS_DIAG_ANS که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-مدیریت موتور
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_EMS_DIAG_ANS
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_EMS_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Ems_Diagnostic_Answer" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Ems_Diagnostic_Answer</Property>
@@ -343,32 +243,22 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Ems_Diagnostic_Answer;1;;;-1</Property>
-      <Property Name="CustomToolTipText">EMS · تشخیص عیب · پاسخ — DIAG / HS_ID_EMS_DIAG_ANS
-فریم HS_ID_EMS_DIAG_ANS که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-مدیریت موتور
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_EMS_DIAG_ANS
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_EMS_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Eps_Diagnostic_Answer" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Eps_Diagnostic_Answer</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 196</Property>
       <Property Name="Text">Hs_Eps_Diagnostic_Answer</Property>
-      <Property Name="CustomToolTipText">EPS · تشخیص عیب · پاسخ — DIAG / HS_ID_EPS_DIAG_ANS
-فریم HS_ID_EPS_DIAG_ANS که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-فرمان برقی
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_EPS_DIAG_ANS
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_EPS_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Eps_Diagnostic_Answer" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Eps_Diagnostic_Answer</Property>
@@ -377,16 +267,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">EPS · تشخیص عیب · پاسخ — DIAG / HS_ID_EPS_DIAG_ANS
-فریم HS_ID_EPS_DIAG_ANS که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-فرمان برقی
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_EPS_DIAG_ANS
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_EPS_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Eps_Diagnostic_Answer" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Eps_Diagnostic_Answer</Property>
@@ -396,32 +281,22 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Eps_Diagnostic_Answer;1;;;-1</Property>
-      <Property Name="CustomToolTipText">EPS · تشخیص عیب · پاسخ — DIAG / HS_ID_EPS_DIAG_ANS
-فریم HS_ID_EPS_DIAG_ANS که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-فرمان برقی
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_EPS_DIAG_ANS
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_EPS_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Diagnostic_Answer" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Icu_Diagnostic_Answer</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 222</Property>
       <Property Name="Text">Hs_Icu_Diagnostic_Answer</Property>
-      <Property Name="CustomToolTipText">ICU · تشخیص عیب · پاسخ — DIAG / HS_ID_ICU_DIAG_ANS
-فریم HS_ID_ICU_DIAG_ANS که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-دستگاه نشانگر
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_ICU_DIAG_ANS
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_ICU_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Icu_Diagnostic_Answer" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Icu_Diagnostic_Answer</Property>
@@ -430,16 +305,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">ICU · تشخیص عیب · پاسخ — DIAG / HS_ID_ICU_DIAG_ANS
-فریم HS_ID_ICU_DIAG_ANS که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-دستگاه نشانگر
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_ICU_DIAG_ANS
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_ICU_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Icu_Diagnostic_Answer" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Icu_Diagnostic_Answer</Property>
@@ -449,32 +319,22 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Diagnostic_Answer;1;;;-1</Property>
-      <Property Name="CustomToolTipText">ICU · تشخیص عیب · پاسخ — DIAG / HS_ID_ICU_DIAG_ANS
-فریم HS_ID_ICU_DIAG_ANS که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-دستگاه نشانگر
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_ICU_DIAG_ANS
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_ICU_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Tcu_Diagnostic_Answer" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Tcu_Diagnostic_Answer</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 248</Property>
       <Property Name="Text">Hs_Tcu_Diagnostic_Answer</Property>
-      <Property Name="CustomToolTipText">TCU · تشخیص عیب · پاسخ — DIAG / HS_ID_TCU_DIAG_ANS
-فریم HS_ID_TCU_DIAG_ANS که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-جعبه‌دنده
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_TCU_DIAG_ANS
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_TCU_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Tcu_Diagnostic_Answer" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Tcu_Diagnostic_Answer</Property>
@@ -483,16 +343,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">TCU · تشخیص عیب · پاسخ — DIAG / HS_ID_TCU_DIAG_ANS
-فریم HS_ID_TCU_DIAG_ANS که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-جعبه‌دنده
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_TCU_DIAG_ANS
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_TCU_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Tcu_Diagnostic_Answer" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Tcu_Diagnostic_Answer</Property>
@@ -502,32 +357,22 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Tcu_Diagnostic_Answer;1;;;-1</Property>
-      <Property Name="CustomToolTipText">TCU · تشخیص عیب · پاسخ — DIAG / HS_ID_TCU_DIAG_ANS
-فریم HS_ID_TCU_DIAG_ANS که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-جعبه‌دنده
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_TCU_DIAG_ANS
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_TCU_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Tpms_Diagnostic_Answer" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Tpms_Diagnostic_Answer</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 274</Property>
       <Property Name="Text">Hs_Tpms_Diagnostic_Answer</Property>
-      <Property Name="CustomToolTipText">TPMS · تشخیص عیب · پاسخ — DIAG / HS_ID_TPMS_DIAG_ANS
-فریم HS_ID_TPMS_DIAG_ANS که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-فشار باد چرخ
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_TPMS_DIAG_ANS
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_TPMS_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Tpms_Diagnostic_Answer" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Tpms_Diagnostic_Answer</Property>
@@ -536,16 +381,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">TPMS · تشخیص عیب · پاسخ — DIAG / HS_ID_TPMS_DIAG_ANS
-فریم HS_ID_TPMS_DIAG_ANS که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-فشار باد چرخ
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_TPMS_DIAG_ANS
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_TPMS_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Tpms_Diagnostic_Answer" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Tpms_Diagnostic_Answer</Property>
@@ -555,16 +395,11 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Tpms_Diagnostic_Answer;1;;;-1</Property>
-      <Property Name="CustomToolTipText">TPMS · تشخیص عیب · پاسخ — DIAG / HS_ID_TPMS_DIAG_ANS
-فریم HS_ID_TPMS_DIAG_ANS که DIAG روی شبکه HS می‌فرستد. فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
-فشار باد چرخ
-گره: DIAG — درخواست تشخیص عیب
-پیام: HS_ID_TPMS_DIAG_ANS
-چرخه ارسال: هر 1000 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_TPMS_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
     </Object>
     <Property Name="Name">NBCM DIAG</Property>
     <Property Name="Size">262, 926</Property>

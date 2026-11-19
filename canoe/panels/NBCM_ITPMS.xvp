@@ -26,17 +26,11 @@
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 40</Property>
       <Property Name="Text">Hs_iTMPS_Fault_MMS</Property>
-      <Property Name="CustomToolTipText">خطا · MMS — ITPMS / HS_ID_ITPMS_INFO
-فریم HS_ID_ITPMS_INFO که ITPMS روی شبکه HS می‌فرستد. بدون سنسور داخل چرخ، از روی سرعت چرخ‌ها افت باد را حدس می‌زند.
-وقتی ۱ شود یعنی آن بخش ایراد دارد
-چندرسانه‌ای
-گره: ITPMS — فشار باد غیرمستقیم
-پیام: HS_ID_ITPMS_INFO
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
+پیام: HS_ID_ITPMS_INFO · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_iTMPS_Fault_MMS" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_iTMPS_Fault_MMS</Property>
@@ -45,17 +39,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">خطا · MMS — ITPMS / HS_ID_ITPMS_INFO
-فریم HS_ID_ITPMS_INFO که ITPMS روی شبکه HS می‌فرستد. بدون سنسور داخل چرخ، از روی سرعت چرخ‌ها افت باد را حدس می‌زند.
-وقتی ۱ شود یعنی آن بخش ایراد دارد
-چندرسانه‌ای
-گره: ITPMS — فشار باد غیرمستقیم
-پیام: HS_ID_ITPMS_INFO
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
+پیام: HS_ID_ITPMS_INFO · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_iTMPS_Fault_MMS" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_iTMPS_Fault_MMS</Property>
@@ -65,32 +53,22 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_iTMPS_Fault_MMS;1;;;-1</Property>
-      <Property Name="CustomToolTipText">خطا · MMS — ITPMS / HS_ID_ITPMS_INFO
-فریم HS_ID_ITPMS_INFO که ITPMS روی شبکه HS می‌فرستد. بدون سنسور داخل چرخ، از روی سرعت چرخ‌ها افت باد را حدس می‌زند.
-وقتی ۱ شود یعنی آن بخش ایراد دارد
-چندرسانه‌ای
-گره: ITPMS — فشار باد غیرمستقیم
-پیام: HS_ID_ITPMS_INFO
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
+پیام: HS_ID_ITPMS_INFO · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_iTPMS_Check_Tire_Pressure" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_iTPMS_Check_Tire_Pressure</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 66</Property>
       <Property Name="Text">Hs_iTPMS_Check_Tire_Pressure</Property>
-      <Property Name="CustomToolTipText">Hs_iTPMS_Check_Tire_Pressure — ITPMS — ITPMS / HS_ID_ITPMS_INFO
-فشار باد غیرمستقیم این سیگنال را در فریم HS_ID_ITPMS_INFO می‌فرستد. نامش در مجموعه داده اصلی توضیح داده نشده، پس معنی بیت‌به‌بیت آن را نمی‌سازیم؛ فقط مشخصات فنی همین فریم و بازه مقدار معتبر است.
-گره: ITPMS — فشار باد غیرمستقیم
-پیام: HS_ID_ITPMS_INFO
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = هشدار ملایم
+اثر: 0 → فشار در محدوده؛ هیچ هشداری نیست · 1 → باد کم شده؛ لامپ زرد
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال فقط دو حالت دارد: ۰ و ۱.
+پیام: HS_ID_ITPMS_INFO · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_iTPMS_Check_Tire_Pressure" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_iTPMS_Check_Tire_Pressure</Property>
@@ -99,15 +77,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">Hs_iTPMS_Check_Tire_Pressure — ITPMS — ITPMS / HS_ID_ITPMS_INFO
-فشار باد غیرمستقیم این سیگنال را در فریم HS_ID_ITPMS_INFO می‌فرستد. نامش در مجموعه داده اصلی توضیح داده نشده، پس معنی بیت‌به‌بیت آن را نمی‌سازیم؛ فقط مشخصات فنی همین فریم و بازه مقدار معتبر است.
-گره: ITPMS — فشار باد غیرمستقیم
-پیام: HS_ID_ITPMS_INFO
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = هشدار ملایم
+اثر: 0 → فشار در محدوده؛ هیچ هشداری نیست · 1 → باد کم شده؛ لامپ زرد
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال فقط دو حالت دارد: ۰ و ۱.
+پیام: HS_ID_ITPMS_INFO · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_iTPMS_Check_Tire_Pressure" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_iTPMS_Check_Tire_Pressure</Property>
@@ -117,32 +91,22 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_iTPMS_Check_Tire_Pressure;1;;;-1</Property>
-      <Property Name="CustomToolTipText">Hs_iTPMS_Check_Tire_Pressure — ITPMS — ITPMS / HS_ID_ITPMS_INFO
-فشار باد غیرمستقیم این سیگنال را در فریم HS_ID_ITPMS_INFO می‌فرستد. نامش در مجموعه داده اصلی توضیح داده نشده، پس معنی بیت‌به‌بیت آن را نمی‌سازیم؛ فقط مشخصات فنی همین فریم و بازه مقدار معتبر است.
-گره: ITPMS — فشار باد غیرمستقیم
-پیام: HS_ID_ITPMS_INFO
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = هشدار ملایم
+اثر: 0 → فشار در محدوده؛ هیچ هشداری نیست · 1 → باد کم شده؛ لامپ زرد
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال فقط دو حالت دارد: ۰ و ۱.
+پیام: HS_ID_ITPMS_INFO · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_iTPMS_Fault_ICN" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_iTPMS_Fault_ICN</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 92</Property>
       <Property Name="Text">Hs_iTPMS_Fault_ICN</Property>
-      <Property Name="CustomToolTipText">خطا · ICN — ITPMS / HS_ID_ITPMS_INFO
-فریم HS_ID_ITPMS_INFO که ITPMS روی شبکه HS می‌فرستد. بدون سنسور داخل چرخ، از روی سرعت چرخ‌ها افت باد را حدس می‌زند.
-وقتی ۱ شود یعنی آن بخش ایراد دارد
-کلاستر
-گره: ITPMS — فشار باد غیرمستقیم
-پیام: HS_ID_ITPMS_INFO
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
+پیام: HS_ID_ITPMS_INFO · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_iTPMS_Fault_ICN" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_iTPMS_Fault_ICN</Property>
@@ -151,17 +115,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">خطا · ICN — ITPMS / HS_ID_ITPMS_INFO
-فریم HS_ID_ITPMS_INFO که ITPMS روی شبکه HS می‌فرستد. بدون سنسور داخل چرخ، از روی سرعت چرخ‌ها افت باد را حدس می‌زند.
-وقتی ۱ شود یعنی آن بخش ایراد دارد
-کلاستر
-گره: ITPMS — فشار باد غیرمستقیم
-پیام: HS_ID_ITPMS_INFO
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
+پیام: HS_ID_ITPMS_INFO · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_iTPMS_Fault_ICN" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_iTPMS_Fault_ICN</Property>
@@ -171,33 +129,22 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_iTPMS_Fault_ICN;1;;;-1</Property>
-      <Property Name="CustomToolTipText">خطا · ICN — ITPMS / HS_ID_ITPMS_INFO
-فریم HS_ID_ITPMS_INFO که ITPMS روی شبکه HS می‌فرستد. بدون سنسور داخل چرخ، از روی سرعت چرخ‌ها افت باد را حدس می‌زند.
-وقتی ۱ شود یعنی آن بخش ایراد دارد
-کلاستر
-گره: ITPMS — فشار باد غیرمستقیم
-پیام: HS_ID_ITPMS_INFO
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
+پیام: HS_ID_ITPMS_INFO · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_iTPMS_Reset_Condition_NO" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_iTPMS_Reset_Condition_NO</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 118</Property>
       <Property Name="Text">Hs_iTPMS_Reset_Condition_NO</Property>
-      <Property Name="CustomToolTipText">ریست · روشن · تعداد — ITPMS / HS_ID_ITPMS_INFO
-فریم HS_ID_ITPMS_INFO که ITPMS روی شبکه HS می‌فرستد. بدون سنسور داخل چرخ، از روی سرعت چرخ‌ها افت باد را حدس می‌زند.
-شروع دوباره و صفرشدن مقادیر
-گره: ITPMS — فشار باد غیرمستقیم
-پیام: HS_ID_ITPMS_INFO
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بدون درخواست | 1 = درخواست فعال
+اثر: این بیت معمولاً یک چرخه ۱ می‌ماند و برمی‌گردد؛ اگر ۱ بماند گیر کرده است.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک گره از گره‌ی دیگر می‌خواهد مقادیر/وضعیتش را از نو شروع کند. این یک فرمان است
+پیام: HS_ID_ITPMS_INFO · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_iTPMS_Reset_Condition_NO" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_iTPMS_Reset_Condition_NO</Property>
@@ -206,16 +153,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">ریست · روشن · تعداد — ITPMS / HS_ID_ITPMS_INFO
-فریم HS_ID_ITPMS_INFO که ITPMS روی شبکه HS می‌فرستد. بدون سنسور داخل چرخ، از روی سرعت چرخ‌ها افت باد را حدس می‌زند.
-شروع دوباره و صفرشدن مقادیر
-گره: ITPMS — فشار باد غیرمستقیم
-پیام: HS_ID_ITPMS_INFO
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بدون درخواست | 1 = درخواست فعال
+اثر: این بیت معمولاً یک چرخه ۱ می‌ماند و برمی‌گردد؛ اگر ۱ بماند گیر کرده است.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک گره از گره‌ی دیگر می‌خواهد مقادیر/وضعیتش را از نو شروع کند. این یک فرمان است
+پیام: HS_ID_ITPMS_INFO · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_iTPMS_Reset_Condition_NO" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_iTPMS_Reset_Condition_NO</Property>
@@ -225,31 +167,22 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_iTPMS_Reset_Condition_NO;1;;;-1</Property>
-      <Property Name="CustomToolTipText">ریست · روشن · تعداد — ITPMS / HS_ID_ITPMS_INFO
-فریم HS_ID_ITPMS_INFO که ITPMS روی شبکه HS می‌فرستد. بدون سنسور داخل چرخ، از روی سرعت چرخ‌ها افت باد را حدس می‌زند.
-شروع دوباره و صفرشدن مقادیر
-گره: ITPMS — فشار باد غیرمستقیم
-پیام: HS_ID_ITPMS_INFO
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بدون درخواست | 1 = درخواست فعال
+اثر: این بیت معمولاً یک چرخه ۱ می‌ماند و برمی‌گردد؛ اگر ۱ بماند گیر کرده است.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک گره از گره‌ی دیگر می‌خواهد مقادیر/وضعیتش را از نو شروع کند. این یک فرمان است
+پیام: HS_ID_ITPMS_INFO · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_iTPMS_Tire_Pressure_Reg" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_iTPMS_Tire_Pressure_Reg</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 144</Property>
       <Property Name="Text">Hs_iTPMS_Tire_Pressure_Reg</Property>
-      <Property Name="CustomToolTipText">Hs_iTPMS_Tire_Pressure_Reg — ITPMS — ITPMS / HS_ID_ITPMS_INFO
-فشار باد غیرمستقیم این سیگنال را در فریم HS_ID_ITPMS_INFO می‌فرستد. نامش در مجموعه داده اصلی توضیح داده نشده، پس معنی بیت‌به‌بیت آن را نمی‌سازیم؛ فقط مشخصات فنی همین فریم و بازه مقدار معتبر است.
-گره: ITPMS — فشار باد غیرمستقیم
-پیام: HS_ID_ITPMS_INFO
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = هشدار ملایم
+اثر: 0 → فشار در محدوده؛ هیچ هشداری نیست · 1 → باد کم شده؛ لامپ زرد
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال فقط دو حالت دارد: ۰ و ۱.
+پیام: HS_ID_ITPMS_INFO · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_iTPMS_Tire_Pressure_Reg" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_iTPMS_Tire_Pressure_Reg</Property>
@@ -258,15 +191,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">Hs_iTPMS_Tire_Pressure_Reg — ITPMS — ITPMS / HS_ID_ITPMS_INFO
-فشار باد غیرمستقیم این سیگنال را در فریم HS_ID_ITPMS_INFO می‌فرستد. نامش در مجموعه داده اصلی توضیح داده نشده، پس معنی بیت‌به‌بیت آن را نمی‌سازیم؛ فقط مشخصات فنی همین فریم و بازه مقدار معتبر است.
-گره: ITPMS — فشار باد غیرمستقیم
-پیام: HS_ID_ITPMS_INFO
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = هشدار ملایم
+اثر: 0 → فشار در محدوده؛ هیچ هشداری نیست · 1 → باد کم شده؛ لامپ زرد
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال فقط دو حالت دارد: ۰ و ۱.
+پیام: HS_ID_ITPMS_INFO · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_iTPMS_Tire_Pressure_Reg" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_iTPMS_Tire_Pressure_Reg</Property>
@@ -276,15 +205,11 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_iTPMS_Tire_Pressure_Reg;1;;;-1</Property>
-      <Property Name="CustomToolTipText">Hs_iTPMS_Tire_Pressure_Reg — ITPMS — ITPMS / HS_ID_ITPMS_INFO
-فشار باد غیرمستقیم این سیگنال را در فریم HS_ID_ITPMS_INFO می‌فرستد. نامش در مجموعه داده اصلی توضیح داده نشده، پس معنی بیت‌به‌بیت آن را نمی‌سازیم؛ فقط مشخصات فنی همین فریم و بازه مقدار معتبر است.
-گره: ITPMS — فشار باد غیرمستقیم
-پیام: HS_ID_ITPMS_INFO
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = هشدار ملایم
+اثر: 0 → فشار در محدوده؛ هیچ هشداری نیست · 1 → باد کم شده؛ لامپ زرد
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال فقط دو حالت دارد: ۰ و ۱.
+پیام: HS_ID_ITPMS_INFO · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Property Name="Name">NBCM ITPMS</Property>
     <Property Name="Size">262, 926</Property>

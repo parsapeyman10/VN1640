@@ -85,6 +85,56 @@
       body.appendChild(el('h4', { text: 'این چیست و چه کاری می‌کند' }));
       body.appendChild(el('p', { text: rec.about || '—' }));
 
+      // ---- what each value means and does (the part that was missing) ----
+      const st = rec.states;
+      if (st && st.states && st.states.length) {
+        body.appendChild(el('h4', { text: 'معنی مقادیر — و اثرشان' }));
+        if (st.meaning) body.appendChild(el('p', { class: 'muted', text: st.meaning }));
+        const tbl = el('table', { class: 'statetbl' });
+        const head = el('tr');
+        head.appendChild(el('th', { text: 'مقدار' }));
+        head.appendChild(el('th', { text: 'یعنی' }));
+        head.appendChild(el('th', { text: 'اثرش روی خودرو' }));
+        tbl.appendChild(head);
+        st.states.forEach((row) => {
+          const tr = el('tr');
+          tr.appendChild(el('td', { class: 'v mono', text: row.v }));
+          tr.appendChild(el('td', { class: 'lbl', text: row.label }));
+          tr.appendChild(el('td', { text: row.effect }));
+          tbl.appendChild(tr);
+        });
+        body.appendChild(tbl);
+        if (st.conf === 'convention') {
+          body.appendChild(el('p', { class: 'confnote', text:
+            'این معنی از نام سیگنال و قاعده‌ی همین شبکه گرفته شده است، نه از جدول مقدار DBC: '
+            + 'فایل‌های اصلی جدول مقدار ندارند.' }));
+        } else if (st.conf === 'mechanical') {
+          body.appendChild(el('p', { class: 'confnote ok', text:
+            'این معنی از خود داده می‌آید (تعداد بیت، بازه و نوع)، نه از حدس.' }));
+        }
+      }
+
+      if (st && (st.when || st.observe || st.test)) {
+        body.appendChild(el('h4', { text: 'چه چیزی آن را تغییر می‌دهد' }));
+        const dl = el('div', { class: 'whenbox' });
+        [['کِی عوض می‌شود', st.when], ['چه چیزی را باید نگاه کنید', st.observe],
+         ['چطور خودتان امتحان کنید', st.test]].forEach(([k, v]) => {
+          if (!v) return;
+          dl.appendChild(el('div', { class: 'row' }, [
+            el('span', { class: 'k', text: k }), el('span', { text: v })]));
+        });
+        body.appendChild(dl);
+      }
+
+      const ph = st && st.physical;
+      if (ph) {
+        body.appendChild(el('h4', { text: 'مقدار خام و مقدار فیزیکی' }));
+        body.appendChild(el('p', { text:
+          'روی باس عدد خام ' + st.raw.min + ' تا ' + st.raw.max + ' است. '
+          + 'برای مقدار واقعی: خام × ' + ph.factor + (ph.offset ? ' + ' + ph.offset : '')
+          + ' → ' + ph.min + ' تا ' + ph.max + (ph.unit ? ' ' + ph.unit : '') + '.' }));
+      }
+
       if (rec.notes && rec.notes.length) {
         body.appendChild(el('h4', { text: 'نکته‌های کاربردی' }));
         const ul = el('ul');
@@ -112,8 +162,10 @@
       // live value, so the popup also answers "what is it doing right now"
       if (rec.name && C.values && C.values[rec.name] !== undefined) {
         const v = C.values[rec.name];
+        const label = stateLabel(rec, v);
         body.appendChild(el('h4', { text: 'مقدار فعلی روی باس' }));
-        body.appendChild(el('p', { class: 'liveval', text: String(v) + (rec.unit ? ' ' + rec.unit : '') }));
+        body.appendChild(el('p', { class: 'liveval',
+          text: String(v) + (rec.unit ? ' ' + rec.unit : '') + (label ? '  ← ' + label : '') }));
       }
       if (rec.kind === 'bool') {
         body.appendChild(el('p', { class: 'muted', text: 'دو حالته: ۱ یعنی روشن/فعال، ۰ یعنی خاموش/غیرفعال.' }));
@@ -124,11 +176,96 @@
     box.setAttribute('aria-hidden', 'false');
   }
 
+  /** The state a live value is in, so the popup says "1 ← غایب" not just "1". */
+  function stateLabel(rec, v) {
+    const st = rec && rec.states;
+    if (!st || !st.states) return '';
+    const hit = st.states.find((s) => String(s.v) === String(Math.round(v)));
+    if (hit) return hit.label;
+    if (st.states.length === 1 && st.states[0].v === '*') return st.states[0].label;
+    return '';
+  }
+
   function close() {
     const box = $('infoBox');
     if (!box) return;
     box.classList.remove('show');
     box.setAttribute('aria-hidden', 'true');
+  }
+
+  /** Render the whole "what does this switch do" page. */
+  function renderHelp() {
+    const H = (D && D.help) || {};
+    const box = (id, items, cols) => {
+      const host = document.getElementById(id);
+      if (!host) return;
+      host.innerHTML = '';
+      if (!items || !items.length) return;
+      host.appendChild(helpTable(items, cols));
+    };
+    box('helpScenario', H.scenario);
+    box('helpSwitch', H.switches);
+    box('helpReadout', H.readouts);
+
+    // the same table also explains the in-panel switches currently rendered
+    const live = document.getElementById('helpLive');
+    if (live && C.DATA && C.DATA.nodes) {
+      live.innerHTML = '';
+      const items = C.DATA.nodes.map((n) => ({
+        id: 'OFFLINE_' + n.node,
+        title: 'قطع گره ' + n.node + ' (' + n.net + '-CAN)',
+        kind: 'switch',
+        states: [
+          { v: '0', label: 'وصل', effect: n.nMsg + ' پیام آن گره با cycle time خودشان می‌رسند' },
+          { v: '1', label: 'قطع', effect: 'همه‌ی ' + n.nMsg + ' فریم آن گره قطع می‌شود؛ ' +
+              'گیرنده‌ها بعد از حدود ۵۰۰ms تایم‌اوت می‌دهند' },
+        ],
+        how: 'هر تابع ارسال با if (OFFLINE_' + n.node + ') return; شروع می‌شود.',
+        effect: 'تب Monitor: age بالا می‌رود و LED قرمز می‌شود.',
+        watch: n.nSig + ' سیگنال این گره در تب خودش دیده می‌شود.',
+        caution: '',
+      }));
+      live.appendChild(helpTable(items));
+    }
+  }
+
+  function helpTable(items, cols) {
+    const tbl = el('table', { class: 'helptbl' });
+    const hr = el('tr');
+    ['کنترل', 'مقدار', 'یعنی', 'اثرش / کِی عوض می‌شود', ''].forEach((h) => {
+      hr.appendChild(el('th', { text: h }));
+    });
+    tbl.appendChild(hr);
+    items.forEach((it) => {
+      (it.states || [{ v: '*', label: '', effect: '' }]).forEach((st, i) => {
+        const tr = el('tr');
+        if (i === 0) {
+          const td = el('td', { class: 'ctl', rowspan: String((it.states || [1]).length) });
+          td.appendChild(el('strong', { class: 'mono', text: it.id }));
+          td.appendChild(el('div', { class: 'ttl', text: it.title }));
+          tr.appendChild(td);
+        }
+        tr.appendChild(el('td', { class: 'v mono', text: st.v }));
+        tr.appendChild(el('td', { class: 'lbl', text: st.label }));
+        const eff = el('td');
+        eff.appendChild(el('div', { text: st.effect }));
+        if (i === 0) {
+          [['کِی', it.how], ['اثر', it.effect], ['ببینید', it.watch],
+           ['هشدار', it.caution]].forEach(([k, v]) => {
+            if (v) eff.appendChild(el('div', { class: 'sub' }, [
+              el('span', { class: 'k', text: k + ': ' }), el('span', { text: v })]));
+          });
+        }
+        tr.appendChild(eff);
+        if (i === 0) {
+          const last = el('td', { class: 'infocell', rowspan: String((it.states || [1]).length) });
+          last.appendChild(button(it, it.id));
+          tr.appendChild(last);
+        }
+        tbl.appendChild(tr);
+      });
+    });
+    return tbl;
   }
 
   function init() {
@@ -139,5 +276,5 @@
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
   }
 
-  global.Info = { button, open, close, init, record, hoverText, data: D };
+  global.Info = { button, open, close, init, record, hoverText, renderHelp, data: D };
 })(window);

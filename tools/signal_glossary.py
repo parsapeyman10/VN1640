@@ -31,7 +31,11 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import signal_states                                            # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 MAP = ROOT / "can_tester" / "assets" / "signal_map.json"
@@ -335,6 +339,32 @@ KIND_NOTE = {
 }
 
 _CACHE: dict | None = None
+_netmeta: dict[str, dict] = {}
+
+
+def _load_netmeta():
+    """factor/offset per signal, from the official network map if it is present.
+
+    The binding workbook stores min/max in RAW counts and the unit in physical
+    terms; the factor and offset that join the two live only in the network map.
+    """
+    global _netmeta
+    if _netmeta:
+        return _netmeta
+    xlsx = (ROOT / "NBCM_CAN_Simulation_Package" / "1_Final"
+            / "NBCM_Dena_CAN_Network_Map.xlsx")
+    if not xlsx.exists():
+        return _netmeta
+    try:
+        import build_package
+        for row in build_package.load_netmap(xlsx)["signals"]:
+            _netmeta[row["SignalName"]] = {
+                "factor": float(row["Factor"] or 1),
+                "offset": float(row["Offset"] or 0),
+            }
+    except Exception:                                             # noqa: BLE001
+        pass
+    return _netmeta
 
 
 def _clean_tokens(signal: str, node: str) -> list[str]:
@@ -367,6 +397,7 @@ def _split_camel(token: str) -> list[str]:
 
 def explain(sig: dict) -> dict:
     """Build the explanation record for one signal."""
+    _load_netmeta()
     node, msg, name = sig["node"], sig["msg"], sig["sig"]
     node_fa, node_note = NODE_INFO.get(node, (node, ""))
 
@@ -412,8 +443,19 @@ def explain(sig: dict) -> dict:
         msg_note = (f"{node_fa} این سیگنال را در فریم {msg} می‌فرستد. نامش در مجموعه"
                     f" داده اصلی توضیح داده نشده، پس معنی بیت‌به‌بیت آن را نمی‌سازیم؛"
                     f" فقط مشخصات فنی همین فریم و بازه مقدار معتبر است.")
+    # what each *value* means and does -- the part the first version was missing
+    try:
+        mm = _netmeta.get(name) or {}
+        states = signal_states.describe_states(
+            name, sig["kind"], sig["min"], sig["max"],
+            factor=mm.get("factor", 1.0), offset=mm.get("offset", 0.0),
+            unit=sig.get("unit") or "")
+    except Exception:                                             # noqa: BLE001
+        states = None
+
     return {
         "title": title,
+        "states": states,
         "name": name,
         "node": node,
         "nodeTitle": node_fa,
@@ -456,24 +498,107 @@ def build() -> dict:
     return out
 
 
-def tooltip_text(rec: dict, limit: int = 1000) -> str:
-    """One-line text for a CANoe tooltip: what it is, then the facts."""
+def states_text(states: dict, limit: int = 6) -> list[str]:
+    """The value table as tooltip lines: ``1 = غایب · effect``."""
+    if not states:
+        return []
+    out = [f"معنی مقادیر ({states['family']}):"]
+    for st in states["states"][:limit]:
+        out.append(f"  {st['v']} = {st['label']} — {st['effect']}")
+    if states.get("observe"):
+        out.append("اثر: " + states["observe"])
+    if states.get("test"):
+        out.append("تست: " + states["test"])
+    if states.get("conf") == "convention":
+        out.append("(این معنی از نام سیگنال و قاعده‌ی شبکه گرفته شده؛ DBC جدول مقدار ندارد)")
+    return out
+
+
+def tooltip_text(rec: dict, limit: int = 340, full: bool = False) -> str:
+    """CANoe tooltip: what it is, what each value does, what to watch.
+
+    A hover tooltip is read in about three seconds, so the budget is short and
+    the part that gets cut is never the value table -- that is the reason the
+    tooltip exists.  ``full=True`` returns everything (used by the docs and by
+    signal_glossary's own report).
+    """
     head = f"{rec['title']} — {rec['node']} / {rec['message']}"
-    body = [rec["about"]] + rec["notes"] + rec["facts"]
-    text = head + "\n" + "\n".join(b for b in body if b)
-    if len(text) > limit:                       # a tooltip has to stay readable
-        text = text[: limit - 1].rstrip() + "…"
-    return text
+    states = rec.get("states") or {}
+    rows = states.get("states", [])
+    state_lines = [f"{st['v']} = {st['label']}" for st in rows[:4]]
+    if len(state_lines) > 1:
+        state_line = "مقادیر: " + " | ".join(state_lines)
+    elif len(state_lines) == 1 and rows[0]["label"] == "بازه" and states.get("physical"):
+        # the tail prints "خام .. ×f → .." already; saying it twice wastes room
+        state_line = ""
+    elif len(state_lines) == 1:
+        st = rows[0]
+        if st["v"] == "*":
+            # a plain number: say what the range means, not "x = numeric"
+            state_line = (f"مقدار عددی در بازه {rec['min']:g}..{rec['max']:g}"
+                          + (f" {rec['unit']}" if rec["unit"] else "")
+                          + (f" — {st['label']}" if st.get("label") not in ("عددی", "بازه") else ""))
+        else:
+            state_line = state_lines[0]
+    else:
+        state_line = ""
+
+    if full:
+        body = ([rec["about"]] + states_text(states) + rec["notes"] + rec["facts"])
+        return head + "\n" + "\n".join(b for b in body if b)
+
+    # Priority: title, what it means, the value table, the effect, then the
+    # identifying fact line (which is reserved room and never dropped).
+    parts = [head]
+    # the provenance of the meaning matters more than the prose: if only one of
+    # the two survives the length budget, it is the honest one
+    # What the values mean, then what they do -- those two are the promise.  The
+    # provenance note and the prose come after, because they are the first things
+    # that may be dropped when a long effect would otherwise be cut.
+    if state_line:
+        parts.append(state_line)
+    if states.get("observe"):
+        eff = states["observe"]
+        parts.append("اثر: " + (eff if len(eff) <= 150 else eff[:150].rsplit(" ", 1)[0] + "…"))
+    if states.get("conf") == "convention":
+        parts.append("(از نام سیگنال؛ DBC جدول مقدار ندارد)")
+    meaning = (states.get("meaning") or "").split("؛")[0].split("،")[0].strip()
+    if meaning:
+        parts.append(meaning if len(meaning) <= 95 else meaning[:95].rsplit(" ", 1)[0] + "…")
+
+    phys = (states or {}).get("physical")
+    if phys:
+        tail = (f"پیام: {rec['message']} · {rec['net']}-CAN · هر {rec['cycle']} ms · "
+                f"خام {rec['min']:g}..{rec['max']:g} · ×{phys['factor']:g} → "
+                f"{phys['min']:g}..{phys['max']:g} {phys['unit']}".rstrip())
+    else:
+        tail = (f"پیام: {rec['message']} · {rec['net']}-CAN · هر {rec['cycle']} ms · "
+                f"{rec['min']:g}..{rec['max']:g}"
+                + (f" {rec['unit']}" if rec["unit"] else ""))
+    budget = limit - len(tail) - 1
+    text = ""
+    for p_ in parts[1:]:
+        cand = (text + "\n" + p_) if text else p_
+        if len(cand) > budget:
+            break
+        text = cand
+    return (text + "\n" + tail) if text else tail
 
 
 def write_outputs() -> Path:
     """Write the JSON and the .js twin the HTML tester loads (file:// has no fetch)."""
     recs = build()
+    try:
+        import scenario_help
+        page_help = scenario_help.scenario_help()
+    except Exception:                                             # noqa: BLE001
+        page_help = {}
     payload = {"meta": {"source": "tools/signal_glossary.py",
                         "note": "built from signal names + metadata; the OEM "
                                 "Comment column is empty for all 1078 signals",
                         "count": len(recs["signals"])},
-               "nodes": recs["nodes"], "signals": recs["signals"]}
+               "nodes": recs["nodes"], "signals": recs["signals"],
+               "help": page_help}
     OUT_JSON.write_text(json.dumps(payload, ensure_ascii=False, indent=1),
                         encoding="utf-8")
     OUT_JS.write_text(

@@ -26,15 +26,11 @@
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 40</Property>
       <Property Name="Text">Hs_Peps_AuthFailWarning</Property>
-      <Property Name="CustomToolTipText">احراز هویت · F · هشدار — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 3 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱ | 2 = هشدار سطح ۲ | 3 = هشدار بحرانی
+اثر: وقتی از ۱ به ۳ می‌رود، معمولاً یک سیگنال «فعال بودن» جدا هم ۱ می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+شدت هشدار
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_AuthFailWarning" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_AuthFailWarning</Property>
@@ -43,15 +39,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">احراز هویت · F · هشدار — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 3 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱ | 2 = هشدار سطح ۲ | 3 = هشدار بحرانی
+اثر: وقتی از ۱ به ۳ می‌رود، معمولاً یک سیگنال «فعال بودن» جدا هم ۱ می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+شدت هشدار
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_AuthFailWarning" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Peps_AuthFailWarning</Property>
@@ -61,30 +53,22 @@
       <Property Name="Maximum">3</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_AuthFailWarning;1;;;-1</Property>
-      <Property Name="CustomToolTipText">احراز هویت · F · هشدار — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 3 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱ | 2 = هشدار سطح ۲ | 3 = هشدار بحرانی
+اثر: وقتی از ۱ به ۳ می‌رود، معمولاً یک سیگنال «فعال بودن» جدا هم ۱ می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+شدت هشدار
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_AuthenticationSt" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_AuthenticationSt</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 66</Property>
       <Property Name="Text">Hs_Peps_AuthenticationSt</Property>
-      <Property Name="CustomToolTipText">احراز هویت · تعداد · روشن · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 7 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = تأیید نشده | 1 = در جریان | 2+ = تأیید شده
+اثر: اگر چند ثانیه در «در جریان» بماند، یعنی پاسخ طرف مقابل نرسیده — همان‌جا را در Trace دنبال کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+جریان تأیید مالکیت کلید: چالش
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..7</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_AuthenticationSt" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_AuthenticationSt</Property>
@@ -93,15 +77,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">احراز هویت · تعداد · روشن · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 7 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = تأیید نشده | 1 = در جریان | 2+ = تأیید شده
+اثر: اگر چند ثانیه در «در جریان» بماند، یعنی پاسخ طرف مقابل نرسیده — همان‌جا را در Trace دنبال کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+جریان تأیید مالکیت کلید: چالش
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..7</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_AuthenticationSt" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Peps_AuthenticationSt</Property>
@@ -111,31 +91,22 @@
       <Property Name="Maximum">7</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_AuthenticationSt;1;;;-1</Property>
-      <Property Name="CustomToolTipText">احراز هویت · تعداد · روشن · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 7 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = تأیید نشده | 1 = در جریان | 2+ = تأیید شده
+اثر: اگر چند ثانیه در «در جریان» بماند، یعنی پاسخ طرف مقابل نرسیده — همان‌جا را در Trace دنبال کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+جریان تأیید مالکیت کلید: چالش
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..7</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_BrakeSwitchSt" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_BrakeSwitchSt</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 92</Property>
       <Property Name="Text">Hs_Peps_BrakeSwitchSt</Property>
-      <Property Name="CustomToolTipText">ترمز · کلید · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-سوئیچ نرم‌افزاری
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 1 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = رها / باز | 1 = فشرده / بسته
+اثر: این بیت باید با رها کردن کلید به ۰ برگردد. اگر ۱ بماند، ECU فرمان را دائمی می‌بیند — مثلاً قفل در باز می‌ماند یا استارت تکرار می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت یک کلید که خود راننده یا سرنشین فشار می‌دهد (دکمه‌ی استارت
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_BrakeSwitchSt" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_BrakeSwitchSt</Property>
@@ -144,16 +115,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">ترمز · کلید · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-سوئیچ نرم‌افزاری
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 1 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = رها / باز | 1 = فشرده / بسته
+اثر: این بیت باید با رها کردن کلید به ۰ برگردد. اگر ۱ بماند، ECU فرمان را دائمی می‌بیند — مثلاً قفل در باز می‌ماند یا استارت تکرار می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت یک کلید که خود راننده یا سرنشین فشار می‌دهد (دکمه‌ی استارت
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_BrakeSwitchSt" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Peps_BrakeSwitchSt</Property>
@@ -163,32 +129,22 @@
       <Property Name="Maximum">1</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_BrakeSwitchSt;1;;;-1</Property>
-      <Property Name="CustomToolTipText">ترمز · کلید · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-سوئیچ نرم‌افزاری
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 1 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = رها / باز | 1 = فشرده / بسته
+اثر: این بیت باید با رها کردن کلید به ۰ برگردد. اگر ۱ بماند، ECU فرمان را دائمی می‌بیند — مثلاً قفل در باز می‌ماند یا استارت تکرار می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت یک کلید که خود راننده یا سرنشین فشار می‌دهد (دکمه‌ی استارت
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_ClutchSwitchSt" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_ClutchSwitchSt</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 118</Property>
       <Property Name="Text">Hs_Peps_ClutchSwitchSt</Property>
-      <Property Name="CustomToolTipText">کلید · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-سوئیچ نرم‌افزاری
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = رها / باز | 1 = فشرده / بسته
+اثر: این بیت باید با رها کردن کلید به ۰ برگردد. اگر ۱ بماند، ECU فرمان را دائمی می‌بیند — مثلاً قفل در باز می‌ماند یا استارت تکرار می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت یک کلید که خود راننده یا سرنشین فشار می‌دهد (دکمه‌ی استارت
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_ClutchSwitchSt" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_ClutchSwitchSt</Property>
@@ -197,16 +153,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">کلید · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-سوئیچ نرم‌افزاری
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = رها / باز | 1 = فشرده / بسته
+اثر: این بیت باید با رها کردن کلید به ۰ برگردد. اگر ۱ بماند، ECU فرمان را دائمی می‌بیند — مثلاً قفل در باز می‌ماند یا استارت تکرار می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت یک کلید که خود راننده یا سرنشین فشار می‌دهد (دکمه‌ی استارت
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_ClutchSwitchSt" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Peps_ClutchSwitchSt</Property>
@@ -216,31 +167,22 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_ClutchSwitchSt;1;;;-1</Property>
-      <Property Name="CustomToolTipText">کلید · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-سوئیچ نرم‌افزاری
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = رها / باز | 1 = فشرده / بسته
+اثر: این بیت باید با رها کردن کلید به ۰ برگردد. اگر ۱ بماند، ECU فرمان را دائمی می‌بیند — مثلاً قفل در باز می‌ماند یا استارت تکرار می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت یک کلید که خود راننده یا سرنشین فشار می‌دهد (دکمه‌ی استارت
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_DeactivationWarning" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_DeactivationWarning</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 144</Property>
       <Property Name="Text">Hs_Peps_DeactivationWarning</Property>
-      <Property Name="CustomToolTipText">کولر · روشن · هشدار — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱
+اثر: 0 → هیچ هشداری فعال نیست · 1 → هشدار ملایم؛ معمولاً پیام روی صفحه، بدون بوق
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال فقط دو حالت دارد: ۰ و ۱.
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_DeactivationWarning" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_DeactivationWarning</Property>
@@ -249,15 +191,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">کولر · روشن · هشدار — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱
+اثر: 0 → هیچ هشداری فعال نیست · 1 → هشدار ملایم؛ معمولاً پیام روی صفحه، بدون بوق
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال فقط دو حالت دارد: ۰ و ۱.
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_DeactivationWarning" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Peps_DeactivationWarning</Property>
@@ -267,31 +205,22 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_DeactivationWarning;1;;;-1</Property>
-      <Property Name="CustomToolTipText">کولر · روشن · هشدار — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱
+اثر: 0 → هیچ هشداری فعال نیست · 1 → هشدار ملایم؛ معمولاً پیام روی صفحه، بدون بوق
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال فقط دو حالت دارد: ۰ و ۱.
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_DoorLockReq" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_DoorLockReq</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 170</Property>
       <Property Name="Text">Hs_Peps_DoorLockReq</Property>
-      <Property Name="CustomToolTipText">درخواست — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-این ECU از دیگری کاری می‌خواهد
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = رها / باز | 1 = فشرده / بسته
+اثر: این بیت باید با رها کردن کلید به ۰ برگردد. اگر ۱ بماند، ECU فرمان را دائمی می‌بیند — مثلاً قفل در باز می‌ماند یا استارت تکرار می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت یک کلید که خود راننده یا سرنشین فشار می‌دهد (دکمه‌ی استارت
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_DoorLockReq" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_DoorLockReq</Property>
@@ -300,16 +229,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">درخواست — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-این ECU از دیگری کاری می‌خواهد
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = رها / باز | 1 = فشرده / بسته
+اثر: این بیت باید با رها کردن کلید به ۰ برگردد. اگر ۱ بماند، ECU فرمان را دائمی می‌بیند — مثلاً قفل در باز می‌ماند یا استارت تکرار می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت یک کلید که خود راننده یا سرنشین فشار می‌دهد (دکمه‌ی استارت
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_DoorLockReq" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Peps_DoorLockReq</Property>
@@ -319,31 +243,22 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_DoorLockReq;1;;;-1</Property>
-      <Property Name="CustomToolTipText">درخواست — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-این ECU از دیگری کاری می‌خواهد
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = رها / باز | 1 = فشرده / بسته
+اثر: این بیت باید با رها کردن کلید به ۰ برگردد. اگر ۱ بماند، ECU فرمان را دائمی می‌بیند — مثلاً قفل در باز می‌ماند یا استارت تکرار می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت یک کلید که خود راننده یا سرنشین فشار می‌دهد (دکمه‌ی استارت
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_DoorLockWarning" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_DoorLockWarning</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 196</Property>
       <Property Name="Text">Hs_Peps_DoorLockWarning</Property>
-      <Property Name="CustomToolTipText">هشدار — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 3 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱ | 2 = هشدار سطح ۲ | 3 = هشدار بحرانی
+اثر: وقتی از ۱ به ۳ می‌رود، معمولاً یک سیگنال «فعال بودن» جدا هم ۱ می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+شدت هشدار
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_DoorLockWarning" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_DoorLockWarning</Property>
@@ -352,15 +267,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">هشدار — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 3 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱ | 2 = هشدار سطح ۲ | 3 = هشدار بحرانی
+اثر: وقتی از ۱ به ۳ می‌رود، معمولاً یک سیگنال «فعال بودن» جدا هم ۱ می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+شدت هشدار
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_DoorLockWarning" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Peps_DoorLockWarning</Property>
@@ -370,31 +281,22 @@
       <Property Name="Maximum">3</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_DoorLockWarning;1;;;-1</Property>
-      <Property Name="CustomToolTipText">هشدار — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 3 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱ | 2 = هشدار سطح ۲ | 3 = هشدار بحرانی
+اثر: وقتی از ۱ به ۳ می‌رود، معمولاً یک سیگنال «فعال بودن» جدا هم ۱ می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+شدت هشدار
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_DoorUnlockReq" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_DoorUnlockReq</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 222</Property>
       <Property Name="Text">Hs_Peps_DoorUnlockReq</Property>
-      <Property Name="CustomToolTipText">تعداد · درخواست — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-این ECU از دیگری کاری می‌خواهد
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = رها / باز | 1 = فشرده / بسته
+اثر: این بیت باید با رها کردن کلید به ۰ برگردد. اگر ۱ بماند، ECU فرمان را دائمی می‌بیند — مثلاً قفل در باز می‌ماند یا استارت تکرار می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت یک کلید که خود راننده یا سرنشین فشار می‌دهد (دکمه‌ی استارت
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_DoorUnlockReq" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_DoorUnlockReq</Property>
@@ -403,16 +305,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">تعداد · درخواست — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-این ECU از دیگری کاری می‌خواهد
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = رها / باز | 1 = فشرده / بسته
+اثر: این بیت باید با رها کردن کلید به ۰ برگردد. اگر ۱ بماند، ECU فرمان را دائمی می‌بیند — مثلاً قفل در باز می‌ماند یا استارت تکرار می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت یک کلید که خود راننده یا سرنشین فشار می‌دهد (دکمه‌ی استارت
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_DoorUnlockReq" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Peps_DoorUnlockReq</Property>
@@ -422,31 +319,22 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_DoorUnlockReq;1;;;-1</Property>
-      <Property Name="CustomToolTipText">تعداد · درخواست — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-این ECU از دیگری کاری می‌خواهد
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = رها / باز | 1 = فشرده / بسته
+اثر: این بیت باید با رها کردن کلید به ۰ برگردد. اگر ۱ بماند، ECU فرمان را دائمی می‌بیند — مثلاً قفل در باز می‌ماند یا استارت تکرار می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت یک کلید که خود راننده یا سرنشین فشار می‌دهد (دکمه‌ی استارت
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_DriverButtonSt" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_DriverButtonSt</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 248</Property>
       <Property Name="Text">Hs_Peps_DriverButtonSt</Property>
-      <Property Name="CustomToolTipText">نسخه · دکمه · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = رها / باز | 1 = فشرده / بسته
+اثر: این بیت باید با رها کردن کلید به ۰ برگردد. اگر ۱ بماند، ECU فرمان را دائمی می‌بیند — مثلاً قفل در باز می‌ماند یا استارت تکرار می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت یک کلید که خود راننده یا سرنشین فشار می‌دهد (دکمه‌ی استارت
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_DriverButtonSt" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_DriverButtonSt</Property>
@@ -455,15 +343,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">نسخه · دکمه · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = رها / باز | 1 = فشرده / بسته
+اثر: این بیت باید با رها کردن کلید به ۰ برگردد. اگر ۱ بماند، ECU فرمان را دائمی می‌بیند — مثلاً قفل در باز می‌ماند یا استارت تکرار می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت یک کلید که خود راننده یا سرنشین فشار می‌دهد (دکمه‌ی استارت
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_DriverButtonSt" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Peps_DriverButtonSt</Property>
@@ -473,31 +357,22 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_DriverButtonSt;1;;;-1</Property>
-      <Property Name="CustomToolTipText">نسخه · دکمه · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = رها / باز | 1 = فشرده / بسته
+اثر: این بیت باید با رها کردن کلید به ۰ برگردد. اگر ۱ بماند، ECU فرمان را دائمی می‌بیند — مثلاً قفل در باز می‌ماند یا استارت تکرار می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت یک کلید که خود راننده یا سرنشین فشار می‌دهد (دکمه‌ی استارت
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_ESCLLearntMode" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_ESCLLearntMode</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 274</Property>
       <Property Name="Text">Hs_Peps_ESCLLearntMode</Property>
-      <Property Name="CustomToolTipText">ESC · یادگرفته · حالت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-کنترل پایداری
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 3 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = تأیید نشده | 1 = در جریان | 2+ = تأیید شده
+اثر: اگر چند ثانیه در «در جریان» بماند، یعنی پاسخ طرف مقابل نرسیده — همان‌جا را در Trace دنبال کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+جریان تأیید مالکیت کلید: چالش
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_ESCLLearntMode" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_ESCLLearntMode</Property>
@@ -506,16 +381,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">ESC · یادگرفته · حالت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-کنترل پایداری
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 3 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = تأیید نشده | 1 = در جریان | 2+ = تأیید شده
+اثر: اگر چند ثانیه در «در جریان» بماند، یعنی پاسخ طرف مقابل نرسیده — همان‌جا را در Trace دنبال کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+جریان تأیید مالکیت کلید: چالش
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_ESCLLearntMode" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Peps_ESCLLearntMode</Property>
@@ -525,33 +395,22 @@
       <Property Name="Maximum">3</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_ESCLLearntMode;1;;;-1</Property>
-      <Property Name="CustomToolTipText">ESC · یادگرفته · حالت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-کنترل پایداری
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 3 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = تأیید نشده | 1 = در جریان | 2+ = تأیید شده
+اثر: اگر چند ثانیه در «در جریان» بماند، یعنی پاسخ طرف مقابل نرسیده — همان‌جا را در Trace دنبال کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+جریان تأیید مالکیت کلید: چالش
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_ESCLLockEnPowerSupplySt" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_ESCLLockEnPowerSupplySt</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 300</Property>
       <Property Name="Text">Hs_Peps_ESCLLockEnPowerSupplySt</Property>
-      <Property Name="CustomToolTipText">ESC · تعداد · پشتیبان · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-کنترل پایداری
-فریم نظارتی
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = شرط برقرار نیست | 1 = شرط برقرار است
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_ESCLLockEnPowerSupplySt" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_ESCLLockEnPowerSupplySt</Property>
@@ -560,17 +419,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">ESC · تعداد · پشتیبان · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-کنترل پایداری
-فریم نظارتی
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = شرط برقرار نیست | 1 = شرط برقرار است
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_ESCLLockEnPowerSupplySt" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Peps_ESCLLockEnPowerSupplySt</Property>
@@ -580,34 +433,22 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_ESCLLockEnPowerSupplySt;1;;;-1</Property>
-      <Property Name="CustomToolTipText">ESC · تعداد · پشتیبان · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-کنترل پایداری
-فریم نظارتی
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = شرط برقرار نیست | 1 = شرط برقرار است
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_ESCLMotorPowerSupplySt" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_ESCLMotorPowerSupplySt</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 326</Property>
       <Property Name="Text">Hs_Peps_ESCLMotorPowerSupplySt</Property>
-      <Property Name="CustomToolTipText">ESC · پشتیبان · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-کنترل پایداری
-فریم نظارتی
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = شرط برقرار نیست | 1 = شرط برقرار است
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_ESCLMotorPowerSupplySt" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_ESCLMotorPowerSupplySt</Property>
@@ -616,17 +457,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">ESC · پشتیبان · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-کنترل پایداری
-فریم نظارتی
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = شرط برقرار نیست | 1 = شرط برقرار است
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_ESCLMotorPowerSupplySt" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Peps_ESCLMotorPowerSupplySt</Property>
@@ -636,33 +471,22 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_ESCLMotorPowerSupplySt;1;;;-1</Property>
-      <Property Name="CustomToolTipText">ESC · پشتیبان · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-کنترل پایداری
-فریم نظارتی
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = شرط برقرار نیست | 1 = شرط برقرار است
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_ESCLUnlockSt" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_ESCLUnlockSt</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 352</Property>
       <Property Name="Text">Hs_Peps_ESCLUnlockSt</Property>
-      <Property Name="CustomToolTipText">ESC · تعداد · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-کنترل پایداری
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = شرط برقرار نیست | 1 = شرط برقرار است
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_ESCLUnlockSt" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_ESCLUnlockSt</Property>
@@ -671,16 +495,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">ESC · تعداد · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-کنترل پایداری
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = شرط برقرار نیست | 1 = شرط برقرار است
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_ESCLUnlockSt" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Peps_ESCLUnlockSt</Property>
@@ -690,32 +509,22 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_ESCLUnlockSt;1;;;-1</Property>
-      <Property Name="CustomToolTipText">ESC · تعداد · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-کنترل پایداری
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = شرط برقرار نیست | 1 = شرط برقرار است
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_ESCLWarning" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_ESCLWarning</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 378</Property>
       <Property Name="Text">Hs_Peps_ESCLWarning</Property>
-      <Property Name="CustomToolTipText">ESC · هشدار — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-کنترل پایداری
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 7 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱ | 2 = هشدار سطح ۲ | 3 = هشدار بحرانی
+اثر: وقتی از ۱ به ۳ می‌رود، معمولاً یک سیگنال «فعال بودن» جدا هم ۱ می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+شدت هشدار
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..7</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_ESCLWarning" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_ESCLWarning</Property>
@@ -724,16 +533,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">ESC · هشدار — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-کنترل پایداری
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 7 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱ | 2 = هشدار سطح ۲ | 3 = هشدار بحرانی
+اثر: وقتی از ۱ به ۳ می‌رود، معمولاً یک سیگنال «فعال بودن» جدا هم ۱ می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+شدت هشدار
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..7</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_ESCLWarning" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Peps_ESCLWarning</Property>
@@ -743,31 +547,22 @@
       <Property Name="Maximum">7</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_ESCLWarning;1;;;-1</Property>
-      <Property Name="CustomToolTipText">ESC · هشدار — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-کنترل پایداری
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 7 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱ | 2 = هشدار سطح ۲ | 3 = هشدار بحرانی
+اثر: وقتی از ۱ به ۳ می‌رود، معمولاً یک سیگنال «فعال بودن» جدا هم ۱ می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+شدت هشدار
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..7</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_FOB_ID" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_FOB_ID</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 404</Property>
       <Property Name="Text">Hs_Peps_FOB_ID</Property>
-      <Property Name="CustomToolTipText">F · شناسه — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-عددی
-بازه: 0 تا 15 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">0 .. 15 = بازه
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..15</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_FOB_ID" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_FOB_ID</Property>
@@ -776,15 +571,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">F · شناسه — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-عددی
-بازه: 0 تا 15 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">0 .. 15 = بازه
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..15</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_FOB_ID" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Peps_FOB_ID</Property>
@@ -794,30 +585,22 @@
       <Property Name="Maximum">15</Property>
       <Property Name="Increment">0.15</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_FOB_ID;1;;;-1</Property>
-      <Property Name="CustomToolTipText">F · شناسه — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-عددی
-بازه: 0 تا 15 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">0 .. 15 = بازه
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..15</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_FobBattLowWarning" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_FobBattLowWarning</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 430</Property>
       <Property Name="Text">Hs_Peps_FobBattLowWarning</Property>
-      <Property Name="CustomToolTipText">F · کم · هشدار — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱
+اثر: 0 → هیچ هشداری فعال نیست · 1 → هشدار ملایم؛ معمولاً پیام روی صفحه، بدون بوق
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال فقط دو حالت دارد: ۰ و ۱.
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_FobBattLowWarning" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_FobBattLowWarning</Property>
@@ -826,15 +609,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">F · کم · هشدار — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱
+اثر: 0 → هیچ هشداری فعال نیست · 1 → هشدار ملایم؛ معمولاً پیام روی صفحه، بدون بوق
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال فقط دو حالت دارد: ۰ و ۱.
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_FobBattLowWarning" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Peps_FobBattLowWarning</Property>
@@ -844,30 +623,22 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_FobBattLowWarning;1;;;-1</Property>
-      <Property Name="CustomToolTipText">F · کم · هشدار — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱
+اثر: 0 → هیچ هشداری فعال نیست · 1 → هشدار ملایم؛ معمولاً پیام روی صفحه، بدون بوق
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال فقط دو حالت دارد: ۰ و ۱.
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_KeyOutWarning" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_KeyOutWarning</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 456</Property>
       <Property Name="Text">Hs_Peps_KeyOutWarning</Property>
-      <Property Name="CustomToolTipText">کلید · هشدار — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 3 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱ | 2 = هشدار سطح ۲ | 3 = هشدار بحرانی
+اثر: وقتی از ۱ به ۳ می‌رود، معمولاً یک سیگنال «فعال بودن» جدا هم ۱ می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+شدت هشدار
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_KeyOutWarning" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_KeyOutWarning</Property>
@@ -876,15 +647,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">کلید · هشدار — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 3 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱ | 2 = هشدار سطح ۲ | 3 = هشدار بحرانی
+اثر: وقتی از ۱ به ۳ می‌رود، معمولاً یک سیگنال «فعال بودن» جدا هم ۱ می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+شدت هشدار
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_KeyOutWarning" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Peps_KeyOutWarning</Property>
@@ -894,30 +661,22 @@
       <Property Name="Maximum">3</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_KeyOutWarning;1;;;-1</Property>
-      <Property Name="CustomToolTipText">کلید · هشدار — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 3 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱ | 2 = هشدار سطح ۲ | 3 = هشدار بحرانی
+اثر: وقتی از ۱ به ۳ می‌رود، معمولاً یک سیگنال «فعال بودن» جدا هم ۱ می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+شدت هشدار
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_LearntMode" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_LearntMode</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 482</Property>
       <Property Name="Text">Hs_Peps_LearntMode</Property>
-      <Property Name="CustomToolTipText">یادگرفته · حالت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 3 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = تأیید نشده | 1 = در جریان | 2+ = تأیید شده
+اثر: اگر چند ثانیه در «در جریان» بماند، یعنی پاسخ طرف مقابل نرسیده — همان‌جا را در Trace دنبال کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+جریان تأیید مالکیت کلید: چالش
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_LearntMode" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_LearntMode</Property>
@@ -926,15 +685,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">یادگرفته · حالت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 3 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = تأیید نشده | 1 = در جریان | 2+ = تأیید شده
+اثر: اگر چند ثانیه در «در جریان» بماند، یعنی پاسخ طرف مقابل نرسیده — همان‌جا را در Trace دنبال کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+جریان تأیید مالکیت کلید: چالش
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_LearntMode" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Peps_LearntMode</Property>
@@ -944,30 +699,22 @@
       <Property Name="Maximum">3</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_LearntMode;1;;;-1</Property>
-      <Property Name="CustomToolTipText">یادگرفته · حالت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 3 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = تأیید نشده | 1 = در جریان | 2+ = تأیید شده
+اثر: اگر چند ثانیه در «در جریان» بماند، یعنی پاسخ طرف مقابل نرسیده — همان‌جا را در Trace دنبال کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+جریان تأیید مالکیت کلید: چالش
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_OpIndicationWarning" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_OpIndicationWarning</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 508</Property>
       <Property Name="Text">Hs_Peps_OpIndicationWarning</Property>
-      <Property Name="CustomToolTipText">نشانگر · هشدار — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 7 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱ | 2 = هشدار سطح ۲ | 3 = هشدار بحرانی
+اثر: وقتی از ۱ به ۳ می‌رود، معمولاً یک سیگنال «فعال بودن» جدا هم ۱ می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+شدت هشدار
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..7</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_OpIndicationWarning" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_OpIndicationWarning</Property>
@@ -976,15 +723,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">نشانگر · هشدار — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 7 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱ | 2 = هشدار سطح ۲ | 3 = هشدار بحرانی
+اثر: وقتی از ۱ به ۳ می‌رود، معمولاً یک سیگنال «فعال بودن» جدا هم ۱ می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+شدت هشدار
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..7</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_OpIndicationWarning" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Peps_OpIndicationWarning</Property>
@@ -994,30 +737,22 @@
       <Property Name="Maximum">7</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_OpIndicationWarning;1;;;-1</Property>
-      <Property Name="CustomToolTipText">نشانگر · هشدار — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 7 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱ | 2 = هشدار سطح ۲ | 3 = هشدار بحرانی
+اثر: وقتی از ۱ به ۳ می‌رود، معمولاً یک سیگنال «فعال بودن» جدا هم ۱ می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+شدت هشدار
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..7</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_PasserngerButtonSt" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_PasserngerButtonSt</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 534</Property>
       <Property Name="Text">Hs_Peps_PasserngerButtonSt</Property>
-      <Property Name="CustomToolTipText">فرمان کمکی · تعداد · دکمه · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = رها / باز | 1 = فشرده / بسته
+اثر: این بیت باید با رها کردن کلید به ۰ برگردد. اگر ۱ بماند، ECU فرمان را دائمی می‌بیند — مثلاً قفل در باز می‌ماند یا استارت تکرار می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت یک کلید که خود راننده یا سرنشین فشار می‌دهد (دکمه‌ی استارت
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_PasserngerButtonSt" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_PasserngerButtonSt</Property>
@@ -1026,15 +761,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">فرمان کمکی · تعداد · دکمه · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = رها / باز | 1 = فشرده / بسته
+اثر: این بیت باید با رها کردن کلید به ۰ برگردد. اگر ۱ بماند، ECU فرمان را دائمی می‌بیند — مثلاً قفل در باز می‌ماند یا استارت تکرار می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت یک کلید که خود راننده یا سرنشین فشار می‌دهد (دکمه‌ی استارت
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_PasserngerButtonSt" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Peps_PasserngerButtonSt</Property>
@@ -1044,30 +775,22 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_PasserngerButtonSt;1;;;-1</Property>
-      <Property Name="CustomToolTipText">فرمان کمکی · تعداد · دکمه · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = رها / باز | 1 = فشرده / بسته
+اثر: این بیت باید با رها کردن کلید به ۰ برگردد. اگر ۱ بماند، ECU فرمان را دائمی می‌بیند — مثلاً قفل در باز می‌ماند یا استارت تکرار می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت یک کلید که خود راننده یا سرنشین فشار می‌دهد (دکمه‌ی استارت
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_SSBWarning" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_SSBWarning</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 560</Property>
       <Property Name="Text">Hs_Peps_SSBWarning</Property>
-      <Property Name="CustomToolTipText">SSB · هشدار — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 3 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱ | 2 = هشدار سطح ۲ | 3 = هشدار بحرانی
+اثر: وقتی از ۱ به ۳ می‌رود، معمولاً یک سیگنال «فعال بودن» جدا هم ۱ می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+شدت هشدار
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_SSBWarning" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_SSBWarning</Property>
@@ -1076,15 +799,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">SSB · هشدار — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 3 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱ | 2 = هشدار سطح ۲ | 3 = هشدار بحرانی
+اثر: وقتی از ۱ به ۳ می‌رود، معمولاً یک سیگنال «فعال بودن» جدا هم ۱ می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+شدت هشدار
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_SSBWarning" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Peps_SSBWarning</Property>
@@ -1094,31 +813,22 @@
       <Property Name="Maximum">3</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_SSBWarning;1;;;-1</Property>
-      <Property Name="CustomToolTipText">SSB · هشدار — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 3 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱ | 2 = هشدار سطح ۲ | 3 = هشدار بحرانی
+اثر: وقتی از ۱ به ۳ می‌رود، معمولاً یک سیگنال «فعال بودن» جدا هم ۱ می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+شدت هشدار
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_SSB_SW1St" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_SSB_SW1St</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 586</Property>
       <Property Name="Text">Hs_Peps_SSB_SW1St</Property>
-      <Property Name="CustomToolTipText">SSB · کلید · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-سوئیچ نرم‌افزاری
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = رها / باز | 1 = فشرده / بسته
+اثر: این بیت باید با رها کردن کلید به ۰ برگردد. اگر ۱ بماند، ECU فرمان را دائمی می‌بیند — مثلاً قفل در باز می‌ماند یا استارت تکرار می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت یک کلید که خود راننده یا سرنشین فشار می‌دهد (دکمه‌ی استارت
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_SSB_SW1St" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_SSB_SW1St</Property>
@@ -1127,16 +837,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">SSB · کلید · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-سوئیچ نرم‌افزاری
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = رها / باز | 1 = فشرده / بسته
+اثر: این بیت باید با رها کردن کلید به ۰ برگردد. اگر ۱ بماند، ECU فرمان را دائمی می‌بیند — مثلاً قفل در باز می‌ماند یا استارت تکرار می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت یک کلید که خود راننده یا سرنشین فشار می‌دهد (دکمه‌ی استارت
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_SSB_SW1St" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Peps_SSB_SW1St</Property>
@@ -1146,32 +851,22 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_SSB_SW1St;1;;;-1</Property>
-      <Property Name="CustomToolTipText">SSB · کلید · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-سوئیچ نرم‌افزاری
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = رها / باز | 1 = فشرده / بسته
+اثر: این بیت باید با رها کردن کلید به ۰ برگردد. اگر ۱ بماند، ECU فرمان را دائمی می‌بیند — مثلاً قفل در باز می‌ماند یا استارت تکرار می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت یک کلید که خود راننده یا سرنشین فشار می‌دهد (دکمه‌ی استارت
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_SSB_SW2St" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_SSB_SW2St</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 612</Property>
       <Property Name="Text">Hs_Peps_SSB_SW2St</Property>
-      <Property Name="CustomToolTipText">SSB · کلید · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-سوئیچ نرم‌افزاری
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = رها / باز | 1 = فشرده / بسته
+اثر: این بیت باید با رها کردن کلید به ۰ برگردد. اگر ۱ بماند، ECU فرمان را دائمی می‌بیند — مثلاً قفل در باز می‌ماند یا استارت تکرار می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت یک کلید که خود راننده یا سرنشین فشار می‌دهد (دکمه‌ی استارت
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_SSB_SW2St" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_SSB_SW2St</Property>
@@ -1180,16 +875,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">SSB · کلید · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-سوئیچ نرم‌افزاری
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = رها / باز | 1 = فشرده / بسته
+اثر: این بیت باید با رها کردن کلید به ۰ برگردد. اگر ۱ بماند، ECU فرمان را دائمی می‌بیند — مثلاً قفل در باز می‌ماند یا استارت تکرار می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت یک کلید که خود راننده یا سرنشین فشار می‌دهد (دکمه‌ی استارت
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_SSB_SW2St" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Peps_SSB_SW2St</Property>
@@ -1199,31 +889,22 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_SSB_SW2St;1;;;-1</Property>
-      <Property Name="CustomToolTipText">SSB · کلید · وضعیت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-سوئیچ نرم‌افزاری
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = رها / باز | 1 = فشرده / بسته
+اثر: این بیت باید با رها کردن کلید به ۰ برگردد. اگر ۱ بماند، ECU فرمان را دائمی می‌بیند — مثلاً قفل در باز می‌ماند یا استارت تکرار می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت یک کلید که خود راننده یا سرنشین فشار می‌دهد (دکمه‌ی استارت
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_SysPowMode" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_SysPowMode</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 638</Property>
       <Property Name="Text">Hs_Peps_SysPowMode</Property>
-      <Property Name="CustomToolTipText">حالت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 3 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = حالت پایه | 1 = حالت دوم
+اثر: پرش مستقیم بین دو حالت دور (مثلاً ۰ به ۳ بدون عبور از ۱ و ۲) یعنی سیگنال یا کد عوض شده — همان‌جا را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+موقعیت انتخاب‌شده: دنده
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_SysPowMode" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_SysPowMode</Property>
@@ -1232,15 +913,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">حالت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 3 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = حالت پایه | 1 = حالت دوم
+اثر: پرش مستقیم بین دو حالت دور (مثلاً ۰ به ۳ بدون عبور از ۱ و ۲) یعنی سیگنال یا کد عوض شده — همان‌جا را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+موقعیت انتخاب‌شده: دنده
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_SysPowMode" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Peps_SysPowMode</Property>
@@ -1250,31 +927,22 @@
       <Property Name="Maximum">3</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_SysPowMode;1;;;-1</Property>
-      <Property Name="CustomToolTipText">حالت — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 3 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = حالت پایه | 1 = حالت دوم
+اثر: پرش مستقیم بین دو حالت دور (مثلاً ۰ به ۳ بدون عبور از ۱ و ۲) یعنی سیگنال یا کد عوض شده — همان‌جا را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+موقعیت انتخاب‌شده: دنده
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_TrunkReq" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_TrunkReq</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 664</Property>
       <Property Name="Text">Hs_Peps_TrunkReq</Property>
-      <Property Name="CustomToolTipText">تعداد · درخواست — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-این ECU از دیگری کاری می‌خواهد
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 3 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = رها / باز | 1 = فشرده / بسته
+اثر: این بیت باید با رها کردن کلید به ۰ برگردد. اگر ۱ بماند، ECU فرمان را دائمی می‌بیند — مثلاً قفل در باز می‌ماند یا استارت تکرار می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت یک کلید که خود راننده یا سرنشین فشار می‌دهد (دکمه‌ی استارت
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_TrunkReq" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_TrunkReq</Property>
@@ -1283,16 +951,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">تعداد · درخواست — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-این ECU از دیگری کاری می‌خواهد
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 3 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = رها / باز | 1 = فشرده / بسته
+اثر: این بیت باید با رها کردن کلید به ۰ برگردد. اگر ۱ بماند، ECU فرمان را دائمی می‌بیند — مثلاً قفل در باز می‌ماند یا استارت تکرار می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت یک کلید که خود راننده یا سرنشین فشار می‌دهد (دکمه‌ی استارت
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_TrunkReq" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Peps_TrunkReq</Property>
@@ -1302,31 +965,21 @@
       <Property Name="Maximum">3</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_TrunkReq;1;;;-1</Property>
-      <Property Name="CustomToolTipText">تعداد · درخواست — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-این ECU از دیگری کاری می‌خواهد
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-چندحالته؛ معنی هر عدد در DBC تعریف می‌شود
-بازه: 0 تا 3 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = رها / باز | 1 = فشرده / بسته
+اثر: این بیت باید با رها کردن کلید به ۰ برگردد. اگر ۱ بماند، ECU فرمان را دائمی می‌بیند — مثلاً قفل در باز می‌ماند یا استارت تکرار می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت یک کلید که خود راننده یا سرنشین فشار می‌دهد (دکمه‌ی استارت
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_VehSpd" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_VehSpd</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 690</Property>
       <Property Name="Text">Hs_Peps_VehSpd</Property>
-      <Property Name="CustomToolTipText">Hs_Peps_VehSpd — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-عددی
-بازه: 0 تا 240 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · خام 0..240 · ×0.05625 → 0..13.5</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_VehSpd" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_VehSpd</Property>
@@ -1335,15 +988,10 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">Hs_Peps_VehSpd — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-عددی
-بازه: 0 تا 240 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · خام 0..240 · ×0.05625 → 0..13.5</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_VehSpd" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Peps_VehSpd</Property>
@@ -1353,30 +1001,21 @@
       <Property Name="Maximum">240</Property>
       <Property Name="Increment">2.4</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_VehSpd;1;;;-1</Property>
-      <Property Name="CustomToolTipText">Hs_Peps_VehSpd — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-عددی
-بازه: 0 تا 240 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · خام 0..240 · ×0.05625 → 0..13.5</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_VehSpdVD" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_VehSpdVD</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 716</Property>
       <Property Name="Text">Hs_Peps_VehSpdVD</Property>
-      <Property Name="CustomToolTipText">Hs_Peps_VehSpdVD — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = شرط برقرار نیست | 1 = شرط برقرار است
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_VehSpdVD" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_VehSpdVD</Property>
@@ -1385,15 +1024,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">Hs_Peps_VehSpdVD — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = شرط برقرار نیست | 1 = شرط برقرار است
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_VehSpdVD" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Peps_VehSpdVD</Property>
@@ -1403,30 +1038,22 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_VehSpdVD;1;;;-1</Property>
-      <Property Name="CustomToolTipText">Hs_Peps_VehSpdVD — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = شرط برقرار نیست | 1 = شرط برقرار است
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_VehSpdWarning" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_VehSpdWarning</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 742</Property>
       <Property Name="Text">Hs_Peps_VehSpdWarning</Property>
-      <Property Name="CustomToolTipText">هشدار — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱
+اثر: 0 → هیچ هشداری فعال نیست · 1 → هشدار ملایم؛ معمولاً پیام روی صفحه، بدون بوق
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال فقط دو حالت دارد: ۰ و ۱.
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_VehSpdWarning" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_VehSpdWarning</Property>
@@ -1435,15 +1062,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">هشدار — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱
+اثر: 0 → هیچ هشداری فعال نیست · 1 → هشدار ملایم؛ معمولاً پیام روی صفحه، بدون بوق
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال فقط دو حالت دارد: ۰ و ۱.
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Peps_VehSpdWarning" Children="Controls" ControlName="Switch/Indicator">
       <Property Name="Name">Sw_Hs_Peps_VehSpdWarning</Property>
@@ -1453,30 +1076,22 @@
       <Property Name="Activation">Left</Property>
       <Property Name="SwitchValues">1;2;0;1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_VehSpdWarning;1;;;-1</Property>
-      <Property Name="CustomToolTipText">هشدار — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-دو حالته: ۰ = خاموش/غیرفعال، ۱ = روشن/فعال
-بازه: ۰ یا ۱
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱
+اثر: 0 → هیچ هشداری فعال نیست · 1 → هشدار ملایم؛ معمولاً پیام روی صفحه، بدون بوق
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال فقط دو حالت دارد: ۰ و ۱.
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..1</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Peps_keyComdInfo" Children="Controls" ControlName="Static Text">
       <Property Name="Name">Txt_Hs_Peps_keyComdInfo</Property>
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 768</Property>
       <Property Name="Text">Hs_Peps_keyComdInfo</Property>
-      <Property Name="CustomToolTipText">کلید · ارتباط · اطلاعات — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-عددی
-بازه: 0 تا 15 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">0 .. 15 = بازه
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..15</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Peps_keyComdInfo" Children="Controls" ControlName="Static Text">
       <Property Name="Name">I_Hs_Peps_keyComdInfo</Property>
@@ -1485,15 +1100,11 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">کلید · ارتباط · اطلاعات — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-عددی
-بازه: 0 تا 15 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">0 .. 15 = بازه
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..15</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Peps_keyComdInfo" Children="Controls" ControlName="Numeric Up/Down">
       <Property Name="Name">Num_Hs_Peps_keyComdInfo</Property>
@@ -1503,15 +1114,11 @@
       <Property Name="Maximum">15</Property>
       <Property Name="Increment">0.15</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Peps_keyComdInfo;1;;;-1</Property>
-      <Property Name="CustomToolTipText">کلید · ارتباط · اطلاعات — PEPS / HS_ID_PEPS_1
-فریم HS_ID_PEPS_1 که PEPS روی شبکه HS می‌فرستد. تشخیص کلید در دست، تأیید مالکیت و اجازه استارت. سیگنال‌های Button و Authentication وضعیت کلید و احراز هویت را می‌گویند.
-گره: PEPS — ورود و استارت بدون کلید
-پیام: HS_ID_PEPS_1
-چرخه ارسال: هر 100 میلی‌ثانیه
-شبکه: HS (High-Speed)
-عددی
-بازه: 0 تا 15 بدون واحد
-مقدار پیش‌فرض: 0</Property>
+      <Property Name="CustomToolTipText">0 .. 15 = بازه
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_PEPS_1 · HS-CAN · هر 100 ms · 0..15</Property>
     </Object>
     <Property Name="Name">NBCM PEPS</Property>
     <Property Name="Size">262, 926</Property>

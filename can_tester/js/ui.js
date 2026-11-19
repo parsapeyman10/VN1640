@@ -37,6 +37,7 @@
     if (name === 'tests') global.Tests.render();
     if (name === 'report') global.Tests.renderReportPanel && global.Tests.renderReportPanel();
     if (name === 'link') renderLink();
+    if (name === 'help') global.Info && global.Info.renderHelp();
   }
 
   /* ------------------------------------------------------------- header */

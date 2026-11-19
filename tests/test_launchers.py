@@ -331,6 +331,62 @@ def test_one_port_serves_page_websocket_and_api():
             proc.kill()
 
 
+def test_state_tables_match_each_signal():
+    """A value table must not describe a value the signal cannot take.
+
+    The first draft had a shared "warning" family print "level 3 = critical" for
+    a signal whose range was 0..1, and an effect line about going "from 1 to 3".
+    That is worse than no explanation: it teaches the wrong thing.
+    """
+    import json
+    sys.path.insert(0, str(ROOT / "tools"))
+    import signal_states as ss
+
+    data = json.loads((ROOT / "can_tester" / "assets" / "signal_map.json")
+                      .read_text(encoding="utf-8"))
+    bad, empty = [], []
+    for sig in data["signals"]:
+        d = ss.describe_states(sig["sig"], sig["kind"], sig["min"], sig["max"])
+        if not d["states"]:
+            empty.append(sig["sig"])
+        for st in d["states"]:
+            v = st["v"]
+            if v == "*" or re.match(r"^[\d.]+\s*\.\.", v):
+                continue
+            m = re.match(r"^(\d+)", v)
+            if m and int(m.group(1)) > sig["max"]:
+                bad.append(f"{sig['sig']}: {v} > max {sig['max']:g}")
+            if sig["kind"] == "bool" and v not in ("0", "1"):
+                bad.append(f"{sig['sig']}: boolean with state {v}")
+        if sig["kind"] in ("bool", "enum") and sig["max"] <= 1:
+            for st in d["states"]:
+                if re.match(r"^[2-9]", st["v"]):
+                    bad.append(f"{sig['sig']}: 0/1 signal with state {st['v']}")
+    check("no state table names a value outside the signal's range", not bad,
+          "; ".join(bad[:4]))
+    check("every signal has at least one state row", not empty,
+          ", ".join(empty[:4]))
+    thin = []
+    for fam in ss.FAMILIES:
+        for row in fam["states"]:
+            if not (row.get("label") or "").strip() or not (row.get("effect") or "").strip():
+                thin.append(f"{fam['key']}:{row.get('v')}")
+    check("every state row has a label and an effect", not thin, ", ".join(thin[:4]))
+    weak = [f["key"] for f in ss.FAMILIES
+            if not (f.get("when") and f.get("observe") and f.get("test"))]
+    check("every family says what changes it, what to watch and how to test",
+          not weak, ", ".join(weak[:4]))
+
+    # the prose must not promise effects the signal cannot have
+    lying = []
+    for sig in data["signals"]:
+        d = ss.describe_states(sig["sig"], sig["kind"], sig["min"], sig["max"])
+        if sig["max"] <= 1 and re.search(r"سطح [۲-۹]|به ۳|بحرانی", d.get("observe", "")):
+            lying.append(sig["sig"])
+    check("no 0/1 signal talks about higher warning levels", not lying,
+          ", ".join(lying[:4]))
+
+
 def test_verdict_reaches_the_bridge():
     """6. A suite verdict must be visible to the CANoe panel."""
     port = 9840
@@ -552,6 +608,7 @@ def main() -> int:
                test_main_panel_is_self_consistent,
                test_every_signal_has_an_explanation,
                test_one_port_serves_page_websocket_and_api,
+               test_state_tables_match_each_signal,
                test_verdict_reaches_the_bridge,
                test_package_is_consistent,
                test_find_bridge_fails_cleanly, test_launcher_dry_run,
