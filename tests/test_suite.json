@@ -1,0 +1,269 @@
+{
+  "version": 1,
+  "name": "NBCM Restbus / CANoe 12",
+  "defaults": {
+    "settle": 350,
+    "poll": 100,
+    "timeout": 4000
+  },
+  "tests": [
+    {
+      "id": "TC-001",
+      "title": "سرعت خودرو روی باس منتشر می‌شود",
+      "suite": "Signal",
+      "steps": [
+        {
+          "set": {
+            "$offline": {
+              "ABS": false
+            }
+          }
+        },
+        {
+          "set": {
+            "Hs_Abs_VehicleSpeed": 60
+          }
+        },
+        {
+          "settle": 400
+        },
+        {
+          "expect": {
+            "signal": "Hs_Abs_VehicleSpeed",
+            "op": ">=",
+            "value": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "TC-002",
+      "title": "محدوده فیزیکی سیگنال سرعت رعایت می‌شود",
+      "suite": "Signal",
+      "steps": [
+        {
+          "set": {
+            "Hs_Abs_VehicleSpeed": 99999
+          }
+        },
+        {
+          "settle": 300
+        },
+        {
+          "expect": {
+            "signal": "Hs_Abs_VehicleSpeed",
+            "op": "<=",
+            "value": 8189
+          }
+        }
+      ]
+    },
+    {
+      "id": "TC-010",
+      "title": "قطع ABS باعث Timeout پیام HS_ID_ABS می‌شود",
+      "suite": "Timeout",
+      "steps": [
+        {
+          "set": {
+            "$offline": {
+              "ABS": false
+            }
+          }
+        },
+        {
+          "settle": 1400
+        },
+        {
+          "expect": {
+            "fresh": "HS_ID_ABS",
+            "within": 2500
+          }
+        },
+        {
+          "set": {
+            "$offline": {
+              "ABS": true
+            }
+          }
+        },
+        {
+          "settle": 3000
+        },
+        {
+          "expect": {
+            "absent": "HS_ID_ABS"
+          }
+        }
+      ]
+    },
+    {
+      "id": "TC-011",
+      "title": "بازگشت ABS پیام را دوباره زنده می‌کند",
+      "suite": "Timeout",
+      "steps": [
+        {
+          "set": {
+            "$offline": {
+              "ABS": true
+            }
+          }
+        },
+        {
+          "settle": 2600
+        },
+        {
+          "expect": {
+            "absent": "HS_ID_ABS"
+          }
+        },
+        {
+          "set": {
+            "$offline": {
+              "ABS": false
+            }
+          }
+        },
+        {
+          "set": {
+            "Hs_Abs_VehicleSpeed": 45
+          }
+        },
+        {
+          "require": {
+            "signal": "Hs_Abs_VehicleSpeed",
+            "op": "exists",
+            "timeout": 4000
+          }
+        },
+        {
+          "settle": 1200
+        },
+        {
+          "expect": {
+            "fresh": "HS_ID_ABS",
+            "within": 3000
+          }
+        }
+      ]
+    },
+    {
+      "id": "TC-020",
+      "title": "خروجی گره‌های کلیدی HS و LS سالم است",
+      "suite": "Smoke",
+      "steps": [
+        {
+          "set": {
+            "$offline": {
+              "ABS": false,
+              "EMS": false,
+              "ICN": false
+            }
+          }
+        },
+        {
+          "settle": 1500
+        },
+        {
+          "expect": {
+            "fresh": "HS_ID_ABS",
+            "within": 3000
+          }
+        },
+        {
+          "expect": {
+            "fresh": "HS_ID_EMS1",
+            "within": 3000
+          }
+        },
+        {
+          "expect": {
+            "fresh": "LS_ID_DEBUG_IC",
+            "within": 3000
+          }
+        }
+      ]
+    },
+    {
+      "id": "TC-030",
+      "title": "نوشتن و بازخوانی سیگنال بولی Hs_Abs_Active",
+      "suite": "Signal",
+      "steps": [
+        {
+          "set": {
+            "$offline": {
+              "ABS": false
+            }
+          }
+        },
+        {
+          "set": {
+            "Hs_Abs_Active": 1
+          }
+        },
+        {
+          "settle": 250
+        },
+        {
+          "expect": {
+            "signal": "Hs_Abs_Active",
+            "op": "==",
+            "value": 1
+          }
+        },
+        {
+          "set": {
+            "Hs_Abs_Active": 0
+          }
+        },
+        {
+          "settle": 250
+        },
+        {
+          "expect": {
+            "signal": "Hs_Abs_Active",
+            "op": "==",
+            "value": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "TC-040",
+      "title": "گره آنلاین/آفلاین درست علامت‌گذاری می‌شود",
+      "suite": "Smoke",
+      "steps": [
+        {
+          "set": {
+            "$offline": {
+              "MMS": false
+            }
+          }
+        },
+        {
+          "expect": {
+            "online": "MMS"
+          }
+        },
+        {
+          "set": {
+            "$offline": {
+              "MMS": true
+            }
+          }
+        },
+        {
+          "expect": {
+            "offline": "MMS"
+          }
+        },
+        {
+          "set": {
+            "$offline": {
+              "MMS": false
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

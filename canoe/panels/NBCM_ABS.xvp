@@ -1,0 +1,1897 @@
+<?xml version="1.0"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Panel" Children="Controls" ControlName="NBCM ABS">
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtTitle" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtTitle</Property>
+      <Property Name="Size">460, 20</Property>
+      <Property Name="Location">10, 8</Property>
+      <Property Name="Text">ABS  -  HS-CAN  -  7 messages / 51 signals</Property>
+      <Property Name="CustomToolTipText">ABS — ترمز ضدقفل و کنترل پایداری
+دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+7 پیام · 51 سیگنال · HS-CAN</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Node" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Node</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">474, 7</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">ABS — ترمز ضدقفل و کنترل پایداری
+دورِ چرخ‌ها را می‌خواند و از لغزش و قفل‌شدن چرخ جلوگیری می‌کند. سیگنال‌های Active/EBD/TCS و ESC وضعیت لحظه‌ای مداخله‌اش را می‌گویند.
+7 پیام · 51 سیگنال · HS-CAN</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Active" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Abs_Active</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 40</Property>
+      <Property Name="Text">Hs_Abs_Active</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = غیرفعال | 1 = فعال
+اثر: بر خلاف پرچم خطا، این بیت باید لحظه‌ای باشد؛ اگر همیشه ۱ بماند یعنی یا مداخله ادامه دارد یا سیگنال گیر کرده.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید آن عملکرد همین حالا در حال مداخله است یا نه — نه اینکه سالم است.
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Active" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Active</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 39</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = غیرفعال | 1 = فعال
+اثر: بر خلاف پرچم خطا، این بیت باید لحظه‌ای باشد؛ اگر همیشه ۱ بماند یعنی یا مداخله ادامه دارد یا سیگنال گیر کرده.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید آن عملکرد همین حالا در حال مداخله است یا نه — نه اینکه سالم است.
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Abs_Active" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Abs_Active</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 38</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Active;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = غیرفعال | 1 = فعال
+اثر: بر خلاف پرچم خطا، این بیت باید لحظه‌ای باشد؛ اگر همیشه ۱ بماند یعنی یا مداخله ادامه دارد یا سیگنال گیر کرده.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید آن عملکرد همین حالا در حال مداخله است یا نه — نه اینکه سالم است.
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_DiagMode" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Abs_DiagMode</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 66</Property>
+      <Property Name="Text">Hs_Abs_DiagMode</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_DiagMode" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_DiagMode</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 65</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Abs_DiagMode" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Abs_DiagMode</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 64</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_DiagMode;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Ebd_Active" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Abs_Ebd_Active</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 92</Property>
+      <Property Name="Text">Hs_Abs_Ebd_Active</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = غیرفعال | 1 = فعال
+اثر: بر خلاف پرچم خطا، این بیت باید لحظه‌ای باشد؛ اگر همیشه ۱ بماند یعنی یا مداخله ادامه دارد یا سیگنال گیر کرده.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید آن عملکرد همین حالا در حال مداخله است یا نه — نه اینکه سالم است.
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Ebd_Active" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Ebd_Active</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 91</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = غیرفعال | 1 = فعال
+اثر: بر خلاف پرچم خطا، این بیت باید لحظه‌ای باشد؛ اگر همیشه ۱ بماند یعنی یا مداخله ادامه دارد یا سیگنال گیر کرده.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید آن عملکرد همین حالا در حال مداخله است یا نه — نه اینکه سالم است.
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Abs_Ebd_Active" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Abs_Ebd_Active</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 90</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Ebd_Active;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = غیرفعال | 1 = فعال
+اثر: بر خلاف پرچم خطا، این بیت باید لحظه‌ای باشد؛ اگر همیشه ۱ بماند یعنی یا مداخله ادامه دارد یا سیگنال گیر کرده.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید آن عملکرد همین حالا در حال مداخله است یا نه — نه اینکه سالم است.
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Ebd_Error" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Abs_Ebd_Error</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 118</Property>
+      <Property Name="Text">Hs_Abs_Ebd_Error</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Ebd_Error" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Ebd_Error</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 117</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Abs_Ebd_Error" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Abs_Ebd_Error</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 116</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Ebd_Error;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Ebd_Warning" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Abs_Ebd_Warning</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 144</Property>
+      <Property Name="Text">Hs_Abs_Ebd_Warning</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱
+اثر: 0 → هیچ هشداری فعال نیست · 1 → هشدار ملایم؛ معمولاً پیام روی صفحه، بدون بوق
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال فقط دو حالت دارد: ۰ و ۱.
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Ebd_Warning" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Ebd_Warning</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 143</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱
+اثر: 0 → هیچ هشداری فعال نیست · 1 → هشدار ملایم؛ معمولاً پیام روی صفحه، بدون بوق
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال فقط دو حالت دارد: ۰ و ۱.
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Abs_Ebd_Warning" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Abs_Ebd_Warning</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 142</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Ebd_Warning;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱
+اثر: 0 → هیچ هشداری فعال نیست · 1 → هشدار ملایم؛ معمولاً پیام روی صفحه، بدون بوق
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال فقط دو حالت دارد: ۰ و ۱.
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Error" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Abs_Error</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 170</Property>
+      <Property Name="Text">Hs_Abs_Error</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Error" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Error</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 169</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Abs_Error" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Abs_Error</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 168</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Error;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Esp_Enable" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Abs_Esp_Enable</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 196</Property>
+      <Property Name="Text">Hs_Abs_Esp_Enable</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = غیرفعال | 1 = فعال
+اثر: بر خلاف پرچم خطا، این بیت باید لحظه‌ای باشد؛ اگر همیشه ۱ بماند یعنی یا مداخله ادامه دارد یا سیگنال گیر کرده.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید آن عملکرد همین حالا در حال مداخله است یا نه — نه اینکه سالم است.
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Esp_Enable" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Esp_Enable</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 195</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = غیرفعال | 1 = فعال
+اثر: بر خلاف پرچم خطا، این بیت باید لحظه‌ای باشد؛ اگر همیشه ۱ بماند یعنی یا مداخله ادامه دارد یا سیگنال گیر کرده.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید آن عملکرد همین حالا در حال مداخله است یا نه — نه اینکه سالم است.
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Abs_Esp_Enable" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Abs_Esp_Enable</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 194</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Esp_Enable;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = غیرفعال | 1 = فعال
+اثر: بر خلاف پرچم خطا، این بیت باید لحظه‌ای باشد؛ اگر همیشه ۱ بماند یعنی یا مداخله ادامه دارد یا سیگنال گیر کرده.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید آن عملکرد همین حالا در حال مداخله است یا نه — نه اینکه سالم است.
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Esp_Warning" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Abs_Esp_Warning</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 222</Property>
+      <Property Name="Text">Hs_Abs_Esp_Warning</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱ | 2 = هشدار سطح ۲ | 3 = هشدار بحرانی
+اثر: وقتی از ۱ به ۳ می‌رود، معمولاً یک سیگنال «فعال بودن» جدا هم ۱ می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+شدت هشدار
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Esp_Warning" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Esp_Warning</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 221</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱ | 2 = هشدار سطح ۲ | 3 = هشدار بحرانی
+اثر: وقتی از ۱ به ۳ می‌رود، معمولاً یک سیگنال «فعال بودن» جدا هم ۱ می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+شدت هشدار
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Esp_Warning" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Abs_Esp_Warning</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">174, 223</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">3</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Esp_Warning;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱ | 2 = هشدار سطح ۲ | 3 = هشدار بحرانی
+اثر: وقتی از ۱ به ۳ می‌رود، معمولاً یک سیگنال «فعال بودن» جدا هم ۱ می‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+شدت هشدار
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Warning" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Abs_Warning</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 248</Property>
+      <Property Name="Text">Hs_Abs_Warning</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱
+اثر: 0 → هیچ هشداری فعال نیست · 1 → هشدار ملایم؛ معمولاً پیام روی صفحه، بدون بوق
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال فقط دو حالت دارد: ۰ و ۱.
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Warning" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Warning</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 247</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱
+اثر: 0 → هیچ هشداری فعال نیست · 1 → هشدار ملایم؛ معمولاً پیام روی صفحه، بدون بوق
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال فقط دو حالت دارد: ۰ و ۱.
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Abs_Warning" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Abs_Warning</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 246</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Warning;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌هشدار | 1 = هشدار سطح ۱
+اثر: 0 → هیچ هشداری فعال نیست · 1 → هشدار ملایم؛ معمولاً پیام روی صفحه، بدون بوق
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال فقط دو حالت دارد: ۰ و ۱.
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Wheel_Speed_Fl" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Abs_Wheel_Speed_Fl</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 274</Property>
+      <Property Name="Text">Hs_Abs_Wheel_Speed_Fl</Property>
+      <Property Name="CustomToolTipText">اثر: اگر سرعت بالا باشد ولی چرخ‌ها هم‌سرعت نباشند، ABS خطای سنسور چرخ می‌دهد.
+سرعت خودرو یا سرعت یک چرخ. یکی از پرکاربردترین سیگنال‌های شبکه است: آمپر
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · خام 0..4095 · ×0.125 → 0..511.875 Km/h</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Wheel_Speed_Fl" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Wheel_Speed_Fl</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 273</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">اثر: اگر سرعت بالا باشد ولی چرخ‌ها هم‌سرعت نباشند، ABS خطای سنسور چرخ می‌دهد.
+سرعت خودرو یا سرعت یک چرخ. یکی از پرکاربردترین سیگنال‌های شبکه است: آمپر
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · خام 0..4095 · ×0.125 → 0..511.875 Km/h</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Wheel_Speed_Fl" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Abs_Wheel_Speed_Fl</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">174, 275</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">4095</Property>
+      <Property Name="Increment">40.95</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Wheel_Speed_Fl;1;;;-1</Property>
+      <Property Name="CustomToolTipText">اثر: اگر سرعت بالا باشد ولی چرخ‌ها هم‌سرعت نباشند، ABS خطای سنسور چرخ می‌دهد.
+سرعت خودرو یا سرعت یک چرخ. یکی از پرکاربردترین سیگنال‌های شبکه است: آمپر
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · خام 0..4095 · ×0.125 → 0..511.875 Km/h</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Wheel_Speed_Fr" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Abs_Wheel_Speed_Fr</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 300</Property>
+      <Property Name="Text">Hs_Abs_Wheel_Speed_Fr</Property>
+      <Property Name="CustomToolTipText">اثر: اگر سرعت بالا باشد ولی چرخ‌ها هم‌سرعت نباشند، ABS خطای سنسور چرخ می‌دهد.
+سرعت خودرو یا سرعت یک چرخ. یکی از پرکاربردترین سیگنال‌های شبکه است: آمپر
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · خام 0..4095 · ×0.125 → 0..511.875 Km/h</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Wheel_Speed_Fr" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Wheel_Speed_Fr</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 299</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">اثر: اگر سرعت بالا باشد ولی چرخ‌ها هم‌سرعت نباشند، ABS خطای سنسور چرخ می‌دهد.
+سرعت خودرو یا سرعت یک چرخ. یکی از پرکاربردترین سیگنال‌های شبکه است: آمپر
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · خام 0..4095 · ×0.125 → 0..511.875 Km/h</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Wheel_Speed_Fr" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Abs_Wheel_Speed_Fr</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">174, 301</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">4095</Property>
+      <Property Name="Increment">40.95</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Wheel_Speed_Fr;1;;;-1</Property>
+      <Property Name="CustomToolTipText">اثر: اگر سرعت بالا باشد ولی چرخ‌ها هم‌سرعت نباشند، ABS خطای سنسور چرخ می‌دهد.
+سرعت خودرو یا سرعت یک چرخ. یکی از پرکاربردترین سیگنال‌های شبکه است: آمپر
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · خام 0..4095 · ×0.125 → 0..511.875 Km/h</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Wheel_Speed_Rl" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Abs_Wheel_Speed_Rl</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 326</Property>
+      <Property Name="Text">Hs_Abs_Wheel_Speed_Rl</Property>
+      <Property Name="CustomToolTipText">اثر: اگر سرعت بالا باشد ولی چرخ‌ها هم‌سرعت نباشند، ABS خطای سنسور چرخ می‌دهد.
+سرعت خودرو یا سرعت یک چرخ. یکی از پرکاربردترین سیگنال‌های شبکه است: آمپر
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · خام 0..4095 · ×0.125 → 0..511.875 Km/h</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Wheel_Speed_Rl" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Wheel_Speed_Rl</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 325</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">اثر: اگر سرعت بالا باشد ولی چرخ‌ها هم‌سرعت نباشند، ABS خطای سنسور چرخ می‌دهد.
+سرعت خودرو یا سرعت یک چرخ. یکی از پرکاربردترین سیگنال‌های شبکه است: آمپر
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · خام 0..4095 · ×0.125 → 0..511.875 Km/h</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Wheel_Speed_Rl" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Abs_Wheel_Speed_Rl</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">174, 327</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">4095</Property>
+      <Property Name="Increment">40.95</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Wheel_Speed_Rl;1;;;-1</Property>
+      <Property Name="CustomToolTipText">اثر: اگر سرعت بالا باشد ولی چرخ‌ها هم‌سرعت نباشند، ABS خطای سنسور چرخ می‌دهد.
+سرعت خودرو یا سرعت یک چرخ. یکی از پرکاربردترین سیگنال‌های شبکه است: آمپر
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · خام 0..4095 · ×0.125 → 0..511.875 Km/h</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Wheel_Speed_Rr" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Abs_Wheel_Speed_Rr</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 352</Property>
+      <Property Name="Text">Hs_Abs_Wheel_Speed_Rr</Property>
+      <Property Name="CustomToolTipText">اثر: اگر سرعت بالا باشد ولی چرخ‌ها هم‌سرعت نباشند، ABS خطای سنسور چرخ می‌دهد.
+سرعت خودرو یا سرعت یک چرخ. یکی از پرکاربردترین سیگنال‌های شبکه است: آمپر
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · خام 0..4095 · ×0.125 → 0..511.875 Km/h</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Wheel_Speed_Rr" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Wheel_Speed_Rr</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 351</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">اثر: اگر سرعت بالا باشد ولی چرخ‌ها هم‌سرعت نباشند، ABS خطای سنسور چرخ می‌دهد.
+سرعت خودرو یا سرعت یک چرخ. یکی از پرکاربردترین سیگنال‌های شبکه است: آمپر
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · خام 0..4095 · ×0.125 → 0..511.875 Km/h</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Wheel_Speed_Rr" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Abs_Wheel_Speed_Rr</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">174, 353</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">4095</Property>
+      <Property Name="Increment">40.95</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Wheel_Speed_Rr;1;;;-1</Property>
+      <Property Name="CustomToolTipText">اثر: اگر سرعت بالا باشد ولی چرخ‌ها هم‌سرعت نباشند، ABS خطای سنسور چرخ می‌دهد.
+سرعت خودرو یا سرعت یک چرخ. یکی از پرکاربردترین سیگنال‌های شبکه است: آمپر
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · خام 0..4095 · ×0.125 → 0..511.875 Km/h</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_GearShiftInhibit" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Esc_GearShiftInhibit</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 378</Property>
+      <Property Name="Text">Hs_Esc_GearShiftInhibit</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = پارک (P) | 1 = دنده عقب (R)
+اثر: 0 → خودرو پارک است؛ قفل فرمان آزاد · 1 → چراغ دنده عقب روشن، دوربین فعال
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال فقط دو حالت دارد: ۰ و ۱.
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_GearShiftInhibit" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_GearShiftInhibit</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 377</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = پارک (P) | 1 = دنده عقب (R)
+اثر: 0 → خودرو پارک است؛ قفل فرمان آزاد · 1 → چراغ دنده عقب روشن، دوربین فعال
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال فقط دو حالت دارد: ۰ و ۱.
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Esc_GearShiftInhibit" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Esc_GearShiftInhibit</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 376</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_GearShiftInhibit;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = پارک (P) | 1 = دنده عقب (R)
+اثر: 0 → خودرو پارک است؛ قفل فرمان آزاد · 1 → چراغ دنده عقب روشن، دوربین فعال
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال فقط دو حالت دارد: ۰ و ۱.
+پیام: HS_ID_ABS · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Brake_Checksum" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Brake_Checksum</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 404</Property>
+      <Property Name="Text">Hs_Brake_Checksum</Property>
+      <Property Name="CustomToolTipText">0 .. 255 = بازه
+اثر: اگر چک‌سام را دستی مقدار ثابت بدهید، گیرنده فریم را نامعتبر می‌بیند و سیگنال‌های دیگرِ آن فریم هم بی‌اثر می‌شوند. برای تست این کار مفید است.
+جمع کنترلی روی بایت‌های فریم. گیرنده آن را دوباره حساب می‌کند و اگر جور نشد
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..255</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Brake_Checksum" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Brake_Checksum</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 403</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">0 .. 255 = بازه
+اثر: اگر چک‌سام را دستی مقدار ثابت بدهید، گیرنده فریم را نامعتبر می‌بیند و سیگنال‌های دیگرِ آن فریم هم بی‌اثر می‌شوند. برای تست این کار مفید است.
+جمع کنترلی روی بایت‌های فریم. گیرنده آن را دوباره حساب می‌کند و اگر جور نشد
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..255</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Brake_Checksum" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Brake_Checksum</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">174, 405</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.55</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Brake_Checksum;1;;;-1</Property>
+      <Property Name="CustomToolTipText">0 .. 255 = بازه
+اثر: اگر چک‌سام را دستی مقدار ثابت بدهید، گیرنده فریم را نامعتبر می‌بیند و سیگنال‌های دیگرِ آن فریم هم بی‌اثر می‌شوند. برای تست این کار مفید است.
+جمع کنترلی روی بایت‌های فریم. گیرنده آن را دوباره حساب می‌کند و اگر جور نشد
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..255</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Brake_RollCntr" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Brake_RollCntr</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 430</Property>
+      <Property Name="Text">Hs_Brake_RollCntr</Property>
+      <Property Name="CustomToolTipText">0 .. 14 = بازه
+اثر: در Trace عدد باید پرش داشته باشد. اگر پرش نداشت ولی فریم می‌رسد، فرستنده‌اش قفل شده — نمونه‌ی کلاسیک خطای نرم‌افزاری ECU.
+شمارنده‌ای که فرستنده با هر ارسال یک واحد بالا می‌برد و در انتها صفر می‌شود. گیرنده از روی آن…
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..14</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Brake_RollCntr" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Brake_RollCntr</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 429</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">0 .. 14 = بازه
+اثر: در Trace عدد باید پرش داشته باشد. اگر پرش نداشت ولی فریم می‌رسد، فرستنده‌اش قفل شده — نمونه‌ی کلاسیک خطای نرم‌افزاری ECU.
+شمارنده‌ای که فرستنده با هر ارسال یک واحد بالا می‌برد و در انتها صفر می‌شود. گیرنده از روی آن…
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..14</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Brake_RollCntr" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Brake_RollCntr</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">174, 431</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">14</Property>
+      <Property Name="Increment">0.14</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Brake_RollCntr;1;;;-1</Property>
+      <Property Name="CustomToolTipText">0 .. 14 = بازه
+اثر: در Trace عدد باید پرش داشته باشد. اگر پرش نداشت ولی فریم می‌رسد، فرستنده‌اش قفل شده — نمونه‌ی کلاسیک خطای نرم‌افزاری ECU.
+شمارنده‌ای که فرستنده با هر ارسال یک واحد بالا می‌برد و در انتها صفر می‌شود. گیرنده از روی آن…
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..14</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_EmergBrakeStatus" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Esc_EmergBrakeStatus</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 456</Property>
+      <Property Name="Text">Hs_Esc_EmergBrakeStatus</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = نامعتبر | 1 = معتبر | 2..3 = کدهای بیشتر
+اثر: اگر مقدار همراه معتبر است ولی عدد بی‌معنی است، مشکل در محاسبه است نه در این بیت. اگر نامعتبر شد، ببینید گیرنده چه مقدار جانشینی می‌گذارد.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_EmergBrakeStatus" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_EmergBrakeStatus</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 455</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = نامعتبر | 1 = معتبر | 2..3 = کدهای بیشتر
+اثر: اگر مقدار همراه معتبر است ولی عدد بی‌معنی است، مشکل در محاسبه است نه در این بیت. اگر نامعتبر شد، ببینید گیرنده چه مقدار جانشینی می‌گذارد.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Esc_EmergBrakeStatus" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Esc_EmergBrakeStatus</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">174, 457</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">3</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_EmergBrakeStatus;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = نامعتبر | 1 = معتبر | 2..3 = کدهای بیشتر
+اثر: اگر مقدار همراه معتبر است ولی عدد بی‌معنی است، مشکل در محاسبه است نه در این بیت. اگر نامعتبر شد، ببینید گیرنده چه مقدار جانشینی می‌گذارد.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_EscDisableStatus" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Esc_EscDisableStatus</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 482</Property>
+      <Property Name="Text">Hs_Esc_EscDisableStatus</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = فعال | 1 = غیرفعال
+اثر: این را با پرچم خطا اشتباه نگیرید: غیرفعال بودن خطا نیست، ولی اگر بی‌دلیل ۱ بماند یعنی کسی خاموشش کرده و در تستِ عملکرد نتیجه منفی می‌گیرید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید یک عملکرد عمداً خاموش شده است یا نه — که با «خراب بودن» فرق دارد.
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_EscDisableStatus" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_EscDisableStatus</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 481</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = فعال | 1 = غیرفعال
+اثر: این را با پرچم خطا اشتباه نگیرید: غیرفعال بودن خطا نیست، ولی اگر بی‌دلیل ۱ بماند یعنی کسی خاموشش کرده و در تستِ عملکرد نتیجه منفی می‌گیرید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید یک عملکرد عمداً خاموش شده است یا نه — که با «خراب بودن» فرق دارد.
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Esc_EscDisableStatus" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Esc_EscDisableStatus</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 480</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_EscDisableStatus;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = فعال | 1 = غیرفعال
+اثر: این را با پرچم خطا اشتباه نگیرید: غیرفعال بودن خطا نیست، ولی اگر بی‌دلیل ۱ بماند یعنی کسی خاموشش کرده و در تستِ عملکرد نتیجه منفی می‌گیرید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید یک عملکرد عمداً خاموش شده است یا نه — که با «خراب بودن» فرق دارد.
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_EscError" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Esc_EscError</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 508</Property>
+      <Property Name="Text">Hs_Esc_EscError</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_EscError" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_EscError</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 507</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Esc_EscError" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Esc_EscError</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 506</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_EscError;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_HacActive" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Esc_HacActive</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 534</Property>
+      <Property Name="Text">Hs_Esc_HacActive</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = غیرفعال | 1 = فعال
+اثر: بر خلاف پرچم خطا، این بیت باید لحظه‌ای باشد؛ اگر همیشه ۱ بماند یعنی یا مداخله ادامه دارد یا سیگنال گیر کرده.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید آن عملکرد همین حالا در حال مداخله است یا نه — نه اینکه سالم است.
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_HacActive" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_HacActive</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 533</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = غیرفعال | 1 = فعال
+اثر: بر خلاف پرچم خطا، این بیت باید لحظه‌ای باشد؛ اگر همیشه ۱ بماند یعنی یا مداخله ادامه دارد یا سیگنال گیر کرده.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید آن عملکرد همین حالا در حال مداخله است یا نه — نه اینکه سالم است.
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Esc_HacActive" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Esc_HacActive</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 532</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_HacActive;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = غیرفعال | 1 = فعال
+اثر: بر خلاف پرچم خطا، این بیت باید لحظه‌ای باشد؛ اگر همیشه ۱ بماند یعنی یا مداخله ادامه دارد یا سیگنال گیر کرده.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید آن عملکرد همین حالا در حال مداخله است یا نه — نه اینکه سالم است.
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_HacError" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Esc_HacError</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 560</Property>
+      <Property Name="Text">Hs_Esc_HacError</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_HacError" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_HacError</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 559</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Esc_HacError" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Esc_HacError</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 558</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_HacError;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_LongAcceleration" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Esc_LongAcceleration</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 586</Property>
+      <Property Name="Text">Hs_Esc_LongAcceleration</Property>
+      <Property Name="CustomToolTipText">اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · خام -10.23..2047 · ×0.01 → -10.3323..10.24 m</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_LongAcceleration" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_LongAcceleration</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 585</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · خام -10.23..2047 · ×0.01 → -10.3323..10.24 m</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Esc_LongAcceleration" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Esc_LongAcceleration</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">174, 587</Property>
+      <Property Name="Minimum">-10.23</Property>
+      <Property Name="Maximum">2047</Property>
+      <Property Name="Increment">20.572</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_LongAcceleration;1;;;-1</Property>
+      <Property Name="CustomToolTipText">اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · خام -10.23..2047 · ×0.01 → -10.3323..10.24 m</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_LongAccelerationValid" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Esc_LongAccelerationValid</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 612</Property>
+      <Property Name="Text">Hs_Esc_LongAccelerationValid</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = نامعتبر | 1 = معتبر
+اثر: اگر مقدار همراه معتبر است ولی عدد بی‌معنی است، مشکل در محاسبه است نه در این بیت. اگر نامعتبر شد، ببینید گیرنده چه مقدار جانشینی می‌گذارد.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید مقدار همراه آن قابل استفاده است یا نه — نه اینکه خودِ سیستم سالم است.
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_LongAccelerationValid" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_LongAccelerationValid</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 611</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = نامعتبر | 1 = معتبر
+اثر: اگر مقدار همراه معتبر است ولی عدد بی‌معنی است، مشکل در محاسبه است نه در این بیت. اگر نامعتبر شد، ببینید گیرنده چه مقدار جانشینی می‌گذارد.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید مقدار همراه آن قابل استفاده است یا نه — نه اینکه خودِ سیستم سالم است.
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Esc_LongAccelerationValid" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Esc_LongAccelerationValid</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 610</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_LongAccelerationValid;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = نامعتبر | 1 = معتبر
+اثر: اگر مقدار همراه معتبر است ولی عدد بی‌معنی است، مشکل در محاسبه است نه در این بیت. اگر نامعتبر شد، ببینید گیرنده چه مقدار جانشینی می‌گذارد.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید مقدار همراه آن قابل استفاده است یا نه — نه اینکه خودِ سیستم سالم است.
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_TcsActive" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Esc_TcsActive</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 638</Property>
+      <Property Name="Text">Hs_Esc_TcsActive</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = غیرفعال | 1 = فعال
+اثر: بر خلاف پرچم خطا، این بیت باید لحظه‌ای باشد؛ اگر همیشه ۱ بماند یعنی یا مداخله ادامه دارد یا سیگنال گیر کرده.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید آن عملکرد همین حالا در حال مداخله است یا نه — نه اینکه سالم است.
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_TcsActive" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_TcsActive</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 637</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = غیرفعال | 1 = فعال
+اثر: بر خلاف پرچم خطا، این بیت باید لحظه‌ای باشد؛ اگر همیشه ۱ بماند یعنی یا مداخله ادامه دارد یا سیگنال گیر کرده.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید آن عملکرد همین حالا در حال مداخله است یا نه — نه اینکه سالم است.
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Esc_TcsActive" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Esc_TcsActive</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 636</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_TcsActive;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = غیرفعال | 1 = فعال
+اثر: بر خلاف پرچم خطا، این بیت باید لحظه‌ای باشد؛ اگر همیشه ۱ بماند یعنی یا مداخله ادامه دارد یا سیگنال گیر کرده.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید آن عملکرد همین حالا در حال مداخله است یا نه — نه اینکه سالم است.
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_TcsDisableStatus" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Esc_TcsDisableStatus</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 664</Property>
+      <Property Name="Text">Hs_Esc_TcsDisableStatus</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = فعال | 1 = غیرفعال
+اثر: این را با پرچم خطا اشتباه نگیرید: غیرفعال بودن خطا نیست، ولی اگر بی‌دلیل ۱ بماند یعنی کسی خاموشش کرده و در تستِ عملکرد نتیجه منفی می‌گیرید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید یک عملکرد عمداً خاموش شده است یا نه — که با «خراب بودن» فرق دارد.
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_TcsDisableStatus" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_TcsDisableStatus</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 663</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = فعال | 1 = غیرفعال
+اثر: این را با پرچم خطا اشتباه نگیرید: غیرفعال بودن خطا نیست، ولی اگر بی‌دلیل ۱ بماند یعنی کسی خاموشش کرده و در تستِ عملکرد نتیجه منفی می‌گیرید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید یک عملکرد عمداً خاموش شده است یا نه — که با «خراب بودن» فرق دارد.
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Esc_TcsDisableStatus" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Esc_TcsDisableStatus</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 662</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_TcsDisableStatus;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = فعال | 1 = غیرفعال
+اثر: این را با پرچم خطا اشتباه نگیرید: غیرفعال بودن خطا نیست، ولی اگر بی‌دلیل ۱ بماند یعنی کسی خاموشش کرده و در تستِ عملکرد نتیجه منفی می‌گیرید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید یک عملکرد عمداً خاموش شده است یا نه — که با «خراب بودن» فرق دارد.
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_TcsError" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Esc_TcsError</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 690</Property>
+      <Property Name="Text">Hs_Esc_TcsError</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_TcsError" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_TcsError</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 689</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Esc_TcsError" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Esc_TcsError</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 688</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_TcsError;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_TorqReductValid" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Esc_TorqReductValid</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 716</Property>
+      <Property Name="Text">Hs_Esc_TorqReductValid</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = نامعتبر | 1 = معتبر
+اثر: اگر مقدار همراه معتبر است ولی عدد بی‌معنی است، مشکل در محاسبه است نه در این بیت. اگر نامعتبر شد، ببینید گیرنده چه مقدار جانشینی می‌گذارد.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید مقدار همراه آن قابل استفاده است یا نه — نه اینکه خودِ سیستم سالم است.
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_TorqReductValid" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_TorqReductValid</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 715</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = نامعتبر | 1 = معتبر
+اثر: اگر مقدار همراه معتبر است ولی عدد بی‌معنی است، مشکل در محاسبه است نه در این بیت. اگر نامعتبر شد، ببینید گیرنده چه مقدار جانشینی می‌گذارد.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید مقدار همراه آن قابل استفاده است یا نه — نه اینکه خودِ سیستم سالم است.
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Esc_TorqReductValid" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Esc_TorqReductValid</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 714</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_TorqReductValid;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = نامعتبر | 1 = معتبر
+اثر: اگر مقدار همراه معتبر است ولی عدد بی‌معنی است، مشکل در محاسبه است نه در این بیت. اگر نامعتبر شد، ببینید گیرنده چه مقدار جانشینی می‌گذارد.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید مقدار همراه آن قابل استفاده است یا نه — نه اینکه خودِ سیستم سالم است.
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_TorqueReductType" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Esc_TorqueReductType</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 742</Property>
+      <Property Name="Text">Hs_Esc_TorqueReductType</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = شرط برقرار نیست | 1 = شرط برقرار است
+اثر: افت ناگهانی گشتاور بدون تغییر پدال، یعنی TCU یا ESC درخواست کاهش داده است.
+گشتاور موتور یا درخواست گشتاور از گیربکس. معمولاً درصدی یا نیوتن‌متر است.
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_TorqueReductType" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_TorqueReductType</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 741</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = شرط برقرار نیست | 1 = شرط برقرار است
+اثر: افت ناگهانی گشتاور بدون تغییر پدال، یعنی TCU یا ESC درخواست کاهش داده است.
+گشتاور موتور یا درخواست گشتاور از گیربکس. معمولاً درصدی یا نیوتن‌متر است.
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Esc_TorqueReductType" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Esc_TorqueReductType</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 740</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_TorqueReductType;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = شرط برقرار نیست | 1 = شرط برقرار است
+اثر: افت ناگهانی گشتاور بدون تغییر پدال، یعنی TCU یا ESC درخواست کاهش داده است.
+گشتاور موتور یا درخواست گشتاور از گیربکس. معمولاً درصدی یا نیوتن‌متر است.
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_TorqueReductValue" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Esc_TorqueReductValue</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 768</Property>
+      <Property Name="Text">Hs_Esc_TorqueReductValue</Property>
+      <Property Name="CustomToolTipText">اثر: افت ناگهانی گشتاور بدون تغییر پدال، یعنی TCU یا ESC درخواست کاهش داده است.
+گشتاور موتور یا درخواست گشتاور از گیربکس. معمولاً درصدی یا نیوتن‌متر است.
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · خام 0..255 · ×0.39062 → 0..99.6081</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_TorqueReductValue" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_TorqueReductValue</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 767</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">اثر: افت ناگهانی گشتاور بدون تغییر پدال، یعنی TCU یا ESC درخواست کاهش داده است.
+گشتاور موتور یا درخواست گشتاور از گیربکس. معمولاً درصدی یا نیوتن‌متر است.
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · خام 0..255 · ×0.39062 → 0..99.6081</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Esc_TorqueReductValue" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Esc_TorqueReductValue</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">174, 769</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.55</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_TorqueReductValue;1;;;-1</Property>
+      <Property Name="CustomToolTipText">اثر: افت ناگهانی گشتاور بدون تغییر پدال، یعنی TCU یا ESC درخواست کاهش داده است.
+گشتاور موتور یا درخواست گشتاور از گیربکس. معمولاً درصدی یا نیوتن‌متر است.
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · خام 0..255 · ×0.39062 → 0..99.6081</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esp_Ctl" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Esp_Ctl</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 794</Property>
+      <Property Name="Text">Hs_Esp_Ctl</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = نامعتبر | 1 = معتبر
+اثر: اگر مقدار همراه معتبر است ولی عدد بی‌معنی است، مشکل در محاسبه است نه در این بیت. اگر نامعتبر شد، ببینید گیرنده چه مقدار جانشینی می‌گذارد.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید مقدار همراه آن قابل استفاده است یا نه — نه اینکه خودِ سیستم سالم است.
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esp_Ctl" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esp_Ctl</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 793</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = نامعتبر | 1 = معتبر
+اثر: اگر مقدار همراه معتبر است ولی عدد بی‌معنی است، مشکل در محاسبه است نه در این بیت. اگر نامعتبر شد، ببینید گیرنده چه مقدار جانشینی می‌گذارد.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید مقدار همراه آن قابل استفاده است یا نه — نه اینکه خودِ سیستم سالم است.
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Esp_Ctl" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Esp_Ctl</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 792</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esp_Ctl;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = نامعتبر | 1 = معتبر
+اثر: اگر مقدار همراه معتبر است ولی عدد بی‌معنی است، مشکل در محاسبه است نه در این بیت. اگر نامعتبر شد، ببینید گیرنده چه مقدار جانشینی می‌گذارد.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+می‌گوید مقدار همراه آن قابل استفاده است یا نه — نه اینکه خودِ سیستم سالم است.
+پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_AbsEsp_Sup_DiagMode" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_AbsEsp_Sup_DiagMode</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 820</Property>
+      <Property Name="Text">Hs_AbsEsp_Sup_DiagMode</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_ABS_ESP_SUP · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_AbsEsp_Sup_DiagMode" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_AbsEsp_Sup_DiagMode</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 819</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_ABS_ESP_SUP · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_AbsEsp_Sup_DiagMode" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_AbsEsp_Sup_DiagMode</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 818</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_AbsEsp_Sup_DiagMode;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_ABS_ESP_SUP · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Bus_Off_Counter" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Abs_Bus_Off_Counter</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 846</Property>
+      <Property Name="Text">Hs_Abs_Bus_Off_Counter</Property>
+      <Property Name="CustomToolTipText">0 .. 255 = بازه
+اثر: با قطع NBCM یا قطع گره‌ی مقابل، این بیت باید بعد از چند چرخه ۱ شود و سیگنال‌های جانشین (مثل سرعت پیش‌فرض) فعال شوند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+فرستنده‌ی این سیگنال نظارت می‌کند که طرف مقابل (معمولاً NBCM) به‌موقع فریم می‌فرستد یا نه. این…
+پیام: HS_ID_ABS_ESP_SUP · HS-CAN · هر 1000 ms · 0..255</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Bus_Off_Counter" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Bus_Off_Counter</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 845</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">0 .. 255 = بازه
+اثر: با قطع NBCM یا قطع گره‌ی مقابل، این بیت باید بعد از چند چرخه ۱ شود و سیگنال‌های جانشین (مثل سرعت پیش‌فرض) فعال شوند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+فرستنده‌ی این سیگنال نظارت می‌کند که طرف مقابل (معمولاً NBCM) به‌موقع فریم می‌فرستد یا نه. این…
+پیام: HS_ID_ABS_ESP_SUP · HS-CAN · هر 1000 ms · 0..255</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Bus_Off_Counter" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Abs_Bus_Off_Counter</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">174, 847</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.55</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Bus_Off_Counter;1;;;-1</Property>
+      <Property Name="CustomToolTipText">0 .. 255 = بازه
+اثر: با قطع NBCM یا قطع گره‌ی مقابل، این بیت باید بعد از چند چرخه ۱ شود و سیگنال‌های جانشین (مثل سرعت پیش‌فرض) فعال شوند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+فرستنده‌ی این سیگنال نظارت می‌کند که طرف مقابل (معمولاً NBCM) به‌موقع فریم می‌فرستد یا نه. این…
+پیام: HS_ID_ABS_ESP_SUP · HS-CAN · هر 1000 ms · 0..255</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Com_Loss" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Abs_Com_Loss</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 872</Property>
+      <Property Name="Text">Hs_Abs_Com_Loss</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = غایب / قطع
+اثر: با قطع NBCM یا قطع گره‌ی مقابل، این بیت باید بعد از چند چرخه ۱ شود و سیگنال‌های جانشین (مثل سرعت پیش‌فرض) فعال شوند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+پیام: HS_ID_ABS_ESP_SUP · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Com_Loss" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Com_Loss</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 871</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = غایب / قطع
+اثر: با قطع NBCM یا قطع گره‌ی مقابل، این بیت باید بعد از چند چرخه ۱ شود و سیگنال‌های جانشین (مثل سرعت پیش‌فرض) فعال شوند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+پیام: HS_ID_ABS_ESP_SUP · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Abs_Com_Loss" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Abs_Com_Loss</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 870</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Com_Loss;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = غایب / قطع
+اثر: با قطع NBCM یا قطع گره‌ی مقابل، این بیت باید بعد از چند چرخه ۱ شود و سیگنال‌های جانشین (مثل سرعت پیش‌فرض) فعال شوند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+پیام: HS_ID_ABS_ESP_SUP · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Com_Loss_Counter" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Abs_Com_Loss_Counter</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 898</Property>
+      <Property Name="Text">Hs_Abs_Com_Loss_Counter</Property>
+      <Property Name="CustomToolTipText">0 .. 255 = بازه
+اثر: با قطع NBCM یا قطع گره‌ی مقابل، این بیت باید بعد از چند چرخه ۱ شود و سیگنال‌های جانشین (مثل سرعت پیش‌فرض) فعال شوند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+فرستنده‌ی این سیگنال نظارت می‌کند که طرف مقابل (معمولاً NBCM) به‌موقع فریم می‌فرستد یا نه. این…
+پیام: HS_ID_ABS_ESP_SUP · HS-CAN · هر 1000 ms · 0..255</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Com_Loss_Counter" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Com_Loss_Counter</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 897</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">0 .. 255 = بازه
+اثر: با قطع NBCM یا قطع گره‌ی مقابل، این بیت باید بعد از چند چرخه ۱ شود و سیگنال‌های جانشین (مثل سرعت پیش‌فرض) فعال شوند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+فرستنده‌ی این سیگنال نظارت می‌کند که طرف مقابل (معمولاً NBCM) به‌موقع فریم می‌فرستد یا نه. این…
+پیام: HS_ID_ABS_ESP_SUP · HS-CAN · هر 1000 ms · 0..255</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Com_Loss_Counter" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Abs_Com_Loss_Counter</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">174, 899</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.55</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Com_Loss_Counter;1;;;-1</Property>
+      <Property Name="CustomToolTipText">0 .. 255 = بازه
+اثر: با قطع NBCM یا قطع گره‌ی مقابل، این بیت باید بعد از چند چرخه ۱ شود و سیگنال‌های جانشین (مثل سرعت پیش‌فرض) فعال شوند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+فرستنده‌ی این سیگنال نظارت می‌کند که طرف مقابل (معمولاً NBCM) به‌موقع فریم می‌فرستد یا نه. این…
+پیام: HS_ID_ABS_ESP_SUP · HS-CAN · هر 1000 ms · 0..255</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Ecu_Dynamic_States" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Abs_Ecu_Dynamic_States</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">260, 40</Property>
+      <Property Name="Text">Hs_Abs_Ecu_Dynamic_States</Property>
+      <Property Name="CustomToolTipText">0 .. 255 = بازه
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ABS_ESP_SUP · HS-CAN · هر 1000 ms · 0..255</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Ecu_Dynamic_States" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Ecu_Dynamic_States</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 39</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">0 .. 255 = بازه
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ABS_ESP_SUP · HS-CAN · هر 1000 ms · 0..255</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Ecu_Dynamic_States" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Abs_Ecu_Dynamic_States</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">424, 41</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.55</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Ecu_Dynamic_States;1;;;-1</Property>
+      <Property Name="CustomToolTipText">0 .. 255 = بازه
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ABS_ESP_SUP · HS-CAN · هر 1000 ms · 0..255</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Ecu_Static_States" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Abs_Ecu_Static_States</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">260, 66</Property>
+      <Property Name="Text">Hs_Abs_Ecu_Static_States</Property>
+      <Property Name="CustomToolTipText">0 .. 255 = بازه
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ABS_ESP_SUP · HS-CAN · هر 1000 ms · 0..255</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Ecu_Static_States" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Ecu_Static_States</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 65</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">0 .. 255 = بازه
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ABS_ESP_SUP · HS-CAN · هر 1000 ms · 0..255</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Ecu_Static_States" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Abs_Ecu_Static_States</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">424, 67</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.55</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Ecu_Static_States;1;;;-1</Property>
+      <Property Name="CustomToolTipText">0 .. 255 = بازه
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ABS_ESP_SUP · HS-CAN · هر 1000 ms · 0..255</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Network_Management_State" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Abs_Network_Management_State</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">260, 92</Property>
+      <Property Name="Text">Hs_Abs_Network_Management_State</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بیدار | 1 = خواب
+اثر: اگر گرهی خواب بماند و بیدار نشود، بقیه آن را «غایب» می‌بینند و `*_NBCM_DYN_ABSENT` بالا می‌رود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت بیداری گره روی شبکه‌ی مدیریتی (NM): بیدار و در حال تبادل
+پیام: HS_ID_ABS_ESP_SUP · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Network_Management_State" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Network_Management_State</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 91</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بیدار | 1 = خواب
+اثر: اگر گرهی خواب بماند و بیدار نشود، بقیه آن را «غایب» می‌بینند و `*_NBCM_DYN_ABSENT` بالا می‌رود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت بیداری گره روی شبکه‌ی مدیریتی (NM): بیدار و در حال تبادل
+پیام: HS_ID_ABS_ESP_SUP · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Abs_Network_Management_State" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Abs_Network_Management_State</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">422, 90</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Network_Management_State;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بیدار | 1 = خواب
+اثر: اگر گرهی خواب بماند و بیدار نشود، بقیه آن را «غایب» می‌بینند و `*_NBCM_DYN_ABSENT` بالا می‌رود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت بیداری گره روی شبکه‌ی مدیریتی (NM): بیدار و در حال تبادل
+پیام: HS_ID_ABS_ESP_SUP · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Tx_TimeOut_Counter" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Abs_Tx_TimeOut_Counter</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">260, 118</Property>
+      <Property Name="Text">Hs_Abs_Tx_TimeOut_Counter</Property>
+      <Property Name="CustomToolTipText">0 .. 255 = بازه
+اثر: در Trace عدد باید پرش داشته باشد. اگر پرش نداشت ولی فریم می‌رسد، فرستنده‌اش قفل شده — نمونه‌ی کلاسیک خطای نرم‌افزاری ECU.
+شمارنده‌ای که فرستنده با هر ارسال یک واحد بالا می‌برد و در انتها صفر می‌شود. گیرنده از روی آن…
+پیام: HS_ID_ABS_ESP_SUP · HS-CAN · هر 1000 ms · 0..255</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Tx_TimeOut_Counter" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Tx_TimeOut_Counter</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 117</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">0 .. 255 = بازه
+اثر: در Trace عدد باید پرش داشته باشد. اگر پرش نداشت ولی فریم می‌رسد، فرستنده‌اش قفل شده — نمونه‌ی کلاسیک خطای نرم‌افزاری ECU.
+شمارنده‌ای که فرستنده با هر ارسال یک واحد بالا می‌برد و در انتها صفر می‌شود. گیرنده از روی آن…
+پیام: HS_ID_ABS_ESP_SUP · HS-CAN · هر 1000 ms · 0..255</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Tx_TimeOut_Counter" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Abs_Tx_TimeOut_Counter</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">424, 119</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.55</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Tx_TimeOut_Counter;1;;;-1</Property>
+      <Property Name="CustomToolTipText">0 .. 255 = بازه
+اثر: در Trace عدد باید پرش داشته باشد. اگر پرش نداشت ولی فریم می‌رسد، فرستنده‌اش قفل شده — نمونه‌ی کلاسیک خطای نرم‌افزاری ECU.
+شمارنده‌ای که فرستنده با هر ارسال یک واحد بالا می‌برد و در انتها صفر می‌شود. گیرنده از روی آن…
+پیام: HS_ID_ABS_ESP_SUP · HS-CAN · هر 1000 ms · 0..255</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_VehicleSpeed" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Abs_VehicleSpeed</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">260, 144</Property>
+      <Property Name="Text">Hs_Abs_VehicleSpeed</Property>
+      <Property Name="CustomToolTipText">اثر: اگر سرعت بالا باشد ولی چرخ‌ها هم‌سرعت نباشند، ABS خطای سنسور چرخ می‌دهد.
+سرعت خودرو یا سرعت یک چرخ. یکی از پرکاربردترین سیگنال‌های شبکه است: آمپر
+پیام: HS_ID_ABS_INFO2 · HS-CAN · هر 20 ms · خام 0..8189 · ×0.05625 → 0..460.631</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_VehicleSpeed" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_VehicleSpeed</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 143</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">اثر: اگر سرعت بالا باشد ولی چرخ‌ها هم‌سرعت نباشند، ABS خطای سنسور چرخ می‌دهد.
+سرعت خودرو یا سرعت یک چرخ. یکی از پرکاربردترین سیگنال‌های شبکه است: آمپر
+پیام: HS_ID_ABS_INFO2 · HS-CAN · هر 20 ms · خام 0..8189 · ×0.05625 → 0..460.631</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_VehicleSpeed" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Abs_VehicleSpeed</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">424, 145</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">8189</Property>
+      <Property Name="Increment">81.89</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_VehicleSpeed;1;;;-1</Property>
+      <Property Name="CustomToolTipText">اثر: اگر سرعت بالا باشد ولی چرخ‌ها هم‌سرعت نباشند، ABS خطای سنسور چرخ می‌دهد.
+سرعت خودرو یا سرعت یک چرخ. یکی از پرکاربردترین سیگنال‌های شبکه است: آمپر
+پیام: HS_ID_ABS_INFO2 · HS-CAN · هر 20 ms · خام 0..8189 · ×0.05625 → 0..460.631</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_VehicleSpeed_Invalid" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Abs_VehicleSpeed_Invalid</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">260, 170</Property>
+      <Property Name="Text">Hs_Abs_VehicleSpeed_Invalid</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
+پیام: HS_ID_ABS_INFO2 · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_VehicleSpeed_Invalid" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_VehicleSpeed_Invalid</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 169</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
+پیام: HS_ID_ABS_INFO2 · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_VehicleSpeed_Invalid" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Abs_VehicleSpeed_Invalid</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">424, 171</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_VehicleSpeed_Invalid;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
+پیام: HS_ID_ABS_INFO2 · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_Mcylinder_Pressure" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Esc_Mcylinder_Pressure</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">260, 196</Property>
+      <Property Name="Text">Hs_Esc_Mcylinder_Pressure</Property>
+      <Property Name="CustomToolTipText">0 .. 255 = بازه
+اثر: فشار ثابت در حالی که ورودی عوض می‌شود، یعنی مسیر سنسور قطع است.
+فشار یک مدار (ترمز
+پیام: HS_ID_ABS_INFO2 · HS-CAN · هر 20 ms · 0..255 bar</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_Mcylinder_Pressure" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_Mcylinder_Pressure</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 195</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">0 .. 255 = بازه
+اثر: فشار ثابت در حالی که ورودی عوض می‌شود، یعنی مسیر سنسور قطع است.
+فشار یک مدار (ترمز
+پیام: HS_ID_ABS_INFO2 · HS-CAN · هر 20 ms · 0..255 bar</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Esc_Mcylinder_Pressure" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Esc_Mcylinder_Pressure</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">424, 197</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">255</Property>
+      <Property Name="Increment">2.55</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_Mcylinder_Pressure;1;;;-1</Property>
+      <Property Name="CustomToolTipText">0 .. 255 = بازه
+اثر: فشار ثابت در حالی که ورودی عوض می‌شود، یعنی مسیر سنسور قطع است.
+فشار یک مدار (ترمز
+پیام: HS_ID_ABS_INFO2 · HS-CAN · هر 20 ms · 0..255 bar</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_Mcylinder_PressureInvalid" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Esc_Mcylinder_PressureInvalid</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">260, 222</Property>
+      <Property Name="Text">Hs_Esc_Mcylinder_PressureInvalid</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
+پیام: HS_ID_ABS_INFO2 · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_Mcylinder_PressureInvalid" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_Mcylinder_PressureInvalid</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 221</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
+پیام: HS_ID_ABS_INFO2 · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Esc_Mcylinder_PressureInvalid" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Esc_Mcylinder_PressureInvalid</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">424, 223</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_Mcylinder_PressureInvalid;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
+پیام: HS_ID_ABS_INFO2 · HS-CAN · هر 20 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Wheel_Pcnt_Fl" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Abs_Wheel_Pcnt_Fl</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">260, 248</Property>
+      <Property Name="Text">Hs_Abs_Wheel_Pcnt_Fl</Property>
+      <Property Name="CustomToolTipText">0 .. 65530 = بازه
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ABS_PULSE · HS-CAN · هر 200 ms · 0..65530</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Wheel_Pcnt_Fl" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Wheel_Pcnt_Fl</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 247</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">0 .. 65530 = بازه
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ABS_PULSE · HS-CAN · هر 200 ms · 0..65530</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Wheel_Pcnt_Fl" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Abs_Wheel_Pcnt_Fl</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">424, 249</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">65530</Property>
+      <Property Name="Increment">655.3</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Wheel_Pcnt_Fl;1;;;-1</Property>
+      <Property Name="CustomToolTipText">0 .. 65530 = بازه
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ABS_PULSE · HS-CAN · هر 200 ms · 0..65530</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Wheel_Pcnt_Fr" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Abs_Wheel_Pcnt_Fr</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">260, 274</Property>
+      <Property Name="Text">Hs_Abs_Wheel_Pcnt_Fr</Property>
+      <Property Name="CustomToolTipText">0 .. 65530 = بازه
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ABS_PULSE · HS-CAN · هر 200 ms · 0..65530</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Wheel_Pcnt_Fr" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Wheel_Pcnt_Fr</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 273</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">0 .. 65530 = بازه
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ABS_PULSE · HS-CAN · هر 200 ms · 0..65530</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Wheel_Pcnt_Fr" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Abs_Wheel_Pcnt_Fr</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">424, 275</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">65530</Property>
+      <Property Name="Increment">655.3</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Wheel_Pcnt_Fr;1;;;-1</Property>
+      <Property Name="CustomToolTipText">0 .. 65530 = بازه
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ABS_PULSE · HS-CAN · هر 200 ms · 0..65530</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Wheel_Pcnt_Rl" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Abs_Wheel_Pcnt_Rl</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">260, 300</Property>
+      <Property Name="Text">Hs_Abs_Wheel_Pcnt_Rl</Property>
+      <Property Name="CustomToolTipText">0 .. 65530 = بازه
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ABS_PULSE · HS-CAN · هر 200 ms · 0..65530</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Wheel_Pcnt_Rl" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Wheel_Pcnt_Rl</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 299</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">0 .. 65530 = بازه
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ABS_PULSE · HS-CAN · هر 200 ms · 0..65530</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Wheel_Pcnt_Rl" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Abs_Wheel_Pcnt_Rl</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">424, 301</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">65530</Property>
+      <Property Name="Increment">655.3</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Wheel_Pcnt_Rl;1;;;-1</Property>
+      <Property Name="CustomToolTipText">0 .. 65530 = بازه
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ABS_PULSE · HS-CAN · هر 200 ms · 0..65530</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Abs_Wheel_Pcnt_Rr" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Abs_Wheel_Pcnt_Rr</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">260, 326</Property>
+      <Property Name="Text">Hs_Abs_Wheel_Pcnt_Rr</Property>
+      <Property Name="CustomToolTipText">0 .. 65530 = بازه
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ABS_PULSE · HS-CAN · هر 200 ms · 0..65530</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Abs_Wheel_Pcnt_Rr" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Abs_Wheel_Pcnt_Rr</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 325</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">0 .. 65530 = بازه
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ABS_PULSE · HS-CAN · هر 200 ms · 0..65530</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Abs_Wheel_Pcnt_Rr" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Abs_Wheel_Pcnt_Rr</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">424, 327</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">65530</Property>
+      <Property Name="Increment">655.3</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_Wheel_Pcnt_Rr;1;;;-1</Property>
+      <Property Name="CustomToolTipText">0 .. 65530 = بازه
+اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ABS_PULSE · HS-CAN · هر 200 ms · 0..65530</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_iTpms_Reset_Progress" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Esc_iTpms_Reset_Progress</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">260, 352</Property>
+      <Property Name="Text">Hs_Esc_iTpms_Reset_Progress</Property>
+      <Property Name="CustomToolTipText">0 .. 3 = بازه
+اثر: این بیت معمولاً یک چرخه ۱ می‌ماند و برمی‌گردد؛ اگر ۱ بماند گیر کرده است.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک گره از گره‌ی دیگر می‌خواهد مقادیر/وضعیتش را از نو شروع کند. این یک فرمان است
+پیام: HS_ID_ESC_ITPMS · HS-CAN · هر 100 ms · 0..3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_iTpms_Reset_Progress" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_iTpms_Reset_Progress</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 351</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">0 .. 3 = بازه
+اثر: این بیت معمولاً یک چرخه ۱ می‌ماند و برمی‌گردد؛ اگر ۱ بماند گیر کرده است.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک گره از گره‌ی دیگر می‌خواهد مقادیر/وضعیتش را از نو شروع کند. این یک فرمان است
+پیام: HS_ID_ESC_ITPMS · HS-CAN · هر 100 ms · 0..3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Esc_iTpms_Reset_Progress" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Esc_iTpms_Reset_Progress</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">424, 353</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">3</Property>
+      <Property Name="Increment">0.1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_iTpms_Reset_Progress;1;;;-1</Property>
+      <Property Name="CustomToolTipText">0 .. 3 = بازه
+اثر: این بیت معمولاً یک چرخه ۱ می‌ماند و برمی‌گردد؛ اگر ۱ بماند گیر کرده است.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک گره از گره‌ی دیگر می‌خواهد مقادیر/وضعیتش را از نو شروع کند. این یک فرمان است
+پیام: HS_ID_ESC_ITPMS · HS-CAN · هر 100 ms · 0..3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_iTpms_Status" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Esc_iTpms_Status</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">260, 378</Property>
+      <Property Name="Text">Hs_Esc_iTpms_Status</Property>
+      <Property Name="CustomToolTipText">0 .. 4 = بازه
+اثر: افت فشار باید هم‌زمان با بالا رفتن دما یا کاهش فشار همان چرخ بیاید، وگرنه سنسور مشکل دارد نه لاستیک.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت هر چرخ: سالم
+پیام: HS_ID_ESC_ITPMS · HS-CAN · هر 100 ms · 0..4</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_iTpms_Status" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_iTpms_Status</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 377</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">0 .. 4 = بازه
+اثر: افت فشار باید هم‌زمان با بالا رفتن دما یا کاهش فشار همان چرخ بیاید، وگرنه سنسور مشکل دارد نه لاستیک.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت هر چرخ: سالم
+پیام: HS_ID_ESC_ITPMS · HS-CAN · هر 100 ms · 0..4</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Esc_iTpms_Status" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Esc_iTpms_Status</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">424, 379</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">4</Property>
+      <Property Name="Increment">0.1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_iTpms_Status;1;;;-1</Property>
+      <Property Name="CustomToolTipText">0 .. 4 = بازه
+اثر: افت فشار باید هم‌زمان با بالا رفتن دما یا کاهش فشار همان چرخ بیاید، وگرنه سنسور مشکل دارد نه لاستیک.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+وضعیت هر چرخ: سالم
+پیام: HS_ID_ESC_ITPMS · HS-CAN · هر 100 ms · 0..4</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_PitchAngle" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Esc_PitchAngle</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">260, 404</Property>
+      <Property Name="Text">Hs_Esc_PitchAngle</Property>
+      <Property Name="CustomToolTipText">اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ESP_1 · HS-CAN · هر 100 ms · خام -90..90 · ×1 → -180..0 deg</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_PitchAngle" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_PitchAngle</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 403</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ESP_1 · HS-CAN · هر 100 ms · خام -90..90 · ×1 → -180..0 deg</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Esc_PitchAngle" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Esc_PitchAngle</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">424, 405</Property>
+      <Property Name="Minimum">-90</Property>
+      <Property Name="Maximum">90</Property>
+      <Property Name="Increment">1.8</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_PitchAngle;1;;;-1</Property>
+      <Property Name="CustomToolTipText">اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ESP_1 · HS-CAN · هر 100 ms · خام -90..90 · ×1 → -180..0 deg</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_RollAngle" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Esc_RollAngle</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">260, 430</Property>
+      <Property Name="Text">Hs_Esc_RollAngle</Property>
+      <Property Name="CustomToolTipText">اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ESP_1 · HS-CAN · هر 100 ms · خام -90..90 · ×1 → -180..0 deg</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_RollAngle" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_RollAngle</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 429</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ESP_1 · HS-CAN · هر 100 ms · خام -90..90 · ×1 → -180..0 deg</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Esc_RollAngle" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Esc_RollAngle</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">424, 431</Property>
+      <Property Name="Minimum">-90</Property>
+      <Property Name="Maximum">90</Property>
+      <Property Name="Increment">1.8</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_RollAngle;1;;;-1</Property>
+      <Property Name="CustomToolTipText">اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ESP_1 · HS-CAN · هر 100 ms · خام -90..90 · ×1 → -180..0 deg</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_YawRate" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Esc_YawRate</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">260, 456</Property>
+      <Property Name="Text">Hs_Esc_YawRate</Property>
+      <Property Name="CustomToolTipText">اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ESP_1 · HS-CAN · هر 100 ms · خام -120..120 · ×1 → -240..0 deg/s</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_YawRate" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Esc_YawRate</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">400, 455</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ESP_1 · HS-CAN · هر 100 ms · خام -120..120 · ×1 → -240..0 deg/s</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Esc_YawRate" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">Num_Hs_Esc_YawRate</Property>
+      <Property Name="Size">72, 20</Property>
+      <Property Name="Location">424, 457</Property>
+      <Property Name="Minimum">-120</Property>
+      <Property Name="Maximum">120</Property>
+      <Property Name="Increment">2.4</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_YawRate;1;;;-1</Property>
+      <Property Name="CustomToolTipText">اثر: دو چیز را ببینید: آیا با عمل مربوطه عوض می‌شود، و آیا بعد از عمل به حالت اول برمی‌گردد. ماندن روی ۱ یعنی شرطِ بازگشت برقرار نمی‌شود.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+یک بیت ۰/۱ که نامش می‌گوید کدام وضعیت را نشان می‌دهد
+پیام: HS_ID_ESP_1 · HS-CAN · هر 100 ms · خام -120..120 · ×1 → -240..0 deg/s</Property>
+    </Object>
+    <Property Name="Name">NBCM ABS</Property>
+    <Property Name="Size">512, 926</Property>
+    <Property Name="BackColor">White</Property>
+  </Object>
+</Panel>

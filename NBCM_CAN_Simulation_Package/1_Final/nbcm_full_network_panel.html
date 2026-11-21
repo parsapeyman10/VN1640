@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>پنل کامل شبکه CAN | NBCM دنا</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+:root{
+  --bg:#12161c; --panel:#1a2029; --panel2:#20272f; --line:#2c3440;
+  --txt:#e7ecf2; --sub:#8b96a5; --accent:#ff9f45; --good:#49d992;
+  --bad:#ff5d6c; --hs:#5ab0ff; --ls:#49d992;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#eef1f5; --panel:#ffffff; --panel2:#f4f6f9; --line:#dde3ea;
+    --txt:#1b222c; --sub:#5b6676;
+  }
+}
+:root[data-theme="dark"]{ color-scheme: dark; }
+*{box-sizing:border-box;}
+html,body{height:100%;}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:'Vazirmatn',Tahoma,sans-serif;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);}
+.mono{font-family:'JetBrains Mono',monospace;}
+header{padding:16px 20px 12px;border-bottom:1px solid var(--line);position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:6;}
+header h1{margin:0;font-size:18px;font-weight:700;}
+header p{margin:3px 0 0;color:var(--sub);font-size:12.5px;}
+
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:12px 20px 0;padding:10px 14px;
+  background:var(--panel);border:1px solid var(--line);border-radius:12px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 56px);z-index:5;}
+.btn{border:1px solid var(--line);background:var(--panel2);color:var(--txt);padding:8px 14px;border-radius:9px;
+  font-family:inherit;font-size:12.5px;font-weight:600;cursor:pointer;}
+.btn.primary{background:var(--accent);color:#1b140a;border-color:var(--accent);}
+.toolbar .sep{width:1px;height:22px;background:var(--line);}
+.manual-row{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--sub);}
+.manual-row input[type=range]{width:120px;accent-color:var(--accent);}
+.phase-badge{margin-inline-start:auto;font-size:11.5px;color:var(--sub);display:flex;gap:6px;align-items:center;}
+.phase-badge b{color:var(--txt);}
+.search-box{margin-inline-start:auto;}
+.search-box input{background:var(--panel2);border:1px solid var(--line);color:var(--txt);border-radius:8px;
+  padding:7px 10px;font-family:inherit;font-size:12.5px;width:170px;}
+
+.grid{display:grid;gap:14px;padding:16px 20px 30px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;transition:opacity .2s;}
+.card.offline{opacity:.4;}
+.head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+.head .name{font-size:15px;font-weight:700;}
+.head .sub{font-size:11px;color:var(--sub);margin-top:2px;}
+.tag{font-size:10px;padding:2px 7px;border-radius:20px;font-weight:600;border:1px solid currentColor;flex:none;}
+.tag.hs{color:var(--hs);} .tag.ls{color:var(--ls);}
+.switch{position:relative;width:36px;height:20px;flex:none;}
+.switch input{opacity:0;width:0;height:0;}
+.switch .s{position:absolute;inset:0;background:var(--panel2);border:1px solid var(--line);border-radius:20px;cursor:pointer;}
+.switch .s::before{content:"";position:absolute;width:14px;height:14px;left:2px;top:2px;background:var(--sub);border-radius:50%;transition:.2s;}
+.switch input:checked + .s{background:rgba(255,93,108,.18);border-color:var(--bad);}
+.switch input:checked + .s::before{transform:translateX(16px);background:var(--bad);}
+.offline-row{display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:var(--sub);margin-top:8px;}
+
+.gauges{display:flex;gap:10px;margin-top:10px;}
+.gauge{text-align:center;flex:1;}
+.gauge .ring{width:66px;height:66px;border-radius:50%;margin:0 auto 4px;display:flex;align-items:center;justify-content:center;
+  background:conic-gradient(var(--gc,var(--hs)) calc(var(--gp,0)*1%), var(--panel2) 0);}
+.gauge .ring .inner{width:52px;height:52px;border-radius:50%;background:var(--panel);display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.gauge .ring .inner .v{font-size:12.5px;font-weight:700;}
+.gauge .ring .inner .u{font-size:8px;color:var(--sub);}
+.gauge .lbl{font-size:10px;color:var(--sub);}
+
+.toggle-detail{width:100%;margin-top:10px;background:var(--panel2);border:1px dashed var(--line);color:var(--sub);
+  border-radius:9px;padding:7px;font-size:11.5px;font-family:inherit;cursor:pointer;}
+.detail{display:none;margin-top:10px;max-height:340px;overflow-y:auto;border-top:1px solid var(--line);padding-top:8px;}
+.detail.open{display:block;}
+.msg-block{margin-bottom:10px;}
+.msg-title{font-size:11px;color:var(--accent);font-family:'JetBrains Mono',monospace;margin-bottom:4px;}
+.sig-row{display:flex;align-items:center;gap:8px;font-size:11.5px;padding:3px 0;}
+.sig-row .k{flex:1;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sig-row input[type=range]{flex:2;accent-color:var(--accent);}
+.sig-row input[type=number]{width:62px;background:var(--panel2);border:1px solid var(--line);color:var(--txt);
+  border-radius:6px;padding:3px 5px;font-family:'JetBrains Mono',monospace;font-size:11px;}
+.sig-row input[type=checkbox]{accent-color:var(--bad);}
+
+footer{padding:0 20px 24px;color:var(--sub);font-size:11.5px;line-height:1.9;}
+footer b{color:var(--txt);}
+.hidden{display:none !important;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>پنل کامل شبیه‌ساز شبکه CAN &mdash; تست NBCM دنا (۱۳ گره)</h1>
+  <p>HS-CAN: ABS · EMS · EPS · TCU · ICU · PEPS · TPMS · ITPMS · DIAG &nbsp;|&nbsp; LS-CAN: ICN · HVAC · MMS · RBG</p>
+</header>
+
+<div class="toolbar">
+  <button class="btn primary" id="playBtn">⏸ توقف سناریو</button>
+  <button class="btn" id="resetBtn">↺ ریست</button>
+  <div class="sep"></div>
+  <label class="manual-row">
+    <input type="checkbox" id="manualChk"> کنترل دستی سرعت
+    <input type="range" id="manualSlider" min="0" max="180" value="0" disabled>
+    <span class="mono" id="manualVal" style="min-width:48px">0 km/h</span>
+  </label>
+  <div class="phase-badge">فاز: <b id="phaseLbl">Idle</b></div>
+  <div class="search-box"><input type="text" id="searchBox" placeholder="جستجوی نام سیگنال..."></div>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<footer>
+  شبیه‌سازی <b>بصری محلی</b> (بدون اتصال به CANoe/VN1640A واقعی). هر کارت معادل یک گره واقعیه که در فایل
+  <b>NBCM_Full_Restbus_Simulation.can</b> به همین نام (گره/پیام/سیگنال) پیاده شده. برای کنترل واقعی روی باس،
+  در <b>Panel Designer</b> کنترل‌ها رو به همین متغیرهای سراسری CAPL (نوع binding = <b>CAPL Variable</b>) وصل کنید &mdash;
+  لیست کامل و دسته‌بندی‌شده در فایل <b>NBCM_Panel_Binding_Reference.xlsx</b> هست.
+  کلید «قطع گره» هر کارت معادل متغیر <span class="mono">OFFLINE_&lt;NODE&gt;</span> در CAPL است.
+</footer>
+
+<script>
+const DATA = [{"node": "ABS", "network": "HS", "msgs": [["HS_ID_ESP_1", 100, [["Hs_Esc_YawRate", 0, -120, 120, 1], ["Hs_Esc_PitchAngle", 0, -90, 90, 1], ["Hs_Esc_RollAngle", 0, -90, 90, 1]]], ["HS_ID_ABS_BRAKE", 10, [["Hs_Esc_TorqReductValid", 0, 0, 1, 1], ["Hs_Esc_TorqueReductType", 0, 0, 1, 1], ["Hs_Esc_TorqueReductValue", 0, 0, 255, 0.39062], ["Hs_Esc_TcsError", 0, 0, 1, 1], ["Hs_Esc_TcsDisableStatus", 0, 0, 1, 1], ["Hs_Esc_TcsActive", 0, 0, 1, 1], ["Hs_Esc_EscError", 0, 0, 1, 1], ["Hs_Esc_EscDisableStatus", 0, 0, 1, 1], ["Hs_Esp_Ctl", 0, 0, 1, 1], ["Hs_Esc_HacError", 0, 0, 1, 1], ["Hs_Esc_HacActive", 0, 0, 1, 1], ["Hs_Esc_LongAcceleration", 0, -10.23, 2047, 0.01], ["Hs_Esc_LongAccelerationValid", 0, 0, 1, 1], ["Hs_Esc_EmergBrakeStatus", 0, 0, 3, 1], ["Hs_Brake_RollCntr", 0, 0, 14, 1], ["Hs_Brake_Checksum", 0, 0, 255, 1]]], ["HS_ID_ABS_ESP_SUP", 1000, [["Hs_AbsEsp_Sup_DiagMode", 0, 0, 1, 1], ["Hs_Abs_Com_Loss", 0, 0, 1, 1], ["Hs_Abs_Network_Management_State", 0, 0, 1, 1], ["Hs_Abs_Tx_TimeOut_Counter", 0, 0, 255, 1], ["Hs_Abs_Bus_Off_Counter", 0, 0, 255, 1], ["Hs_Abs_Com_Loss_Counter", 0, 0, 255, 1], ["Hs_Abs_Ecu_Dynamic_States", 0, 0, 255, 1], ["Hs_Abs_Ecu_Static_States", 0, 0, 255, 1]]], ["HS_ID_ESC_ITPMS", 100, [["Hs_Esc_iTpms_Reset_Progress", 0, 0, 3, 1], ["Hs_Esc_iTpms_Status", 0, 0, 4, 1]]], ["HS_ID_ABS_INFO2", 20, [["Hs_Abs_VehicleSpeed", 0, 0, 8189, 0.05625], ["Hs_Abs_VehicleSpeed_Invalid", 0, 0, 1, 1], ["Hs_Esc_Mcylinder_PressureInvalid", 0, 0, 1, 1], ["Hs_Esc_Mcylinder_Pressure", 0, 0, 255, 1]]], ["HS_ID_ABS_PULSE", 200, [["Hs_Abs_Wheel_Pcnt_Fl", 0, 0, 65530, 1], ["Hs_Abs_Wheel_Pcnt_Fr", 0, 0, 65530, 1], ["Hs_Abs_Wheel_Pcnt_Rl", 0, 0, 65530, 1], ["Hs_Abs_Wheel_Pcnt_Rr", 0, 0, 65530, 1]]], ["HS_ID_ABS", 20, [["Hs_Abs_Error", 0, 0, 1, 1], ["Hs_Abs_Ebd_Error", 0, 0, 1, 1], ["Hs_Abs_Active", 0, 0, 1, 1], ["Hs_Abs_Warning", 0, 0, 1, 1], ["Hs_Abs_Ebd_Warning", 0, 0, 1, 1], ["Hs_Abs_DiagMode", 0, 0, 1, 1], ["Hs_Abs_Ebd_Active", 0, 0, 1, 1], ["Hs_Abs_Esp_Enable", 0, 0, 1, 1], ["Hs_Abs_Esp_Warning", 0, 0, 3, 1], ["Hs_Esc_GearShiftInhibit", 0, 0, 1, 1], ["Hs_Abs_Wheel_Speed_Fl", 0, 0, 4095, 0.125], ["Hs_Abs_Wheel_Speed_Fr", 0, 0, 4095, 0.125], ["Hs_Abs_Wheel_Speed_Rl", 0, 0, 4095, 0.125], ["Hs_Abs_Wheel_Speed_Rr", 0, 0, 4095, 0.125]]]]}, {"node": "DIAG", "network": "HS", "msgs": [["HS_ID_ICU_DIAG_ANS", 0, [["Hs_Icu_Diagnostic_Answer", 0, 0, 1, 1]]], ["HS_ID_TPMS_DIAG_ANS", 0, [["Hs_Tpms_Diagnostic_Answer", 0, 0, 1, 1]]], ["HS_ID_EPS_DIAG_ANS", 0, [["Hs_Eps_Diagnostic_Answer", 0, 0, 1, 1]]], ["HS_ID_TCU_DIAG_ANS", 0, [["Hs_Tcu_Diagnostic_Answer", 0, 0, 1, 1]]], ["HS_ID_EMS_DIAG_ANS", 0, [["Hs_Ems_Diagnostic_Answer", 0, 0, 1, 1]]], ["HS_ID_DIAG_REQ_BROADCAST", 0, [["Hs_Diag_Req_Broadcast", 0, 0, 1, 1]]], ["HS_ID_DIAG_REQ_RBG", 0, [["Hs_Diag_Req_Rbg_Data", 0, 0, 1, 1]]], ["HS_ID_DIAG_REQ_MMS", 0, [["Hs_Diag_Req_Mms_Data", 0, 0, 1, 1]]], ["HS_ID_DIAG_REQ_ICN", 0, [["Hs_Diag_Req_Icn_Data", 0, 0, 1, 1]]], ["HS_ID_DIAG_REQ_NBCM", 0, [["Hs_Diag_Req_Nbcm_Data", 0, 0, 1, 1]]]]}, {"node": "EMS", "network": "HS", "msgs": [["HS_ID_EMS_RESET_RESP", 0, [["Hs_Ems_Reset_Resp", 0, 0, 1.84467440737096e+19, 1]]], ["HS_ID_EMS_TeachSKResp", 0, [["Hs_Ems_TeachSKResp", 0, 0, 1.84467440737096e+19, 1]]], ["HS_ID_EMS_LearnPINResp", 0, [["Hs_Ems_LearnPINResp", 0, 0, 1.84467440737096e+19, 1]]], ["HS_ID_EMS_LearnSKResp", 0, [["Hs_Ems_LearnSKResp", 0, 0, 1.84467440737096e+19, 1]]], ["HS_ID_EMS_CHALL", 0, [["Hs_Ems_Chall_1", 0, 0, 4294967295, 1], ["Hs_Ems_Chall_2", 0, 0, 4294967295, 1]]], ["HS_ID_EMS_DIAG_REQ", 0, [["Hs_Ems_Diagnostic_Request", 0, 0, 1, 1]]], ["HS_ID_EMS_ICU_1", 0, [["Hs_Ems_Icu_Dialog", 0, 0, 1, 1]]], ["HS_ID_EMS11", 10, [["Hs_Ems_DriverReqTorq", 0, 0, 65535, 0.001526], ["Hs_Ems_ConditionIdle", 0, 0, 1, 1], ["Hs_Ems_MinlndicatedTorq", 0, 0, 99.96, 0.392], ["Hs_Ems_EngBrkTorqwithoutTCU", 0, 0, 99.96, 0.392], ["Hs_Ems_EngineStatus", 0, 0, 3, 1], ["Hs_Ems_CoolanTemperatureError", 0, 0, 1, 1], ["Hs_Ems_EngineIdleTargetSpeed", 16, 16, 4064, 1], ["Hs_Ems_EngineIdleSpeedAcitve", 0, 0, 1, 1]]], ["HS_ID_EMS10", 10, [["Hs_Ems_AirConditionCommand2", 0, 0, 1, 1], ["Hs_Ems_ThrottleValvePosError", 0, 0, 1, 1], ["Hs_Ems_EngineFuleCutOff", 0, 0, 1, 1], ["Hs_Ems_DrivingCycle", 0, 0, 1, 1], ["Hs_Ems_WarmUpCycle", 0, 0, 1, 1], ["Hs_Ems_AccPedalError", 0, 0, 1, 1], ["Hs_Ems_Catalyst_Heating_Cycle", 0, 0, 1, 1], ["Hs_Ems_EngineIntakeAirTemp", 0, -48, 255, 0.75], ["Hs_Ems_N_altitudeFactor", 0, 0, 1.99155, 0.00781], ["Hs_Ems_F_EngTorqLoss", 0, 0, 1, 1], ["Hs_Ems_BrakePedalStatus2", 0, 0, 1, 1], ["Hs_Ems_TorqueFailure", 0, 0, 1, 1], ["Hs_Ems10_RollCntr", 0, 0, 255, 1], ["Hs_Ems10_Checksum", 0, 0, 255, 1]]], ["HS_ID_EMS9", 10, [["Hs_Ems_BrakeTorqueConstant", 0, 0, 945, 1], ["Hs_Ems_BrakeEngineTorque2", 0, 0, 99.6094, 0.390625], ["Hs_Ems_FrictionalTorq", 0, 0, 99.609375, 0.390625], ["Hs_Ems_ActualAccPedal", 0, 0, 255, 0.390625], ["Hs_Ems9_RollCntr", 0, 0, 255, 1], ["Hs_Ems9_Checksum", 0, 0, 255, 1]]], ["HS_ID_EMS_SUP", 1000, [["Hs_Ems_Diag_Mode", 0, 0, 1, 1], ["Hs_Ems_Com_Loss", 0, 0, 1, 1], ["Hs_Ems_Network_Management_State", 0, 0, 1, 1], ["Hs_Ems_Tx_TimeOut_Counter", 0, 0, 255, 1], ["Hs_Ems_Bus_OFF_Counter", 0, 0, 255, 1], ["Hs_Ems_Com_Loss_Counter", 0, 0, 255, 1], ["Hs_Ems_ECU_Dynamic_States", 0, 0, 255, 1], ["Hs_Ems_ECU_Static_States", 0, 0, 255, 1]]], ["HS_ID_EMS1", 10, [["Hs_Ems_BrakePedalStatus1", 0, 0, 3, 1], ["Hs_Ems_ClutchPedalStatus", 0, 0, 3, 1], ["Hs_Ems_GearEngagedStatus", 0, 0, 3, 1], ["Hs_Ems_Vaccumpump_Failure_Status", 0, 0, 1, 1], ["Hs_Ems_EngineActualTorque", 0, 0, 99.6094, 0.39063], ["Hs_Ems_IndicatedEngineTorque1", 0, 0, 99.6094, 0.39063], ["Hs_Ems_EngineFrictionTorque", 0, 0, 99.6094, 0.39063], ["Hs_Ems_MaxBrkTorq", 0, 0, 255, 1], ["Hs_Ems_EngineThrottlePosition", 0, 0, 255, 0.39063], ["Hs_Ems_VirtualAccPedal", 0, 0, 255, 0.39063]]], ["HS_ID_EMS_T_AMB", 5000, [["Hs_Ems_AmbintTemp", 0, -40, 255, 0.5], ["Hs_Ems_AmbientPressureInvalid", 0, 0, 1, 1]]], ["HS_ID_EMS8", 20, [["Hs_Ems_Fuel_Cons", 0, 0, 65535, 0.128], ["Hs_Ems_Gsi_Gear_Info", 0, 0, 3, 1], ["Hs_Ems_Gear_Engaged_Ind", 0, 0, 6, 1], ["Hs_Ems_Gsi_Gear_Value", 0, 0, 7, 1]]], ["HS_ID_EMS7", 10, [["Hs_Ems_Mono_Bi_Fuel_Ind", 0, 0, 1, 1], ["Hs_Ems_Cng_Lamp", 0, 0, 1, 1], ["Hs_Ems_Fuel_Tank_Sensor_Err", 0, 0, 1, 1], ["Hs_Ems_Cng_Sensor_Err", 0, 0, 1, 1], ["Hs_Ems_Cng_Fault_Lamp", 0, 0, 1, 1], ["Hs_Ems_Fuel_Tank_Level_Out", 180, 0, 255, 0.390625], ["Hs_Ems_Cng_Tank_Lvl_Out", 0, 0, 255, 0.390625], ["Hs_Ems_Distance", 0, 0, 4294967295, 1]]], ["HS_ID_EMS6", 10, [["Hs_Ems_Check_Engine", 0, 0, 1, 1], ["Hs_Ems_Tco_Stop_Lamp", 0, 0, 1, 1], ["Hs_Ems_Ac_Gasp_Sw1", 0, 0, 1, 1], ["Hs_Ems_Ac_Gasp_Sw2", 0, 0, 1, 1], ["Hs_Ems_Ac_Command", 0, 0, 1, 1], ["Hs_Ems_EobdMil", 0, 0, 1, 1], ["Hs_Ems_Rpm", 800, 0, 65535, 1], ["Hs_Ems_Tco_Value", 90, -48, 255, 0.75], ["Hs_Ems_GlowIndicationLamp", 0, 0, 1, 1], ["Hs_Ems_WaterInFuelLamp", 0, 0, 1, 1], ["Hs_Ems_Starter_Inhib", 0, 0, 1, 1], ["Hs_Ems_EngineSpeedError", 0, 0, 1, 1]]], ["HS_ID_EMS2", 10, [["HS_EMS_CRUISE_ON_OFF", 0, 0, 1, 1], ["Hs_Ems_Cruise_Active", 0, 0, 1, 1], ["Hs_Ems_Speed_Limit_Active", 0, 0, 1, 1], ["Hs_Ems_Speed_limiterStatus", 0, 0, 1, 1], ["Hs_Ems_Cruise_Setpoint", 0, 0, 4095, 0.125]]]]}, {"node": "EPS", "network": "HS", "msgs": [["HS_ID_EPS_DIAG_REQ", 0, [["Hs_Eps_Diagnostic_Request", 0, 0, 1, 1]]], ["HS_ID_EPS_SUP", 1000, [["Hs_Eps_Diag_Mode", 0, 0, 1, 1], ["Hs_Eps_COM_Loss", 0, 0, 1, 1], ["Hs_Eps_Network_Management_State", 0, 0, 1, 1], ["Hs_Eps_Tx_TimeOut_Counter", 0, 0, 255, 1], ["Hs_Eps_Bus_OFF_Counter", 0, 0, 255, 1], ["Hs_Eps_Com_Loss_Counter", 0, 0, 255, 1], ["Hs_Eps_ECU_Dynamic_States", 0, 0, 255, 1], ["Hs_Eps_ECU_Static_States", 0, 0, 255, 1]]], ["HS_ID_SAS", 10, [["Hs_Sas_Angle", 0, -3276.8, 65535, 0.1], ["Hs_Sas_Speed", 0, 0, 1020, 1], ["Hs_Sas_internal_status_flags", 0, 0, 255, 1], ["Hs_Sas_Message_Number", 0, 0, 15, 1], ["Hs_Sas_Value_check_message_bytes", 0, 0, 15, 1]]], ["HS_ID_EPS1", 100, [["Hs_Epas_Warning", 0, 0, 1, 1]]]]}, {"node": "HVAC", "network": "LS", "msgs": [["LS_ID_SUP_HVAC", 1000, [["LS_HVAC_DIAG_MODE", 0, 0, 1, 1], ["LS_HVAC_COM_LOSS", 0, 0, 1, 1], ["LS_HVAC_NM_STATE", 0, 0, 1, 1], ["LS_HVAC_BUS_ERROR", 0, 0, 1, 1], ["LS_HVAC_BUS_ERROR_COUNTER", 0, 0, 1, 1], ["LS_HVAC_TX_TIMEOUT_COUNTER", 0, 0, 1, 1], ["LS_HVAC_BUSOFF_COUNTER", 0, 0, 1, 1], ["LS_HVAC_COM_LOSS_COUNTER", 0, 0, 1, 1], ["LS_HVAC_NBCM_DYN_ABSENT", 0, 0, 1, 1], ["LS_HVAC_NBCM_STATIC_ABSENT", 0, 0, 1, 1]]], ["LS_ID_FR_HVAC", 0, [["LS_HVAC_FAULT_ID", 0, 0, 1, 1], ["LS_HVAC_FAULT_STATUS", 0, 0, 1, 1]]], ["LS_ID_INFO_HVAC", 100, [["LS_HVAC_AC_SW", 0, 0, 1, 1], ["LS_HVAC_SHT_SW", 0, 0, 1, 1], ["LS_HVAC_INDOOR_TEMP", 0, 0, 1, 0.5]]], ["LS_ID_DIAG_RESP_HVAC", 0, [["LS_HVAC_DIAG_RESP", 0, 0, 1, 1]]]]}, {"node": "ICN", "network": "LS", "msgs": [["LS_ID_TARA_ICU_INFO", 200, [["Ls_Icu_Key_Inside", 0, 0, 1, 1], ["Ls_Icu_TP_Position", 0, 0, 1, 1]]], ["LS_ID_ICNI1_IC", 1000, [["LS_ICN_OUT_TEMP", 0, -40, 86.5, 0.5]]], ["LS_ID_DEBUG_IC", 1000, [["LS_ICN_DEBUG1", 0, 0, 1, 1], ["LS_ICN_DEBUG2", 0, 0, 1, 1], ["LS_ICN_DEBUG3", 0, 0, 1, 1], ["LS_ICN_DEBUG4", 0, 0, 1, 1], ["LS_ICN_DEBUG5", 0, 0, 1, 1], ["LS_ICN_DEBUG6", 0, 0, 1, 1], ["LS_ICN_DEBUG7", 0, 0, 1, 1], ["LS_ICN_DEBUG8", 0, 0, 1, 1]]], ["LS_ID_TARA_CMB_CFG_VOY", 1000, [["Ls_Icn_PasAirbagInhibLamp", 0, 0, 1, 1], ["Ls_Icn_PowerSteeringFaultLamp", 0, 0, 1, 1], ["Ls_Icn_ParkingBrakeLamp", 0, 0, 1, 1], ["Ls_Icn_Low_Fuel_Lamp", 0, 0, 1, 1], ["Ls_Icn_Service_Lamp", 0, 0, 1, 1], ["Ls_Icn_Stop_Lamp", 0, 0, 1, 1], ["Ls_Icn_Door_Open_Lamp", 0, 0, 1, 1], ["Ls_Icn_Elec_Genrt_Fault_Lamp", 0, 0, 1, 1], ["Ls_Icn_WaterTemp_AlarmLamp", 0, 0, 1, 1], ["Ls_Icn_OilPressure_AlarmLamp", 0, 0, 1, 1], ["Ls_Icn_Brake_Fluid_AlarmLamp", 0, 0, 1, 1], ["Ls_Icn_Tpms_AlarmLamp", 0, 0, 1, 1], ["Ls_Icn_ElecBrkSplit_FaultLmp", 0, 0, 1, 1], ["Ls_Icn_Abs_Ehb_FaultLamp", 0, 0, 1, 1], ["Ls_Icn_Esp_Asr_FaultLamp", 0, 0, 1, 1], ["Ls_Icn_FootOnBrake_Lamp", 0, 0, 1, 1], ["Ls_Icn_PassiveSafty_FaultLmp", 0, 0, 1, 1], ["Ls_Icn_BattCharge_FaultLamp", 0, 0, 1, 1]]], ["LS_ID_TARA_VERSION_CMB", 0, [["Ls_Icn_Ecu_Num", 0, 0, 1, 1], ["Ls_Icn_Sw_Ver_Day", 0, 0, 31, 1], ["Ls_Icn_Sw_Ver_Month", 1, 1, 12, 1], ["Ls_Icn_Sw_Ver_Year", 2000, 2000, 2200, 1], ["Ls_Icn_Sw_Ident", 0, 0, 1, 1], ["Ls_Icn_Msg_Tab_Dig1", 0, 0, 1, 1], ["Ls_Icn_Msg_Tab_Dig2", 0, 0, 1, 1], ["Ls_Icn_Msg_Tab_Edition", 0, 0, 254, 1]]], ["LS_ID_TARA_SUPERVISION_CMB", 1000, [["Ls_Icn_Comloss_Fault", 0, 0, 1, 1], ["Ls_Icn_Nerr", 0, 0, 1, 1], ["Ls_Icn_Nm_St", 0, 0, 1, 1], ["Ls_Icn_Nerr_Cnt", 0, 0, 1, 1], ["Ls_Icn_Nas_Cnt", 0, 0, 1, 1], ["Ls_Icn_Busoff_Cnt", 0, 0, 1, 1], ["Ls_Icn_Comloss_Cnt", 0, 0, 1, 1], ["Ls_Icn_Abs_Unit1", 0, 0, 1, 1], ["Ls_Icn_Abs_Unit2", 0, 0, 1, 1], ["Ls_Icn_Abs_Unit3", 0, 0, 1, 1]]], ["LS_ID_TARA_REP_DIAG_CMB", 0, [["Ls_Icn_Uds_Resp", 0, 0, 1, 1]]], ["LS_ID_TARA_KM_SAUV_CMB", 0, [["Ls_Icn_Mileage", 12345.0, 0, 1677721.4, 0.1], ["Ls_Icn_Mileage_Comp", 0, 0, 1, 1]]], ["LS_ID_DENA_ICN_INFO1_IC", 0, [["LS_ICN_MAINT_DIST", 0, 0, 1, 1], ["LS_ICN_AVS", 0, 0, 1, 1]]], ["LS_ID_DENA_MAINT_INFO_IC", 0, [["LS_ICN_CHANGE_OIL", 0, 0, 1, 1], ["LS_ICN_CHANGE_AIRF", 0, 0, 1, 1], ["LS_ICN_CHANGE_OILF", 0, 0, 1, 1]]], ["LS_ID_TARA__EVT_DEFAUT_CMB", 0, [["Ls_Icn_Frame_Nb", 0, 0, 1, 1], ["Ls_Icn_Frame_Index", 0, 0, 1, 1], ["Ls_Icn_Dtc_Info", 0, 0, 1, 1]]], ["LS_ID_TARA__ETAT_COMBINE", 100, [["Ls_Icn_Maint_Reset_Req", 0, 0, 1, 1], ["Ls_Icn_Rbg_Inhib_St", 0, 0, 1, 1], ["Ls_Icn_Rbg_Fault_St", 0, 0, 1, 1], ["Ls_Icn_Reset_Tot_Trip1", 0, 0, 1, 1], ["Ls_Icn_Reset_Partial_Odo", 0, 0, 1, 1], ["Ls_Icn_Dist_Unit", 0, 0, 1, 1], ["Ls_Icn_Esp_Sw_Req", 0, 0, 1, 1], ["Ls_Icn_Speed_Display", 0, 0, 254, 1]]], ["LS_ID_DENA_BACKLIGHT_IC", 0, [["LS_ICN_BACKLIGHT", 0, 0, 1, 1]]], ["LS_ID_DENA_TIME_IC", 0, [["LS_ICN_TIME_SECONDS", 0, 0, 1, 1], ["LS_ICN_TIME_MINUTES", 0, 0, 1, 1], ["LS_ICN_TIME_HOURS", 0, 0, 1, 1], ["LS_ICN_DATE_DAY", 0, 0, 1, 1], ["LS_ICN_DATE_MONTH", 0, 0, 1, 1], ["LS_ICN_DATE_YEAR", 0, 0, 1, 1]]], ["LS_ID_ICNI2_IC", 500, [["LS_ICN_ODO", 12345000, 0, 1, 1], ["LS_ICN_BACKLIGHT", 0, 0, 1, 1], ["LS_ICN_LOW_FLW", 0, 0, 1, 1], ["LS_ICN_SPD_GWY", 0, 0, 4095, 0.125]]], ["LS_ID_DIAG_RESP_IC", 0, [["LS_ICN_DIAG_RESP", 0, 0, 1, 1]]], ["LS_ID_DENA_ODO_IC", 0, [["LS_ICN_ODO", 12345000, 0, 1, 1]]], ["LS_ID_DENA_DIAG_RESP_IC", 0, [["LS_ICN_DIAG_RESP", 0, 0, 1, 1]]], ["LS_ID_SUP_IC", 1000, [["LS_ICN_DIAG_MODE", 0, 0, 1, 1], ["LS_ICN_COM_LOSS", 0, 0, 1, 1], ["LS_ICN_NM_STATE", 0, 0, 1, 1], ["LS_ICN_BUS_ERROR", 0, 0, 1, 1], ["LS_ICN_VERSION_MAJOR", 0, 0, 1, 1], ["LS_ICN_BUS_ERROR_COUNTER", 0, 0, 1, 1], ["LS_ICN_TX_TIMEOUT_COUNTER", 0, 0, 1, 1], ["LS_ICN_BUSOFF_COUNTER", 0, 0, 1, 1], ["LS_ICN_COM_LOSS_COUNTER", 0, 0, 1, 1], ["LS_ICN_NBCM_DYN_ABSENT", 0, 0, 1, 1], ["LS_ICN_NBCM_STATIC_ABSENT", 0, 0, 1, 1], ["LS_ICN_VERSION_MINOR", 0, 0, 1, 1]]], ["LS_ID_DENA_SUP_IC", 0, [["LS_ICN_DIAG_MODE", 0, 0, 1, 1], ["LS_ICN_COM_LOSS", 0, 0, 1, 1], ["LS_ICN_NM_STATE", 0, 0, 1, 1], ["LS_ICN_BUS_ERROR", 0, 0, 1, 1], ["LS_ICN_BUS_ERROR_COUNTER", 0, 0, 1, 1], ["LS_ICN_TX_TIMEOUT_COUNTER", 0, 0, 1, 1], ["LS_ICN_BUSOFF_COUNTER", 0, 0, 1, 1], ["LS_ICN_COM_LOSS_COUNTER", 0, 0, 1, 1], ["LS_ICN_NBCM_DYN_ABSENT", 0, 0, 1, 1], ["LS_ICN_NBCM_STATIC_ABSENT", 0, 0, 1, 1]]], ["LS_ID_DENA_FR_IC", 0, [["LS_ICN_FAULT_ID", 0, 0, 1, 1], ["LS_ICN_FAULT_STATUS", 0, 0, 1, 1]]], ["LS_ID_FR_IC", 0, [["LS_ICN_FAULT_ID", 0, 0, 1, 1], ["LS_ICN_FAULT_STATUS", 0, 0, 1, 1]]]]}, {"node": "ICU", "network": "HS", "msgs": [["HS_ID_ICU_RESET_REQ", 0, [["Hs_Icu_Reset_Req_1", 0, 0, 4294967295, 1], ["Hs_Icu_Reset_Req_2", 0, 0, 4294967295, 1]]], ["HS_ID_IMM_LearnSKReq", 0, [["Hs_Imm_LearnSKReq_1", 0, 0, 4294967295, 1], ["Hs_Imm_LearnSKReq_2", 0, 0, 4294967295, 1]]], ["HS_ID_IMM_TeachPINReq", 0, [["Hs_Imm_TeachPINReq_1", 0, 0, 4294967295, 1], ["Hs_Imm_TeachPINReq_2", 0, 0, 4294967295, 1]]], ["HS_ID_IMM_TeachSKReq", 0, [["Hs_Imm_TeachSKReq", 0, 0, 1.84467440737096e+19, 1]]], ["HS_ID_IMM_AUTH", 0, [["Hs_Imm_Auth_1", 0, 0, 4294967295, 1], ["Hs_Imm_Auth_2", 0, 0, 4294967295, 1]]], ["HS_ID_ICU_SUP", 1000, [["Hs_Icu_Diag_Mode", 0, 0, 1, 1], ["Hs_Icu_Com_Loss", 0, 0, 1, 1], ["Hs_Icu_Net_Management_State", 0, 0, 1, 1], ["Hs_Icu_Tx_TimeOut_Counter", 0, 0, 255, 1], ["Hs_Icu_Bus_OFF_Counter", 0, 0, 255, 1], ["Hs_Icu_Com_Loss_Counter", 0, 0, 255, 1], ["Hs_Icu_Ecu_Dynamic_States", 0, 0, 255, 1], ["Hs_Icu_Ecu_Static_States", 0, 0, 255, 1]]], ["HS_ID_ICU_DIAG_REQ", 0, [["Hs_Icu_Diagnostic_Request", 0, 0, 1, 1]]], ["HS_ID_ICU_E1", 0, [["Hs_Icu_Ems_dialog", 0, 0, 1, 1]]], ["HS_ID_ICU_INFO", 200, [["Hs_Icu_Ems_Status", 0, 0, 255, 1], ["Hs_Icu_Immo_Lamp_Command", 0, 0, 5, 1], ["Hs_Icu_Key_Inside", 0, 0, 1, 1], ["Hs_Icu_Tp_Position", 0, 0, 5, 1], ["Hs_Icu_Immo_Output_Lamp_St", 0, 0, 1, 1], ["Hs_Icu_Immo_Production_Date", 0, 0, 65535, 1], ["Hs_Icu_Immo_Software_Version", 0, 0, 255, 1], ["Hs_Icu_Immo_Hardware_Version", 0, 0, 255, 1]]]]}, {"node": "ITPMS", "network": "HS", "msgs": [["HS_ID_ITPMS_INFO", 100, [["Hs_iTPMS_Tire_Pressure_Reg", 0, 0, 1, 1], ["Hs_iTPMS_Check_Tire_Pressure", 0, 0, 1, 1], ["Hs_iTPMS_Reset_Condition_NO", 0, 0, 1, 1], ["Hs_iTMPS_Fault_MMS", 0, 0, 1, 1], ["Hs_iTPMS_Fault_ICN", 0, 0, 1, 1]]]]}, {"node": "MMS", "network": "LS", "msgs": [["LS_ID_SUP_MMS", 1000, []], ["LS_ID_DIAG_RESP_MMS", 0, [["LS_MMS_DIAG_RESP", 0, 0, 1, 1]]], ["LS_ID_TARA_VERSION_MMS", 0, [["Ls_Mms_Ecu_Num", 0, 0, 1, 1], ["Ls_Mms_Sw_Ver_Day", 1, 1, 31, 1], ["Ls_Mms_Sw_Ver_Month", 1, 1, 12, 1], ["Ls_Mms_Sw_Ver_Year", 2000, 2000, 2200, 1], ["Ls_Mms_Sw_Ident", 0, 0, 1, 1], ["Ls_Mms_Msg_Tab_Dig1", 0, 0, 1, 1], ["Ls_Mms_Msg_Tab_Dig2", 0, 0, 1, 1], ["Ls_Mms_Msg_Tab_Edition", 0, 0, 1, 1]]], ["LS_ID_TARA_SUPERVISION_MMS", 1000, [["Ls_Mms_Comloss_Fault", 0, 0, 1, 1], ["Ls_Mms_Nerr", 0, 0, 1, 1], ["Ls_Mms_Nm_St", 0, 0, 1, 1], ["Ls_Mms_Nerr_Cnt", 0, 0, 1, 1], ["Ls_Mms_Nas_Cnt", 0, 0, 1, 1], ["Ls_Mms_Busoff_Cnt", 0, 0, 1, 1], ["Ls_Mms_Comloss_Cnt", 0, 0, 1, 1], ["Ls_Mms_Abs_Unit1", 0, 0, 1, 1], ["Ls_Mms_Abs_Unit2", 0, 0, 1, 1], ["Ls_Mms_Abs_Unit3", 0, 0, 1, 1]]], ["LS_ID_TARA_REP_DIAG_MMS", 0, [["Ls_Mms_Uds_Resp", 0, 0, 1, 1]]], ["LS_ID_TARA_EVT_DEFAUT_MMS", 0, [["Ls_Mms_Frame_Nb", 0, 0, 1, 1], ["Ls_Mms_Frame_Index", 0, 0, 1, 1], ["Ls_Mms_Dtc_Info", 0, 0, 1, 1]]], ["LS_ID_TARA_ECRAN_INFO_PROFILS", 0, [["Ls_Mms_Bluetooth_Active", 0, 0, 1, 1], ["Ls_Mms_Esc_Active", 0, 0, 1, 1], ["Ls_Mms_Amb_Bkl_Level", 0, 0, 1, 1], ["Ls_Mms_Config_Valid", 0, 0, 1, 1], ["Ls_Mms_Drl_Active", 0, 0, 1, 1], ["Ls_Mms_Road_Finder_Active", 0, 0, 1, 1], ["Ls_Mms_Road_Finder_Time", 0, 0, 1, 1], ["Ls_Mms_Pas_Func_Permanent", 0, 0, 1, 1], ["Ls_Mms_Pas_Func_Temporary", 0, 0, 1, 1], ["Ls_Mms_Recognize_Trip", 0, 0, 1, 1], ["Ls_Mms_Tpms_Active_Req", 0, 0, 1, 1], ["Ls_Mms_Request_Trip2_reset", 0, 0, 1, 1], ["Ls_Mms_Request_Trip1_reset", 0, 0, 1, 1]]], ["LS_ID_TARA_DMD_MAJ_DATE_HEURE", 0, [["Ls_Mms_Icn_Set_Hour_Mode", 0, 0, 1, 1], ["Ls_Mms_Icn_Set_Year", 2000, 2000, 2125, 1], ["Ls_Mms_Icn_Set_Month", 0, 0, 1, 1], ["Ls_Mms_Icn_Set_Day", 1, 1, 31, 1], ["Ls_Mms_Icn_Set_Hour", 0, 0, 23, 1], ["Ls_Mms_Icn_Set_Min", 0, 0, 59, 1]]], ["LS_ID_TIME_MMS", 1000, [["LS_ICN_TIME_SECONDS", 0, 0, 1, 1], ["LS_ICN_TIME_MINUTES", 0, 0, 1, 1], ["LS_ICN_TIME_HOURS", 0, 0, 1, 1], ["LS_ICN_DATE_DAY", 0, 0, 1, 1], ["LS_ICN_DATE_MONTH", 0, 0, 1, 1], ["LS_ICN_DATE_YEAR", 0, 0, 1, 1]]]]}, {"node": "PEPS", "network": "HS", "msgs": [["HS_ID_PEPS_1", 100, [["Hs_Peps_BrakeSwitchSt", 0, 0, 1, 1], ["Hs_Peps_ClutchSwitchSt", 0, 0, 1, 1], ["Hs_Peps_PasserngerButtonSt", 0, 0, 1, 1], ["Hs_Peps_DriverButtonSt", 0, 0, 1, 1], ["Hs_Peps_AuthenticationSt", 0, 0, 7, 1], ["Hs_Peps_VehSpdVD", 0, 0, 1, 1], ["Hs_Peps_LearntMode", 0, 0, 3, 1], ["Hs_Peps_ESCLLearntMode", 0, 0, 3, 1], ["Hs_Peps_SysPowMode", 0, 0, 3, 1], ["Hs_Peps_SSB_SW1St", 0, 0, 1, 1], ["Hs_Peps_SSB_SW2St", 0, 0, 1, 1], ["Hs_Peps_ESCLMotorPowerSupplySt", 0, 0, 1, 1], ["Hs_Peps_ESCLUnlockSt", 0, 0, 1, 1], ["Hs_Peps_ESCLLockEnPowerSupplySt", 0, 0, 1, 1], ["Hs_Peps_VehSpd", 0, 0, 240, 0.05625], ["Hs_Peps_FOB_ID", 0, 0, 15, 1], ["Hs_Peps_keyComdInfo", 0, 0, 15, 1], ["Hs_Peps_DoorLockReq", 0, 0, 1, 1], ["Hs_Peps_DoorUnlockReq", 0, 0, 1, 1], ["Hs_Peps_TrunkReq", 0, 0, 3, 1], ["Hs_Peps_VehSpdWarning", 0, 0, 1, 1], ["Hs_Peps_AuthFailWarning", 0, 0, 3, 1], ["Hs_Peps_OpIndicationWarning", 0, 0, 7, 1], ["Hs_Peps_DeactivationWarning", 0, 0, 1, 1], ["Hs_Peps_SSBWarning", 0, 0, 3, 1], ["Hs_Peps_ESCLWarning", 0, 0, 7, 1], ["Hs_Peps_KeyOutWarning", 0, 0, 3, 1], ["Hs_Peps_FobBattLowWarning", 0, 0, 1, 1], ["Hs_Peps_DoorLockWarning", 0, 0, 3, 1]]]]}, {"node": "RBG", "network": "LS", "msgs": [["LS_ID_TARA_CRH_RBG", 0, [["Ls_Rbg_Crash_Info", 0, 0, 1, 1]]], ["LS_ID_TARA_EVT_DEFAUT_RBG", 0, [["Ls_Rbg_Frame_Nb", 0, 0, 1, 1], ["Ls_Rbg_Frame_Index", 0, 0, 1, 1], ["Ls_Rbg_Dtc_Info", 0, 0, 1, 1]]], ["LS_ID_TARA_REP_DIAG_RBG", 0, [["Ls_Rbg_Uds_Resp", 0, 0, 1, 1]]], ["LS_ID_TARA_VERSION_RBG", 0, [["Ls_Rbg_Ecu_Num", 0, 0, 1, 1], ["Ls_Rbg_Sw_Ver_Day", 0, 0, 255, 1], ["Ls_Rbg_Sw_Ver_Month", 1, 1, 12, 1], ["Ls_Rbg_Sw_Ver_Year", 2000, 2000, 2200, 1], ["Ls_Rbg_Sw_Ident", 0, 0, 1, 1], ["Ls_Rbg_Msg_Tab_Dig1", 0, 0, 1, 1], ["Ls_Rbg_Msg_Tab_Dig2", 0, 0, 15, 1], ["Ls_Rbg_Msg_Tab_Edition", 0, 0, 1, 1]]], ["LS_ID_TARA_SUPERVISION_RBG", 1000, [["Ls_Rbg_Comloss_Fault", 0, 0, 1, 1], ["Ls_Rbg_Nerr", 0, 0, 1, 1], ["Ls_Rbg_Nm_St", 0, 0, 1, 1], ["Ls_Rbg_Nerr_Cnt", 0, 0, 1, 1], ["Ls_Rbg_Nas_Cnt", 0, 0, 1, 1], ["Ls_Rbg_Busoff_Cnt", 0, 0, 1, 1], ["Ls_Rbg_Comloss_Cnt", 0, 0, 1, 1], ["Ls_Rbg_Abs_Unit1", 0, 0, 1, 1], ["Ls_Rbg_Abs_Unit2", 0, 0, 1, 1], ["Ls_Rbg_Abs_Unit3", 0, 0, 1, 1]]], ["LS_ID_TARA_INFO_RBG", 200, [["Ls_Rbg_Pass_Inhib", 0, 0, 1, 1], ["Ls_Rbg_Fault", 0, 0, 1, 1], ["Ls_Rbg_Process_Cnt", 0, 0, 1, 1], ["Ls_Rbg_Checksum", 0, 0, 1, 1]]]]}, {"node": "TCU", "network": "HS", "msgs": [["HS_ID_TCU_SUP", 1000, [["Hs_Tcu_Diag_Mode", 0, 0, 1, 1], ["Hs_Tcu_Com_Loss", 0, 0, 1, 1], ["Hs_Tcu_Network_Management_State", 0, 0, 1, 1], ["Hs_Tcu_Tx_TimeOut_Counter", 0, 0, 255, 1], ["Hs_Tcu_Bus_OFF_Counter", 0, 0, 255, 1], ["Hs_Tcu_Com_Loss_Counter", 0, 0, 255, 1], ["Hs_Tcu_Ecu_Dynamic_States", 0, 0, 255, 1], ["Hs_Tcu_Ecu_Static_States", 0, 0, 255, 1]]], ["HS_ID_TCU_DIAG_REQ", 0, [["Hs_Tcu_Diagnostic_Request", 0, 0, 1, 1]]], ["HS_ID_TCU_INFO_3", 10, [["Hs_Tcu_IdleControlLoadTorque", 0, 0, 99.6094, 0.390625], ["Hs_Tcu_IdleContLoadTorqInvalid", 0, 0, 1, 1], ["Hs_Tcu_CrankingEnable", 0, 0, 1, 1], ["Hs_Tcu_DesiredEngIdlSpdReqActive", 0, 0, 1, 1], ["Hs_Tcu_OvertempLevel", 0, 0, 1, 1], ["Hs_Tcu_LaunchVehicle", 0, 0, 1, 1], ["Hs_Tcu_DesiredEngIdlSpdReq", 0, 0, 4080, 1], ["Hs_Tcu_MaxEngSpeedLimReq", 0, 0, 4064, 1], ["Hs_Tcu_OutputShaftSpeed", 0, 0, 65535, 1]]], ["HS_ID_TCU_INFO_2", 10, [["Hs_Tcu_TorqConvTurbineSpeed", 0, 0, 8160, 1], ["Hs_Tcu_ShiftPositionValid", 0, 0, 1, 1], ["Hs_Tcu_CoolFanReq", 0, 0, 1, 1], ["Hs_Tcu_TorqReductReq", 0, 0, 1, 1], ["Hs_Tcu_TorqIncreReq", 0, 0, 1, 1], ["Hs_Tcu_EngBrkTorqIncreValue", 0, 0, 65535, 0.001526], ["Hs_Tcu_Info_2_RollCntr", 0, 0, 255, 1], ["Hs_Tcu_Info_2_Checksum", 0, 0, 255, 1]]], ["HS_ID_TCU_INFO1", 10, [["Hs_Tcu_N_EngBrkTorqLimitValue", 0, 0, 255, 0.390625], ["Hs_Tcu_EngBrkTorqReductValue", 0, 0, 255, 0.390625], ["Hs_Tcu_Current_Gear", 0, 0, 15, 1], ["Hs_Tcu_TargetGear", 0, 0, 15, 1], ["Hs_Tcu_Gear_Lever_Pos", 0, 0, 15, 1], ["Hs_Tcu_TorqConvClutchStatus", 0, 0, 3, 1], ["Hs_Tcu_TransmissionFailureStatus", 0, 0, 3, 1], ["Hs_Tcu_TransmissionOilTemp", 0, -40, 255, 1], ["Hs_Tcu_Mil_Req_Mil_On", 0, 0, 1, 1], ["Hs_Tcu_ShiftInProgress", 0, 0, 1, 1], ["Hs_Tcu_DriverMode", 0, 0, 3, 1], ["Hs_Tcu_ReverseControl", 0, 0, 1, 1], ["Hs_Tcu_TorqLimitationReq", 0, 0, 1, 1], ["Hs_Tcu_ActualGearValid", 0, 0, 1, 1], ["Hs_Tcu_TargetGearValid", 0, 0, 1, 1], ["Hs_Tcu_Info_1_RollCntr", 0, 0, 255, 1], ["Hs_Tcu_Info_1_Checksum", 0, 0, 255, 1]]]]}, {"node": "TPMS", "network": "HS", "msgs": [["HS_ID_TPMS_DIAG_REQ", 0, [["Hs_Tpms_Diagnostic_Request", 0, 0, 1, 1]]], ["HS_ID_TPMS_SUP", 1000, [["Hs_Tpms_Diag_Mode", 0, 0, 1, 1], ["Hs_Tpms_COM_Loss", 0, 0, 1, 1], ["Hs_Tpms_Network_Management_State", 0, 0, 1, 1], ["Hs_Tpms_Tx_TimeOut_Counter", 0, 0, 255, 1], ["Hs_Tpms_Bus_OFF_Counter", 0, 0, 255, 1], ["Hs_Tpms_Com_Loss_Counter", 0, 0, 255, 1], ["Hs_Tpms_ECU_Dynamic_States", 0, 0, 255, 1], ["Hs_Tpms_ECU_Static_States", 0, 0, 255, 1]]], ["HS_ID_TPMS_INFO", 100, [["Hs_Tpms_SystemSt", 0, 0, 7, 1], ["Hs_Tpms_TireId", 0, 0, 7, 1], ["Hs_Tpms_TireInfoInvalid", 0, 0, 1, 1], ["Hs_Tpms_TireLeakage", 0, 0, 3, 1], ["Hs_TpmsLearningSt", 0, 0, 3, 1], ["Hs_Tpms_TirePressureSt", 0, 0, 3, 1], ["Hs_Tpms_TireTemperatureSt", 0, 0, 3, 1], ["Hs_Tpms_TirePressure", 0, 0, 349, 1], ["Hs_Tpms_TireTemperature", 0, -40, 255, 1], ["Hs_Tpms_TireBatteryPowerSt", 0, 0, 3, 1]]]]}];
+const $=id=>document.getElementById(id);
+
+// ---- shared signal value store (so duplicate signal names across messages stay in sync) ----
+const values = {};
+DATA.forEach(n => n.msgs.forEach(([mn,cyc,sigs]) => sigs.forEach(([name,def]) => { if(!(name in values)) values[name]=def; })));
+
+const SCENARIO_SIGS = {
+  speed: 'Hs_Abs_VehicleSpeed', invalid: 'Hs_Abs_VehicleSpeed_Invalid',
+  rpm: 'Hs_Ems_Rpm', dist: 'Hs_Ems_Distance', fuel: 'Hs_Ems_Fuel_Tank_Level_Out',
+  odoICN: 'LS_ICN_ODO', mileage: 'Ls_Icn_Mileage', spdGwy: 'LS_ICN_SPD_GWY'
+};
+
+let running=true, manual=false, phase=0, phaseT=0, odoKm=12345.0;
+const offline = {};
+DATA.forEach(n => offline[n.node] = false);
+
+function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
+
+function tickScenario(dtMs){
+  const dtH = dtMs/3600000;
+  let speed = values[SCENARIO_SIGS.speed];
+  if(manual){
+    speed = Number($('manualSlider').value);
+  } else if(running){
+    phaseT += dtMs;
+    const PH=['Idle','شتاب شهری','ثابت شهری','شتاب جاده‌ای','ثابت جاده‌ای','ترمزگیری'];
+    switch(phase){
+      case 0: speed=0; values[SCENARIO_SIGS.rpm]=800; if(phaseT>=3000){phase=1;phaseT=0;} break;
+      case 1: speed=Math.min(50, speed+1.25*(dtMs/10));
+              values[SCENARIO_SIGS.rpm]=800+(1800-800)*(speed/50);
+              if(speed>=50){phase=2;phaseT=0;} break;
+      case 2: speed=50; values[SCENARIO_SIGS.rpm]=1800; if(phaseT>=10000){phase=3;phaseT=0;} break;
+      case 3: speed=Math.min(110, speed+1.25*(dtMs/10));
+              values[SCENARIO_SIGS.rpm]=1800+(2600-1800)*((speed-50)/60);
+              if(speed>=110){phase=4;phaseT=0;} break;
+      case 4: speed=110; values[SCENARIO_SIGS.rpm]=2600; if(phaseT>=15000){phase=5;phaseT=0;} break;
+      case 5: speed=Math.max(0, speed-1.75*(dtMs/10));
+              values[SCENARIO_SIGS.rpm]=800+(2600-800)*(speed/110);
+              if(speed<=0){phase=0;phaseT=0;} break;
+    }
+    $('phaseLbl').textContent=PH[phase];
+  } else { $('phaseLbl').textContent='متوقف'; }
+
+  if(manual) $('phaseLbl').textContent='کنترل دستی';
+  values[SCENARIO_SIGS.speed]=speed;
+  values[SCENARIO_SIGS.spdGwy]=speed;
+  if(!offline['EMS']){
+    odoKm += speed*dtH;
+    values[SCENARIO_SIGS.dist] = (values[SCENARIO_SIGS.dist]||0) + speed*dtH*1000;
+    values[SCENARIO_SIGS.fuel] = clamp((values[SCENARIO_SIGS.fuel]||70) - speed*dtH*0.02, 0, 100);
+  }
+  if(!offline['ICN']){
+    values[SCENARIO_SIGS.odoICN] = odoKm*1000;
+    values[SCENARIO_SIGS.mileage] = odoKm;
+  }
+  $('manualVal').textContent = $('manualSlider').value+' km/h';
+  syncInputs();
+}
+
+// ---- rendering ----
+function controlHTML(sigName, def, mn, mx, step){
+  const id = 'sig_'+sigName;
+  if(mn===0 && mx===1){
+    return `<div class="sig-row" data-sig="${sigName}"><span class="k" title="${sigName}">${sigName}</span>
+      <input type="checkbox" id="${id}" ${def?'checked':''} onchange="setVal('${sigName}', this.checked?1:0)"></div>`;
+  }
+  return `<div class="sig-row" data-sig="${sigName}"><span class="k" title="${sigName}">${sigName}</span>
+    <input type="range" min="${mn}" max="${mx}" step="${step||1}" value="${def}" id="r_${id}"
+      oninput="setVal('${sigName}', Number(this.value)); document.getElementById('n_${id}').value=this.value;">
+    <input type="number" min="${mn}" max="${mx}" step="${step||1}" value="${def}" id="n_${id}"
+      oninput="setVal('${sigName}', Number(this.value)); document.getElementById('r_${id}').value=this.value;"></div>`;
+}
+
+function renderCard(n){
+  const isHero = ['ABS','EMS','ICN'].includes(n.node);
+  const totalSigs = n.msgs.reduce((a,m)=>a+m[2].length,0);
+  let heroHTML = '';
+  if(n.node==='ABS'){
+    heroHTML = `<div class="gauges"><div class="gauge"><div class="ring" id="ring_abs_speed"><div class="inner">
+      <div class="v mono" id="disp_speed">0</div><div class="u">km/h</div></div></div><div class="lbl">VehicleSpeed</div></div></div>`;
+  } else if(n.node==='EMS'){
+    heroHTML = `<div class="gauges">
+      <div class="gauge"><div class="ring" style="--gc:#ff9f45" id="ring_rpm"><div class="inner"><div class="v mono" id="disp_rpm">800</div><div class="u">rpm</div></div></div><div class="lbl">Rpm</div></div>
+      <div class="gauge"><div class="ring" style="--gc:#ff9f45" id="ring_fuel"><div class="inner"><div class="v mono" id="disp_fuel">70</div><div class="u">% سوخت</div></div></div><div class="lbl">Fuel</div></div></div>`;
+  } else if(n.node==='ICN'){
+    heroHTML = `<div style="margin-top:8px;text-align:center"><div class="lbl">ODO (LS_ICN_ODO)</div>
+      <div class="v mono" id="disp_odo" style="font-size:20px;font-weight:700">12345.0 km</div></div>`;
+  }
+
+  let detailHTML = '';
+  n.msgs.forEach(([mn,cyc,sigs])=>{
+    detailHTML += `<div class="msg-block"><div class="msg-title">${mn} &middot; ${cyc?cyc+'ms':'Event~1s'}</div>`;
+    sigs.forEach(([name,def,mn2,mx2,step])=>{ detailHTML += controlHTML(name,def,mn2,mx2,step); });
+    detailHTML += `</div>`;
+  });
+
+  return `<div class="card" id="card_${n.node}" data-node="${n.node}">
+    <div class="head">
+      <div><div class="name">${n.node}</div><div class="sub">${n.msgs.length} پیام · ${totalSigs} سیگنال</div></div>
+      <span class="tag ${n.network.toLowerCase()}">${n.network}-CAN</span>
+    </div>
+    ${heroHTML}
+    <div class="offline-row"><span>قطع گره (Node Offline)</span>
+      <label class="switch"><input type="checkbox" onchange="setOffline('${n.node}', this.checked)"><span class="s"></span></label>
+    </div>
+    <button class="toggle-detail" onclick="toggleDetail('${n.node}')">▾ نمایش/ویرایش همه ${totalSigs} پارامتر</button>
+    <div class="detail" id="detail_${n.node}">${detailHTML}</div>
+  </div>`;
+}
+
+function buildGrid(){
+  $('grid').innerHTML = DATA.map(renderCard).join('');
+}
+
+function setVal(sig, v){ values[sig]=v; }
+function setOffline(node, v){
+  offline[node]=v;
+  document.getElementById('card_'+node).classList.toggle('offline', v);
+}
+function toggleDetail(node){
+  document.getElementById('detail_'+node).classList.toggle('open');
+}
+
+function syncInputs(){
+  // hero gauges
+  const sp = values[SCENARIO_SIGS.speed]||0;
+  document.getElementById('disp_speed') && (document.getElementById('disp_speed').textContent = sp.toFixed(0));
+  document.getElementById('ring_abs_speed') && document.getElementById('ring_abs_speed').style.setProperty('--gp', clamp(sp/180*100,0,100));
+
+  const rpmv = values[SCENARIO_SIGS.rpm]||800;
+  document.getElementById('disp_rpm') && (document.getElementById('disp_rpm').textContent = rpmv.toFixed(0));
+  document.getElementById('ring_rpm') && document.getElementById('ring_rpm').style.setProperty('--gp', clamp(rpmv/6000*100,0,100));
+
+  const fuelv = values[SCENARIO_SIGS.fuel]||70;
+  document.getElementById('disp_fuel') && (document.getElementById('disp_fuel').textContent = fuelv.toFixed(0));
+  document.getElementById('ring_fuel') && document.getElementById('ring_fuel').style.setProperty('--gp', fuelv);
+
+  const odo = values[SCENARIO_SIGS.mileage]||12345;
+  document.getElementById('disp_odo') && (document.getElementById('disp_odo').textContent = odo.toFixed(1)+' km');
+
+  // keep open-detail sliders for scenario signals visually in sync (speed/rpm/fuel/odo rows)
+  [SCENARIO_SIGS.speed, SCENARIO_SIGS.rpm, SCENARIO_SIGS.fuel, SCENARIO_SIGS.dist, SCENARIO_SIGS.odoICN, SCENARIO_SIGS.mileage, SCENARIO_SIGS.spdGwy].forEach(sig=>{
+    const r = document.getElementById('r_sig_'+sig), nI = document.getElementById('n_sig_'+sig);
+    if(r && document.activeElement!==r){ r.value = values[sig]; }
+    if(nI && document.activeElement!==nI){ nI.value = (values[sig]||0).toFixed ? values[sig].toFixed(2) : values[sig]; }
+  });
+}
+
+buildGrid();
+syncInputs();
+
+let last=performance.now();
+function loop(now){
+  const dt=now-last; last=now;
+  tickScenario(Math.min(dt,200)*4); // شتاب‌دهی x4 صرفاً برای نمایش سریع‌تر دمو
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+
+$('playBtn').onclick=()=>{ running=!running; $('playBtn').textContent = running?'⏸ توقف سناریو':'▶ ادامه سناریو'; };
+$('resetBtn').onclick=()=>{ phase=0; phaseT=0; odoKm=12345.0; values[SCENARIO_SIGS.speed]=0; values[SCENARIO_SIGS.rpm]=800;
+  values[SCENARIO_SIGS.fuel]=70; values[SCENARIO_SIGS.dist]=0; syncInputs(); };
+$('manualChk').onchange=e=>{ manual=e.target.checked; $('manualSlider').disabled=!manual; };
+
+$('searchBox').oninput = e=>{
+  const q = e.target.value.trim().toLowerCase();
+  document.querySelectorAll('.sig-row').forEach(row=>{
+    const match = !q || row.dataset.sig.toLowerCase().includes(q);
+    row.classList.toggle('hidden', !match);
+  });
+  document.querySelectorAll('.msg-block').forEach(mb=>{
+    const anyVisible = [...mb.querySelectorAll('.sig-row')].some(r=>!r.classList.contains('hidden'));
+    mb.classList.toggle('hidden', q && !anyVisible);
+  });
+  if(q){ document.querySelectorAll('.detail').forEach(d=>d.classList.add('open')); }
+};
+</script>
+</body>
+</html>

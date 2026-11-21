@@ -513,6 +513,18 @@ variables
   double Ls_Rbg_Sw_Ver_Month = 1;
   double Ls_Rbg_Sw_Ver_Year = 2000;
   double Ls_Rbg_Uds_Resp = 0;
+  double Ls_Peps_System_Mode = 0;   // 0=خواب 1=ACC 2=IGN 3=روشن
+  double Ls_Peps_Key_Active_Cmd_Info_Rke = 0;   // فرمان ریموت کلید
+  double Ls_Trunk_Unlock_PKE = 0;   // درخواست باز کردن صندوق با کلید
+  double Ls_Door_Unlock_PKE = 0;   // درخواست باز کردن قفل در
+  double Ls_Door_Lock_PKE = 0;   // درخواست قفل کردن در
+  double Ls_Peps_SSB_Warning = 0;   // هشدار دکمه‌ی استارت
+  double Ls_Peps_Door_Open_Warning = 0;   // هشدار در باز
+  double Ls_Peps_FOB_LowBattery = 0;   // باتری ریموت ضعیف
+  double Ls_Peps_Key_Out_Warning = 0;   // کلید بیرون از خودرو
+  double Ls_Peps_ESCL_Warning = 0;   // هشدار قفل فرمان
+  double Ls_Peps_Key_Fob_Authentication = 0;   // نتیجه‌ی احراز هویت کلید
+  double Ls_Peps_KeyInside = 0;   // کلید داخل خودرو
 
   // ===================== پیام‌ها (از DBC) =====================
   message HS_ID_ICU_RESET_REQ msg_HS_ID_ICU_RESET_REQ;
@@ -538,6 +550,7 @@ variables
   message HS_ID_EPS_SUP msg_HS_ID_EPS_SUP;
   message HS_ID_SAS msg_HS_ID_SAS;
   message HS_ID_PEPS_1 msg_HS_ID_PEPS_1;
+  message LS_ID_TARA_PEPS_1 msg_LS_ID_TARA_PEPS_1;
   message HS_ID_TCU_SUP msg_HS_ID_TCU_SUP;
   message HS_ID_TCU_DIAG_REQ msg_HS_ID_TCU_DIAG_REQ;
   message HS_ID_TCU_DIAG_ANS msg_HS_ID_TCU_DIAG_ANS;
@@ -1620,6 +1633,24 @@ void Send_HS_ID_PEPS_1()
   output(msg_HS_ID_PEPS_1);
 }
 
+void Send_LS_ID_TARA_PEPS_1()
+{
+  if (OFFLINE_PEPS) return;
+  msg_LS_ID_TARA_PEPS_1.Ls_Peps_System_Mode = Ls_Peps_System_Mode;
+  msg_LS_ID_TARA_PEPS_1.Ls_Peps_Key_Active_Cmd_Info_Rke = Ls_Peps_Key_Active_Cmd_Info_Rke;
+  msg_LS_ID_TARA_PEPS_1.Ls_Trunk_Unlock_PKE = Ls_Trunk_Unlock_PKE;
+  msg_LS_ID_TARA_PEPS_1.Ls_Door_Unlock_PKE = Ls_Door_Unlock_PKE;
+  msg_LS_ID_TARA_PEPS_1.Ls_Door_Lock_PKE = Ls_Door_Lock_PKE;
+  msg_LS_ID_TARA_PEPS_1.Ls_Peps_SSB_Warning = Ls_Peps_SSB_Warning;
+  msg_LS_ID_TARA_PEPS_1.Ls_Peps_Door_Open_Warning = Ls_Peps_Door_Open_Warning;
+  msg_LS_ID_TARA_PEPS_1.Ls_Peps_FOB_LowBattery = Ls_Peps_FOB_LowBattery;
+  msg_LS_ID_TARA_PEPS_1.Ls_Peps_Key_Out_Warning = Ls_Peps_Key_Out_Warning;
+  msg_LS_ID_TARA_PEPS_1.Ls_Peps_ESCL_Warning = Ls_Peps_ESCL_Warning;
+  msg_LS_ID_TARA_PEPS_1.Ls_Peps_Key_Fob_Authentication = Ls_Peps_Key_Fob_Authentication;
+  msg_LS_ID_TARA_PEPS_1.Ls_Peps_KeyInside = Ls_Peps_KeyInside;
+  output(msg_LS_ID_TARA_PEPS_1);
+}
+
 /*============================================================================
   گره: RBG  (LS-CAN)  -  6 پیام
 ============================================================================*/
@@ -1933,4 +1964,5 @@ on timer tmrEvent  // پیام‌های Event-based در DBC - این‌جا ه�
   Send_LS_ID_DENA_SUP_IC();
   Send_LS_ID_DENA_FR_IC();
   Send_LS_ID_FR_IC();
+  Send_LS_ID_TARA_PEPS_1();
 }

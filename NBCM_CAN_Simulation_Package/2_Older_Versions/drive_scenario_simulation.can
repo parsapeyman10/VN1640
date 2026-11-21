@@ -1,0 +1,166 @@
+/*@!Encoding:1252*/
+/*============================================================================
+  شبیه‌سازی سناریوی رانندگی واقعی برای تست بر روی میز (Bench Test)
+  هدف: تولید سیگنال سرعت و کیلومتر تجمعی به‌صورت Restbus Simulation 
+       برای تست NBCM دنا از طریق High CAN
+
+  ‼️ قبل از استفاده حتماً انجام بدید:
+  1) این فایل رو به CANoe Simulation Node متصل کنید و دیتابیس (DBC) رسمی
+     دنا رو به همون Node اختصاص بدید.
+  2) نام پیام‌ها و سیگنال‌ها (VehicleSpeed_Msg, VehicleSpeed, Odometer_Msg, ...)
+     رو دقیقاً با نام‌های موجود در DBC خودتون جایگزین کنید.
+  3) اگر پیام سرعت/کارکرد دارای فیلد Rolling Counter یا Checksum (E2E Protection)
+     است (در اکثر پیام‌های Body/Powertrain مدرن معمول است)، تابع
+     calcCounterAndChecksum() رو تکمیل کنید - در غیر این صورت NBCM پیام رو
+     نامعتبر (Invalid) تشخیص می‌ده و روی کلاستر خطا یا داده گمشده می‌بینید.
+  4) Cycle Time تایمر (TIMER_PERIOD_MS) باید دقیقاً با Cycle Time تعریف‌شده
+     برای همون پیام در DBC یکی باشد، وگرنه NBCM ممکن است Timeout/DTC بزند.
+  5) برای این‌که NBCM فکر نکند بقیه گره‌ها (ECM، ABS، ...) خاموش هستند،
+     از قابلیت Restbus Simulation خودکار CANoe (ساخته‌شده از DBC) برای
+     بقیه‌ی پیام‌های ضروری (وضعیت سوئیچ، دور موتور و ...) هم استفاده کنید؛
+     این فایل فقط سرعت و کیلومتر را پوشش می‌دهد.
+============================================================================*/
+
+variables
+{
+  msTimer tmrUpdate;
+
+  double gSpeedKmh     = 0;      // سرعت لحظه‌ای (km/h)
+  double gOdometerKm   = 0;      // کیلومتر تجمعی
+  int    gPhase        = 0;      // فاز جاری سناریو
+  dword  gPhaseTimeMs  = 0;      // زمان سپری‌شده در فاز جاری
+  byte   gRollingCounter = 0;    // شمارنده چرخشی (در صورت نیاز DBC)
+
+  const double TIMER_PERIOD_MS = 100.0;  // *** با Cycle Time واقعی DBC تطبیق بدید ***
+  const double ACCEL_RATE      = 2.5;    // نرخ شتاب‌گیری در هر تیک (km/h)
+  const double DECEL_RATE      = 3.5;    // نرخ ترمزگیری در هر تیک (km/h)
+
+  // --- مقادیر مرزی سناریو (قابل تنظیم) ---
+  const double SPEED_URBAN    = 50.0;
+  const double SPEED_HIGHWAY  = 110.0;
+  const dword  T_IDLE_MS      = 3000;
+  const dword  T_URBAN_MS     = 10000;
+  const dword  T_HIGHWAY_MS   = 15000;
+}
+
+/*============================================================================
+  شروع شبیه‌سازی
+============================================================================*/
+on start
+{
+  gSpeedKmh   = 0;
+  gPhase      = 0;
+  gPhaseTimeMs = 0;
+
+  // *** مقدار اولیه کیلومتر واقعی رو این‌جا طبق سناریوی تست‌تون ست کنید ***
+  gOdometerKm = 12345.0;
+
+  setTimerCyclic(tmrUpdate, TIMER_PERIOD_MS);
+
+  write("=== شبیه‌سازی سناریوی رانندگی شروع شد ===");
+  write("کیلومتر اولیه: %.2f km", gOdometerKm);
+}
+
+/*============================================================================
+  تیک اصلی - هر بار با فرکانس پیام واقعی اجرا می‌شود
+============================================================================*/
+on timer tmrUpdate
+{
+  double dtSec = TIMER_PERIOD_MS / 1000.0;
+
+  updateDrivingPhase();
+  updateOdometer(dtSec);
+  sendSpeedAndOdometer();
+}
+
+/*============================================================================
+  منطق فازهای سناریوی رانندگی:
+  0: Idle  -> 1: شتاب‌گیری شهری -> 2: ثابت شهری -> 3: شتاب‌گیری جاده‌ای
+  -> 4: ثابت جاده‌ای -> 5: ترمزگیری -> بازگشت به 0 (تکرار چرخه)
+============================================================================*/
+void updateDrivingPhase()
+{
+  gPhaseTimeMs += (dword)TIMER_PERIOD_MS;
+
+  switch (gPhase)
+  {
+    case 0: // idle - موتور روشن، خودرو ثابت
+      gSpeedKmh = 0;
+      if (gPhaseTimeMs >= T_IDLE_MS) { gPhase = 1; gPhaseTimeMs = 0; }
+      break;
+
+    case 1: // شتاب‌گیری تا سرعت شهری
+      gSpeedKmh += ACCEL_RATE;
+      if (gSpeedKmh >= SPEED_URBAN)
+      { gSpeedKmh = SPEED_URBAN; gPhase = 2; gPhaseTimeMs = 0; }
+      break;
+
+    case 2: // سرعت ثابت شهری
+      gSpeedKmh = SPEED_URBAN;
+      if (gPhaseTimeMs >= T_URBAN_MS) { gPhase = 3; gPhaseTimeMs = 0; }
+      break;
+
+    case 3: // شتاب‌گیری تا سرعت جاده‌ای
+      gSpeedKmh += ACCEL_RATE;
+      if (gSpeedKmh >= SPEED_HIGHWAY)
+      { gSpeedKmh = SPEED_HIGHWAY; gPhase = 4; gPhaseTimeMs = 0; }
+      break;
+
+    case 4: // سرعت ثابت جاده‌ای
+      gSpeedKmh = SPEED_HIGHWAY;
+      if (gPhaseTimeMs >= T_HIGHWAY_MS) { gPhase = 5; gPhaseTimeMs = 0; }
+      break;
+
+    case 5: // ترمزگیری تا توقف کامل
+      gSpeedKmh -= DECEL_RATE;
+      if (gSpeedKmh <= 0)
+      { gSpeedKmh = 0; gPhase = 0; gPhaseTimeMs = 0; }
+      break;
+  }
+}
+
+/*============================================================================
+  تجمیع کیلومتر بر اساس انتگرال‌گیری واقعی از سرعت:
+  مسافت (km) = سرعت (km/h) × زمان (h)
+============================================================================*/
+void updateOdometer(double dtSec)
+{
+  double distanceKm = gSpeedKmh * (dtSec / 3600.0);
+  gOdometerKm += distanceKm;
+}
+
+/*============================================================================
+  ارسال سیگنال‌ها روی شبکه CAN
+  *** این بخش را دقیقاً مطابق نام پیام/سیگنال DBC رسمی دنا اصلاح کنید ***
+============================================================================*/
+void sendSpeedAndOdometer()
+{
+  // ----- نمونه (فرضی) - جایگزین کنید با نام واقعی پیام/سیگنال DBC -----
+  //
+  // $VehicleSpeed_Msg::VehicleSpeed = gSpeedKmh;
+  // $VehicleSpeed_Msg::RollingCounter = gRollingCounter;
+  // calcCounterAndChecksum(VehicleSpeed_Msg);
+  // output(VehicleSpeed_Msg);
+  //
+  // $Odometer_Msg::Odometer = gOdometerKm;
+  // output(Odometer_Msg);
+
+  gRollingCounter = (gRollingCounter + 1) % 16;  // یا طبق بازه تعریف‌شده در DBC
+
+  write("Speed=%.1f km/h | Odometer=%.2f km | Phase=%d | Counter=%d",
+        gSpeedKmh, gOdometerKm, gPhase, gRollingCounter);
+}
+
+/*============================================================================
+  محاسبه Rolling Counter و Checksum (در صورت نیاز طبق الگوریتم DBC/E2E دنا)
+  اکثر پیام‌های ایمنی/بدنه از یک الگوریتم استاندارد (مثلاً AUTOSAR E2E Profile یا
+  یک جمع ساده XOR/CRC8) استفاده می‌کنند - الگوریتم دقیق را از مستندات DBC
+  یا تیم شبکه (Network) دنا بگیرید.
+============================================================================*/
+void calcCounterAndChecksum(message* msg)
+{
+  // نمونه خیلی ساده - باید با الگوریتم واقعی جایگزین شود:
+  // byte crc = 0;
+  // crc = msg.byte(0) ^ msg.byte(1) ^ ...;
+  // msg.byte(x) = crc;
+}
