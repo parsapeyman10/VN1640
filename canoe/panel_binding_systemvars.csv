@@ -481,3 +481,15 @@ TPMS,HS_ID_TPMS_SUP,Hs_Tpms_ECU_Dynamic_States,NBCM_Test::Hs_Tpms_ECU_Dynamic_St
 TPMS,HS_ID_TPMS_SUP,Hs_Tpms_ECU_Static_States,NBCM_Test::Hs_Tpms_ECU_Static_States,,0.0,255.0
 TPMS,HS_ID_TPMS_SUP,Hs_Tpms_Network_Management_State,NBCM_Test::Hs_Tpms_Network_Management_State,,0.0,1.0
 TPMS,HS_ID_TPMS_SUP,Hs_Tpms_Tx_TimeOut_Counter,NBCM_Test::Hs_Tpms_Tx_TimeOut_Counter,,0.0,255.0
+PEPS,LS_ID_TARA_PEPS_1,Ls_Peps_System_Mode,NBCM_Test::Ls_Peps_System_Mode,,0.0,3.0
+PEPS,LS_ID_TARA_PEPS_1,Ls_Peps_Key_Active_Cmd_Info_Rke,NBCM_Test::Ls_Peps_Key_Active_Cmd_Info_Rke,,0.0,15.0
+PEPS,LS_ID_TARA_PEPS_1,Ls_Trunk_Unlock_PKE,NBCM_Test::Ls_Trunk_Unlock_PKE,,0.0,3.0
+PEPS,LS_ID_TARA_PEPS_1,Ls_Door_Unlock_PKE,NBCM_Test::Ls_Door_Unlock_PKE,,0.0,1.0
+PEPS,LS_ID_TARA_PEPS_1,Ls_Door_Lock_PKE,NBCM_Test::Ls_Door_Lock_PKE,,0.0,1.0
+PEPS,LS_ID_TARA_PEPS_1,Ls_Peps_SSB_Warning,NBCM_Test::Ls_Peps_SSB_Warning,,0.0,3.0
+PEPS,LS_ID_TARA_PEPS_1,Ls_Peps_Door_Open_Warning,NBCM_Test::Ls_Peps_Door_Open_Warning,,0.0,3.0
+PEPS,LS_ID_TARA_PEPS_1,Ls_Peps_FOB_LowBattery,NBCM_Test::Ls_Peps_FOB_LowBattery,,0.0,1.0
+PEPS,LS_ID_TARA_PEPS_1,Ls_Peps_Key_Out_Warning,NBCM_Test::Ls_Peps_Key_Out_Warning,,0.0,3.0
+PEPS,LS_ID_TARA_PEPS_1,Ls_Peps_ESCL_Warning,NBCM_Test::Ls_Peps_ESCL_Warning,,0.0,7.0
+PEPS,LS_ID_TARA_PEPS_1,Ls_Peps_Key_Fob_Authentication,NBCM_Test::Ls_Peps_Key_Fob_Authentication,,0.0,31.0
+PEPS,LS_ID_TARA_PEPS_1,Ls_Peps_KeyInside,NBCM_Test::Ls_Peps_KeyInside,,0.0,1.0

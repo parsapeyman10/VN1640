@@ -207,7 +207,7 @@ def test_main_panel_is_self_consistent():
 
 
 def test_every_signal_has_an_explanation():
-    """Every one of the 481 signals must answer "what is this?" somewhere.
+    """Every signal in the model must answer "what is this?" somewhere.
 
     The (i) button in the HTML tester and the tooltip in the CANoe panel read the
     same generated data; if a signal is missing from it, one of the two shows
@@ -387,6 +387,79 @@ def test_state_tables_match_each_signal():
           ", ".join(lying[:4]))
 
 
+def test_restbus_scope_is_complete():
+    """Every signal the restbus has to fake must reach dbc, CAPL, panel and docs.
+
+    The binding workbook is written for the panels and leaves out
+    LS_ID_TARA_PEPS_1 entirely, so 12 signals used to exist in the network map
+    and nowhere else.  Nothing failed, because every count was taken from the
+    workbook.  This walks the other way: start from the map and demand a
+    destination for each signal.
+    """
+    import json
+    sys.path.insert(0, str(ROOT / "tools"))
+    import build_package
+
+    nm = build_package.load_netmap(
+        ROOT / "NBCM_CAN_Simulation_Package/1_Final/NBCM_Dena_CAN_Network_Map.xlsx")
+    can = (ROOT / "NBCM_Full_Restbus_Simulation.can").read_text(encoding="utf-8-sig")
+    sent = set(re.findall(r"output\(msg_(\w+)\)", can))
+    written = set(re.findall(r"msg_\w+\.(\w+)\s*=", can))
+    model = json.loads((ROOT / "can_tester/assets/signal_map.json").read_text(encoding="utf-8"))
+    in_model = {x["sig"] for x in model["signals"]}
+
+    panel = set()
+    for f in (ROOT / "canoe" / "panels").glob("*.xvp"):
+        t = f.read_text(encoding="utf-8", errors="replace")
+        panel |= set(re.findall(r'SymbolConfiguration">[^<]*?;;;([\w.]+)', t))
+
+    # NBCM's own output is deliberately not simulated: that is the restbus idea.
+    scope = [x for x in nm["signals"]
+             if next((m["Sender"] for m in nm["messages"]
+                      if m["MessageName"] == x["MessageName"]), "").strip().upper() != "NBCM"]
+    check("the restbus scope is not empty", len(scope) > 400, str(len(scope)))
+
+    no_send = [x["SignalName"] for x in scope if x["MessageName"] not in sent]
+    check("every restbus message is actually sent", not no_send,
+          ", ".join(sorted(set(no_send))[:4]))
+
+    no_write = [x["SignalName"] for x in scope
+                if x["MessageName"] in sent and x["SignalName"] not in written]
+    check("every restbus signal is actually written into its frame", not no_write,
+          ", ".join(no_write[:4]))
+
+    no_model = [x["SignalName"] for x in scope if x["SignalName"] not in in_model]
+    check("every restbus signal is in the tester model", not no_model,
+          ", ".join(no_model[:4]))
+
+    no_panel = [x["SignalName"] for x in scope if x["SignalName"] not in panel]
+    check("every restbus signal is bound in a panel", not no_panel,
+          ", ".join(no_panel[:4]))
+
+
+def test_main_panel_binds_every_signal():
+    """The all-in-one panel must not drop a signal because a page is full.
+
+    page_signals() was called as sigs[:64] "because one page holds 4 columns",
+    so 63 signals (21 EMS + 42 ICN) existed in the model and on no tab.  A full
+    node now continues on a second tab instead of being cut.
+    """
+    import json
+    t = (ROOT / "canoe/panels/NBCM_Main.xvp").read_text(encoding="utf-8", errors="replace")
+    bound = set(re.findall(r'SymbolConfiguration">[^<]*?;;;([\w.]+)', t))
+    model = json.loads((ROOT / "can_tester/assets/signal_map.json").read_text(encoding="utf-8"))
+    missing = sorted({s["sig"] for s in model["signals"]} - bound)
+    check("the main panel binds every signal in the model", not missing,
+          f"{len(missing)} missing, e.g. " + ", ".join(missing[:4]))
+
+    # a node with more signals than one page holds must spill over, not stop
+    for node in model["nodes"]:
+        if node["nSig"] > 64:
+            n = len(re.findall(r'Name="Page_' + node["node"], t))
+            check(f"{node['node']} ({node['nSig']} signals) has more than one tab",
+                  n > 1, f"only {n} tab(s)")
+
+
 def test_verdict_reaches_the_bridge():
     """6. A suite verdict must be visible to the CANoe panel."""
     port = 9840
@@ -540,7 +613,10 @@ def test_package_is_consistent():
         assert not missing, f"CAPL declares messages with no DBC frame: {missing[:5]}"
 
         writes = set(re.findall(r"\bmsg_(\w+)\.(\w+)\s*=", can))
-        assert len(writes) == 481, f"expected 481 signal writes, got {len(writes)}"
+        model = json.loads((ROOT / "can_tester/assets/signal_map.json").read_text(encoding="utf-8"))
+        expected = len(model["signals"])
+        assert len(writes) == expected, \
+            f"expected {expected} signal writes, got {len(writes)}"
         bad = [(m, sg) for m, sg in writes if sg not in dbc.get(m, ())]
         assert not bad, f"writes to a signal not in that frame: {bad[:5]}"
 
@@ -594,8 +670,10 @@ def test_package_is_consistent():
         real = {p.relative_to(out).as_posix() for p in out.rglob("*") if p.is_file()}
         assert {f["path"] for f in man["files"]} == real, "manifest does not match the files"
         assert all(f["note"] for f in man["files"]), "manifest entry with no note"
-        assert man["counts"]["signals"] == 481
-    print(f"  PASS  package build is self-consistent (481 writes, {len(bound)} bindings)")
+        model = json.loads((ROOT / "can_tester/assets/signal_map.json").read_text(encoding="utf-8"))
+        assert man["counts"]["signals"] == len(model["signals"]), \
+            f"manifest says {man['counts']['signals']}, model has {len(model['signals'])}"
+    print(f"  PASS  package build is self-consistent ({len(writes)} writes, {len(bound)} bindings)")
 
 
 # --------------------------------------------------------------------------- #
@@ -609,6 +687,8 @@ def main() -> int:
                test_every_signal_has_an_explanation,
                test_one_port_serves_page_websocket_and_api,
                test_state_tables_match_each_signal,
+               test_restbus_scope_is_complete,
+               test_main_panel_binds_every_signal,
                test_verdict_reaches_the_bridge,
                test_package_is_consistent,
                test_find_bridge_fails_cleanly, test_launcher_dry_run,

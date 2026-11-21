@@ -63,12 +63,44 @@ HEADER = """/*@!Encoding:65001*/
 # --------------------------------------------------------------------------- #
 # DBC
 # --------------------------------------------------------------------------- #
-def dbc_ident(name: str) -> str:
-    """DBC identifiers: letters, digits, underscore; must not start with a digit."""
+VECTOR_NO_NODE = "Vector__XXX"
+
+
+def dbc_ident(name: str, fallback: str = "") -> str:
+    """DBC identifiers: letters, digits, underscore; must not start with a digit.
+
+    An empty name used to come out as a bare "_", which is not a node at all:
+    the network map has exactly one message with no sender (LS_ID_TARA_PEPS_1,
+    0x138), and its BO_ line therefore named a phantom node.  Callers pass
+    fallback=Vector__XXX for a sender nobody knows.
+    """
+    name = (name or "").strip()
+    if not name:
+        return fallback or "_"
     out = "".join(c if (c.isalnum() or c == "_") else "_" for c in name)
-    if not out or out[0].isdigit():
+    if out[0].isdigit():
         out = "_" + out
     return out
+
+
+def _own_signal_count(data: dict) -> int:
+    """How many model signals belong to a frame NBCM sends itself.
+
+    Those are not simulated: the restbus fakes every *other* node, and on a real
+    bench the NBCM being tested is the one on the bus.  The number is reported so
+    "complete" can be checked instead of assumed.
+    """
+    try:
+        nm = load_netmap(ROOT / "NBCM_CAN_Simulation_Package" / "1_Final"
+                         / "NBCM_Dena_CAN_Network_Map.xlsx")
+    except Exception:                                             # noqa: BLE001
+        return 0
+    senders = {m["MessageName"]: (m["Sender"] or "").strip().upper()
+               for m in nm["messages"]}
+    # the model only holds restbus-scope signals, so NBCM's own output is
+    # everything the map defines minus what the model actually carries
+    scope = [x for x in nm["signals"] if senders.get(x["MessageName"], "") != "NBCM"]
+    return max(0, len(nm["signals"]) - len(scope))
 
 
 def load_netmap(path: Path) -> dict:
@@ -121,7 +153,8 @@ def build_dbc(data: dict, net: str, frame_split: dict, netmap: dict) -> tuple[st
     message.  It is still filled in so adapt_restbus() stays a no-op pass-through
     and keeps working if a message ever needs splitting again.
     """
-    nodes = sorted({m["Sender"] for m in netmap["messages"] if m["Network"] == net})
+    nodes = sorted({m["Sender"].strip() for m in netmap["messages"]
+                    if m["Network"] == net and m["Sender"].strip()})
     msgs = [m for m in netmap["messages"] if m["Network"] == net]
     sigs = [x for x in netmap["signals"] if x["Network"] == net]
 
@@ -151,7 +184,10 @@ def build_dbc(data: dict, net: str, frame_split: dict, netmap: dict) -> tuple[st
         idmap[name] = {"id": can_id, "dlc": dlc, "signals": {}}
         frame_split.setdefault(name, []).append((name, [x["SignalName"] for x in sig_list]))
 
-        out.append(f"BO_ {can_id} {dbc_ident(name)}: {dlc} {dbc_ident(sender)}")
+        # An unknown sender is "Vector__XXX", the DBC convention for "nobody
+        # specific" -- not an invented node name.
+        out.append(f"BO_ {can_id} {dbc_ident(name)}: {dlc} "
+                   f"{dbc_ident(sender, fallback=VECTOR_NO_NODE)}")
         for x in sig_list:
             start = int(x["StartBit"])
             length = int(x["Length_bit"])
@@ -348,7 +384,12 @@ def build(out: Path, with_tester: bool = False) -> dict:
     # --- entry points ------------------------------------------------------
     write(out / "START-HERE.txt", START_HERE, crlf=True)
     add("START-HERE.txt", "the 6 steps, in order")
-    write(out / "README.md", PACKAGE_README, crlf=False)
+    # counts come from the model and the map, never from a constant in the prose
+    write(out / "README.md", PACKAGE_README.format(
+        messages=len(hs_ids) + len(ls_ids),
+        signals=len(data["signals"]),
+        own=_own_signal_count(data),
+        rest=len(data["signals"])), crlf=False)
     add("README.md", "what the package contains and what it cannot do")
 
     # the manifest lists every file that actually landed, not just the ones with
@@ -498,7 +539,14 @@ TROUBLESHOOTING
 PACKAGE_README = """# NBCM CAN Simulation Package
 
 A ready-to-open CANoe 12 bench for the NBCM (Dena) network: 13 simulated ECUs,
-97 messages, 481 signals, one panel that drives all of it, and a test suite.
+{messages} messages, {signals} signals, one panel that drives all of it, and a
+test suite.
+
+The 188-message database is complete; {own} of those signals belong to NBCM
+itself and are deliberately not simulated, because on a real bench the NBCM you
+are testing is the one on the bus.  All {rest} remaining signals -- every frame
+the restbus is responsible for -- are in the DBC, written by the CAPL, bound in
+a panel and explained in the tester.
 
 See `START-HERE.txt` for the steps in order.  This file is the map.
 

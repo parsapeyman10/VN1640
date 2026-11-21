@@ -11,7 +11,7 @@ NBCM_ICN.xvp,ICN,762,926,106 signals
 NBCM_ICU.xvp,ICU,262,926,27 signals
 NBCM_ITPMS.xvp,ITPMS,262,926,5 signals
 NBCM_MMS.xvp,MMS,512,926,48 signals
-NBCM_PEPS.xvp,PEPS,262,926,29 signals
+NBCM_PEPS.xvp,PEPS,512,926,41 signals
 NBCM_RBG.xvp,RBG,262,926,27 signals
 NBCM_TCU.xvp,TCU,512,926,43 signals
 NBCM_TPMS.xvp,TPMS,262,926,19 signals

@@ -316,10 +316,12 @@ def page_nodes(nodes) -> str:
     return render_page("Nodes", c, 670, 312)
 
 
-def page_signals(node, sigs) -> str:
+def page_signals(node, sigs, part=0, total_sigs=None) -> str:
     """One page per node: value display, slider and a boolean LED where useful."""
+    name = node["node"] + (f" ({part + 1})" if part else "")
+    n_all = total_sigs if total_sigs is not None else len(sigs)
     c = [text("TxtTitle", "Static Text", (8, 4),
-              f"{node['node']} - {len(sigs)} signals  ({node['net']}-CAN)",
+              f"{name} - {n_all} signals  ({node['net']}-CAN)",
               (600, 18), bold=True)]
     c.append(text("TxtColA", "Static Text", (8, 24), "signal", (150, 14), small=True))
     c.append(text("TxtColB", "Static Text", (168, 24), "value", (70, 14), small=True))
@@ -457,7 +459,13 @@ def build(data: dict) -> str:
                 if nm in by_sig and nm not in seen:
                     seen.add(nm)
                     sigs.append(by_sig[nm])
-        pages.append(page_signals(n, sigs[:64]))   # one page holds 4 columns
+        # A page holds 4 columns x 16 rows = 64 rows.  Cutting the list at 64
+        # silently dropped 21 EMS and 42 ICN signals from the panel; the rest of
+        # each node now continues on its own tab.
+        per_page = 4 * 16
+        for part, start in enumerate(range(0, max(len(sigs), 1), per_page)):
+            pages.append(page_signals(n, sigs[start:start + per_page],
+                                      part=part, total_sigs=len(sigs)))
 
     tab_props = "\n".join([
         f'      <Property Name="Name">TabMain</Property>',

@@ -1109,7 +1109,7 @@
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 820</Property>
       <Property Name="Text">Hs_Ems_EngineStatus</Property>
-      <Property Name="CustomToolTipText">مقادیر: 0 = شرط برقرار نیست | 1 = شرط برقرار است
+      <Property Name="CustomToolTipText">مقادیر: 0 = شرط برقرار نیست | 1 = شرط برقرار است | 2..3 = کدهای بیشتر
 اثر: برچسب‌هایی مثل CutOff یا WarmUp باید کوتاه و گذرا باشند؛ اگر یکی همیشه ۱ بماند یعنی شرطِ خروجش برقرار نمی‌شود.
 (از نام سیگنال؛ DBC جدول مقدار ندارد)
 وضعیت کاری موتور: روشن/خاموش
@@ -1122,7 +1122,7 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">مقادیر: 0 = شرط برقرار نیست | 1 = شرط برقرار است
+      <Property Name="CustomToolTipText">مقادیر: 0 = شرط برقرار نیست | 1 = شرط برقرار است | 2..3 = کدهای بیشتر
 اثر: برچسب‌هایی مثل CutOff یا WarmUp باید کوتاه و گذرا باشند؛ اگر یکی همیشه ۱ بماند یعنی شرطِ خروجش برقرار نمی‌شود.
 (از نام سیگنال؛ DBC جدول مقدار ندارد)
 وضعیت کاری موتور: روشن/خاموش
@@ -1136,7 +1136,7 @@
       <Property Name="Maximum">3</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Ems_EngineStatus;1;;;-1</Property>
-      <Property Name="CustomToolTipText">مقادیر: 0 = شرط برقرار نیست | 1 = شرط برقرار است
+      <Property Name="CustomToolTipText">مقادیر: 0 = شرط برقرار نیست | 1 = شرط برقرار است | 2..3 = کدهای بیشتر
 اثر: برچسب‌هایی مثل CutOff یا WarmUp باید کوتاه و گذرا باشند؛ اگر یکی همیشه ۱ بماند یعنی شرطِ خروجش برقرار نمی‌شود.
 (از نام سیگنال؛ DBC جدول مقدار ندارد)
 وضعیت کاری موتور: روشن/خاموش

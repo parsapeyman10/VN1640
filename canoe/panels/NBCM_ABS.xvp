@@ -604,10 +604,9 @@
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 456</Property>
       <Property Name="Text">Hs_Esc_EmergBrakeStatus</Property>
-      <Property Name="CustomToolTipText">مقادیر: 0 = نامعتبر | 1 = معتبر
+      <Property Name="CustomToolTipText">مقادیر: 0 = نامعتبر | 1 = معتبر | 2..3 = کدهای بیشتر
 اثر: اگر مقدار همراه معتبر است ولی عدد بی‌معنی است، مشکل در محاسبه است نه در این بیت. اگر نامعتبر شد، ببینید گیرنده چه مقدار جانشینی می‌گذارد.
 (از نام سیگنال؛ DBC جدول مقدار ندارد)
-می‌گوید مقدار همراه آن قابل استفاده است یا نه — نه اینکه خودِ سیستم سالم است.
 پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Esc_EmergBrakeStatus" Children="Controls" ControlName="Static Text">
@@ -617,10 +616,9 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">مقادیر: 0 = نامعتبر | 1 = معتبر
+      <Property Name="CustomToolTipText">مقادیر: 0 = نامعتبر | 1 = معتبر | 2..3 = کدهای بیشتر
 اثر: اگر مقدار همراه معتبر است ولی عدد بی‌معنی است، مشکل در محاسبه است نه در این بیت. اگر نامعتبر شد، ببینید گیرنده چه مقدار جانشینی می‌گذارد.
 (از نام سیگنال؛ DBC جدول مقدار ندارد)
-می‌گوید مقدار همراه آن قابل استفاده است یا نه — نه اینکه خودِ سیستم سالم است.
 پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Esc_EmergBrakeStatus" Children="Controls" ControlName="Numeric Up/Down">
@@ -631,10 +629,9 @@
       <Property Name="Maximum">3</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Esc_EmergBrakeStatus;1;;;-1</Property>
-      <Property Name="CustomToolTipText">مقادیر: 0 = نامعتبر | 1 = معتبر
+      <Property Name="CustomToolTipText">مقادیر: 0 = نامعتبر | 1 = معتبر | 2..3 = کدهای بیشتر
 اثر: اگر مقدار همراه معتبر است ولی عدد بی‌معنی است، مشکل در محاسبه است نه در این بیت. اگر نامعتبر شد، ببینید گیرنده چه مقدار جانشینی می‌گذارد.
 (از نام سیگنال؛ DBC جدول مقدار ندارد)
-می‌گوید مقدار همراه آن قابل استفاده است یا نه — نه اینکه خودِ سیستم سالم است.
 پیام: HS_ID_ABS_BRAKE · HS-CAN · هر 10 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Esc_EscDisableStatus" Children="Controls" ControlName="Static Text">

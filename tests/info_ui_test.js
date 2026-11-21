@@ -21,7 +21,10 @@ w.UI.init();
 
 // 1) descriptions loaded for every signal
 const D = w.NBCM_DESCRIPTIONS;
-ok(D && Object.keys(D.signals).length === 481, 'descriptions: expected 481, got ' + (D && Object.keys(D.signals).length));
+// the count comes from the model, so adding a signal does not break the test
+const MODEL = w.NBCM_DATA.signals.length;
+ok(D && Object.keys(D.signals).length === MODEL,
+   'descriptions: expected ' + MODEL + ', got ' + (D && Object.keys(D.signals).length));
 ok(Object.keys(D.nodes).length === 13, 'nodes: expected 13, got ' + Object.keys(D.nodes).length);
 
 // 2) every signal row has a (i) button, and the table is rendered

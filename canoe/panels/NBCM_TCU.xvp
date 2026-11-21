@@ -140,7 +140,7 @@
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 118</Property>
       <Property Name="Text">Hs_Tcu_DriverMode</Property>
-      <Property Name="CustomToolTipText">مقادیر: 0 = حالت پایه | 1 = حالت دوم
+      <Property Name="CustomToolTipText">مقادیر: 0 = حالت پایه | 1 = حالت دوم | 2..3 = کدهای بیشتر
 اثر: پرش مستقیم بین دو حالت دور (مثلاً ۰ به ۳ بدون عبور از ۱ و ۲) یعنی سیگنال یا کد عوض شده — همان‌جا را نگاه کنید.
 (از نام سیگنال؛ DBC جدول مقدار ندارد)
 موقعیت انتخاب‌شده: دنده
@@ -153,7 +153,7 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">مقادیر: 0 = حالت پایه | 1 = حالت دوم
+      <Property Name="CustomToolTipText">مقادیر: 0 = حالت پایه | 1 = حالت دوم | 2..3 = کدهای بیشتر
 اثر: پرش مستقیم بین دو حالت دور (مثلاً ۰ به ۳ بدون عبور از ۱ و ۲) یعنی سیگنال یا کد عوض شده — همان‌جا را نگاه کنید.
 (از نام سیگنال؛ DBC جدول مقدار ندارد)
 موقعیت انتخاب‌شده: دنده
@@ -167,7 +167,7 @@
       <Property Name="Maximum">3</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Tcu_DriverMode;1;;;-1</Property>
-      <Property Name="CustomToolTipText">مقادیر: 0 = حالت پایه | 1 = حالت دوم
+      <Property Name="CustomToolTipText">مقادیر: 0 = حالت پایه | 1 = حالت دوم | 2..3 = کدهای بیشتر
 اثر: پرش مستقیم بین دو حالت دور (مثلاً ۰ به ۳ بدون عبور از ۱ و ۲) یعنی سیگنال یا کد عوض شده — همان‌جا را نگاه کنید.
 (از نام سیگنال؛ DBC جدول مقدار ندارد)
 موقعیت انتخاب‌شده: دنده
@@ -540,10 +540,9 @@
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 404</Property>
       <Property Name="Text">Hs_Tcu_TorqConvClutchStatus</Property>
-      <Property Name="CustomToolTipText">مقادیر: 0 = نامعتبر | 1 = معتبر
+      <Property Name="CustomToolTipText">مقادیر: 0 = نامعتبر | 1 = معتبر | 2..3 = کدهای بیشتر
 اثر: اگر مقدار همراه معتبر است ولی عدد بی‌معنی است، مشکل در محاسبه است نه در این بیت. اگر نامعتبر شد، ببینید گیرنده چه مقدار جانشینی می‌گذارد.
 (از نام سیگنال؛ DBC جدول مقدار ندارد)
-می‌گوید مقدار همراه آن قابل استفاده است یا نه — نه اینکه خودِ سیستم سالم است.
 پیام: HS_ID_TCU_INFO1 · HS-CAN · هر 10 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Tcu_TorqConvClutchStatus" Children="Controls" ControlName="Static Text">
@@ -553,10 +552,9 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">مقادیر: 0 = نامعتبر | 1 = معتبر
+      <Property Name="CustomToolTipText">مقادیر: 0 = نامعتبر | 1 = معتبر | 2..3 = کدهای بیشتر
 اثر: اگر مقدار همراه معتبر است ولی عدد بی‌معنی است، مشکل در محاسبه است نه در این بیت. اگر نامعتبر شد، ببینید گیرنده چه مقدار جانشینی می‌گذارد.
 (از نام سیگنال؛ DBC جدول مقدار ندارد)
-می‌گوید مقدار همراه آن قابل استفاده است یا نه — نه اینکه خودِ سیستم سالم است.
 پیام: HS_ID_TCU_INFO1 · HS-CAN · هر 10 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Tcu_TorqConvClutchStatus" Children="Controls" ControlName="Numeric Up/Down">
@@ -567,10 +565,9 @@
       <Property Name="Maximum">3</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Tcu_TorqConvClutchStatus;1;;;-1</Property>
-      <Property Name="CustomToolTipText">مقادیر: 0 = نامعتبر | 1 = معتبر
+      <Property Name="CustomToolTipText">مقادیر: 0 = نامعتبر | 1 = معتبر | 2..3 = کدهای بیشتر
 اثر: اگر مقدار همراه معتبر است ولی عدد بی‌معنی است، مشکل در محاسبه است نه در این بیت. اگر نامعتبر شد، ببینید گیرنده چه مقدار جانشینی می‌گذارد.
 (از نام سیگنال؛ DBC جدول مقدار ندارد)
-می‌گوید مقدار همراه آن قابل استفاده است یا نه — نه اینکه خودِ سیستم سالم است.
 پیام: HS_ID_TCU_INFO1 · HS-CAN · هر 10 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Tcu_TorqLimitationReq" Children="Controls" ControlName="Static Text">
@@ -616,10 +613,9 @@
       <Property Name="Size">138, 18</Property>
       <Property Name="Location">10, 456</Property>
       <Property Name="Text">Hs_Tcu_TransmissionFailureStatus</Property>
-      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا | 2..3 = کدهای بیشتر
 اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
 (از نام سیگنال؛ DBC جدول مقدار ندارد)
-این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
 پیام: HS_ID_TCU_INFO1 · HS-CAN · هر 10 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Tcu_TransmissionFailureStatus" Children="Controls" ControlName="Static Text">
@@ -629,10 +625,9 @@
       <Property Name="Text">(i)</Property>
       <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
       <Property Name="ForeColor">0, 90, 170</Property>
-      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا | 2..3 = کدهای بیشتر
 اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
 (از نام سیگنال؛ DBC جدول مقدار ندارد)
-این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
 پیام: HS_ID_TCU_INFO1 · HS-CAN · هر 10 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Num_Hs_Tcu_TransmissionFailureStatus" Children="Controls" ControlName="Numeric Up/Down">
@@ -643,10 +638,9 @@
       <Property Name="Maximum">3</Property>
       <Property Name="Increment">1</Property>
       <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Tcu_TransmissionFailureStatus;1;;;-1</Property>
-      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا
+      <Property Name="CustomToolTipText">مقادیر: 0 = سالم | 1 = خطا | 2..3 = کدهای بیشتر
 اثر: در Trace وقتی این بیت ۱ می‌شود، معمولاً چند سیگنال دیگر همان فریم هم مقدار جانشین می‌گیرند — همان لحظه را نگاه کنید.
 (از نام سیگنال؛ DBC جدول مقدار ندارد)
-این سیگنال می‌گوید آن بخش سالم است یا ایراد دارد. معمولاً تشخیص داخلیِ خودِ ECU پشت آن است
 پیام: HS_ID_TCU_INFO1 · HS-CAN · هر 10 ms · 0..3</Property>
     </Object>
     <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Tcu_TransmissionOilTemp" Children="Controls" ControlName="Static Text">

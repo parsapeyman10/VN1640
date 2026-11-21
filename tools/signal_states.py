@@ -611,6 +611,26 @@ FAMILIES: list[dict] = [
         "test": "حالت‌ها را یکی‌یکی عوض کنید و ببینید گره‌ی مقابل در هر حالت چه می‌کند.",
     },
 
+    # --- vehicle power state (the levels are standard, not guessed)
+    {
+        "key": "power",
+        "match": r"(system_mode|syspowmode|powermode|_sys_mode)",
+        "name": "وضعیت برق خودرو",
+        "conf": "convention",
+        "meaning": "مرحله‌ی برق خودرو را می‌گوید: خواب، لوازم جانبی، جرقه، یا روشن.",
+        "states": [
+            _st("0", "خواب", "برق اصلی قطع است؛ گره‌ها بیدار نمی‌شوند"),
+            _st("1", "ACC", "لوازم جانبی روشن است، موتور نه"),
+            _st("2", "IGN", "برق جرقه وصل است؛ آمپر روشن می‌شود"),
+            _st("3", "روشن", "موتور روشن است و خودرو قابل حرکت است"),
+        ],
+        "when": "با دکمه‌ی استارت، پدال ترمز و احراز هویت کلید (PEPS).",
+        "observe": "پرش مستقیم از ۰ به ۳ یعنی مراحل ACC و IGN جا افتاده‌اند؛ بیت‌های ۱ و ۲ "
+                   "همان فریم را نگاه کنید، نه این عدد را.",
+        "test": "با هر بار زدن استارت باید یک پله بالا برود. اگر دو پله هم‌زمان رفت، "
+                "دو بیت با هم عوض شده‌اند.",
+    },
+
     # --- generic yes/no when nothing more specific matched
     {
         "key": "flag",
@@ -719,6 +739,20 @@ def describe_states(signal: str, kind: str, vmin: float, vmax: float,
         fam = dict(fam)
         fam["states"] = _clip_states(states, vmax)
         states = fam["states"]
+    # A code wider than the table we have is not a 0/1 flag: saying "0 = inactive,
+    # 1 = active" about a 0..3 code teaches the wrong thing, so such a signal gets
+    # an honest row for the values the table does not cover.
+    if (kind == "enum" and states
+            and all(st["v"].isdigit() for st in states)
+            and max(int(st["v"]) for st in states) < int(vmax)):
+        # the table stops before the signal's real range: name what is missing
+        biggest = max(int(st["v"]) for st in states)
+        states = list(states) + [
+            _st(f"{biggest + 1}..{int(vmax)}", "کدهای بیشتر",
+                "این مقادیر در جدول این ابزار نیستند؛ برای معنی‌شان به جدول مقدار "
+                "DBC سازنده نیاز است. تا آن موقع مقدار را فقط ثبت کنید و بر اساس آن "
+                "تصمیم نگیرید.")]
+
     scaled_early = abs(factor - 1.0) > 1e-12 or abs(offset) > 1e-12
     if kind == "num":
         # A numeric signal has no discrete states, so the table is one range row.

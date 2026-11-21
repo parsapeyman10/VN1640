@@ -1,12 +1,14 @@
 {
  "meta": {
-  "generated": "2026-11-19T06:09:20Z",
+  "generated": "2026-11-21T12:11:24Z",
   "source": "NBCM_Panel_Binding_Reference.xlsx",
   "nodes": 13,
-  "messages": 97,
-  "signals": 481,
+  "messages": 98,
+  "signals": 493,
   "warnings": [
-   "ICN: summary says 91 signals, detail has 106"
+   "ICN: summary says 91 signals, detail has 106",
+   "PEPS: summary says 29 signals, detail has 41",
+   "PEPS: summary says 1 messages, detail has 2"
   ]
  },
  "nodes": [
@@ -950,8 +952,8 @@
    "node": "PEPS",
    "net": "HS",
    "offline": "OFFLINE_PEPS",
-   "nSig": 29,
-   "nMsg": 1,
+   "nSig": 41,
+   "nMsg": 2,
    "msgs": [
     {
      "msg": "HS_ID_PEPS_1",
@@ -986,6 +988,24 @@
       "PEPS:HS_ID_PEPS_1:Hs_Peps_VehSpdVD",
       "PEPS:HS_ID_PEPS_1:Hs_Peps_VehSpdWarning",
       "PEPS:HS_ID_PEPS_1:Hs_Peps_keyComdInfo"
+     ]
+    },
+    {
+     "msg": "LS_ID_TARA_PEPS_1",
+     "cycle": 100,
+     "sigs": [
+      "PEPS:LS_ID_TARA_PEPS_1:Ls_Peps_System_Mode",
+      "PEPS:LS_ID_TARA_PEPS_1:Ls_Peps_Key_Active_Cmd_Info_Rke",
+      "PEPS:LS_ID_TARA_PEPS_1:Ls_Trunk_Unlock_PKE",
+      "PEPS:LS_ID_TARA_PEPS_1:Ls_Door_Unlock_PKE",
+      "PEPS:LS_ID_TARA_PEPS_1:Ls_Door_Lock_PKE",
+      "PEPS:LS_ID_TARA_PEPS_1:Ls_Peps_SSB_Warning",
+      "PEPS:LS_ID_TARA_PEPS_1:Ls_Peps_Door_Open_Warning",
+      "PEPS:LS_ID_TARA_PEPS_1:Ls_Peps_FOB_LowBattery",
+      "PEPS:LS_ID_TARA_PEPS_1:Ls_Peps_Key_Out_Warning",
+      "PEPS:LS_ID_TARA_PEPS_1:Ls_Peps_ESCL_Warning",
+      "PEPS:LS_ID_TARA_PEPS_1:Ls_Peps_Key_Fob_Authentication",
+      "PEPS:LS_ID_TARA_PEPS_1:Ls_Peps_KeyInside"
      ]
     }
    ]
@@ -8406,6 +8426,198 @@
    "kind": "num",
    "hint": "Numeric Edit / Slider",
    "offline": "OFFLINE_TPMS"
+  },
+  {
+   "id": "PEPS:LS_ID_TARA_PEPS_1:Ls_Peps_System_Mode",
+   "node": "PEPS",
+   "net": "LS",
+   "msg": "LS_ID_TARA_PEPS_1",
+   "sig": "Ls_Peps_System_Mode",
+   "cycle": 100,
+   "def": 0.0,
+   "unit": "",
+   "min": 0.0,
+   "max": 3.0,
+   "kind": "enum",
+   "hint": "Dropdown (Enum)",
+   "offline": "OFFLINE_PEPS",
+   "added_from_map": true
+  },
+  {
+   "id": "PEPS:LS_ID_TARA_PEPS_1:Ls_Peps_Key_Active_Cmd_Info_Rke",
+   "node": "PEPS",
+   "net": "LS",
+   "msg": "LS_ID_TARA_PEPS_1",
+   "sig": "Ls_Peps_Key_Active_Cmd_Info_Rke",
+   "cycle": 100,
+   "def": 0.0,
+   "unit": "",
+   "min": 0.0,
+   "max": 15.0,
+   "kind": "enum",
+   "hint": "Dropdown (Enum)",
+   "offline": "OFFLINE_PEPS",
+   "added_from_map": true
+  },
+  {
+   "id": "PEPS:LS_ID_TARA_PEPS_1:Ls_Trunk_Unlock_PKE",
+   "node": "PEPS",
+   "net": "LS",
+   "msg": "LS_ID_TARA_PEPS_1",
+   "sig": "Ls_Trunk_Unlock_PKE",
+   "cycle": 100,
+   "def": 0.0,
+   "unit": "",
+   "min": 0.0,
+   "max": 3.0,
+   "kind": "enum",
+   "hint": "Dropdown (Enum)",
+   "offline": "OFFLINE_PEPS",
+   "added_from_map": true
+  },
+  {
+   "id": "PEPS:LS_ID_TARA_PEPS_1:Ls_Door_Unlock_PKE",
+   "node": "PEPS",
+   "net": "LS",
+   "msg": "LS_ID_TARA_PEPS_1",
+   "sig": "Ls_Door_Unlock_PKE",
+   "cycle": 100,
+   "def": 0.0,
+   "unit": "",
+   "min": 0.0,
+   "max": 1.0,
+   "kind": "bool",
+   "hint": "Switch / LED",
+   "offline": "OFFLINE_PEPS",
+   "added_from_map": true
+  },
+  {
+   "id": "PEPS:LS_ID_TARA_PEPS_1:Ls_Door_Lock_PKE",
+   "node": "PEPS",
+   "net": "LS",
+   "msg": "LS_ID_TARA_PEPS_1",
+   "sig": "Ls_Door_Lock_PKE",
+   "cycle": 100,
+   "def": 0.0,
+   "unit": "",
+   "min": 0.0,
+   "max": 1.0,
+   "kind": "bool",
+   "hint": "Switch / LED",
+   "offline": "OFFLINE_PEPS",
+   "added_from_map": true
+  },
+  {
+   "id": "PEPS:LS_ID_TARA_PEPS_1:Ls_Peps_SSB_Warning",
+   "node": "PEPS",
+   "net": "LS",
+   "msg": "LS_ID_TARA_PEPS_1",
+   "sig": "Ls_Peps_SSB_Warning",
+   "cycle": 100,
+   "def": 0.0,
+   "unit": "",
+   "min": 0.0,
+   "max": 3.0,
+   "kind": "enum",
+   "hint": "Dropdown (Enum)",
+   "offline": "OFFLINE_PEPS",
+   "added_from_map": true
+  },
+  {
+   "id": "PEPS:LS_ID_TARA_PEPS_1:Ls_Peps_Door_Open_Warning",
+   "node": "PEPS",
+   "net": "LS",
+   "msg": "LS_ID_TARA_PEPS_1",
+   "sig": "Ls_Peps_Door_Open_Warning",
+   "cycle": 100,
+   "def": 0.0,
+   "unit": "",
+   "min": 0.0,
+   "max": 3.0,
+   "kind": "enum",
+   "hint": "Dropdown (Enum)",
+   "offline": "OFFLINE_PEPS",
+   "added_from_map": true
+  },
+  {
+   "id": "PEPS:LS_ID_TARA_PEPS_1:Ls_Peps_FOB_LowBattery",
+   "node": "PEPS",
+   "net": "LS",
+   "msg": "LS_ID_TARA_PEPS_1",
+   "sig": "Ls_Peps_FOB_LowBattery",
+   "cycle": 100,
+   "def": 0.0,
+   "unit": "",
+   "min": 0.0,
+   "max": 1.0,
+   "kind": "bool",
+   "hint": "Switch / LED",
+   "offline": "OFFLINE_PEPS",
+   "added_from_map": true
+  },
+  {
+   "id": "PEPS:LS_ID_TARA_PEPS_1:Ls_Peps_Key_Out_Warning",
+   "node": "PEPS",
+   "net": "LS",
+   "msg": "LS_ID_TARA_PEPS_1",
+   "sig": "Ls_Peps_Key_Out_Warning",
+   "cycle": 100,
+   "def": 0.0,
+   "unit": "",
+   "min": 0.0,
+   "max": 3.0,
+   "kind": "enum",
+   "hint": "Dropdown (Enum)",
+   "offline": "OFFLINE_PEPS",
+   "added_from_map": true
+  },
+  {
+   "id": "PEPS:LS_ID_TARA_PEPS_1:Ls_Peps_ESCL_Warning",
+   "node": "PEPS",
+   "net": "LS",
+   "msg": "LS_ID_TARA_PEPS_1",
+   "sig": "Ls_Peps_ESCL_Warning",
+   "cycle": 100,
+   "def": 0.0,
+   "unit": "",
+   "min": 0.0,
+   "max": 7.0,
+   "kind": "enum",
+   "hint": "Dropdown (Enum)",
+   "offline": "OFFLINE_PEPS",
+   "added_from_map": true
+  },
+  {
+   "id": "PEPS:LS_ID_TARA_PEPS_1:Ls_Peps_Key_Fob_Authentication",
+   "node": "PEPS",
+   "net": "LS",
+   "msg": "LS_ID_TARA_PEPS_1",
+   "sig": "Ls_Peps_Key_Fob_Authentication",
+   "cycle": 100,
+   "def": 0.0,
+   "unit": "",
+   "min": 0.0,
+   "max": 31.0,
+   "kind": "num",
+   "hint": "Numeric Edit / Slider",
+   "offline": "OFFLINE_PEPS",
+   "added_from_map": true
+  },
+  {
+   "id": "PEPS:LS_ID_TARA_PEPS_1:Ls_Peps_KeyInside",
+   "node": "PEPS",
+   "net": "LS",
+   "msg": "LS_ID_TARA_PEPS_1",
+   "sig": "Ls_Peps_KeyInside",
+   "cycle": 100,
+   "def": 0.0,
+   "unit": "",
+   "min": 0.0,
+   "max": 1.0,
+   "kind": "bool",
+   "hint": "Switch / LED",
+   "offline": "OFFLINE_PEPS",
+   "added_from_map": true
   }
  ],
  "messages": [
@@ -9087,6 +9299,13 @@
    "cycle": 1000,
    "node": "TPMS",
    "n_sig": 8
+  },
+  {
+   "msg": "LS_ID_TARA_PEPS_1",
+   "net": "LS",
+   "cycle": 100,
+   "node": "PEPS",
+   "n_sig": 12
   }
  ],
  "summary": [
