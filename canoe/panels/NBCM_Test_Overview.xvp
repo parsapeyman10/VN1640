@@ -1,0 +1,320 @@
+<?xml version="1.0"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Panel" Children="Controls" ControlName="NBCM Test Overview">
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtTitle" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtTitle</Property>
+      <Property Name="Size">420, 22</Property>
+      <Property Name="Location">8, 8</Property>
+      <Property Name="Text">NBCM Test Panel - restbus / CANoe 12</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.GroupBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="GrpLive" Children="Controls" ControlName="Group Box">
+      <Property Name="Name">GrpLive</Property>
+      <Property Name="Size">340, 132</Property>
+      <Property Name="Location">8, 36</Property>
+      <Property Name="Text">Live values</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LCDControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="LcdSpeed" Children="Controls" ControlName="LCD Control">
+      <Property Name="Name">LcdSpeed</Property>
+      <Property Name="Size">110, 30</Property>
+      <Property Name="Location">18, 58</Property>
+      <Property Name="DecimalPlaces">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Abs_VehicleSpeed;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtSpeed" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtSpeed</Property>
+      <Property Name="Size">140, 18</Property>
+      <Property Name="Location">134, 64</Property>
+      <Property Name="Text">VehicleSpeed km/h</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LCDControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="LcdRpm" Children="Controls" ControlName="LCD Control">
+      <Property Name="Name">LcdRpm</Property>
+      <Property Name="Size">110, 30</Property>
+      <Property Name="Location">18, 94</Property>
+      <Property Name="DecimalPlaces">0</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Ems_Rpm;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtRpm" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtRpm</Property>
+      <Property Name="Size">140, 18</Property>
+      <Property Name="Location">134, 100</Property>
+      <Property Name="Text">Engine Rpm</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LCDControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="LcdOdo" Children="Controls" ControlName="LCD Control">
+      <Property Name="Name">LcdOdo</Property>
+      <Property Name="Size">110, 30</Property>
+      <Property Name="Location">18, 130</Property>
+      <Property Name="DecimalPlaces">0</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;LS_ICN_ODO;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtOdo" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtOdo</Property>
+      <Property Name="Size">140, 18</Property>
+      <Property Name="Location">134, 136</Property>
+      <Property Name="Text">Odometer (m)</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.GroupBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="GrpMode" Children="Controls" ControlName="Group Box">
+      <Property Name="Name">GrpMode</Property>
+      <Property Name="Size">300, 132</Property>
+      <Property Name="Location">360, 36</Property>
+      <Property Name="Text">Control source</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="SwDriveMode" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">SwDriveMode</Property>
+      <Property Name="Size">21, 30</Property>
+      <Property Name="Location">372, 66</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;DRIVE_MODE;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtDriveMode" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtDriveMode</Property>
+      <Property Name="Size">240, 18</Property>
+      <Property Name="Location">402, 68</Property>
+      <Property Name="Text">DRIVE_MODE  0=CANoe  1=tester</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="SwScenario" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">SwScenario</Property>
+      <Property Name="Size">21, 30</Property>
+      <Property Name="Location">372, 102</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;SCENARIO_RUNNING;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtScenario" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtScenario</Property>
+      <Property Name="Size">240, 18</Property>
+      <Property Name="Location">402, 104</Property>
+      <Property Name="Text">SCENARIO_RUNNING</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="SwManualMode" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">SwManualMode</Property>
+      <Property Name="Size">21, 30</Property>
+      <Property Name="Location">372, 132</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;MANUAL_SPEED_MODE;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtManualMode" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtManualMode</Property>
+      <Property Name="Size">130, 18</Property>
+      <Property Name="Location">402, 134</Property>
+      <Property Name="Text">MANUAL_SPEED_MODE</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="NumManualSpeed" Children="Controls" ControlName="Numeric Up/Down">
+      <Property Name="Name">NumManualSpeed</Property>
+      <Property Name="Size">66, 20</Property>
+      <Property Name="Location">536, 132</Property>
+      <Property Name="Minimum">0</Property>
+      <Property Name="Maximum">250</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;MANUAL_SPEED_KMH;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.GroupBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="GrpNodes" Children="Controls" ControlName="Group Box">
+      <Property Name="Name">GrpNodes</Property>
+      <Property Name="Size">300, 262</Property>
+      <Property Name="Location">8, 178</Property>
+      <Property Name="Text">Node offline switch (1 = node silent)</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="SwOff_ABS" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">SwOff_ABS</Property>
+      <Property Name="Size">21, 26</Property>
+      <Property Name="Location">18, 200</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;OFFLINE_ABS;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtOff_ABS" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtOff_ABS</Property>
+      <Property Name="Size">105, 18</Property>
+      <Property Name="Location">45, 204</Property>
+      <Property Name="Text">ABS (HS)</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="SwOff_DIAG" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">SwOff_DIAG</Property>
+      <Property Name="Size">21, 26</Property>
+      <Property Name="Location">18, 234</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;OFFLINE_DIAG;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtOff_DIAG" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtOff_DIAG</Property>
+      <Property Name="Size">105, 18</Property>
+      <Property Name="Location">45, 238</Property>
+      <Property Name="Text">DIAG (HS)</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="SwOff_EMS" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">SwOff_EMS</Property>
+      <Property Name="Size">21, 26</Property>
+      <Property Name="Location">18, 268</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;OFFLINE_EMS;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtOff_EMS" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtOff_EMS</Property>
+      <Property Name="Size">105, 18</Property>
+      <Property Name="Location">45, 272</Property>
+      <Property Name="Text">EMS (HS)</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="SwOff_EPS" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">SwOff_EPS</Property>
+      <Property Name="Size">21, 26</Property>
+      <Property Name="Location">18, 302</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;OFFLINE_EPS;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtOff_EPS" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtOff_EPS</Property>
+      <Property Name="Size">105, 18</Property>
+      <Property Name="Location">45, 306</Property>
+      <Property Name="Text">EPS (HS)</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="SwOff_HVAC" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">SwOff_HVAC</Property>
+      <Property Name="Size">21, 26</Property>
+      <Property Name="Location">18, 336</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;OFFLINE_HVAC;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtOff_HVAC" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtOff_HVAC</Property>
+      <Property Name="Size">105, 18</Property>
+      <Property Name="Location">45, 340</Property>
+      <Property Name="Text">HVAC (LS)</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="SwOff_ICN" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">SwOff_ICN</Property>
+      <Property Name="Size">21, 26</Property>
+      <Property Name="Location">18, 370</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;OFFLINE_ICN;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtOff_ICN" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtOff_ICN</Property>
+      <Property Name="Size">105, 18</Property>
+      <Property Name="Location">45, 374</Property>
+      <Property Name="Text">ICN (LS)</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="SwOff_ICU" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">SwOff_ICU</Property>
+      <Property Name="Size">21, 26</Property>
+      <Property Name="Location">18, 404</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;OFFLINE_ICU;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtOff_ICU" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtOff_ICU</Property>
+      <Property Name="Size">105, 18</Property>
+      <Property Name="Location">45, 408</Property>
+      <Property Name="Text">ICU (HS)</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="SwOff_ITPMS" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">SwOff_ITPMS</Property>
+      <Property Name="Size">21, 26</Property>
+      <Property Name="Location">168, 200</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;OFFLINE_ITPMS;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtOff_ITPMS" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtOff_ITPMS</Property>
+      <Property Name="Size">105, 18</Property>
+      <Property Name="Location">195, 204</Property>
+      <Property Name="Text">ITPMS (HS)</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="SwOff_MMS" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">SwOff_MMS</Property>
+      <Property Name="Size">21, 26</Property>
+      <Property Name="Location">168, 234</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;OFFLINE_MMS;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtOff_MMS" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtOff_MMS</Property>
+      <Property Name="Size">105, 18</Property>
+      <Property Name="Location">195, 238</Property>
+      <Property Name="Text">MMS (LS)</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="SwOff_PEPS" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">SwOff_PEPS</Property>
+      <Property Name="Size">21, 26</Property>
+      <Property Name="Location">168, 268</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;OFFLINE_PEPS;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtOff_PEPS" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtOff_PEPS</Property>
+      <Property Name="Size">105, 18</Property>
+      <Property Name="Location">195, 272</Property>
+      <Property Name="Text">PEPS (HS)</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="SwOff_RBG" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">SwOff_RBG</Property>
+      <Property Name="Size">21, 26</Property>
+      <Property Name="Location">168, 302</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;OFFLINE_RBG;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtOff_RBG" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtOff_RBG</Property>
+      <Property Name="Size">105, 18</Property>
+      <Property Name="Location">195, 306</Property>
+      <Property Name="Text">RBG (LS)</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="SwOff_TCU" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">SwOff_TCU</Property>
+      <Property Name="Size">21, 26</Property>
+      <Property Name="Location">168, 336</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;OFFLINE_TCU;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtOff_TCU" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtOff_TCU</Property>
+      <Property Name="Size">105, 18</Property>
+      <Property Name="Location">195, 340</Property>
+      <Property Name="Text">TCU (HS)</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="SwOff_TPMS" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">SwOff_TPMS</Property>
+      <Property Name="Size">21, 26</Property>
+      <Property Name="Location">168, 370</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;OFFLINE_TPMS;1;;;-1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtOff_TPMS" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtOff_TPMS</Property>
+      <Property Name="Size">105, 18</Property>
+      <Property Name="Location">195, 374</Property>
+      <Property Name="Text">TPMS (HS)</Property>
+    </Object>
+    <Property Name="Name">NBCM Test Overview</Property>
+    <Property Name="Size">680, 460</Property>
+    <Property Name="BackColor">White</Property>
+  </Object>
+</Panel>

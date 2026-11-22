@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>پنل شبیه‌ساز شبکه CAN | NBCM دنا</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+:root{
+  --bg:#12161c; --panel:#1a2029; --panel2:#20272f; --line:#2c3440;
+  --txt:#e7ecf2; --sub:#8b96a5; --accent:#ff9f45; --good:#49d992;
+  --warn:#ffcf4d; --bad:#ff5d6c; --abs:#5ab0ff; --ems:#ff9f45; --icn:#49d992;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#eef1f5; --panel:#ffffff; --panel2:#f4f6f9; --line:#dde3ea;
+    --txt:#1b222c; --sub:#5b6676;
+  }
+}
+:root[data-theme="dark"]{ color-scheme: dark; }
+*{box-sizing:border-box;}
+html,body{height:100%;}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);}
+body{
+  margin:0; background:var(--bg); color:var(--txt);
+  font-family:'Vazirmatn',Tahoma,sans-serif;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+.mono{font-family:'JetBrains Mono',monospace;}
+header{
+  padding:18px 20px 14px; border-bottom:1px solid var(--line);
+  position:sticky; top:env(safe-area-inset-top,0px); background:var(--bg); z-index:5;
+}
+header h1{margin:0; font-size:19px; font-weight:700;}
+header p{margin:4px 0 0; color:var(--sub); font-size:13px;}
+
+.toolbar{
+  display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+  margin:14px 20px 0; padding:12px 14px; background:var(--panel);
+  border:1px solid var(--line); border-radius:12px;
+}
+.btn{
+  border:1px solid var(--line); background:var(--panel2); color:var(--txt);
+  padding:9px 16px; border-radius:9px; font-family:inherit; font-size:13px;
+  font-weight:600; cursor:pointer; display:flex; align-items:center; gap:6px;
+}
+.btn:active{transform:scale(.97);}
+.btn.primary{background:var(--accent); color:#1b140a; border-color:var(--accent);}
+.toolbar .sep{width:1px; height:24px; background:var(--line); margin:0 4px;}
+.phase-badge{
+  margin-inline-start:auto; font-size:12px; color:var(--sub);
+  display:flex; align-items:center; gap:8px;
+}
+.phase-badge b{color:var(--txt); font-size:13px;}
+.manual-row{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--sub);}
+.manual-row input[type=range]{width:140px; accent-color:var(--accent);}
+
+.grid{
+  display:grid; gap:16px; padding:16px 20px 28px;
+  grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+}
+.card{
+  background:var(--panel); border:1px solid var(--line); border-radius:14px;
+  padding:16px; transition:opacity .25s;
+}
+.card.offline{opacity:.4;}
+.card .head{display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;}
+.card .head .name{font-size:15px; font-weight:700;}
+.card .head .sub{font-size:11.5px; color:var(--sub); margin-top:2px;}
+.tag{
+  font-size:10.5px; padding:3px 8px; border-radius:20px; font-weight:600;
+  border:1px solid currentColor;
+}
+.tag.hs{color:var(--abs);} .tag.ls{color:var(--icn);}
+
+.gauges{display:flex; gap:14px; margin-top:6px;}
+.gauge{text-align:center; flex:1;}
+.gauge .ring{
+  width:84px; height:84px; border-radius:50%; margin:0 auto 6px;
+  display:flex; align-items:center; justify-content:center;
+  background:conic-gradient(var(--gc,var(--abs)) calc(var(--gp,0)*1%), var(--panel2) 0);
+}
+.gauge .ring .inner{
+  width:66px; height:66px; border-radius:50%; background:var(--panel);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+}
+.gauge .ring .inner .v{font-size:15px; font-weight:700;}
+.gauge .ring .inner .u{font-size:9px; color:var(--sub);}
+.gauge .lbl{font-size:11.5px; color:var(--sub);}
+
+.rows{margin-top:12px; border-top:1px dashed var(--line); padding-top:10px;}
+.row{display:flex; justify-content:space-between; align-items:center; font-size:12.5px; padding:4px 0;}
+.row .k{color:var(--sub);}
+.row .v{font-weight:600;}
+.row .v.ok{color:var(--good);}
+.row .v.bad{color:var(--bad);}
+
+.switch{position:relative; width:38px; height:21px; flex:none;}
+.switch input{opacity:0; width:0; height:0;}
+.switch .s{
+  position:absolute; inset:0; background:var(--panel2); border:1px solid var(--line);
+  border-radius:20px; cursor:pointer; transition:.2s;
+}
+.switch .s::before{
+  content:""; position:absolute; width:15px; height:15px; left:2px; top:2px;
+  background:var(--sub); border-radius:50%; transition:.2s;
+}
+.switch input:checked + .s{background:rgba(255,93,108,.18); border-color:var(--bad);}
+.switch input:checked + .s::before{transform:translateX(17px); background:var(--bad);}
+
+footer{padding:0 20px 24px; color:var(--sub); font-size:12px; line-height:1.9;}
+footer b{color:var(--txt);}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>پنل شبیه‌ساز شبکه CAN &mdash; تست NBCM دنا</h1>
+  <p>نمایش زنده‌ی وضعیت گره‌های ABS / EMS / ICN &mdash; شبیه‌سازی محلی مطابق سناریوی CAPL</p>
+</header>
+
+<div class="toolbar">
+  <button class="btn primary" id="playBtn">⏸ توقف سناریو</button>
+  <button class="btn" id="resetBtn">↺ ریست</button>
+  <div class="sep"></div>
+  <label class="manual-row">
+    <input type="checkbox" id="manualChk"> کنترل دستی سرعت
+    <input type="range" id="manualSlider" min="0" max="180" value="0" disabled>
+    <span class="mono" id="manualVal" style="min-width:52px">0 km/h</span>
+  </label>
+  <div class="phase-badge">فاز جاری: <b id="phaseLbl">Idle</b></div>
+</div>
+
+<div class="grid">
+
+  <div class="card" id="cardAbs">
+    <div class="head">
+      <div><div class="name">ABS</div><div class="sub">HS_ID_ABS_INFO2 · ID 501 · 20ms</div></div>
+      <span class="tag hs">HS-CAN</span>
+    </div>
+    <div class="gauges">
+      <div class="gauge">
+        <div class="ring"><div class="inner"><div class="v mono" id="absSpeedV">0</div><div class="u">km/h</div></div></div>
+        <div class="lbl">Hs_Abs_VehicleSpeed</div>
+      </div>
+    </div>
+    <div class="rows">
+      <div class="row"><span class="k">Hs_Abs_VehicleSpeed_Invalid</span><span class="v ok" id="absInvVal">0 (Valid)</span></div>
+      <div class="row"><span class="k">تزریق خطا (Invalid=1)</span>
+        <label class="switch"><input type="checkbox" id="absFault"><span class="s"></span></label>
+      </div>
+      <div class="row"><span class="k">قطع گره (Node Timeout)</span>
+        <label class="switch"><input type="checkbox" id="absOffline"><span class="s"></span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="cardEms">
+    <div class="head">
+      <div><div class="name">EMS</div><div class="sub">HS_ID_EMS6/7 · ID 449/450 · 10ms</div></div>
+      <span class="tag hs">HS-CAN</span>
+    </div>
+    <div class="gauges">
+      <div class="gauge">
+        <div class="ring" style="--gc:var(--ems)"><div class="inner"><div class="v mono" id="emsRpmV">800</div><div class="u">rpm</div></div></div>
+        <div class="lbl">Hs_Ems_Rpm</div>
+      </div>
+      <div class="gauge">
+        <div class="ring" style="--gc:var(--ems); --gp:70"><div class="inner"><div class="v mono" id="emsFuelV">70</div><div class="u">% سوخت</div></div></div>
+        <div class="lbl">Fuel_Tank_Level_Out</div>
+      </div>
+    </div>
+    <div class="rows">
+      <div class="row"><span class="k">Hs_Ems_Distance (انباشته)</span><span class="v mono" id="emsDistV">0.000 km</span></div>
+      <div class="row"><span class="k">قطع گره (Node Timeout)</span>
+        <label class="switch"><input type="checkbox" id="emsOffline"><span class="s"></span></label>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="cardIcn">
+    <div class="head">
+      <div><div class="name">ICN (خوشه)</div><div class="sub">LS_ID_TARA_KM_SAUV_CMB · ID 599 · Event</div></div>
+      <span class="tag ls">LS-CAN</span>
+    </div>
+    <div class="gauges">
+      <div class="gauge" style="flex:none; width:100%">
+        <div class="lbl" style="font-size:12px; margin-bottom:4px">Ls_Icn_Mileage</div>
+        <div class="v mono" style="font-size:26px; font-weight:700" id="icnMileageV">12345.0</div>
+        <div class="u" style="font-size:10px; color:var(--sub)">کیلومتر (0.1km resolution)</div>
+      </div>
+    </div>
+    <div class="rows">
+      <div class="row"><span class="k">آخرین ارسال</span><span class="v mono" id="icnLastSentV">&mdash;</span></div>
+      <div class="row"><span class="k">ارسال فوری پیام ۵۹۹</span>
+        <button class="btn" id="icnSendNow" style="padding:5px 12px; font-size:11.5px">ارسال</button>
+      </div>
+      <div class="row"><span class="k">قطع گره (Node Timeout)</span>
+        <label class="switch"><input type="checkbox" id="icnOffline"><span class="s"></span></label>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  این پنل یک <b>شبیه‌سازی محلی و بصری</b> از سناریوی CAPL قبلی‌ست (بدون اتصال واقعی به CANoe/VN1640A) &mdash;
+  برای کنترل واقعی NBCM روی باس، همین چیدمان و کلیدها را در <b>Panel Designer</b> بسازید و هرکدام را به یک
+  <b>System Variable</b> متصل کنید که CAPL همان متغیر را می‌خواند (مثلاً سوئیچ «تزریق خطا» → سیستم‌ویر
+  <span class="mono">NBCM_Test::Abs::SpeedInvalid</span> → در CAPL: <span class="mono">msgAbsInfo2.Hs_Abs_VehicleSpeed_Invalid = @sysvar::NBCM_Test::Abs::SpeedInvalid;</span>
+  اگر بخواید، نسخه‌ی به‌روزشده‌ی فایل .can با همین سیستم‌ویرها رو هم براتون آماده می‌کنم.
+</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+let running=true, manual=false, tAcc=0, phase=0, phaseT=0;
+let speed=0, rpm=800, fuel=70, distKm=0, mileage=12345.0;
+
+const PH=[
+  {name:'Idle', dur:3000},
+  {name:'شتاب شهری', dur:0},
+  {name:'ثابت شهری', dur:10000},
+  {name:'شتاب جاده‌ای', dur:0},
+  {name:'ثابت جاده‌ای', dur:15000},
+  {name:'ترمزگیری', dur:0},
+];
+const SPEED_URBAN=50, SPEED_HWY=110, ACCEL=1.25, DECEL=1.75;
+const RPM_IDLE=800, RPM_URBAN=1800, RPM_HWY=2600;
+
+function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
+
+function tick(dtMs){
+  const dtH = dtMs/3600000;
+  if(!manual && !$('absOffline').checked){
+    phaseT += dtMs;
+    switch(phase){
+      case 0: speed=0; rpm=RPM_IDLE; if(phaseT>=PH[0].dur){phase=1; phaseT=0;} break;
+      case 1: speed=Math.min(SPEED_URBAN, speed+ACCEL*(dtMs/10));
+              rpm=RPM_IDLE+(RPM_URBAN-RPM_IDLE)*(speed/SPEED_URBAN);
+              if(speed>=SPEED_URBAN){phase=2; phaseT=0;} break;
+      case 2: speed=SPEED_URBAN; rpm=RPM_URBAN; if(phaseT>=PH[2].dur){phase=3; phaseT=0;} break;
+      case 3: speed=Math.min(SPEED_HWY, speed+ACCEL*(dtMs/10));
+              rpm=RPM_URBAN+(RPM_HWY-RPM_URBAN)*((speed-SPEED_URBAN)/(SPEED_HWY-SPEED_URBAN));
+              if(speed>=SPEED_HWY){phase=4; phaseT=0;} break;
+      case 4: speed=SPEED_HWY; rpm=RPM_HWY; if(phaseT>=PH[4].dur){phase=5; phaseT=0;} break;
+      case 5: speed=Math.max(0, speed-DECEL*(dtMs/10));
+              rpm=RPM_IDLE+(RPM_HWY-RPM_IDLE)*(speed/SPEED_HWY);
+              if(speed<=0){phase=0; phaseT=0;} break;
+    }
+    $('phaseLbl').textContent=PH[phase].name;
+  } else if(manual){
+    speed=Number($('manualSlider').value);
+    rpm = RPM_IDLE + speed*12;
+    $('phaseLbl').textContent='کنترل دستی';
+  }
+
+  if(!$('emsOffline').checked){
+    distKm += speed*dtH;
+    fuel = clamp(fuel - speed*dtH*0.02, 0, 100);
+  }
+  if(!$('icnOffline').checked){ mileage = 12345.0 + distKm; }
+
+  render();
+}
+
+function render(){
+  $('absSpeedV').textContent = $('absOffline').checked ? '--' : speed.toFixed(0);
+  document.querySelector('#cardAbs .ring').style.setProperty('--gp', clamp(speed/180*100,0,100));
+  document.querySelector('#cardAbs .ring').style.setProperty('--gc', $('absFault').checked ? 'var(--bad)' : 'var(--abs)');
+  $('absInvVal').textContent = $('absFault').checked ? '1 (Invalid)' : '0 (Valid)';
+  $('absInvVal').className = 'v ' + ($('absFault').checked ? 'bad' : 'ok');
+  $('cardAbs').classList.toggle('offline', $('absOffline').checked);
+
+  $('emsRpmV').textContent = $('emsOffline').checked ? '--' : rpm.toFixed(0);
+  document.querySelectorAll('#cardEms .ring')[0].style.setProperty('--gp', clamp(rpm/6000*100,0,100));
+  $('emsFuelV').textContent = fuel.toFixed(0);
+  document.querySelectorAll('#cardEms .ring')[1].style.setProperty('--gp', fuel);
+  $('emsDistV').textContent = distKm.toFixed(3) + ' km';
+  $('cardEms').classList.toggle('offline', $('emsOffline').checked);
+
+  $('icnMileageV').textContent = $('icnOffline').checked ? '--' : mileage.toFixed(1);
+  $('cardIcn').classList.toggle('offline', $('icnOffline').checked);
+
+  $('manualVal').textContent = $('manualSlider').value + ' km/h';
+}
+
+let last=performance.now();
+function loop(now){
+  const dt=now-last; last=now;
+  if(running) tick(Math.min(dt,200)*4); // شتاب‌دهی ۴برابری زمان صرفاً برای نمایش سریع‌تر دمو
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+
+$('playBtn').onclick=()=>{
+  running=!running;
+  $('playBtn').textContent = running ? '⏸ توقف سناریو' : '▶ ادامه سناریو';
+};
+$('resetBtn').onclick=()=>{
+  speed=0; rpm=800; fuel=70; distKm=0; phase=0; phaseT=0; mileage=12345.0;
+  render();
+};
+$('manualChk').onchange=e=>{
+  manual=e.target.checked;
+  $('manualSlider').disabled=!manual;
+};
+$('icnSendNow').onclick=()=>{
+  $('icnLastSentV').textContent = new Date().toLocaleTimeString('fa-IR');
+};
+render();
+</script>
+</body>
+</html>

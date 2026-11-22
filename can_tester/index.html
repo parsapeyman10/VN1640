@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NBCM CAN Tester · CANoe 12</title>
+<style>
+/* ------------------------------------------------------------------ tokens */
+:root{
+  --bg:#0f1319; --panel:#161c24; --panel2:#1d2530; --line:#2a3340;
+  --txt:#e8eef6; --sub:#8d99a8; --accent:#ff9f45; --good:#3ddc97;
+  --bad:#ff5f6d; --warn:#ffcc4d; --info:#59b0ff;
+  --hs:#59b0ff; --ls:#3ddc97;
+  --mono:'Cascadia Mono','JetBrains Mono',Consolas,'Courier New',monospace;
+  --ui:'Segoe UI',Vazirmatn,Tahoma,'Iranian Sans',sans-serif;
+  color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:#eef2f7; --panel:#fff; --panel2:#f3f6fa; --line:#d8e0ea;
+  --txt:#17202b; --sub:#5d6a7a; color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:var(--ui);font-size:13px;
+  display:flex;flex-direction:column;overflow:hidden}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+button{font-family:inherit;font-size:12.5px;cursor:pointer}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--line);border-radius:6px}
+input,select{font-family:inherit;font-size:12px;background:var(--panel2);color:var(--txt);
+  border:1px solid var(--line);border-radius:7px;padding:5px 8px}
+input:focus,select:focus,button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+
+/* ------------------------------------------------------------------ header */
+header{flex:none;display:flex;align-items:center;gap:10px;padding:8px 14px;
+  background:var(--panel);border-bottom:1px solid var(--line)}
+.brand{display:flex;flex-direction:column;line-height:1.25}
+.brand b{font-size:14px}
+.brand span{font-size:10.5px;color:var(--sub)}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;
+  padding:4px 10px;border-radius:20px;border:1px solid var(--line);background:var(--panel2);
+  white-space:nowrap}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--sub);flex:none}
+.dot.ok{background:var(--good);box-shadow:0 0 8px var(--good)}
+.dot.warn{background:var(--warn);box-shadow:0 0 8px var(--warn)}
+.dot.bad{background:var(--bad);box-shadow:0 0 8px var(--bad)}
+.spacer{flex:1}
+.btn{background:var(--panel2);color:var(--txt);border:1px solid var(--line);
+  border-radius:8px;padding:6px 12px;font-weight:600}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#26190a}
+.btn.ghost{background:transparent}
+.btn.sm{padding:3px 9px;font-size:11.5px}
+.btnicon{padding:5px 9px}
+.header-actions{display:flex;gap:6px;align-items:center}
+
+/* ------------------------------------------------------------------ tabs */
+nav.tabs{flex:none;display:flex;gap:2px;padding:0 12px;background:var(--panel);
+  border-bottom:1px solid var(--line)}
+nav.tabs button{background:none;border:none;border-bottom:2px solid transparent;color:var(--sub);
+  padding:9px 14px;font-weight:600;font-size:12.5px;border-radius:8px 8px 0 0}
+nav.tabs button:hover{color:var(--txt);background:var(--panel2)}
+nav.tabs button[aria-selected="true"]{color:var(--txt);border-bottom-color:var(--accent)}
+nav.tabs .count{font-size:10px;color:var(--sub);margin-inline-start:4px}
+
+/* ------------------------------------------------------------------ views */
+main{flex:1;min-height:0;overflow:hidden}
+.view{display:none;height:100%;overflow:auto;padding:14px}
+.view.active{display:block}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px}
+.card h3{margin:0 0 8px;font-size:12.5px;font-weight:700;display:flex;align-items:center;gap:8px}
+.card h3 .reset{margin-inline-start:auto;font-size:11px;background:none;border:none;color:var(--sub)}
+.card h3 .reset:hover{color:var(--accent)}
+.hint{color:var(--sub);font-size:11px;line-height:1.7}
+.row{display:flex;gap:8px;align-items:center}
+.row.wrap{flex-wrap:wrap}
+label.fld{display:flex;flex-direction:column;gap:4px;font-size:11px;color:var(--sub);flex:1;min-width:90px}
+
+/* ------------------------------------------------------------------ control */
+table.ctrl{width:100%;border-collapse:collapse;font-size:12px}
+table.ctrl th{text-align:start;color:var(--sub);font-weight:600;font-size:10.5px;
+  padding:4px 6px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel);z-index:2}
+table.ctrl td{padding:3px 6px;border-bottom:1px solid rgba(255,255,255,.04);vertical-align:middle}
+table.ctrl tr:hover td{background:var(--panel2)}
+table.ctrl tr.off td{opacity:.45}
+.sigcol{max-width:290px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.valcol{width:78px}
+.valcol input{width:76px;text-align:end;padding:3px 6px;font-family:var(--mono)}
+.unitcol{color:var(--sub);font-size:10.5px;white-space:nowrap}
+.rngcol{width:132px}
+.rngcol input[type=range]{width:126px;accent-color:var(--accent);height:18px}
+td .sw{width:34px;height:18px}
+.out-tag{font-size:10px;padding:1px 6px;border-radius:10px;border:1px solid var(--line);color:var(--sub)}
+.out-tag.on{color:var(--bad);border-color:var(--bad)}
+
+/* toggle switch */
+.switch{position:relative;width:34px;height:18px;flex:none;display:inline-block}
+.switch input{position:absolute;opacity:0;width:100%;height:100%;margin:0;cursor:pointer}
+.switch .sl{position:absolute;inset:0;background:var(--panel2);border:1px solid var(--line);
+  border-radius:20px;transition:.15s;pointer-events:none}
+.switch .sl::before{content:"";position:absolute;width:12px;height:12px;top:2px;inset-inline-start:2px;
+  background:var(--sub);border-radius:50%;transition:.15s}
+.switch input:checked + .sl{background:rgba(255,95,109,.2);border-color:var(--bad)}
+.switch input:checked + .sl::before{transform:translateX(-14px);background:var(--bad)}
+[dir="rtl"] .switch input:checked + .sl::before{transform:translateX(-14px)}
+
+/* ------------------------------------------------------------------ nodes */
+.nodegrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:10px}
+.node{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:11px;
+  display:flex;flex-direction:column;gap:8px;transition:.15s}
+.node.off{opacity:.55}
+.node .top{display:flex;align-items:center;gap:8px}
+.node .nm{font-weight:700;font-size:13.5px}
+.badge{font-size:9.5px;padding:2px 7px;border-radius:10px;border:1px solid currentColor;font-weight:700}
+.badge.hs{color:var(--hs)} .badge.ls{color:var(--ls)}
+.node .meta{font-size:10.5px;color:var(--sub);line-height:1.6}
+.node .bar{height:4px;border-radius:4px;background:var(--panel2);overflow:hidden;display:flex;gap:1px}
+.node .bar i{background:var(--good);height:100%}
+.node .actions{display:flex;gap:6px;margin-top:auto}
+.node .actions .btn{flex:1;text-align:center;padding:4px 6px;font-size:11px}
+
+/* status list (echo / offline monitoring) */
+.statlist{display:flex;flex-direction:column;gap:3px;max-height:100%;overflow:auto}
+.statrow{display:flex;align-items:center;gap:8px;padding:4px 7px;border-radius:7px;font-size:11.5px}
+.statrow:nth-child(odd){background:rgba(255,255,255,.025)}
+.statrow .nm{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.statrow .cyc{color:var(--sub);font-size:10px}
+.statrow .age{font-family:var(--mono);font-size:10.5px;min-width:62px;text-align:end;color:var(--sub)}
+.statrow.stale .age{color:var(--bad);font-weight:700}
+.statrow .miss{font-family:var(--mono);font-size:10.5px;min-width:44px;text-align:end;color:var(--bad)}
+
+/* ------------------------------------------------------------------ tests */
+.tbl{width:100%;border-collapse:collapse;font-size:12px}
+.tbl th{text-align:start;font-size:10.5px;color:var(--sub);font-weight:600;padding:6px;
+  border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel);z-index:2}
+.tbl td{padding:5px 6px;border-bottom:1px solid rgba(255,255,255,.04)}
+.tbl tr.sel td{background:rgba(255,159,69,.09)}
+.tbl tr.clickable{cursor:pointer}
+.tbl tr.clickable:hover td{background:var(--panel2)}
+.vd{font-size:10px;font-weight:800;padding:2px 8px;border-radius:9px;letter-spacing:.4px}
+.vd.PASS{background:rgba(61,220,151,.16);color:var(--good)}
+.vd.FAIL{background:rgba(255,95,109,.16);color:var(--bad)}
+.vd.INCONC{background:rgba(255,204,77,.16);color:var(--warn)}
+.vd.RUNNING{background:rgba(89,176,255,.16);color:var(--info)}
+.vd.NONE{background:rgba(255,255,255,.06);color:var(--sub)}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{font-size:10.5px;padding:3px 9px;border-radius:12px;border:1px solid var(--line);
+  background:var(--panel2);color:var(--sub);cursor:pointer}
+.chip[aria-pressed="true"]{border-color:var(--accent);color:var(--txt);background:rgba(255,159,69,.12)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:8px;margin-bottom:10px}
+.kpi{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+.kpi .n{font-size:19px;font-weight:800;font-family:var(--mono)}
+.kpi .l{font-size:10px;color:var(--sub)}
+.kpi.pass .n{color:var(--good)} .kpi.fail .n{color:var(--bad)}
+.kpi.inc .n{color:var(--warn)} .kpi.run .n{color:var(--info)}
+
+/* suite editor */
+.editor{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:12px;align-items:start}
+@media (max-width:1080px){.editor{grid-template-columns:1fr}}
+textarea{width:100%;background:var(--panel2);color:var(--txt);border:1px solid var(--line);
+  border-radius:9px;padding:9px;font-family:var(--mono);font-size:11.5px;line-height:1.55;
+  min-height:420px;resize:vertical;tab-size:2}
+textarea.err{border-color:var(--bad)}
+.msg{font-size:11px;padding:6px 9px;border-radius:8px;margin-top:8px;display:none;white-space:pre-wrap}
+.msg.show{display:block}
+.msg.ok{background:rgba(61,220,151,.12);color:var(--good)}
+.msg.bad{background:rgba(255,95,109,.12);color:var(--bad)}
+.msgsmall{font-size:10.5px;font-family:var(--mono);color:var(--sub);line-height:1.6}
+
+/* log console */
+.console{background:#0a0e13;border:1px solid var(--line);border-radius:10px;padding:8px;
+  font-family:var(--mono);font-size:11px;line-height:1.6;height:240px;overflow:auto;color:#c9d4e2}
+:root[data-theme="light"] .console{background:#0b1016}
+.console .t{color:#5d6a7a}
+.console .PASS{color:var(--good)} .console .FAIL{color:var(--bad)}
+.console .INCONC{color:var(--warn)} .console .INFO{color:var(--info)}
+.console .ERR{color:var(--bad)}
+
+.kv{display:grid;grid-template-columns:auto 1fr;gap:5px 12px;font-size:11.5px}
+.kv dt{color:var(--sub)}
+.kv dd{margin:0;font-family:var(--mono);font-size:11px;word-break:break-all}
+.section-title{font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--sub);
+  margin:0 0 6px;font-weight:700}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:10.5px;color:var(--sub)}
+.legend b{color:var(--txt);font-family:var(--mono)}
+.toast{position:fixed;inset-block-end:16px;inset-inline-start:50%;transform:translateX(50%);
+  background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 16px;
+  font-size:12px;box-shadow:0 8px 30px rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:.2s;z-index:99}
+.toast.show{opacity:1}
+
+/* --------------------------------------------------------------- print */
+@media print{
+  :root{--bg:#fff;--panel:#fff;--panel2:#fff;--txt:#111;--sub:#555;--line:#ccc}
+  body{overflow:visible;display:block}
+  header,nav.tabs,.header-actions,.toast,#view-tests,#view-control,#view-nodes,
+  #view-editor,#view-link{display:none !important}
+  #view-report{display:block !important;padding:0}
+  #view-report .btn,#view-report input{display:none !important}
+  .card{border:1px solid #ccc;break-inside:avoid;page-break-inside:avoid}
+  .kpis{grid-template-columns:repeat(4,1fr)}
+  .console{display:none}
+}
+
+/* ---- the (i) buttons and the explanation popup ------------------------- */
+.infobtn{
+  width:16px;height:16px;line-height:14px;padding:0;margin-inline-start:6px;
+  border-radius:50%;border:1px solid var(--line,#3a4358);background:transparent;
+  color:var(--muted,#8b95a8);font-size:10px;font-weight:700;cursor:pointer;
+  vertical-align:middle;flex:0 0 auto;font-family:inherit
+}
+.infobtn:hover,.infobtn:focus{background:#2d6cdf;border-color:#2d6cdf;color:#fff;outline:none}
+.infobtn::after{content:''}
+.infooverlay{
+  position:fixed;inset:0;background:rgba(8,11,18,.66);display:none;
+  align-items:center;justify-content:center;z-index:60;padding:24px
+}
+.infooverlay.show{display:flex}
+.infocard{
+  background:#151a24;border:1px solid #3a4358;border-radius:12px;
+  max-width:640px;width:100%;max-height:80vh;overflow:auto;padding:18px 20px;
+  box-shadow:0 18px 48px rgba(0,0,0,.5);direction:rtl;text-align:right
+}
+.infocard header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.infocard h3{margin:2px 0 8px;font-size:16px}
+.infocard h4{margin:14px 0 4px;font-size:12px;color:#8fb4ff;font-weight:700}
+.infocard p{margin:4px 0;font-size:12.5px;line-height:1.75}
+.infocard ul{margin:4px 18px 0 0;padding:0;font-size:12.5px;line-height:1.8}
+.infocard .infosub{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 2px}
+.infocard .chip{background:#1f2735;border:1px solid #333e52;border-radius:999px;
+  padding:1px 9px;font-size:11px;color:#b9c4d6}
+.infocard .muted{color:#8b95a8}
+.infocard .liveval{font-size:18px;font-weight:700;color:#6ee7a8;font-family:ui-monospace,monospace}
+.infocard .infoclose{background:transparent;border:1px solid #3a4358;color:#b9c4d6;
+  border-radius:8px;padding:2px 10px;cursor:pointer;font-family:inherit;font-size:12px}
+.infocard .infoclose:hover{background:#243044}
+.infotbl{width:100%;border-collapse:collapse;font-size:12px;margin-top:2px}
+.infotbl td{border-top:1px solid #26303f;padding:4px 6px;vertical-align:top}
+.infotbl td.k{color:#8b95a8;white-space:nowrap;width:34%}
+
+.infocard .statetbl{width:100%;border-collapse:collapse;font-size:12px;margin-top:4px}
+.infocard .statetbl th{text-align:right;color:#8b95a8;font-weight:600;font-size:11px;
+  padding:3px 6px;border-bottom:1px solid #2b3547}
+.infocard .statetbl th{border-bottom:1px solid #2b3547}
+.infocard .statetbl td{border-top:1px solid #232d3c;padding:4px 6px;vertical-align:top;line-height:1.65}
+.infocard .statetbl td.v{color:#ffd479;font-weight:700;white-space:nowrap;width:56px}
+.infocard .statetbl td.lbl{color:#9fe6c0;font-weight:600;white-space:nowrap}
+.infocard .confnote{font-size:11px;color:#c9a45c;background:#241f14;border-radius:6px;
+  padding:5px 8px;margin-top:6px}
+.infocard .confnote.ok{color:#8fd7b0;background:#14241b}
+.infocard .whenbox{margin-top:2px}
+.infocard .whenbox .row{display:flex;gap:8px;padding:3px 0;font-size:12.5px;line-height:1.7}
+.infocard .whenbox .k{color:#8fb4ff;white-space:nowrap;min-width:132px;font-weight:600}
+
+/* ---- the help view ---------------------------------------------------- */
+.helptbl{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px}
+.helptbl th{text-align:right;color:#8b95a8;font-size:11px;font-weight:600;padding:4px 6px;
+  border-bottom:1px solid #2b3547}
+.helptbl td{border-top:1px solid #232d3c;padding:5px 6px;vertical-align:top;line-height:1.65}
+.helptbl td.ctl{width:150px}
+.helptbl td.ctl strong{color:#ffd479;font-size:12px}
+.helptbl td.ctl .ttl{color:#b9c4d6;font-size:11.5px;margin-top:2px}
+.helptbl td.v{color:#ffd479;font-weight:700;white-space:nowrap;width:58px;font-family:ui-monospace,monospace}
+.helptbl td.lbl{color:#9fe6c0;font-weight:600;white-space:nowrap;width:88px}
+.helptbl td.infocell{width:26px;text-align:center}
+.helptbl .sub{font-size:11.5px;color:#a8b3c4;margin-top:3px}
+.helptbl .sub .k{color:#8fb4ff}
+
+/* ---- the "why did it change" table ----------------------------------- */
+.reacttbl{width:100%;border-collapse:collapse;font-size:12px}
+.reacttbl th{text-align:right;color:#8b95a8;font-size:11px;font-weight:600;
+  padding:4px 6px;border-bottom:1px solid #2b3547}
+.reacttbl td{border-top:1px solid #232d3c;padding:4px 6px;vertical-align:top;line-height:1.6}
+.reacttbl td.rule{white-space:nowrap;font-weight:600;width:74px}
+.reacttbl td.rule.r-substitute{color:#ffd479}
+.reacttbl td.rule.r-cascade{color:#ff9e7a}
+.reacttbl td.rule.r-inhibit{color:#c9a45c}
+.reacttbl td.rule.r-recover{color:#8fd7b0}
+.reacttbl td.node{color:#8fb4ff;white-space:nowrap;width:52px}
+.reacttbl td.sig{color:#c9d4e4;white-space:nowrap;width:210px;direction:ltr;text-align:left}
+.reacttbl td.why{color:#a8b3c4}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <b>NBCM CAN Tester</b>
+    <span class="mono">CANoe 12 · <span id="metaInfo">—</span></span>
+  </div>
+  <span class="pill" id="connPill" title="منبع داده">
+    <i class="dot" id="connDot"></i><span id="connText">Simulator</span>
+  </span>
+  <span class="pill" id="measPill" title="وضعیت Measurement در CANoe">
+    <i class="dot" id="measDot"></i><span id="measText">نامعلوم</span>
+  </span>
+  <button class="pill" id="driveBtn" title="کنترل نوشتن روی باس: سناریوی CANoe یا تستر" style="cursor:pointer">
+    <i class="dot" id="driveDot"></i><span id="driveText">کنترل: CANoe</span>
+  </button>
+  <div class="spacer"></div>
+  <div class="header-actions">
+    <select id="chanHs" title="کانال HS-CAN"></select>
+    <select id="chanLs" title="کانال LS-CAN"></select>
+    <button class="btn ghost btnicon" id="themeBtn" title="تغییر تم">◐</button>
+    <button class="btn ghost btnicon" id="helpBtn" title="راهنما و نقشه اتصال">؟</button>
+  </div>
+</header>
+
+<nav class="tabs" role="tablist">
+  <button role="tab" data-view="control" aria-selected="true">پنل کنترل</button>
+  <button role="tab" data-view="nodes" aria-selected="false">گره‌ها<span class="count" id="tabNodesN"></span></button>
+  <button role="tab" data-view="tests" aria-selected="false">تست‌ها<span class="count" id="tabTestsN"></span></button>
+  <button role="tab" data-view="editor" aria-selected="false">سناریوها</button>
+  <button role="tab" data-view="report" aria-selected="false">گزارش</button>
+  <button role="tab" data-view="help" aria-selected="false">راهنما</button>
+  <button role="tab" data-view="link" aria-selected="false">اتصال</button>
+</nav>
+
+<main>
+  <!-- ============================================================ CONTROL -->
+  <section class="view active" id="view-control">
+    <div class="grid2" style="margin-bottom:12px">
+      <div class="card">
+        <h3>سناریوی رانندگی (محرک مشترک)
+          <button class="reset" id="drvReset">ریست</button></h3>
+        <div class="row wrap" style="margin-bottom:8px">
+          <button class="btn primary" id="drvPlay">⏸ توقف</button>
+          <label class="fld" style="flex:2">
+            <span>سرعت هدف کنونی</span>
+            <div class="row"><input type="range" id="drvSpeed" min="0" max="180" value="0" style="flex:1;accent-color:var(--accent)">
+              <b class="mono" id="drvSpeedV" style="min-width:66px;text-align:end">0 km/h</b></div>
+          </label>
+        </div>
+        <div class="row wrap" style="gap:6px">
+          <span class="pill" id="drvPhase" style="font-size:11px">Idle</span>
+          <label class="row" style="gap:5px;font-size:11px;color:var(--sub)">
+            <input type="checkbox" id="drvManual"> کنترل دستی</label>
+          <label class="row" style="gap:5px;font-size:11px;color:var(--sub)">
+            <input type="checkbox" id="drvEngage" checked> اتصال به سناریو</label>
+        </div>
+        <p class="hint" style="margin:8px 0 0">
+          سرعت/دور موتور/سوخت را به‌صورت فیزیکی روی سیگنال‌های ABS و EMS می‌نویسد
+          (نه فقط نمایش). فازها: Idle → شهری → جاده‌ای → ترمزگیری.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>اندازه‌گیری زنده</h3>
+        <div class="row wrap" style="gap:14px">
+          <div><div class="section-title">سرعت خودرو</div>
+            <b class="mono" style="font-size:23px" id="gSpeed">0</b>
+            <span class="hint"> km/h · <span class="mono" id="gSpeedSig">—</span></span></div>
+          <div><div class="section-title">دور موتور</div>
+            <b class="mono" style="font-size:23px" id="gRpm">0</b>
+            <span class="hint"> rpm</span></div>
+          <div><div class="section-title">سوخت</div>
+            <b class="mono" style="font-size:23px" id="gFuel">0</b>
+            <span class="hint"> %</span></div>
+          <div><div class="section-title">ODO</div>
+            <b class="mono" style="font-size:23px" id="gOdo">0</b>
+            <span class="hint"> km</span></div>
+        </div>
+        <div class="legend" style="margin-top:10px">
+          <span>نرخ به‌روزرسانی: <b id="rateV">0</b> /s</span>
+          <span>سیگنال خوانده‌شده: <b id="rxV">0</b></span>
+          <span>پیام ارسالی: <b id="txV">0</b></span>
+          <span>تأخیر: <b id="latV">—</b></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="padding:0;overflow:hidden">
+      <div class="row" style="padding:10px 12px;gap:8px;border-bottom:1px solid var(--line)">
+        <select id="ctrlNode"></select>
+        <input type="search" id="ctrlSearch" placeholder="جستجوی سیگنال / پیام…" style="flex:1;min-width:120px">
+        <span class="chip" id="ctrlOverridden" aria-pressed="false" title="فقط سیگنال‌های دستکاری‌شده">Override</span>
+        <span class="chip" id="ctrlBoolOnly" aria-pressed="false">فقط بولی</span>
+        <button class="btn ghost sm" id="ctrlRelease" title="آزادسازی همه مقادیر دستی و بازگشت به سناریو/باس">آزادسازی همه</button>
+        <span class="hint" id="ctrlCount"></span>
+      </div>
+      <div style="max-height:calc(100vh - 430px);min-height:220px;overflow:auto">
+        <table class="ctrl" id="ctrlTable">
+          <thead><tr>
+            <th>سیگنال</th><th class="valcol">مقدار</th><th>واحد</th>
+            <th class="rngcol">بازه</th><th>پیام / چرخه</th><th style="width:70px">دستکاری</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card" style="margin-top:12px">
+      <h3>واکنش شبکه — چرا این مقدارها عوض شدند
+        <span class="count" id="reactCount"></span></h3>
+      <p class="hint" style="font-size:12px;margin-top:0">
+        همان قواعدی که در CANoe اجرا می‌شود: گرهی که فریمش نرسد غایب می‌شود،
+        پرچم <code>Com_Loss</code> می‌دهد، مقدار جانشین می‌گذارد و گره‌های وابسته
+        هم واکنش نشان می‌دهند.
+      </p>
+      <div id="reactList" style="max-height:34vh;overflow:auto"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ NODES -->
+  <section class="view" id="view-nodes">
+    <div class="row" style="margin-bottom:10px;gap:8px;flex-wrap:wrap">
+      <button class="btn" id="allOnline">همه آنلاین</button>
+      <button class="btn" id="allOffline">همه آفلاین</button>
+      <span class="hint" id="nodesSummary"></span>
+    </div>
+    <div class="nodegrid" id="nodeGrid"></div>
+    <div class="card" style="margin-top:12px">
+      <h3>پایش چرخه پیام (Echo / Timeout)
+        <input type="search" id="echoSearch" placeholder="فیلتر پیام…" style="margin-inline-start:12px;width:150px">
+        <button class="reset" id="echoReset">پاک‌سازی آمار</button></h3>
+      <p class="hint" style="margin-top:0">
+        آستانه Timeout = ۲.۵ برابر چرخه هر پیام. این جدول همان چیزی است که
+        تست‌های Timeout روی آن قضاوت می‌کنند.
+      </p>
+      <div class="statlist" id="echoList" style="max-height:320px"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ TESTS -->
+  <section class="view" id="view-tests">
+    <div class="kpis" id="testKpis"></div>
+    <div class="row wrap" style="margin-bottom:10px;gap:8px">
+      <button class="btn primary" id="runAll">▶ اجرای همه</button>
+      <button class="btn" id="runSel">اجرای انتخاب‌شده</button>
+      <button class="btn" id="runFail">اجرای FAILها</button>
+      <button class="btn ghost" id="stopRun">■ توقف</button>
+      <div class="spacer"></div>
+      <input type="search" id="testSearch" placeholder="فیلتر تست…" style="width:150px">
+      <select id="testSuiteFilter"></select>
+    </div>
+    <div class="card" style="padding:0;overflow:hidden">
+      <div style="max-height:calc(100vh - 340px);min-height:200px;overflow:auto">
+        <table class="tbl" id="testTable">
+          <thead><tr>
+            <th style="width:30px"><input type="checkbox" id="selAll" title="انتخاب همه"></th>
+            <th style="width:64px">Verdict</th><th>شناسه / عنوان</th><th>Suite</th>
+            <th style="width:74px">مدت</th><th style="width:120px">دلیل</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card" style="margin-top:12px;padding:0">
+      <div class="row" style="padding:9px 12px;border-bottom:1px solid var(--line)">
+        <b style="font-size:12px">لاگ اجرا</b>
+        <div class="spacer"></div>
+        <button class="btn ghost sm" id="clearLog">پاک کردن</button>
+        <button class="btn ghost sm" id="copyLog">کپی</button>
+      </div>
+      <div class="console" id="console"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ EDITOR -->
+  <section class="view" id="view-editor">
+    <div class="editor">
+      <div class="card">
+        <h3>تعریف تست‌ها (JSON)
+          <button class="reset" id="fmtJson">مرتب‌سازی</button></h3>
+        <textarea id="suiteText" spellcheck="false" dir="ltr"></textarea>
+        <div class="msg" id="suiteMsg"></div>
+        <div class="row" style="margin-top:8px">
+          <button class="btn primary" id="suiteApply">اعمال و اعتبارسنجی</button>
+          <button class="btn" id="suiteSave">ذخیره محلی</button>
+          <button class="btn ghost" id="suiteLoad">بازخوانی</button>
+          <button class="btn ghost" id="suiteDefault">بازگشت به پیش‌فرض</button>
+          <div class="spacer"></div>
+          <input type="file" id="suiteFile" accept=".json" style="display:none">
+          <button class="btn ghost" id="suiteImport">ورود فایل</button>
+          <button class="btn ghost" id="suiteExport">خروجی فایل</button>
+        </div>
+      </div>
+      <div class="card">
+        <h3>مرجع دستورات</h3>
+        <div class="msgsmall" id="refBox"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ REPORT -->
+  <section class="view" id="view-report">
+    <div class="row wrap" style="margin-bottom:10px;gap:8px">
+      <label class="fld" style="max-width:240px"><span>شناسه اجرا</span>
+        <input id="repId" placeholder="RUN-YYYYMMDD-01"></label>
+      <label class="fld" style="max-width:240px"><span>تستر / اپراتور</span>
+        <input id="repOp" placeholder="نام شما"></label>
+      <label class="fld" style="max-width:180px"><span>DUT</span>
+        <input id="repDut" value="NBCM"></label>
+      <div style="align-self:end" class="row">
+        <button class="btn primary" id="repBuild">ساخت گزارش</button>
+        <button class="btn" id="repJson">JSON</button>
+        <button class="btn" id="repJunit">JUnit XML</button>
+        <button class="btn" id="repPrint">چاپ / PDF</button>
+      </div>
+    </div>
+    <div class="grid2">
+      <div class="card"><h3>خلاصه</h3><div id="repSummary"><p class="hint">هنوز گزارشی ساخته نشده است.</p></div></div>
+      <div class="card"><h3>نتایج</h3>
+        <div style="max-height:45vh;overflow:auto"><table class="tbl" id="repTable"></table></div></div>
+    </div>
+    <div class="card" style="margin-top:12px"><h3>پیوست محیط اجرا</h3>
+      <dl class="kv" id="repEnv"></dl></div>
+  </section>
+
+  <!-- ============================================================ LINK -->
+  <!-- ============================================================= HELP -->
+  <section class="view" id="view-help">
+    <div class="card">
+      <h3>هر کنترل چه می‌کند — و اگر عوضش کنید چه اتفاقی می‌افتد</h3>
+      <p class="muted" style="font-size:12px">
+        این جدول از خودِ کد شبیه‌سازی خوانده می‌شود (زمان‌ها و سرعت‌های سناریو از
+        <code>NBCM_Full_Restbus_Simulation.can</code>)، پس با تغییر کد باید به‌روز شود.
+      </p>
+      <div id="helpSwitch"></div>
+    </div>
+    <div class="card">
+      <h3>سناریوی رانندگی</h3>
+      <div id="helpScenario"></div>
+    </div>
+    <div class="card">
+      <h3>مقدارهایی که فقط می‌خوانید</h3>
+      <div id="helpReadout"></div>
+    </div>
+    <div class="card">
+      <h3>کلیدهای قطع گره — تک‌تک، با اثرش</h3>
+      <div id="helpLive"></div>
+    </div>
+  </section>
+
+  <section class="view" id="view-link">
+    <div class="grid2">
+      <div class="card">
+        <h3>انتخاب منبع داده</h3>
+        <label class="fld"><span>حالت</span>
+          <select id="srcMode">
+            <option value="sim">Simulator (بدون CANoe — برای طراحی تست)</option>
+            <option value="auto">Auto (اگر پل در دسترس بود از آن استفاده کن)</option>
+            <option value="ws">WebSocket (پل Python)</option>
+            <option value="http">HTTP Polling (پل Python / CI)</option>
+          </select></label>
+        <label class="fld" style="margin-top:8px"><span>آدرس</span>
+          <input id="srcUrl" class="mono" placeholder="ws://127.0.0.1:8770/"></label>
+        <div class="row" style="margin-top:8px">
+          <button class="btn primary" id="srcConnect">اتصال</button>
+          <button class="btn" id="srcDisconnect">قطع</button>
+        </div>
+        <div class="msg" id="srcMsg"></div>
+        <p class="hint">حالت <b>Simulator</b> کامل و خودبسنده است: سناریو، قطع گره و
+          تمام تست‌ها بدون CANoe کار می‌کنند تا سناریوها را روی میز طراحی کنید.</p>
+      </div>
+
+      <div class="card">
+        <h3>نگاشت کانال (مهم)</h3>
+        <p class="hint" style="margin-top:0">شماره کانال‌ها در کانفیگ CANoe شما ممکن است
+          متفاوت باشد. این دو مقدار برای خواندن/نوشتن سیگنال‌ها روی باس استفاده می‌شوند.</p>
+        <div class="row" style="margin-top:8px">
+          <label class="fld"><span>HS-CAN</span><input id="mapHs" class="mono" value="1"></label>
+          <label class="fld"><span>LS-CAN</span><input id="mapLs" class="mono" value="2"></label>
+        </div>
+        <div class="row" style="margin-top:8px">
+          <label class="fld"><span>پورت پل</span><input id="mapPort" class="mono" value="8770"></label>
+          <label class="fld"><span>نام DUT</span><input id="mapDut" class="mono" value="NBCM"></label>
+        </div>
+        <div class="row" style="margin-top:8px">
+          <button class="btn" id="mapSave">ذخیره</button>
+          <button class="btn ghost" id="mapCopy" title="برای استفاده در bridge، در فایل ذخیره کن">کپی تنظیمات bridge</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>خروجی برای CANoe / CI</h3>
+        <p class="hint" style="margin-top:0">برای اجرای داخل CANoe (پنجره dock شده) و
+          محیط CI، فایل‌های همراه را ببینید. اینجا فقط داده تولید می‌شود.</p>
+        <div class="row wrap" style="margin-top:8px">
+          <button class="btn" id="dlSignals">signal_map.json</button>
+          <button class="btn" id="dlSuite">test_suite.json</button>
+          <button class="btn" id="dlReport">report.json</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>وضعیت پل</h3>
+        <dl class="kv" id="linkStatus"></dl>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ==================================================== INFO POPUP -->
+<div class="infooverlay" id="infoBox" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="infocard">
+    <header>
+      <strong id="infoTitle">راهنمای سیگنال</strong>
+      <button class="infoclose" type="button">بستن ✕</button>
+    </header>
+    <div id="infoBody"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="assets/data.js"></script>
+<script src="assets/descriptions.js"></script>
+<script src="js/react.js"></script>
+<script src="js/core.js"></script>
+<script src="js/info.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/tests.js"></script>
+<script src="js/boot.js"></script>
+</body>
+</html>

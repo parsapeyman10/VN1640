@@ -1,0 +1,7 @@
+VPanel 3 380 150 0 0 255"NBCM Smoke (cnp)"
+192 192 192
+3
+ElemSwitchAndDisplay 10 34 21 30 SysSig:NBCM_Test::DRIVE_MODE <PE> 0 0 0 17 1 1 0 1
+ElemSwitchAndDisplay 10 76 21 30 SysSig:NBCM_Test::OFFLINE_ABS <PE> 0 0 0 17 1 1 0 1
+ElemMeter 250 30 120 110 SysSig:NBCM_Test::Hs_Abs_VehicleSpeed 0 0 0 0 200 1 1 255 0 0 0 0
+@

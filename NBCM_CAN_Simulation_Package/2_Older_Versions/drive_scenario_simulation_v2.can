@@ -1,0 +1,235 @@
+/*@!Encoding:1252*/
+/*============================================================================
+  شبیه‌سازی سناریوی رانندگی واقعی - نسخه ۲ (مبتنی بر DBC رسمی دنا)
+  منبع سیگنال‌ها: 
+    NBCM_ALL_CAN_HS_Database_V23_0_030920.dbc
+    NBCM_ALL_CAN_LS_Database_V3_0_030920.dbc
+
+  این گره، نقش گره‌های ABS و EMS روی شبکه High-CAN و گره ICN (خوشه) روی 
+  شبکه Low-CAN رو ایفا می‌کنه تا NBCM سیگنال‌های واقعی رانندگی رو دریافت کنه.
+
+  ‼️ نکات مهم پیاده‌سازی:
+  1) این فایل باید به یک Simulation Node متصل بشه که هم به شبکه HS-CAN و 
+     هم به شبکه LS-CAN دسترسی داره (یا دو Node جدا - یکی روی هر شبکه - 
+     بسازید و کد رو بین اون‌ها تقسیم کنید).
+  2) هر دو دیتابیس (DBC) باید در Simulation Setup به شبکه‌های مربوطه 
+     (HS Channel / LS Channel) متصل باشن تا نام‌های سمبلیک زیر شناخته بشن.
+  3) واحد سیگنال Hs_Abs_VehicleSpeed و Hs_Ems_Distance در DBC به‌صورت 
+     خالی (بدون unit) ثبت شده؛ بر اساس ضریب مقیاس 0.05625 (رزولوشن 
+     استاندارد سرعت ABS در پلتفرم PSA/Bosch) فرض شده km/h است، و 
+     Hs_Ems_Distance فرض شده بر حسب متر است. این دو فرض رو حتماً با 
+     Sniffing واقعی روی خودرو یا مستندات تکمیلی تأیید کنید.
+  4) هیچ‌کدام از دو پیام HS (501, 450, 449) فیلد Rolling Counter یا 
+     Checksum ندارند - نیازی به E2E Protection نیست.
+  5) پیام LS (599) با Cycle=0 در DBC یعنی Event-Based است (نه تناوبی)؛ 
+     در این شبیه‌سازی به‌صورت دوره‌ای کنترل‌شده (هر چند ثانیه) ارسال می‌شود 
+     که صرفاً برای تست کفایت می‌کند - شرایط واقعی ارسال اون (مثلاً 
+     موقع Ignition-Off) رو باید از مستندات OEM تأیید کنید.
+============================================================================*/
+
+variables
+{
+  // --- پیام‌های واقعی از DBC ---
+  message HS_ID_ABS_INFO2        msgAbsInfo2;   // ABS -> NBCM  (سرعت خودرو)
+  message HS_ID_EMS7             msgEms7;       // EMS -> NBCM  (مسافت/سوخت)
+  message HS_ID_EMS6             msgEms6;       // EMS -> NBCM  (دور موتور و ...)
+  message LS_ID_TARA_KM_SAUV_CMB msgIcnMileage; // ICN -> NBCM  (کیلومتر ذخیره‌شده)
+
+  msTimer tmrFast;   // تیک پایه 10ms - برای پیام‌های 10ms و شمارش پیام 20ms
+  msTimer tmrIcn;    // ارسال کنترل‌شده پیام کیلومتر خوشه (Event-based در واقعیت)
+
+  double gSpeedKmh        = 0;     // سرعت لحظه‌ای (km/h) - فرضاً مطابق مقیاس DBC
+  double gOdometerKm       = 0;    // کیلومتر تجمعی کل (برای لاگ و پیام ICN)
+  double gEmsDistanceM     = 0;    // انباشت مسافت بر حسب متر برای Hs_Ems_Distance
+  word   gRpm              = 800;  // دور موتور (Idle پیش‌فرض)
+  int    gPhase            = 0;
+  dword  gPhaseTimeMs      = 0;
+
+  const double TICK_MS        = 10.0;   // گام پایه تایمر - برابر کوچک‌ترین Cycle Time (10ms)
+  const int    ABS_DIV        = 2;      // پیام 501 هر 20ms => هر 2 تیک
+  const double ACCEL_RATE     = 1.25;   // km/h به ازای هر تیک 10ms (معادل تقریبی قبلی روی 100ms)
+  const double DECEL_RATE     = 1.75;
+
+  const double SPEED_URBAN    = 50.0;
+  const double SPEED_HIGHWAY  = 110.0;
+  const dword  T_IDLE_MS      = 3000;
+  const dword  T_URBAN_MS     = 10000;
+  const dword  T_HIGHWAY_MS   = 15000;
+
+  const word   RPM_IDLE       = 800;
+  const word   RPM_URBAN      = 1800;
+  const word   RPM_HIGHWAY    = 2600;
+
+  int gTickCount = 0;
+}
+
+/*============================================================================
+  شروع
+============================================================================*/
+on start
+{
+  gSpeedKmh   = 0;
+  gOdometerKm = 12345.0;     // *** کیلومتر اولیه واقعی رو این‌جا ست کنید ***
+  gEmsDistanceM = 0;         // اگر Hs_Ems_Distance باید از مقدار واقعی فعلی خودرو ادامه پیدا کنه، این‌جا ست کنید
+  gPhase = 0;
+  gPhaseTimeMs = 0;
+  gRpm = RPM_IDLE;
+
+  setTimerCyclic(tmrFast, TICK_MS);
+  setTimerCyclic(tmrIcn, 5000);   // هر 5 ثانیه یک‌بار پیام کیلومتر خوشه (کنترل‌شده، نه واقعی)
+
+  write("=== شبیه‌سازی سناریوی رانندگی (v2 - DBC واقعی) شروع شد ===");
+  write("کیلومتر اولیه: %.1f km", gOdometerKm);
+}
+
+/*============================================================================
+  تیک پایه 10ms
+============================================================================*/
+on timer tmrFast
+{
+  double dtSec = TICK_MS / 1000.0;
+
+  updateDrivingPhase();
+  updateOdometer(dtSec);
+
+  sendEms7();   // هر تیک (10ms) طبق GenMsgCycleTime=10
+  sendEms6();   // هر تیک (10ms) طبق GenMsgCycleTime=10
+
+  gTickCount++;
+  if (gTickCount % ABS_DIV == 0)
+  {
+    sendAbsInfo2();   // هر 2 تیک = 20ms طبق GenMsgCycleTime=20
+  }
+}
+
+/*============================================================================
+  ارسال کنترل‌شده پیام کیلومتر خوشه (LS) - صرفاً برای پوشش تست
+============================================================================*/
+on timer tmrIcn
+{
+  sendIcnMileage();
+}
+
+/*============================================================================
+  فازهای سناریوی رانندگی + تخمین دور موتور متناسب با فاز
+============================================================================*/
+void updateDrivingPhase()
+{
+  gPhaseTimeMs += (dword)TICK_MS;
+
+  switch (gPhase)
+  {
+    case 0: // idle
+      gSpeedKmh = 0;
+      gRpm = RPM_IDLE;
+      if (gPhaseTimeMs >= T_IDLE_MS) { gPhase = 1; gPhaseTimeMs = 0; }
+      break;
+
+    case 1: // شتاب‌گیری تا سرعت شهری
+      gSpeedKmh += ACCEL_RATE;
+      gRpm = (word)(RPM_IDLE + (RPM_URBAN - RPM_IDLE) * (gSpeedKmh / SPEED_URBAN));
+      if (gSpeedKmh >= SPEED_URBAN)
+      { gSpeedKmh = SPEED_URBAN; gPhase = 2; gPhaseTimeMs = 0; }
+      break;
+
+    case 2: // ثابت شهری
+      gSpeedKmh = SPEED_URBAN;
+      gRpm = RPM_URBAN;
+      if (gPhaseTimeMs >= T_URBAN_MS) { gPhase = 3; gPhaseTimeMs = 0; }
+      break;
+
+    case 3: // شتاب‌گیری تا سرعت جاده‌ای
+      gSpeedKmh += ACCEL_RATE;
+      gRpm = (word)(RPM_URBAN + (RPM_HIGHWAY - RPM_URBAN) *
+             ((gSpeedKmh - SPEED_URBAN) / (SPEED_HIGHWAY - SPEED_URBAN)));
+      if (gSpeedKmh >= SPEED_HIGHWAY)
+      { gSpeedKmh = SPEED_HIGHWAY; gPhase = 4; gPhaseTimeMs = 0; }
+      break;
+
+    case 4: // ثابت جاده‌ای
+      gSpeedKmh = SPEED_HIGHWAY;
+      gRpm = RPM_HIGHWAY;
+      if (gPhaseTimeMs >= T_HIGHWAY_MS) { gPhase = 5; gPhaseTimeMs = 0; }
+      break;
+
+    case 5: // ترمزگیری تا توقف
+      gSpeedKmh -= DECEL_RATE;
+      gRpm = (word)(RPM_IDLE + (RPM_HIGHWAY - RPM_IDLE) * (gSpeedKmh / SPEED_HIGHWAY));
+      if (gSpeedKmh <= 0)
+      { gSpeedKmh = 0; gRpm = RPM_IDLE; gPhase = 0; gPhaseTimeMs = 0; }
+      break;
+  }
+}
+
+/*============================================================================
+  تجمیع مسافت/کیلومتر - منبع واقعی برای Hs_Ems_Distance و Ls_Icn_Mileage
+============================================================================*/
+void updateOdometer(double dtSec)
+{
+  double distanceKm = gSpeedKmh * (dtSec / 3600.0);
+  gOdometerKm   += distanceKm;
+  gEmsDistanceM += distanceKm * 1000.0;   // فرض: Hs_Ems_Distance بر حسب متر
+}
+
+/*============================================================================
+  ارسال HS_ID_ABS_INFO2 (501) - سرعت خودرو از دید ABS
+============================================================================*/
+void sendAbsInfo2()
+{
+  msgAbsInfo2.Hs_Abs_VehicleSpeed_Invalid = 0;       // 0 = Valid
+  msgAbsInfo2.Hs_Abs_VehicleSpeed = gSpeedKmh;        // CANoe مقیاس‌بندی DBC رو خودکار اعمال می‌کنه
+  msgAbsInfo2.Hs_Esc_Mcylinder_PressureInvalid = 0;
+  msgAbsInfo2.Hs_Esc_Mcylinder_Pressure = 0;          // فشار سیلندر اصلی ترمز - در حالت عادی ~0
+
+  output(msgAbsInfo2);
+}
+
+/*============================================================================
+  ارسال HS_ID_EMS7 (450) - مسافت/سوخت از دید EMS
+============================================================================*/
+void sendEms7()
+{
+  msgEms7.Hs_Ems_Distance = (dword)gEmsDistanceM;
+  msgEms7.Hs_Ems_Fuel_Tank_Level_Out = 180;   // ~70% (180 * 0.390625 ≈ 70.3)
+  msgEms7.Hs_Ems_Cng_Tank_Lvl_Out = 0;
+  msgEms7.Hs_Ems_Fuel_Tank_Sensor_Err = 0;
+  msgEms7.Hs_Ems_Cng_Sensor_Err = 0;
+  msgEms7.Hs_Ems_Cng_Fault_Lamp = 0;
+  msgEms7.Hs_Ems_Cng_Lamp = 0;
+  msgEms7.Hs_Ems_Mono_Bi_Fuel_Ind = 0;
+
+  output(msgEms7);
+}
+
+/*============================================================================
+  ارسال HS_ID_EMS6 (449) - دور موتور و وضعیت‌های کلی از دید EMS
+============================================================================*/
+void sendEms6()
+{
+  msgEms6.Hs_Ems_Rpm = gRpm;
+  msgEms6.Hs_Ems_Tco_Value = 90;              // دمای آب موتور ~90°C (طبق فرمول DBC: (90-(-48))/0.75)
+  msgEms6.Hs_Ems_EngineSpeedError = 0;
+  msgEms6.Hs_Ems_WaterInFuelLamp = 0;
+  msgEms6.Hs_Ems_GlowIndicationLamp = 0;
+  msgEms6.Hs_Ems_Starter_Inhib = 0;
+  msgEms6.Hs_Ems_Ac_Command = 0;
+  msgEms6.Hs_Ems_Check_Engine = 0;
+  msgEms6.Hs_Ems_Tco_Stop_Lamp = 0;
+
+  output(msgEms6);
+}
+
+/*============================================================================
+  ارسال LS_ID_TARA_KM_SAUV_CMB (599) - کیلومتر ذخیره‌شده از دید خوشه (ICN)
+  توجه: در واقعیت Event-Based است؛ این‌جا صرفاً برای پوشش تست دوره‌ای شده.
+============================================================================*/
+void sendIcnMileage()
+{
+  msgIcnMileage.Ls_Icn_Mileage = gOdometerKm;
+  msgIcnMileage.Ls_Icn_Mileage_Comp = 0;   // طبق DBC: AppLayerUsed=0 (استفاده نمی‌شه)
+
+  output(msgIcnMileage);
+
+  write("[ICN->NBCM] Mileage Backup Sent: %.1f km", gOdometerKm);
+}
+

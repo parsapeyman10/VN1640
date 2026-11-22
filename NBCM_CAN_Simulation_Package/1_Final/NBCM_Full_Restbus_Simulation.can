@@ -1,0 +1,1936 @@
+/*@!Encoding:65001*/
+/*============================================================================
+  شبیه‌سازی کامل شبکه (Full Restbus Simulation) - NBCM دنا - نسخه CANoe 12
+  منبع: NBCM_ALL_CAN_HS_Database_V23_0_030920.dbc / NBCM_ALL_CAN_LS_Database_V3_0_030920.dbc
+
+  این فایل نقش تمام گره‌های شبکه (به‌جز خود NBCM که DUT شماست) را ایفا می‌کند:
+  ABS, DIAG, EMS, EPS, HVAC, ICN, ICU, ITPMS, MMS, PEPS, RBG, TCU, TPMS
+
+  ‼️ الزامات Simulation Setup در CANoe 12:
+  1) یک Network Node جدید بسازید (مثلاً RestbusSim) و این فایل را به آن متصل کنید.
+  2) هر دو دیتابیس HS و LS باید به شبکه‌های (Channel) متناظرشان در همین Node وصل باشند
+     (یک Node می‌تواند هم‌زمان چند Channel/دیتابیس داشته باشد).
+  3) تمام متغیرهای سراسری زیر (per-signal) مستقیماً در Panel Designer با نوع
+     binding = 'CAPL Variable' قابل اتصال به یک گیج/اسلایدر/سوئیچ هستند -
+     نیازی به تعریف System Variable نیست.
+  4) سیگنال‌های با Cycle=Event (در DBC واقعی Event-Based بودند) این‌جا برای پوشش
+     کامل تست، به‌صورت دوره‌ای (هر 1 ثانیه - گروه tmrEvent) ارسال می‌شوند. این یک
+     ساده‌سازی عمدیه و شرط واقعی ارسال اون سیگنال در خودروی واقعی رو جایگزین نمی‌کنه.
+============================================================================*/
+
+variables
+{
+  // ===================== متغیرهای کنترلی کلی سناریو =====================
+  long  SCENARIO_RUNNING = 1;     // 1=درحال اجرای سناریوی رانندگی خودکار
+  long  MANUAL_SPEED_MODE = 0;    // 1=سرعت را کاربر از پنل دستی ست می‌کند
+  double MANUAL_SPEED_KMH = 0;    // مقدار دستی سرعت (وقتی MANUAL_SPEED_MODE=1)
+
+  long  gPhase = 0;
+  dword gPhaseTimeMs = 0;
+  double gOdometerKm = 12345.0;   // کیلومتر پایه برای ساعت شروع تست
+
+  const double SPEED_URBAN = 50.0;
+  const double SPEED_HIGHWAY = 110.0;
+  const dword  T_IDLE_MS = 3000;
+  const dword  T_URBAN_MS = 10000;
+  const dword  T_HIGHWAY_MS = 15000;
+  const double ACCEL_RATE = 1.25; // per 10ms tick
+  const double DECEL_RATE = 1.75;
+
+  // ===================== سوئیچ قطع گره (Node Offline / Timeout) هر گره =====================
+  long OFFLINE_ABS = 0;   // 1 = این گره دیگر روی باس پیام نمی‌فرستد (شبیه‌سازی قطعی)
+  long OFFLINE_DIAG = 0;   // 1 = این گره دیگر روی باس پیام نمی‌فرستد (شبیه‌سازی قطعی)
+  long OFFLINE_EMS = 0;   // 1 = این گره دیگر روی باس پیام نمی‌فرستد (شبیه‌سازی قطعی)
+  long OFFLINE_EPS = 0;   // 1 = این گره دیگر روی باس پیام نمی‌فرستد (شبیه‌سازی قطعی)
+  long OFFLINE_HVAC = 0;   // 1 = این گره دیگر روی باس پیام نمی‌فرستد (شبیه‌سازی قطعی)
+  long OFFLINE_ICN = 0;   // 1 = این گره دیگر روی باس پیام نمی‌فرستد (شبیه‌سازی قطعی)
+  long OFFLINE_ICU = 0;   // 1 = این گره دیگر روی باس پیام نمی‌فرستد (شبیه‌سازی قطعی)
+  long OFFLINE_ITPMS = 0;   // 1 = این گره دیگر روی باس پیام نمی‌فرستد (شبیه‌سازی قطعی)
+  long OFFLINE_MMS = 0;   // 1 = این گره دیگر روی باس پیام نمی‌فرستد (شبیه‌سازی قطعی)
+  long OFFLINE_PEPS = 0;   // 1 = این گره دیگر روی باس پیام نمی‌فرستد (شبیه‌سازی قطعی)
+  long OFFLINE_RBG = 0;   // 1 = این گره دیگر روی باس پیام نمی‌فرستد (شبیه‌سازی قطعی)
+  long OFFLINE_TCU = 0;   // 1 = این گره دیگر روی باس پیام نمی‌فرستد (شبیه‌سازی قطعی)
+  long OFFLINE_TPMS = 0;   // 1 = این گره دیگر روی باس پیام نمی‌فرستد (شبیه‌سازی قطعی)
+
+  // ===================== متغیرهای هر سیگنال (قابل اتصال مستقیم به پنل) =====================
+  double HS_EMS_CRUISE_ON_OFF = 0;
+  double Hs_AbsEsp_Sup_DiagMode = 0;
+  double Hs_Abs_Active = 0;
+  double Hs_Abs_Bus_Off_Counter = 0;
+  double Hs_Abs_Com_Loss = 0;
+  double Hs_Abs_Com_Loss_Counter = 0;
+  double Hs_Abs_DiagMode = 0;
+  double Hs_Abs_Ebd_Active = 0;
+  double Hs_Abs_Ebd_Error = 0;
+  double Hs_Abs_Ebd_Warning = 0;
+  double Hs_Abs_Ecu_Dynamic_States = 0;
+  double Hs_Abs_Ecu_Static_States = 0;
+  double Hs_Abs_Error = 0;
+  double Hs_Abs_Esp_Enable = 0;
+  double Hs_Abs_Esp_Warning = 0;
+  double Hs_Abs_Network_Management_State = 0;
+  double Hs_Abs_Tx_TimeOut_Counter = 0;
+  double Hs_Abs_VehicleSpeed = 0;
+  double Hs_Abs_VehicleSpeed_Invalid = 0;
+  double Hs_Abs_Warning = 0;
+  double Hs_Abs_Wheel_Pcnt_Fl = 0;
+  double Hs_Abs_Wheel_Pcnt_Fr = 0;
+  double Hs_Abs_Wheel_Pcnt_Rl = 0;
+  double Hs_Abs_Wheel_Pcnt_Rr = 0;
+  double Hs_Abs_Wheel_Speed_Fl = 0;
+  double Hs_Abs_Wheel_Speed_Fr = 0;
+  double Hs_Abs_Wheel_Speed_Rl = 0;
+  double Hs_Abs_Wheel_Speed_Rr = 0;
+  double Hs_Brake_Checksum = 0;
+  double Hs_Brake_RollCntr = 0;
+  double Hs_Diag_Req_Broadcast = 0;
+  double Hs_Diag_Req_Icn_Data = 0;
+  double Hs_Diag_Req_Mms_Data = 0;
+  double Hs_Diag_Req_Nbcm_Data = 0;
+  double Hs_Diag_Req_Rbg_Data = 0;
+  double Hs_Ems10_Checksum = 0;
+  double Hs_Ems10_RollCntr = 0;
+  double Hs_Ems9_Checksum = 0;
+  double Hs_Ems9_RollCntr = 0;
+  double Hs_Ems_Ac_Command = 0;
+  double Hs_Ems_Ac_Gasp_Sw1 = 0;
+  double Hs_Ems_Ac_Gasp_Sw2 = 0;
+  double Hs_Ems_AccPedalError = 0;
+  double Hs_Ems_ActualAccPedal = 0;
+  double Hs_Ems_AirConditionCommand2 = 0;
+  double Hs_Ems_AmbientPressureInvalid = 0;
+  double Hs_Ems_AmbintTemp = 0;
+  double Hs_Ems_BrakeEngineTorque2 = 0;
+  double Hs_Ems_BrakePedalStatus1 = 0;
+  double Hs_Ems_BrakePedalStatus2 = 0;
+  double Hs_Ems_BrakeTorqueConstant = 0;
+  double Hs_Ems_Bus_OFF_Counter = 0;
+  double Hs_Ems_Catalyst_Heating_Cycle = 0;
+  double Hs_Ems_Chall_1 = 0;
+  double Hs_Ems_Chall_2 = 0;
+  double Hs_Ems_Check_Engine = 0;
+  double Hs_Ems_ClutchPedalStatus = 0;
+  double Hs_Ems_Cng_Fault_Lamp = 0;
+  double Hs_Ems_Cng_Lamp = 0;
+  double Hs_Ems_Cng_Sensor_Err = 0;
+  double Hs_Ems_Cng_Tank_Lvl_Out = 0;
+  double Hs_Ems_Com_Loss = 0;
+  double Hs_Ems_Com_Loss_Counter = 0;
+  double Hs_Ems_ConditionIdle = 0;
+  double Hs_Ems_CoolanTemperatureError = 0;
+  double Hs_Ems_Cruise_Active = 0;
+  double Hs_Ems_Cruise_Setpoint = 0;
+  double Hs_Ems_Diag_Mode = 0;
+  double Hs_Ems_Diagnostic_Answer = 0;
+  double Hs_Ems_Diagnostic_Request = 0;
+  double Hs_Ems_Distance = 0;
+  double Hs_Ems_DriverReqTorq = 0;
+  double Hs_Ems_DrivingCycle = 0;
+  double Hs_Ems_ECU_Dynamic_States = 0;
+  double Hs_Ems_ECU_Static_States = 0;
+  double Hs_Ems_EngBrkTorqwithoutTCU = 0;
+  double Hs_Ems_EngineActualTorque = 0;
+  double Hs_Ems_EngineFrictionTorque = 0;
+  double Hs_Ems_EngineFuleCutOff = 0;
+  double Hs_Ems_EngineIdleSpeedAcitve = 0;
+  double Hs_Ems_EngineIdleTargetSpeed = 16;
+  double Hs_Ems_EngineIntakeAirTemp = 0;
+  double Hs_Ems_EngineSpeedError = 0;
+  double Hs_Ems_EngineStatus = 0;
+  double Hs_Ems_EngineThrottlePosition = 0;
+  double Hs_Ems_EobdMil = 0;
+  double Hs_Ems_F_EngTorqLoss = 0;
+  double Hs_Ems_FrictionalTorq = 0;
+  double Hs_Ems_Fuel_Cons = 0;
+  double Hs_Ems_Fuel_Tank_Level_Out = 180;
+  double Hs_Ems_Fuel_Tank_Sensor_Err = 0;
+  double Hs_Ems_GearEngagedStatus = 0;
+  double Hs_Ems_Gear_Engaged_Ind = 0;
+  double Hs_Ems_GlowIndicationLamp = 0;
+  double Hs_Ems_Gsi_Gear_Info = 0;
+  double Hs_Ems_Gsi_Gear_Value = 0;
+  double Hs_Ems_Icu_Dialog = 0;
+  double Hs_Ems_IndicatedEngineTorque1 = 0;
+  double Hs_Ems_LearnPINResp = 0;
+  double Hs_Ems_LearnSKResp = 0;
+  double Hs_Ems_MaxBrkTorq = 0;
+  double Hs_Ems_MinlndicatedTorq = 0;
+  double Hs_Ems_Mono_Bi_Fuel_Ind = 0;
+  double Hs_Ems_N_altitudeFactor = 0;
+  double Hs_Ems_Network_Management_State = 0;
+  double Hs_Ems_Reset_Resp = 0;
+  double Hs_Ems_Rpm = 800;
+  double Hs_Ems_Speed_Limit_Active = 0;
+  double Hs_Ems_Speed_limiterStatus = 0;
+  double Hs_Ems_Starter_Inhib = 0;
+  double Hs_Ems_Tco_Stop_Lamp = 0;
+  double Hs_Ems_Tco_Value = 90;
+  double Hs_Ems_TeachSKResp = 0;
+  double Hs_Ems_ThrottleValvePosError = 0;
+  double Hs_Ems_TorqueFailure = 0;
+  double Hs_Ems_Tx_TimeOut_Counter = 0;
+  double Hs_Ems_Vaccumpump_Failure_Status = 0;
+  double Hs_Ems_VirtualAccPedal = 0;
+  double Hs_Ems_WarmUpCycle = 0;
+  double Hs_Ems_WaterInFuelLamp = 0;
+  double Hs_Epas_Warning = 0;
+  double Hs_Eps_Bus_OFF_Counter = 0;
+  double Hs_Eps_COM_Loss = 0;
+  double Hs_Eps_Com_Loss_Counter = 0;
+  double Hs_Eps_Diag_Mode = 0;
+  double Hs_Eps_Diagnostic_Answer = 0;
+  double Hs_Eps_Diagnostic_Request = 0;
+  double Hs_Eps_ECU_Dynamic_States = 0;
+  double Hs_Eps_ECU_Static_States = 0;
+  double Hs_Eps_Network_Management_State = 0;
+  double Hs_Eps_Tx_TimeOut_Counter = 0;
+  double Hs_Esc_EmergBrakeStatus = 0;
+  double Hs_Esc_EscDisableStatus = 0;
+  double Hs_Esc_EscError = 0;
+  double Hs_Esc_GearShiftInhibit = 0;
+  double Hs_Esc_HacActive = 0;
+  double Hs_Esc_HacError = 0;
+  double Hs_Esc_LongAcceleration = 0;
+  double Hs_Esc_LongAccelerationValid = 0;
+  double Hs_Esc_Mcylinder_Pressure = 0;
+  double Hs_Esc_Mcylinder_PressureInvalid = 0;
+  double Hs_Esc_PitchAngle = 0;
+  double Hs_Esc_RollAngle = 0;
+  double Hs_Esc_TcsActive = 0;
+  double Hs_Esc_TcsDisableStatus = 0;
+  double Hs_Esc_TcsError = 0;
+  double Hs_Esc_TorqReductValid = 0;
+  double Hs_Esc_TorqueReductType = 0;
+  double Hs_Esc_TorqueReductValue = 0;
+  double Hs_Esc_YawRate = 0;
+  double Hs_Esc_iTpms_Reset_Progress = 0;
+  double Hs_Esc_iTpms_Status = 0;
+  double Hs_Esp_Ctl = 0;
+  double Hs_Icu_Bus_OFF_Counter = 0;
+  double Hs_Icu_Com_Loss = 0;
+  double Hs_Icu_Com_Loss_Counter = 0;
+  double Hs_Icu_Diag_Mode = 0;
+  double Hs_Icu_Diagnostic_Answer = 0;
+  double Hs_Icu_Diagnostic_Request = 0;
+  double Hs_Icu_Ecu_Dynamic_States = 0;
+  double Hs_Icu_Ecu_Static_States = 0;
+  double Hs_Icu_Ems_Status = 0;
+  double Hs_Icu_Ems_dialog = 0;
+  double Hs_Icu_Immo_Hardware_Version = 0;
+  double Hs_Icu_Immo_Lamp_Command = 0;
+  double Hs_Icu_Immo_Output_Lamp_St = 0;
+  double Hs_Icu_Immo_Production_Date = 0;
+  double Hs_Icu_Immo_Software_Version = 0;
+  double Hs_Icu_Key_Inside = 0;
+  double Hs_Icu_Net_Management_State = 0;
+  double Hs_Icu_Reset_Req_1 = 0;
+  double Hs_Icu_Reset_Req_2 = 0;
+  double Hs_Icu_Tp_Position = 0;
+  double Hs_Icu_Tx_TimeOut_Counter = 0;
+  double Hs_Imm_Auth_1 = 0;
+  double Hs_Imm_Auth_2 = 0;
+  double Hs_Imm_LearnSKReq_1 = 0;
+  double Hs_Imm_LearnSKReq_2 = 0;
+  double Hs_Imm_TeachPINReq_1 = 0;
+  double Hs_Imm_TeachPINReq_2 = 0;
+  double Hs_Imm_TeachSKReq = 0;
+  double Hs_Peps_AuthFailWarning = 0;
+  double Hs_Peps_AuthenticationSt = 0;
+  double Hs_Peps_BrakeSwitchSt = 0;
+  double Hs_Peps_ClutchSwitchSt = 0;
+  double Hs_Peps_DeactivationWarning = 0;
+  double Hs_Peps_DoorLockReq = 0;
+  double Hs_Peps_DoorLockWarning = 0;
+  double Hs_Peps_DoorUnlockReq = 0;
+  double Hs_Peps_DriverButtonSt = 0;
+  double Hs_Peps_ESCLLearntMode = 0;
+  double Hs_Peps_ESCLLockEnPowerSupplySt = 0;
+  double Hs_Peps_ESCLMotorPowerSupplySt = 0;
+  double Hs_Peps_ESCLUnlockSt = 0;
+  double Hs_Peps_ESCLWarning = 0;
+  double Hs_Peps_FOB_ID = 0;
+  double Hs_Peps_FobBattLowWarning = 0;
+  double Hs_Peps_KeyOutWarning = 0;
+  double Hs_Peps_LearntMode = 0;
+  double Hs_Peps_OpIndicationWarning = 0;
+  double Hs_Peps_PasserngerButtonSt = 0;
+  double Hs_Peps_SSBWarning = 0;
+  double Hs_Peps_SSB_SW1St = 0;
+  double Hs_Peps_SSB_SW2St = 0;
+  double Hs_Peps_SysPowMode = 0;
+  double Hs_Peps_TrunkReq = 0;
+  double Hs_Peps_VehSpd = 0;
+  double Hs_Peps_VehSpdVD = 0;
+  double Hs_Peps_VehSpdWarning = 0;
+  double Hs_Peps_keyComdInfo = 0;
+  double Hs_Sas_Angle = 0;
+  double Hs_Sas_Message_Number = 0;
+  double Hs_Sas_Speed = 0;
+  double Hs_Sas_Value_check_message_bytes = 0;
+  double Hs_Sas_internal_status_flags = 0;
+  double Hs_Tcu_ActualGearValid = 0;
+  double Hs_Tcu_Bus_OFF_Counter = 0;
+  double Hs_Tcu_Com_Loss = 0;
+  double Hs_Tcu_Com_Loss_Counter = 0;
+  double Hs_Tcu_CoolFanReq = 0;
+  double Hs_Tcu_CrankingEnable = 0;
+  double Hs_Tcu_Current_Gear = 0;
+  double Hs_Tcu_DesiredEngIdlSpdReq = 0;
+  double Hs_Tcu_DesiredEngIdlSpdReqActive = 0;
+  double Hs_Tcu_Diag_Mode = 0;
+  double Hs_Tcu_Diagnostic_Answer = 0;
+  double Hs_Tcu_Diagnostic_Request = 0;
+  double Hs_Tcu_DriverMode = 0;
+  double Hs_Tcu_Ecu_Dynamic_States = 0;
+  double Hs_Tcu_Ecu_Static_States = 0;
+  double Hs_Tcu_EngBrkTorqIncreValue = 0;
+  double Hs_Tcu_EngBrkTorqReductValue = 0;
+  double Hs_Tcu_Gear_Lever_Pos = 0;
+  double Hs_Tcu_IdleContLoadTorqInvalid = 0;
+  double Hs_Tcu_IdleControlLoadTorque = 0;
+  double Hs_Tcu_Info_1_Checksum = 0;
+  double Hs_Tcu_Info_1_RollCntr = 0;
+  double Hs_Tcu_Info_2_Checksum = 0;
+  double Hs_Tcu_Info_2_RollCntr = 0;
+  double Hs_Tcu_LaunchVehicle = 0;
+  double Hs_Tcu_MaxEngSpeedLimReq = 0;
+  double Hs_Tcu_Mil_Req_Mil_On = 0;
+  double Hs_Tcu_N_EngBrkTorqLimitValue = 0;
+  double Hs_Tcu_Network_Management_State = 0;
+  double Hs_Tcu_OutputShaftSpeed = 0;
+  double Hs_Tcu_OvertempLevel = 0;
+  double Hs_Tcu_ReverseControl = 0;
+  double Hs_Tcu_ShiftInProgress = 0;
+  double Hs_Tcu_ShiftPositionValid = 0;
+  double Hs_Tcu_TargetGear = 0;
+  double Hs_Tcu_TargetGearValid = 0;
+  double Hs_Tcu_TorqConvClutchStatus = 0;
+  double Hs_Tcu_TorqConvTurbineSpeed = 0;
+  double Hs_Tcu_TorqIncreReq = 0;
+  double Hs_Tcu_TorqLimitationReq = 0;
+  double Hs_Tcu_TorqReductReq = 0;
+  double Hs_Tcu_TransmissionFailureStatus = 0;
+  double Hs_Tcu_TransmissionOilTemp = 0;
+  double Hs_Tcu_Tx_TimeOut_Counter = 0;
+  double Hs_TpmsLearningSt = 0;
+  double Hs_Tpms_Bus_OFF_Counter = 0;
+  double Hs_Tpms_COM_Loss = 0;
+  double Hs_Tpms_Com_Loss_Counter = 0;
+  double Hs_Tpms_Diag_Mode = 0;
+  double Hs_Tpms_Diagnostic_Answer = 0;
+  double Hs_Tpms_Diagnostic_Request = 0;
+  double Hs_Tpms_ECU_Dynamic_States = 0;
+  double Hs_Tpms_ECU_Static_States = 0;
+  double Hs_Tpms_Network_Management_State = 0;
+  double Hs_Tpms_SystemSt = 0;
+  double Hs_Tpms_TireBatteryPowerSt = 0;
+  double Hs_Tpms_TireId = 0;
+  double Hs_Tpms_TireInfoInvalid = 0;
+  double Hs_Tpms_TireLeakage = 0;
+  double Hs_Tpms_TirePressure = 0;
+  double Hs_Tpms_TirePressureSt = 0;
+  double Hs_Tpms_TireTemperature = 0;
+  double Hs_Tpms_TireTemperatureSt = 0;
+  double Hs_Tpms_Tx_TimeOut_Counter = 0;
+  double Hs_iTMPS_Fault_MMS = 0;
+  double Hs_iTPMS_Check_Tire_Pressure = 0;
+  double Hs_iTPMS_Fault_ICN = 0;
+  double Hs_iTPMS_Reset_Condition_NO = 0;
+  double Hs_iTPMS_Tire_Pressure_Reg = 0;
+  double LS_HVAC_AC_SW = 0;
+  double LS_HVAC_BUSOFF_COUNTER = 0;
+  double LS_HVAC_BUS_ERROR = 0;
+  double LS_HVAC_BUS_ERROR_COUNTER = 0;
+  double LS_HVAC_COM_LOSS = 0;
+  double LS_HVAC_COM_LOSS_COUNTER = 0;
+  double LS_HVAC_DIAG_MODE = 0;
+  double LS_HVAC_DIAG_RESP = 0;
+  double LS_HVAC_FAULT_ID = 0;
+  double LS_HVAC_FAULT_STATUS = 0;
+  double LS_HVAC_INDOOR_TEMP = 0;
+  double LS_HVAC_NBCM_DYN_ABSENT = 0;
+  double LS_HVAC_NBCM_STATIC_ABSENT = 0;
+  double LS_HVAC_NM_STATE = 0;
+  double LS_HVAC_SHT_SW = 0;
+  double LS_HVAC_TX_TIMEOUT_COUNTER = 0;
+  double LS_ICN_AVS = 0;
+  double LS_ICN_BACKLIGHT = 0;
+  double LS_ICN_BUSOFF_COUNTER = 0;
+  double LS_ICN_BUS_ERROR = 0;
+  double LS_ICN_BUS_ERROR_COUNTER = 0;
+  double LS_ICN_CHANGE_AIRF = 0;
+  double LS_ICN_CHANGE_OIL = 0;
+  double LS_ICN_CHANGE_OILF = 0;
+  double LS_ICN_COM_LOSS = 0;
+  double LS_ICN_COM_LOSS_COUNTER = 0;
+  double LS_ICN_DATE_DAY = 0;
+  double LS_ICN_DATE_MONTH = 0;
+  double LS_ICN_DATE_YEAR = 0;
+  double LS_ICN_DEBUG1 = 0;
+  double LS_ICN_DEBUG2 = 0;
+  double LS_ICN_DEBUG3 = 0;
+  double LS_ICN_DEBUG4 = 0;
+  double LS_ICN_DEBUG5 = 0;
+  double LS_ICN_DEBUG6 = 0;
+  double LS_ICN_DEBUG7 = 0;
+  double LS_ICN_DEBUG8 = 0;
+  double LS_ICN_DIAG_MODE = 0;
+  double LS_ICN_DIAG_RESP = 0;
+  double LS_ICN_FAULT_ID = 0;
+  double LS_ICN_FAULT_STATUS = 0;
+  double LS_ICN_LOW_FLW = 0;
+  double LS_ICN_MAINT_DIST = 0;
+  double LS_ICN_NBCM_DYN_ABSENT = 0;
+  double LS_ICN_NBCM_STATIC_ABSENT = 0;
+  double LS_ICN_NM_STATE = 0;
+  double LS_ICN_ODO = 12345000;
+  double LS_ICN_OUT_TEMP = 0;
+  double LS_ICN_SPD_GWY = 0;
+  double LS_ICN_TIME_HOURS = 0;
+  double LS_ICN_TIME_MINUTES = 0;
+  double LS_ICN_TIME_SECONDS = 0;
+  double LS_ICN_TX_TIMEOUT_COUNTER = 0;
+  double LS_ICN_VERSION_MAJOR = 0;
+  double LS_ICN_VERSION_MINOR = 0;
+  double LS_MMS_DIAG_RESP = 0;
+  double Ls_Icn_Abs_Ehb_FaultLamp = 0;
+  double Ls_Icn_Abs_Unit1 = 0;
+  double Ls_Icn_Abs_Unit2 = 0;
+  double Ls_Icn_Abs_Unit3 = 0;
+  double Ls_Icn_BattCharge_FaultLamp = 0;
+  double Ls_Icn_Brake_Fluid_AlarmLamp = 0;
+  double Ls_Icn_Busoff_Cnt = 0;
+  double Ls_Icn_Comloss_Cnt = 0;
+  double Ls_Icn_Comloss_Fault = 0;
+  double Ls_Icn_Dist_Unit = 0;
+  double Ls_Icn_Door_Open_Lamp = 0;
+  double Ls_Icn_Dtc_Info = 0;
+  double Ls_Icn_Ecu_Num = 0;
+  double Ls_Icn_ElecBrkSplit_FaultLmp = 0;
+  double Ls_Icn_Elec_Genrt_Fault_Lamp = 0;
+  double Ls_Icn_Esp_Asr_FaultLamp = 0;
+  double Ls_Icn_Esp_Sw_Req = 0;
+  double Ls_Icn_FootOnBrake_Lamp = 0;
+  double Ls_Icn_Frame_Index = 0;
+  double Ls_Icn_Frame_Nb = 0;
+  double Ls_Icn_Low_Fuel_Lamp = 0;
+  double Ls_Icn_Maint_Reset_Req = 0;
+  double Ls_Icn_Mileage = 12345.0;
+  double Ls_Icn_Mileage_Comp = 0;
+  double Ls_Icn_Msg_Tab_Dig1 = 0;
+  double Ls_Icn_Msg_Tab_Dig2 = 0;
+  double Ls_Icn_Msg_Tab_Edition = 0;
+  double Ls_Icn_Nas_Cnt = 0;
+  double Ls_Icn_Nerr = 0;
+  double Ls_Icn_Nerr_Cnt = 0;
+  double Ls_Icn_Nm_St = 0;
+  double Ls_Icn_OilPressure_AlarmLamp = 0;
+  double Ls_Icn_ParkingBrakeLamp = 0;
+  double Ls_Icn_PasAirbagInhibLamp = 0;
+  double Ls_Icn_PassiveSafty_FaultLmp = 0;
+  double Ls_Icn_PowerSteeringFaultLamp = 0;
+  double Ls_Icn_Rbg_Fault_St = 0;
+  double Ls_Icn_Rbg_Inhib_St = 0;
+  double Ls_Icn_Reset_Partial_Odo = 0;
+  double Ls_Icn_Reset_Tot_Trip1 = 0;
+  double Ls_Icn_Service_Lamp = 0;
+  double Ls_Icn_Speed_Display = 0;
+  double Ls_Icn_Stop_Lamp = 0;
+  double Ls_Icn_Sw_Ident = 0;
+  double Ls_Icn_Sw_Ver_Day = 0;
+  double Ls_Icn_Sw_Ver_Month = 1;
+  double Ls_Icn_Sw_Ver_Year = 2000;
+  double Ls_Icn_Tpms_AlarmLamp = 0;
+  double Ls_Icn_Uds_Resp = 0;
+  double Ls_Icn_WaterTemp_AlarmLamp = 0;
+  double Ls_Icu_Key_Inside = 0;
+  double Ls_Icu_TP_Position = 0;
+  double Ls_Mms_Abs_Unit1 = 0;
+  double Ls_Mms_Abs_Unit2 = 0;
+  double Ls_Mms_Abs_Unit3 = 0;
+  double Ls_Mms_Amb_Bkl_Level = 0;
+  double Ls_Mms_Bluetooth_Active = 0;
+  double Ls_Mms_Busoff_Cnt = 0;
+  double Ls_Mms_Comloss_Cnt = 0;
+  double Ls_Mms_Comloss_Fault = 0;
+  double Ls_Mms_Config_Valid = 0;
+  double Ls_Mms_Drl_Active = 0;
+  double Ls_Mms_Dtc_Info = 0;
+  double Ls_Mms_Ecu_Num = 0;
+  double Ls_Mms_Esc_Active = 0;
+  double Ls_Mms_Frame_Index = 0;
+  double Ls_Mms_Frame_Nb = 0;
+  double Ls_Mms_Icn_Set_Day = 1;
+  double Ls_Mms_Icn_Set_Hour = 0;
+  double Ls_Mms_Icn_Set_Hour_Mode = 0;
+  double Ls_Mms_Icn_Set_Min = 0;
+  double Ls_Mms_Icn_Set_Month = 0;
+  double Ls_Mms_Icn_Set_Year = 2000;
+  double Ls_Mms_Msg_Tab_Dig1 = 0;
+  double Ls_Mms_Msg_Tab_Dig2 = 0;
+  double Ls_Mms_Msg_Tab_Edition = 0;
+  double Ls_Mms_Nas_Cnt = 0;
+  double Ls_Mms_Nerr = 0;
+  double Ls_Mms_Nerr_Cnt = 0;
+  double Ls_Mms_Nm_St = 0;
+  double Ls_Mms_Pas_Func_Permanent = 0;
+  double Ls_Mms_Pas_Func_Temporary = 0;
+  double Ls_Mms_Recognize_Trip = 0;
+  double Ls_Mms_Request_Trip1_reset = 0;
+  double Ls_Mms_Request_Trip2_reset = 0;
+  double Ls_Mms_Road_Finder_Active = 0;
+  double Ls_Mms_Road_Finder_Time = 0;
+  double Ls_Mms_Sw_Ident = 0;
+  double Ls_Mms_Sw_Ver_Day = 1;
+  double Ls_Mms_Sw_Ver_Month = 1;
+  double Ls_Mms_Sw_Ver_Year = 2000;
+  double Ls_Mms_Tpms_Active_Req = 0;
+  double Ls_Mms_Uds_Resp = 0;
+  double Ls_Rbg_Abs_Unit1 = 0;
+  double Ls_Rbg_Abs_Unit2 = 0;
+  double Ls_Rbg_Abs_Unit3 = 0;
+  double Ls_Rbg_Busoff_Cnt = 0;
+  double Ls_Rbg_Checksum = 0;
+  double Ls_Rbg_Comloss_Cnt = 0;
+  double Ls_Rbg_Comloss_Fault = 0;
+  double Ls_Rbg_Crash_Info = 0;
+  double Ls_Rbg_Dtc_Info = 0;
+  double Ls_Rbg_Ecu_Num = 0;
+  double Ls_Rbg_Fault = 0;
+  double Ls_Rbg_Frame_Index = 0;
+  double Ls_Rbg_Frame_Nb = 0;
+  double Ls_Rbg_Msg_Tab_Dig1 = 0;
+  double Ls_Rbg_Msg_Tab_Dig2 = 0;
+  double Ls_Rbg_Msg_Tab_Edition = 0;
+  double Ls_Rbg_Nas_Cnt = 0;
+  double Ls_Rbg_Nerr = 0;
+  double Ls_Rbg_Nerr_Cnt = 0;
+  double Ls_Rbg_Nm_St = 0;
+  double Ls_Rbg_Pass_Inhib = 0;
+  double Ls_Rbg_Process_Cnt = 0;
+  double Ls_Rbg_Sw_Ident = 0;
+  double Ls_Rbg_Sw_Ver_Day = 0;
+  double Ls_Rbg_Sw_Ver_Month = 1;
+  double Ls_Rbg_Sw_Ver_Year = 2000;
+  double Ls_Rbg_Uds_Resp = 0;
+
+  // ===================== پیام‌ها (از DBC) =====================
+  message HS_ID_ICU_RESET_REQ msg_HS_ID_ICU_RESET_REQ;
+  message HS_ID_IMM_LearnSKReq msg_HS_ID_IMM_LearnSKReq;
+  message HS_ID_IMM_TeachPINReq msg_HS_ID_IMM_TeachPINReq;
+  message HS_ID_IMM_TeachSKReq msg_HS_ID_IMM_TeachSKReq;
+  message HS_ID_IMM_AUTH msg_HS_ID_IMM_AUTH;
+  message HS_ID_EMS_RESET_RESP msg_HS_ID_EMS_RESET_RESP;
+  message HS_ID_EMS_TeachSKResp msg_HS_ID_EMS_TeachSKResp;
+  message HS_ID_EMS_LearnPINResp msg_HS_ID_EMS_LearnPINResp;
+  message HS_ID_EMS_LearnSKResp msg_HS_ID_EMS_LearnSKResp;
+  message HS_ID_EMS_CHALL msg_HS_ID_EMS_CHALL;
+  message HS_ID_ICU_SUP msg_HS_ID_ICU_SUP;
+  message HS_ID_ICU_DIAG_REQ msg_HS_ID_ICU_DIAG_REQ;
+  message HS_ID_ICU_DIAG_ANS msg_HS_ID_ICU_DIAG_ANS;
+  message HS_ID_ICU_E1 msg_HS_ID_ICU_E1;
+  message HS_ID_ITPMS_INFO msg_HS_ID_ITPMS_INFO;
+  message HS_ID_TPMS_DIAG_REQ msg_HS_ID_TPMS_DIAG_REQ;
+  message HS_ID_TPMS_DIAG_ANS msg_HS_ID_TPMS_DIAG_ANS;
+  message HS_ID_TPMS_SUP msg_HS_ID_TPMS_SUP;
+  message HS_ID_EPS_DIAG_REQ msg_HS_ID_EPS_DIAG_REQ;
+  message HS_ID_EPS_DIAG_ANS msg_HS_ID_EPS_DIAG_ANS;
+  message HS_ID_EPS_SUP msg_HS_ID_EPS_SUP;
+  message HS_ID_SAS msg_HS_ID_SAS;
+  message HS_ID_PEPS_1 msg_HS_ID_PEPS_1;
+  message HS_ID_TCU_SUP msg_HS_ID_TCU_SUP;
+  message HS_ID_TCU_DIAG_REQ msg_HS_ID_TCU_DIAG_REQ;
+  message HS_ID_TCU_DIAG_ANS msg_HS_ID_TCU_DIAG_ANS;
+  message HS_ID_TCU_INFO_3 msg_HS_ID_TCU_INFO_3;
+  message HS_ID_TCU_INFO_2 msg_HS_ID_TCU_INFO_2;
+  message HS_ID_EMS_DIAG_REQ msg_HS_ID_EMS_DIAG_REQ;
+  message HS_ID_EMS_DIAG_ANS msg_HS_ID_EMS_DIAG_ANS;
+  message HS_ID_EMS_ICU_1 msg_HS_ID_EMS_ICU_1;
+  message HS_ID_EMS11 msg_HS_ID_EMS11;
+  message HS_ID_EMS10 msg_HS_ID_EMS10;
+  message HS_ID_EMS9 msg_HS_ID_EMS9;
+  message HS_ID_EMS_SUP msg_HS_ID_EMS_SUP;
+  message HS_ID_EMS1 msg_HS_ID_EMS1;
+  message HS_ID_ESP_1 msg_HS_ID_ESP_1;
+  message HS_ID_ABS_BRAKE msg_HS_ID_ABS_BRAKE;
+  message HS_ID_ABS_ESP_SUP msg_HS_ID_ABS_ESP_SUP;
+  message HS_ID_ESC_ITPMS msg_HS_ID_ESC_ITPMS;
+  message HS_ID_ABS_INFO2 msg_HS_ID_ABS_INFO2;
+  message HS_ID_TPMS_INFO msg_HS_ID_TPMS_INFO;
+  message HS_ID_EMS_T_AMB msg_HS_ID_EMS_T_AMB;
+  message HS_ID_ICU_INFO msg_HS_ID_ICU_INFO;
+  message HS_ID_DIAG_REQ_BROADCAST msg_HS_ID_DIAG_REQ_BROADCAST;
+  message HS_ID_DIAG_REQ_RBG msg_HS_ID_DIAG_REQ_RBG;
+  message HS_ID_DIAG_REQ_MMS msg_HS_ID_DIAG_REQ_MMS;
+  message HS_ID_DIAG_REQ_ICN msg_HS_ID_DIAG_REQ_ICN;
+  message HS_ID_DIAG_REQ_NBCM msg_HS_ID_DIAG_REQ_NBCM;
+  message HS_ID_TCU_INFO1 msg_HS_ID_TCU_INFO1;
+  message HS_ID_EPS1 msg_HS_ID_EPS1;
+  message HS_ID_EMS8 msg_HS_ID_EMS8;
+  message HS_ID_EMS7 msg_HS_ID_EMS7;
+  message HS_ID_EMS6 msg_HS_ID_EMS6;
+  message HS_ID_EMS2 msg_HS_ID_EMS2;
+  message HS_ID_ABS_PULSE msg_HS_ID_ABS_PULSE;
+  message HS_ID_ABS msg_HS_ID_ABS;
+  message LS_ID_TARA_ICU_INFO msg_LS_ID_TARA_ICU_INFO;
+  message LS_ID_SUP_MMS msg_LS_ID_SUP_MMS;
+  message LS_ID_ICNI1_IC msg_LS_ID_ICNI1_IC;
+  message LS_ID_SUP_HVAC msg_LS_ID_SUP_HVAC;
+  message LS_ID_FR_HVAC msg_LS_ID_FR_HVAC;
+  message LS_ID_INFO_HVAC msg_LS_ID_INFO_HVAC;
+  message LS_ID_DIAG_RESP_HVAC msg_LS_ID_DIAG_RESP_HVAC;
+  message LS_ID_DIAG_RESP_MMS msg_LS_ID_DIAG_RESP_MMS;
+  message LS_ID_DEBUG_IC msg_LS_ID_DEBUG_IC;
+  message LS_ID_TARA_CRH_RBG msg_LS_ID_TARA_CRH_RBG;
+  message LS_ID_TARA_VERSION_MMS msg_LS_ID_TARA_VERSION_MMS;
+  message LS_ID_TARA_CMB_CFG_VOY msg_LS_ID_TARA_CMB_CFG_VOY;
+  message LS_ID_TARA_SUPERVISION_MMS msg_LS_ID_TARA_SUPERVISION_MMS;
+  message LS_ID_TARA_REP_DIAG_MMS msg_LS_ID_TARA_REP_DIAG_MMS;
+  message LS_ID_TARA_EVT_DEFAUT_MMS msg_LS_ID_TARA_EVT_DEFAUT_MMS;
+  message LS_ID_TARA_ECRAN_INFO_PROFILS msg_LS_ID_TARA_ECRAN_INFO_PROFILS;
+  message LS_ID_TARA_DMD_MAJ_DATE_HEURE msg_LS_ID_TARA_DMD_MAJ_DATE_HEURE;
+  message LS_ID_TARA_EVT_DEFAUT_RBG msg_LS_ID_TARA_EVT_DEFAUT_RBG;
+  message LS_ID_TARA_VERSION_CMB msg_LS_ID_TARA_VERSION_CMB;
+  message LS_ID_TARA_SUPERVISION_CMB msg_LS_ID_TARA_SUPERVISION_CMB;
+  message LS_ID_TARA_REP_DIAG_CMB msg_LS_ID_TARA_REP_DIAG_CMB;
+  message LS_ID_TARA_KM_SAUV_CMB msg_LS_ID_TARA_KM_SAUV_CMB;
+  message LS_ID_DENA_ICN_INFO1_IC msg_LS_ID_DENA_ICN_INFO1_IC;
+  message LS_ID_DENA_MAINT_INFO_IC msg_LS_ID_DENA_MAINT_INFO_IC;
+  message LS_ID_TARA__EVT_DEFAUT_CMB msg_LS_ID_TARA__EVT_DEFAUT_CMB;
+  message LS_ID_TARA__ETAT_COMBINE msg_LS_ID_TARA__ETAT_COMBINE;
+  message LS_ID_TARA_REP_DIAG_RBG msg_LS_ID_TARA_REP_DIAG_RBG;
+  message LS_ID_TARA_VERSION_RBG msg_LS_ID_TARA_VERSION_RBG;
+  message LS_ID_TARA_SUPERVISION_RBG msg_LS_ID_TARA_SUPERVISION_RBG;
+  message LS_ID_DENA_BACKLIGHT_IC msg_LS_ID_DENA_BACKLIGHT_IC;
+  message LS_ID_DENA_TIME_IC msg_LS_ID_DENA_TIME_IC;
+  message LS_ID_ICNI2_IC msg_LS_ID_ICNI2_IC;
+  message LS_ID_TIME_MMS msg_LS_ID_TIME_MMS;
+  message LS_ID_DIAG_RESP_IC msg_LS_ID_DIAG_RESP_IC;
+  message LS_ID_DENA_ODO_IC msg_LS_ID_DENA_ODO_IC;
+  message LS_ID_DENA_DIAG_RESP_IC msg_LS_ID_DENA_DIAG_RESP_IC;
+  message LS_ID_SUP_IC msg_LS_ID_SUP_IC;
+  message LS_ID_DENA_SUP_IC msg_LS_ID_DENA_SUP_IC;
+  message LS_ID_DENA_FR_IC msg_LS_ID_DENA_FR_IC;
+  message LS_ID_TARA_INFO_RBG msg_LS_ID_TARA_INFO_RBG;
+  message LS_ID_FR_IC msg_LS_ID_FR_IC;
+
+  msTimer tmr10, tmr20, tmr100, tmr200, tmr500, tmr1000, tmr5000, tmrEvent, tmrScenario;
+}
+
+on start
+{
+  setTimerCyclic(tmrScenario, 10);
+  setTimerCyclic(tmr10, 10);
+  setTimerCyclic(tmr20, 20);
+  setTimerCyclic(tmr100, 100);
+  setTimerCyclic(tmr200, 200);
+  setTimerCyclic(tmr500, 500);
+  setTimerCyclic(tmr1000, 1000);
+  setTimerCyclic(tmr5000, 5000);
+  setTimerCyclic(tmrEvent, 1000);
+  write("=== شبیه‌سازی کامل شبکه (Full Restbus) شروع شد - %d پیام از %d گره ===",
+        98, 13);
+}
+
+/*============================================================================
+  موتور سناریوی رانندگی - فقط سیگنال‌های SCENARIO_DRIVEN را آپدیت می‌کند
+============================================================================*/
+on timer tmrScenario
+{
+  double dtSec = 0.01;
+  double speed;
+
+  if (MANUAL_SPEED_MODE)
+  {
+    speed = MANUAL_SPEED_KMH;
+  }
+  else if (SCENARIO_RUNNING)
+  {
+    gPhaseTimeMs += 10;
+    switch (gPhase)
+    {
+      case 0:
+        speed = 0;
+        Hs_Ems_Rpm = 800;
+        if (gPhaseTimeMs >= T_IDLE_MS) { gPhase = 1; gPhaseTimeMs = 0; }
+        break;
+      case 1:
+        speed = Hs_Abs_VehicleSpeed + ACCEL_RATE;
+        if (speed >= SPEED_URBAN) { speed = SPEED_URBAN; gPhase = 2; gPhaseTimeMs = 0; }
+        Hs_Ems_Rpm = 800 + (1800 - 800) * (speed / SPEED_URBAN);
+        break;
+      case 2:
+        speed = SPEED_URBAN; Hs_Ems_Rpm = 1800;
+        if (gPhaseTimeMs >= T_URBAN_MS) { gPhase = 3; gPhaseTimeMs = 0; }
+        break;
+      case 3:
+        speed = Hs_Abs_VehicleSpeed + ACCEL_RATE;
+        if (speed >= SPEED_HIGHWAY) { speed = SPEED_HIGHWAY; gPhase = 4; gPhaseTimeMs = 0; }
+        Hs_Ems_Rpm = 1800 + (2600 - 1800) * ((speed - SPEED_URBAN) / (SPEED_HIGHWAY - SPEED_URBAN));
+        break;
+      case 4:
+        speed = SPEED_HIGHWAY; Hs_Ems_Rpm = 2600;
+        if (gPhaseTimeMs >= T_HIGHWAY_MS) { gPhase = 5; gPhaseTimeMs = 0; }
+        break;
+      case 5:
+        speed = Hs_Abs_VehicleSpeed - DECEL_RATE;
+        if (speed <= 0) { speed = 0; gPhase = 0; gPhaseTimeMs = 0; }
+        Hs_Ems_Rpm = 800 + (2600 - 800) * (speed / SPEED_HIGHWAY);
+        break;
+    }
+  }
+  else
+  {
+    speed = Hs_Abs_VehicleSpeed;  // توقف سناریو - آخرین مقدار نگه داشته می‌شود
+  }
+
+  Hs_Abs_VehicleSpeed = speed;
+  Hs_Abs_VehicleSpeed_Invalid = Hs_Abs_VehicleSpeed_Invalid; // دست‌نخورده - از پنل قابل تزریق خطا
+  LS_ICN_SPD_GWY = speed;
+
+  gOdometerKm += speed * (dtSec / 3600.0);
+  Hs_Ems_Distance = Hs_Ems_Distance + speed * (dtSec / 3600.0) * 1000.0; // متر
+  LS_ICN_ODO = gOdometerKm * 1000.0;                                      // متر
+  Ls_Icn_Mileage = gOdometerKm;                                           // کیلومتر
+}
+
+/*============================================================================
+  گره: ABS  (HS-CAN)  -  7 پیام
+============================================================================*/
+void Send_HS_ID_ESP_1()
+{
+  if (OFFLINE_ABS) return;
+  msg_HS_ID_ESP_1.Hs_Esc_YawRate = Hs_Esc_YawRate;
+  msg_HS_ID_ESP_1.Hs_Esc_PitchAngle = Hs_Esc_PitchAngle;
+  msg_HS_ID_ESP_1.Hs_Esc_RollAngle = Hs_Esc_RollAngle;
+  output(msg_HS_ID_ESP_1);
+}
+
+void Send_HS_ID_ABS_BRAKE()
+{
+  if (OFFLINE_ABS) return;
+  msg_HS_ID_ABS_BRAKE.Hs_Esc_TorqReductValid = Hs_Esc_TorqReductValid;
+  msg_HS_ID_ABS_BRAKE.Hs_Esc_TorqueReductType = Hs_Esc_TorqueReductType;
+  msg_HS_ID_ABS_BRAKE.Hs_Esc_TorqueReductValue = Hs_Esc_TorqueReductValue;
+  msg_HS_ID_ABS_BRAKE.Hs_Esc_TcsError = Hs_Esc_TcsError;
+  msg_HS_ID_ABS_BRAKE.Hs_Esc_TcsDisableStatus = Hs_Esc_TcsDisableStatus;
+  msg_HS_ID_ABS_BRAKE.Hs_Esc_TcsActive = Hs_Esc_TcsActive;
+  msg_HS_ID_ABS_BRAKE.Hs_Esc_EscError = Hs_Esc_EscError;
+  msg_HS_ID_ABS_BRAKE.Hs_Esc_EscDisableStatus = Hs_Esc_EscDisableStatus;
+  msg_HS_ID_ABS_BRAKE.Hs_Esp_Ctl = Hs_Esp_Ctl;
+  msg_HS_ID_ABS_BRAKE.Hs_Esc_HacError = Hs_Esc_HacError;
+  msg_HS_ID_ABS_BRAKE.Hs_Esc_HacActive = Hs_Esc_HacActive;
+  msg_HS_ID_ABS_BRAKE.Hs_Esc_LongAcceleration = Hs_Esc_LongAcceleration;
+  msg_HS_ID_ABS_BRAKE.Hs_Esc_LongAccelerationValid = Hs_Esc_LongAccelerationValid;
+  msg_HS_ID_ABS_BRAKE.Hs_Esc_EmergBrakeStatus = Hs_Esc_EmergBrakeStatus;
+  msg_HS_ID_ABS_BRAKE.Hs_Brake_RollCntr = Hs_Brake_RollCntr;
+  msg_HS_ID_ABS_BRAKE.Hs_Brake_Checksum = Hs_Brake_Checksum;
+  output(msg_HS_ID_ABS_BRAKE);
+}
+
+void Send_HS_ID_ABS_ESP_SUP()
+{
+  if (OFFLINE_ABS) return;
+  msg_HS_ID_ABS_ESP_SUP.Hs_AbsEsp_Sup_DiagMode = Hs_AbsEsp_Sup_DiagMode;
+  msg_HS_ID_ABS_ESP_SUP.Hs_Abs_Com_Loss = Hs_Abs_Com_Loss;
+  msg_HS_ID_ABS_ESP_SUP.Hs_Abs_Network_Management_State = Hs_Abs_Network_Management_State;
+  msg_HS_ID_ABS_ESP_SUP.Hs_Abs_Tx_TimeOut_Counter = Hs_Abs_Tx_TimeOut_Counter;
+  msg_HS_ID_ABS_ESP_SUP.Hs_Abs_Bus_Off_Counter = Hs_Abs_Bus_Off_Counter;
+  msg_HS_ID_ABS_ESP_SUP.Hs_Abs_Com_Loss_Counter = Hs_Abs_Com_Loss_Counter;
+  msg_HS_ID_ABS_ESP_SUP.Hs_Abs_Ecu_Dynamic_States = Hs_Abs_Ecu_Dynamic_States;
+  msg_HS_ID_ABS_ESP_SUP.Hs_Abs_Ecu_Static_States = Hs_Abs_Ecu_Static_States;
+  output(msg_HS_ID_ABS_ESP_SUP);
+}
+
+void Send_HS_ID_ESC_ITPMS()
+{
+  if (OFFLINE_ABS) return;
+  msg_HS_ID_ESC_ITPMS.Hs_Esc_iTpms_Reset_Progress = Hs_Esc_iTpms_Reset_Progress;
+  msg_HS_ID_ESC_ITPMS.Hs_Esc_iTpms_Status = Hs_Esc_iTpms_Status;
+  output(msg_HS_ID_ESC_ITPMS);
+}
+
+void Send_HS_ID_ABS_INFO2()
+{
+  if (OFFLINE_ABS) return;
+  msg_HS_ID_ABS_INFO2.Hs_Abs_VehicleSpeed = Hs_Abs_VehicleSpeed;
+  msg_HS_ID_ABS_INFO2.Hs_Abs_VehicleSpeed_Invalid = Hs_Abs_VehicleSpeed_Invalid;
+  msg_HS_ID_ABS_INFO2.Hs_Esc_Mcylinder_PressureInvalid = Hs_Esc_Mcylinder_PressureInvalid;
+  msg_HS_ID_ABS_INFO2.Hs_Esc_Mcylinder_Pressure = Hs_Esc_Mcylinder_Pressure;
+  output(msg_HS_ID_ABS_INFO2);
+}
+
+void Send_HS_ID_ABS_PULSE()
+{
+  if (OFFLINE_ABS) return;
+  msg_HS_ID_ABS_PULSE.Hs_Abs_Wheel_Pcnt_Fl = Hs_Abs_Wheel_Pcnt_Fl;
+  msg_HS_ID_ABS_PULSE.Hs_Abs_Wheel_Pcnt_Fr = Hs_Abs_Wheel_Pcnt_Fr;
+  msg_HS_ID_ABS_PULSE.Hs_Abs_Wheel_Pcnt_Rl = Hs_Abs_Wheel_Pcnt_Rl;
+  msg_HS_ID_ABS_PULSE.Hs_Abs_Wheel_Pcnt_Rr = Hs_Abs_Wheel_Pcnt_Rr;
+  output(msg_HS_ID_ABS_PULSE);
+}
+
+void Send_HS_ID_ABS()
+{
+  if (OFFLINE_ABS) return;
+  msg_HS_ID_ABS.Hs_Abs_Error = Hs_Abs_Error;
+  msg_HS_ID_ABS.Hs_Abs_Ebd_Error = Hs_Abs_Ebd_Error;
+  msg_HS_ID_ABS.Hs_Abs_Active = Hs_Abs_Active;
+  msg_HS_ID_ABS.Hs_Abs_Warning = Hs_Abs_Warning;
+  msg_HS_ID_ABS.Hs_Abs_Ebd_Warning = Hs_Abs_Ebd_Warning;
+  msg_HS_ID_ABS.Hs_Abs_DiagMode = Hs_Abs_DiagMode;
+  msg_HS_ID_ABS.Hs_Abs_Ebd_Active = Hs_Abs_Ebd_Active;
+  msg_HS_ID_ABS.Hs_Abs_Esp_Enable = Hs_Abs_Esp_Enable;
+  msg_HS_ID_ABS.Hs_Abs_Esp_Warning = Hs_Abs_Esp_Warning;
+  msg_HS_ID_ABS.Hs_Esc_GearShiftInhibit = Hs_Esc_GearShiftInhibit;
+  msg_HS_ID_ABS.Hs_Abs_Wheel_Speed_Fl = Hs_Abs_Wheel_Speed_Fl;
+  msg_HS_ID_ABS.Hs_Abs_Wheel_Speed_Fr = Hs_Abs_Wheel_Speed_Fr;
+  msg_HS_ID_ABS.Hs_Abs_Wheel_Speed_Rl = Hs_Abs_Wheel_Speed_Rl;
+  msg_HS_ID_ABS.Hs_Abs_Wheel_Speed_Rr = Hs_Abs_Wheel_Speed_Rr;
+  output(msg_HS_ID_ABS);
+}
+
+/*============================================================================
+  گره: DIAG  (HS-CAN)  -  10 پیام
+============================================================================*/
+void Send_HS_ID_ICU_DIAG_ANS()
+{
+  if (OFFLINE_DIAG) return;
+  msg_HS_ID_ICU_DIAG_ANS.Hs_Icu_Diagnostic_Answer = Hs_Icu_Diagnostic_Answer;
+  output(msg_HS_ID_ICU_DIAG_ANS);
+}
+
+void Send_HS_ID_TPMS_DIAG_ANS()
+{
+  if (OFFLINE_DIAG) return;
+  msg_HS_ID_TPMS_DIAG_ANS.Hs_Tpms_Diagnostic_Answer = Hs_Tpms_Diagnostic_Answer;
+  output(msg_HS_ID_TPMS_DIAG_ANS);
+}
+
+void Send_HS_ID_EPS_DIAG_ANS()
+{
+  if (OFFLINE_DIAG) return;
+  msg_HS_ID_EPS_DIAG_ANS.Hs_Eps_Diagnostic_Answer = Hs_Eps_Diagnostic_Answer;
+  output(msg_HS_ID_EPS_DIAG_ANS);
+}
+
+void Send_HS_ID_TCU_DIAG_ANS()
+{
+  if (OFFLINE_DIAG) return;
+  msg_HS_ID_TCU_DIAG_ANS.Hs_Tcu_Diagnostic_Answer = Hs_Tcu_Diagnostic_Answer;
+  output(msg_HS_ID_TCU_DIAG_ANS);
+}
+
+void Send_HS_ID_EMS_DIAG_ANS()
+{
+  if (OFFLINE_DIAG) return;
+  msg_HS_ID_EMS_DIAG_ANS.Hs_Ems_Diagnostic_Answer = Hs_Ems_Diagnostic_Answer;
+  output(msg_HS_ID_EMS_DIAG_ANS);
+}
+
+void Send_HS_ID_DIAG_REQ_BROADCAST()
+{
+  if (OFFLINE_DIAG) return;
+  msg_HS_ID_DIAG_REQ_BROADCAST.Hs_Diag_Req_Broadcast = Hs_Diag_Req_Broadcast;
+  output(msg_HS_ID_DIAG_REQ_BROADCAST);
+}
+
+void Send_HS_ID_DIAG_REQ_RBG()
+{
+  if (OFFLINE_DIAG) return;
+  msg_HS_ID_DIAG_REQ_RBG.Hs_Diag_Req_Rbg_Data = Hs_Diag_Req_Rbg_Data;
+  output(msg_HS_ID_DIAG_REQ_RBG);
+}
+
+void Send_HS_ID_DIAG_REQ_MMS()
+{
+  if (OFFLINE_DIAG) return;
+  msg_HS_ID_DIAG_REQ_MMS.Hs_Diag_Req_Mms_Data = Hs_Diag_Req_Mms_Data;
+  output(msg_HS_ID_DIAG_REQ_MMS);
+}
+
+void Send_HS_ID_DIAG_REQ_ICN()
+{
+  if (OFFLINE_DIAG) return;
+  msg_HS_ID_DIAG_REQ_ICN.Hs_Diag_Req_Icn_Data = Hs_Diag_Req_Icn_Data;
+  output(msg_HS_ID_DIAG_REQ_ICN);
+}
+
+void Send_HS_ID_DIAG_REQ_NBCM()
+{
+  if (OFFLINE_DIAG) return;
+  msg_HS_ID_DIAG_REQ_NBCM.Hs_Diag_Req_Nbcm_Data = Hs_Diag_Req_Nbcm_Data;
+  output(msg_HS_ID_DIAG_REQ_NBCM);
+}
+
+/*============================================================================
+  گره: EMS  (HS-CAN)  -  17 پیام
+============================================================================*/
+void Send_HS_ID_EMS_RESET_RESP()
+{
+  if (OFFLINE_EMS) return;
+  msg_HS_ID_EMS_RESET_RESP.Hs_Ems_Reset_Resp = Hs_Ems_Reset_Resp;
+  output(msg_HS_ID_EMS_RESET_RESP);
+}
+
+void Send_HS_ID_EMS_TeachSKResp()
+{
+  if (OFFLINE_EMS) return;
+  msg_HS_ID_EMS_TeachSKResp.Hs_Ems_TeachSKResp = Hs_Ems_TeachSKResp;
+  output(msg_HS_ID_EMS_TeachSKResp);
+}
+
+void Send_HS_ID_EMS_LearnPINResp()
+{
+  if (OFFLINE_EMS) return;
+  msg_HS_ID_EMS_LearnPINResp.Hs_Ems_LearnPINResp = Hs_Ems_LearnPINResp;
+  output(msg_HS_ID_EMS_LearnPINResp);
+}
+
+void Send_HS_ID_EMS_LearnSKResp()
+{
+  if (OFFLINE_EMS) return;
+  msg_HS_ID_EMS_LearnSKResp.Hs_Ems_LearnSKResp = Hs_Ems_LearnSKResp;
+  output(msg_HS_ID_EMS_LearnSKResp);
+}
+
+void Send_HS_ID_EMS_CHALL()
+{
+  if (OFFLINE_EMS) return;
+  msg_HS_ID_EMS_CHALL.Hs_Ems_Chall_1 = Hs_Ems_Chall_1;
+  msg_HS_ID_EMS_CHALL.Hs_Ems_Chall_2 = Hs_Ems_Chall_2;
+  output(msg_HS_ID_EMS_CHALL);
+}
+
+void Send_HS_ID_EMS_DIAG_REQ()
+{
+  if (OFFLINE_EMS) return;
+  msg_HS_ID_EMS_DIAG_REQ.Hs_Ems_Diagnostic_Request = Hs_Ems_Diagnostic_Request;
+  output(msg_HS_ID_EMS_DIAG_REQ);
+}
+
+void Send_HS_ID_EMS_ICU_1()
+{
+  if (OFFLINE_EMS) return;
+  msg_HS_ID_EMS_ICU_1.Hs_Ems_Icu_Dialog = Hs_Ems_Icu_Dialog;
+  output(msg_HS_ID_EMS_ICU_1);
+}
+
+void Send_HS_ID_EMS11()
+{
+  if (OFFLINE_EMS) return;
+  msg_HS_ID_EMS11.Hs_Ems_DriverReqTorq = Hs_Ems_DriverReqTorq;
+  msg_HS_ID_EMS11.Hs_Ems_ConditionIdle = Hs_Ems_ConditionIdle;
+  msg_HS_ID_EMS11.Hs_Ems_MinlndicatedTorq = Hs_Ems_MinlndicatedTorq;
+  msg_HS_ID_EMS11.Hs_Ems_EngBrkTorqwithoutTCU = Hs_Ems_EngBrkTorqwithoutTCU;
+  msg_HS_ID_EMS11.Hs_Ems_EngineStatus = Hs_Ems_EngineStatus;
+  msg_HS_ID_EMS11.Hs_Ems_CoolanTemperatureError = Hs_Ems_CoolanTemperatureError;
+  msg_HS_ID_EMS11.Hs_Ems_EngineIdleTargetSpeed = Hs_Ems_EngineIdleTargetSpeed;
+  msg_HS_ID_EMS11.Hs_Ems_EngineIdleSpeedAcitve = Hs_Ems_EngineIdleSpeedAcitve;
+  output(msg_HS_ID_EMS11);
+}
+
+void Send_HS_ID_EMS10()
+{
+  if (OFFLINE_EMS) return;
+  msg_HS_ID_EMS10.Hs_Ems_AirConditionCommand2 = Hs_Ems_AirConditionCommand2;
+  msg_HS_ID_EMS10.Hs_Ems_ThrottleValvePosError = Hs_Ems_ThrottleValvePosError;
+  msg_HS_ID_EMS10.Hs_Ems_EngineFuleCutOff = Hs_Ems_EngineFuleCutOff;
+  msg_HS_ID_EMS10.Hs_Ems_DrivingCycle = Hs_Ems_DrivingCycle;
+  msg_HS_ID_EMS10.Hs_Ems_WarmUpCycle = Hs_Ems_WarmUpCycle;
+  msg_HS_ID_EMS10.Hs_Ems_AccPedalError = Hs_Ems_AccPedalError;
+  msg_HS_ID_EMS10.Hs_Ems_Catalyst_Heating_Cycle = Hs_Ems_Catalyst_Heating_Cycle;
+  msg_HS_ID_EMS10.Hs_Ems_EngineIntakeAirTemp = Hs_Ems_EngineIntakeAirTemp;
+  msg_HS_ID_EMS10.Hs_Ems_N_altitudeFactor = Hs_Ems_N_altitudeFactor;
+  msg_HS_ID_EMS10.Hs_Ems_F_EngTorqLoss = Hs_Ems_F_EngTorqLoss;
+  msg_HS_ID_EMS10.Hs_Ems_BrakePedalStatus2 = Hs_Ems_BrakePedalStatus2;
+  msg_HS_ID_EMS10.Hs_Ems_TorqueFailure = Hs_Ems_TorqueFailure;
+  msg_HS_ID_EMS10.Hs_Ems10_RollCntr = Hs_Ems10_RollCntr;
+  msg_HS_ID_EMS10.Hs_Ems10_Checksum = Hs_Ems10_Checksum;
+  output(msg_HS_ID_EMS10);
+}
+
+void Send_HS_ID_EMS9()
+{
+  if (OFFLINE_EMS) return;
+  msg_HS_ID_EMS9.Hs_Ems_BrakeTorqueConstant = Hs_Ems_BrakeTorqueConstant;
+  msg_HS_ID_EMS9.Hs_Ems_BrakeEngineTorque2 = Hs_Ems_BrakeEngineTorque2;
+  msg_HS_ID_EMS9.Hs_Ems_FrictionalTorq = Hs_Ems_FrictionalTorq;
+  msg_HS_ID_EMS9.Hs_Ems_ActualAccPedal = Hs_Ems_ActualAccPedal;
+  msg_HS_ID_EMS9.Hs_Ems9_RollCntr = Hs_Ems9_RollCntr;
+  msg_HS_ID_EMS9.Hs_Ems9_Checksum = Hs_Ems9_Checksum;
+  output(msg_HS_ID_EMS9);
+}
+
+void Send_HS_ID_EMS_SUP()
+{
+  if (OFFLINE_EMS) return;
+  msg_HS_ID_EMS_SUP.Hs_Ems_Diag_Mode = Hs_Ems_Diag_Mode;
+  msg_HS_ID_EMS_SUP.Hs_Ems_Com_Loss = Hs_Ems_Com_Loss;
+  msg_HS_ID_EMS_SUP.Hs_Ems_Network_Management_State = Hs_Ems_Network_Management_State;
+  msg_HS_ID_EMS_SUP.Hs_Ems_Tx_TimeOut_Counter = Hs_Ems_Tx_TimeOut_Counter;
+  msg_HS_ID_EMS_SUP.Hs_Ems_Bus_OFF_Counter = Hs_Ems_Bus_OFF_Counter;
+  msg_HS_ID_EMS_SUP.Hs_Ems_Com_Loss_Counter = Hs_Ems_Com_Loss_Counter;
+  msg_HS_ID_EMS_SUP.Hs_Ems_ECU_Dynamic_States = Hs_Ems_ECU_Dynamic_States;
+  msg_HS_ID_EMS_SUP.Hs_Ems_ECU_Static_States = Hs_Ems_ECU_Static_States;
+  output(msg_HS_ID_EMS_SUP);
+}
+
+void Send_HS_ID_EMS1()
+{
+  if (OFFLINE_EMS) return;
+  msg_HS_ID_EMS1.Hs_Ems_BrakePedalStatus1 = Hs_Ems_BrakePedalStatus1;
+  msg_HS_ID_EMS1.Hs_Ems_ClutchPedalStatus = Hs_Ems_ClutchPedalStatus;
+  msg_HS_ID_EMS1.Hs_Ems_GearEngagedStatus = Hs_Ems_GearEngagedStatus;
+  msg_HS_ID_EMS1.Hs_Ems_Vaccumpump_Failure_Status = Hs_Ems_Vaccumpump_Failure_Status;
+  msg_HS_ID_EMS1.Hs_Ems_EngineActualTorque = Hs_Ems_EngineActualTorque;
+  msg_HS_ID_EMS1.Hs_Ems_IndicatedEngineTorque1 = Hs_Ems_IndicatedEngineTorque1;
+  msg_HS_ID_EMS1.Hs_Ems_EngineFrictionTorque = Hs_Ems_EngineFrictionTorque;
+  msg_HS_ID_EMS1.Hs_Ems_MaxBrkTorq = Hs_Ems_MaxBrkTorq;
+  msg_HS_ID_EMS1.Hs_Ems_EngineThrottlePosition = Hs_Ems_EngineThrottlePosition;
+  msg_HS_ID_EMS1.Hs_Ems_VirtualAccPedal = Hs_Ems_VirtualAccPedal;
+  output(msg_HS_ID_EMS1);
+}
+
+void Send_HS_ID_EMS_T_AMB()
+{
+  if (OFFLINE_EMS) return;
+  msg_HS_ID_EMS_T_AMB.Hs_Ems_AmbintTemp = Hs_Ems_AmbintTemp;
+  msg_HS_ID_EMS_T_AMB.Hs_Ems_AmbientPressureInvalid = Hs_Ems_AmbientPressureInvalid;
+  output(msg_HS_ID_EMS_T_AMB);
+}
+
+void Send_HS_ID_EMS8()
+{
+  if (OFFLINE_EMS) return;
+  msg_HS_ID_EMS8.Hs_Ems_Fuel_Cons = Hs_Ems_Fuel_Cons;
+  msg_HS_ID_EMS8.Hs_Ems_Gsi_Gear_Info = Hs_Ems_Gsi_Gear_Info;
+  msg_HS_ID_EMS8.Hs_Ems_Gear_Engaged_Ind = Hs_Ems_Gear_Engaged_Ind;
+  msg_HS_ID_EMS8.Hs_Ems_Gsi_Gear_Value = Hs_Ems_Gsi_Gear_Value;
+  output(msg_HS_ID_EMS8);
+}
+
+void Send_HS_ID_EMS7()
+{
+  if (OFFLINE_EMS) return;
+  msg_HS_ID_EMS7.Hs_Ems_Mono_Bi_Fuel_Ind = Hs_Ems_Mono_Bi_Fuel_Ind;
+  msg_HS_ID_EMS7.Hs_Ems_Cng_Lamp = Hs_Ems_Cng_Lamp;
+  msg_HS_ID_EMS7.Hs_Ems_Fuel_Tank_Sensor_Err = Hs_Ems_Fuel_Tank_Sensor_Err;
+  msg_HS_ID_EMS7.Hs_Ems_Cng_Sensor_Err = Hs_Ems_Cng_Sensor_Err;
+  msg_HS_ID_EMS7.Hs_Ems_Cng_Fault_Lamp = Hs_Ems_Cng_Fault_Lamp;
+  msg_HS_ID_EMS7.Hs_Ems_Fuel_Tank_Level_Out = Hs_Ems_Fuel_Tank_Level_Out;
+  msg_HS_ID_EMS7.Hs_Ems_Cng_Tank_Lvl_Out = Hs_Ems_Cng_Tank_Lvl_Out;
+  msg_HS_ID_EMS7.Hs_Ems_Distance = Hs_Ems_Distance;
+  output(msg_HS_ID_EMS7);
+}
+
+void Send_HS_ID_EMS6()
+{
+  if (OFFLINE_EMS) return;
+  msg_HS_ID_EMS6.Hs_Ems_Check_Engine = Hs_Ems_Check_Engine;
+  msg_HS_ID_EMS6.Hs_Ems_Tco_Stop_Lamp = Hs_Ems_Tco_Stop_Lamp;
+  msg_HS_ID_EMS6.Hs_Ems_Ac_Gasp_Sw1 = Hs_Ems_Ac_Gasp_Sw1;
+  msg_HS_ID_EMS6.Hs_Ems_Ac_Gasp_Sw2 = Hs_Ems_Ac_Gasp_Sw2;
+  msg_HS_ID_EMS6.Hs_Ems_Ac_Command = Hs_Ems_Ac_Command;
+  msg_HS_ID_EMS6.Hs_Ems_EobdMil = Hs_Ems_EobdMil;
+  msg_HS_ID_EMS6.Hs_Ems_Rpm = Hs_Ems_Rpm;
+  msg_HS_ID_EMS6.Hs_Ems_Tco_Value = Hs_Ems_Tco_Value;
+  msg_HS_ID_EMS6.Hs_Ems_GlowIndicationLamp = Hs_Ems_GlowIndicationLamp;
+  msg_HS_ID_EMS6.Hs_Ems_WaterInFuelLamp = Hs_Ems_WaterInFuelLamp;
+  msg_HS_ID_EMS6.Hs_Ems_Starter_Inhib = Hs_Ems_Starter_Inhib;
+  msg_HS_ID_EMS6.Hs_Ems_EngineSpeedError = Hs_Ems_EngineSpeedError;
+  output(msg_HS_ID_EMS6);
+}
+
+void Send_HS_ID_EMS2()
+{
+  if (OFFLINE_EMS) return;
+  msg_HS_ID_EMS2.HS_EMS_CRUISE_ON_OFF = HS_EMS_CRUISE_ON_OFF;
+  msg_HS_ID_EMS2.Hs_Ems_Cruise_Active = Hs_Ems_Cruise_Active;
+  msg_HS_ID_EMS2.Hs_Ems_Speed_Limit_Active = Hs_Ems_Speed_Limit_Active;
+  msg_HS_ID_EMS2.Hs_Ems_Speed_limiterStatus = Hs_Ems_Speed_limiterStatus;
+  msg_HS_ID_EMS2.Hs_Ems_Cruise_Setpoint = Hs_Ems_Cruise_Setpoint;
+  output(msg_HS_ID_EMS2);
+}
+
+/*============================================================================
+  گره: EPS  (HS-CAN)  -  4 پیام
+============================================================================*/
+void Send_HS_ID_EPS_DIAG_REQ()
+{
+  if (OFFLINE_EPS) return;
+  msg_HS_ID_EPS_DIAG_REQ.Hs_Eps_Diagnostic_Request = Hs_Eps_Diagnostic_Request;
+  output(msg_HS_ID_EPS_DIAG_REQ);
+}
+
+void Send_HS_ID_EPS_SUP()
+{
+  if (OFFLINE_EPS) return;
+  msg_HS_ID_EPS_SUP.Hs_Eps_Diag_Mode = Hs_Eps_Diag_Mode;
+  msg_HS_ID_EPS_SUP.Hs_Eps_COM_Loss = Hs_Eps_COM_Loss;
+  msg_HS_ID_EPS_SUP.Hs_Eps_Network_Management_State = Hs_Eps_Network_Management_State;
+  msg_HS_ID_EPS_SUP.Hs_Eps_Tx_TimeOut_Counter = Hs_Eps_Tx_TimeOut_Counter;
+  msg_HS_ID_EPS_SUP.Hs_Eps_Bus_OFF_Counter = Hs_Eps_Bus_OFF_Counter;
+  msg_HS_ID_EPS_SUP.Hs_Eps_Com_Loss_Counter = Hs_Eps_Com_Loss_Counter;
+  msg_HS_ID_EPS_SUP.Hs_Eps_ECU_Dynamic_States = Hs_Eps_ECU_Dynamic_States;
+  msg_HS_ID_EPS_SUP.Hs_Eps_ECU_Static_States = Hs_Eps_ECU_Static_States;
+  output(msg_HS_ID_EPS_SUP);
+}
+
+void Send_HS_ID_SAS()
+{
+  if (OFFLINE_EPS) return;
+  msg_HS_ID_SAS.Hs_Sas_Angle = Hs_Sas_Angle;
+  msg_HS_ID_SAS.Hs_Sas_Speed = Hs_Sas_Speed;
+  msg_HS_ID_SAS.Hs_Sas_internal_status_flags = Hs_Sas_internal_status_flags;
+  msg_HS_ID_SAS.Hs_Sas_Message_Number = Hs_Sas_Message_Number;
+  msg_HS_ID_SAS.Hs_Sas_Value_check_message_bytes = Hs_Sas_Value_check_message_bytes;
+  output(msg_HS_ID_SAS);
+}
+
+void Send_HS_ID_EPS1()
+{
+  if (OFFLINE_EPS) return;
+  msg_HS_ID_EPS1.Hs_Epas_Warning = Hs_Epas_Warning;
+  output(msg_HS_ID_EPS1);
+}
+
+/*============================================================================
+  گره: HVAC  (LS-CAN)  -  4 پیام
+============================================================================*/
+void Send_LS_ID_SUP_HVAC()
+{
+  if (OFFLINE_HVAC) return;
+  msg_LS_ID_SUP_HVAC.LS_HVAC_DIAG_MODE = LS_HVAC_DIAG_MODE;
+  msg_LS_ID_SUP_HVAC.LS_HVAC_COM_LOSS = LS_HVAC_COM_LOSS;
+  msg_LS_ID_SUP_HVAC.LS_HVAC_NM_STATE = LS_HVAC_NM_STATE;
+  msg_LS_ID_SUP_HVAC.LS_HVAC_BUS_ERROR = LS_HVAC_BUS_ERROR;
+  msg_LS_ID_SUP_HVAC.LS_HVAC_BUS_ERROR_COUNTER = LS_HVAC_BUS_ERROR_COUNTER;
+  msg_LS_ID_SUP_HVAC.LS_HVAC_TX_TIMEOUT_COUNTER = LS_HVAC_TX_TIMEOUT_COUNTER;
+  msg_LS_ID_SUP_HVAC.LS_HVAC_BUSOFF_COUNTER = LS_HVAC_BUSOFF_COUNTER;
+  msg_LS_ID_SUP_HVAC.LS_HVAC_COM_LOSS_COUNTER = LS_HVAC_COM_LOSS_COUNTER;
+  msg_LS_ID_SUP_HVAC.LS_HVAC_NBCM_DYN_ABSENT = LS_HVAC_NBCM_DYN_ABSENT;
+  msg_LS_ID_SUP_HVAC.LS_HVAC_NBCM_STATIC_ABSENT = LS_HVAC_NBCM_STATIC_ABSENT;
+  output(msg_LS_ID_SUP_HVAC);
+}
+
+void Send_LS_ID_FR_HVAC()
+{
+  if (OFFLINE_HVAC) return;
+  msg_LS_ID_FR_HVAC.LS_HVAC_FAULT_ID = LS_HVAC_FAULT_ID;
+  msg_LS_ID_FR_HVAC.LS_HVAC_FAULT_STATUS = LS_HVAC_FAULT_STATUS;
+  output(msg_LS_ID_FR_HVAC);
+}
+
+void Send_LS_ID_INFO_HVAC()
+{
+  if (OFFLINE_HVAC) return;
+  msg_LS_ID_INFO_HVAC.LS_HVAC_AC_SW = LS_HVAC_AC_SW;
+  msg_LS_ID_INFO_HVAC.LS_HVAC_SHT_SW = LS_HVAC_SHT_SW;
+  msg_LS_ID_INFO_HVAC.LS_HVAC_INDOOR_TEMP = LS_HVAC_INDOOR_TEMP;
+  output(msg_LS_ID_INFO_HVAC);
+}
+
+void Send_LS_ID_DIAG_RESP_HVAC()
+{
+  if (OFFLINE_HVAC) return;
+  msg_LS_ID_DIAG_RESP_HVAC.LS_HVAC_DIAG_RESP = LS_HVAC_DIAG_RESP;
+  output(msg_LS_ID_DIAG_RESP_HVAC);
+}
+
+/*============================================================================
+  گره: ICN  (LS-CAN)  -  22 پیام
+============================================================================*/
+void Send_LS_ID_TARA_ICU_INFO()
+{
+  if (OFFLINE_ICN) return;
+  msg_LS_ID_TARA_ICU_INFO.Ls_Icu_Key_Inside = Ls_Icu_Key_Inside;
+  msg_LS_ID_TARA_ICU_INFO.Ls_Icu_TP_Position = Ls_Icu_TP_Position;
+  output(msg_LS_ID_TARA_ICU_INFO);
+}
+
+void Send_LS_ID_ICNI1_IC()
+{
+  if (OFFLINE_ICN) return;
+  msg_LS_ID_ICNI1_IC.LS_ICN_OUT_TEMP = LS_ICN_OUT_TEMP;
+  output(msg_LS_ID_ICNI1_IC);
+}
+
+void Send_LS_ID_DEBUG_IC()
+{
+  if (OFFLINE_ICN) return;
+  msg_LS_ID_DEBUG_IC.LS_ICN_DEBUG1 = LS_ICN_DEBUG1;
+  msg_LS_ID_DEBUG_IC.LS_ICN_DEBUG2 = LS_ICN_DEBUG2;
+  msg_LS_ID_DEBUG_IC.LS_ICN_DEBUG3 = LS_ICN_DEBUG3;
+  msg_LS_ID_DEBUG_IC.LS_ICN_DEBUG4 = LS_ICN_DEBUG4;
+  msg_LS_ID_DEBUG_IC.LS_ICN_DEBUG5 = LS_ICN_DEBUG5;
+  msg_LS_ID_DEBUG_IC.LS_ICN_DEBUG6 = LS_ICN_DEBUG6;
+  msg_LS_ID_DEBUG_IC.LS_ICN_DEBUG7 = LS_ICN_DEBUG7;
+  msg_LS_ID_DEBUG_IC.LS_ICN_DEBUG8 = LS_ICN_DEBUG8;
+  output(msg_LS_ID_DEBUG_IC);
+}
+
+void Send_LS_ID_TARA_CMB_CFG_VOY()
+{
+  if (OFFLINE_ICN) return;
+  msg_LS_ID_TARA_CMB_CFG_VOY.Ls_Icn_PasAirbagInhibLamp = Ls_Icn_PasAirbagInhibLamp;
+  msg_LS_ID_TARA_CMB_CFG_VOY.Ls_Icn_PowerSteeringFaultLamp = Ls_Icn_PowerSteeringFaultLamp;
+  msg_LS_ID_TARA_CMB_CFG_VOY.Ls_Icn_ParkingBrakeLamp = Ls_Icn_ParkingBrakeLamp;
+  msg_LS_ID_TARA_CMB_CFG_VOY.Ls_Icn_Low_Fuel_Lamp = Ls_Icn_Low_Fuel_Lamp;
+  msg_LS_ID_TARA_CMB_CFG_VOY.Ls_Icn_Service_Lamp = Ls_Icn_Service_Lamp;
+  msg_LS_ID_TARA_CMB_CFG_VOY.Ls_Icn_Stop_Lamp = Ls_Icn_Stop_Lamp;
+  msg_LS_ID_TARA_CMB_CFG_VOY.Ls_Icn_Door_Open_Lamp = Ls_Icn_Door_Open_Lamp;
+  msg_LS_ID_TARA_CMB_CFG_VOY.Ls_Icn_Elec_Genrt_Fault_Lamp = Ls_Icn_Elec_Genrt_Fault_Lamp;
+  msg_LS_ID_TARA_CMB_CFG_VOY.Ls_Icn_WaterTemp_AlarmLamp = Ls_Icn_WaterTemp_AlarmLamp;
+  msg_LS_ID_TARA_CMB_CFG_VOY.Ls_Icn_OilPressure_AlarmLamp = Ls_Icn_OilPressure_AlarmLamp;
+  msg_LS_ID_TARA_CMB_CFG_VOY.Ls_Icn_Brake_Fluid_AlarmLamp = Ls_Icn_Brake_Fluid_AlarmLamp;
+  msg_LS_ID_TARA_CMB_CFG_VOY.Ls_Icn_Tpms_AlarmLamp = Ls_Icn_Tpms_AlarmLamp;
+  msg_LS_ID_TARA_CMB_CFG_VOY.Ls_Icn_ElecBrkSplit_FaultLmp = Ls_Icn_ElecBrkSplit_FaultLmp;
+  msg_LS_ID_TARA_CMB_CFG_VOY.Ls_Icn_Abs_Ehb_FaultLamp = Ls_Icn_Abs_Ehb_FaultLamp;
+  msg_LS_ID_TARA_CMB_CFG_VOY.Ls_Icn_Esp_Asr_FaultLamp = Ls_Icn_Esp_Asr_FaultLamp;
+  msg_LS_ID_TARA_CMB_CFG_VOY.Ls_Icn_FootOnBrake_Lamp = Ls_Icn_FootOnBrake_Lamp;
+  msg_LS_ID_TARA_CMB_CFG_VOY.Ls_Icn_PassiveSafty_FaultLmp = Ls_Icn_PassiveSafty_FaultLmp;
+  msg_LS_ID_TARA_CMB_CFG_VOY.Ls_Icn_BattCharge_FaultLamp = Ls_Icn_BattCharge_FaultLamp;
+  output(msg_LS_ID_TARA_CMB_CFG_VOY);
+}
+
+void Send_LS_ID_TARA_VERSION_CMB()
+{
+  if (OFFLINE_ICN) return;
+  msg_LS_ID_TARA_VERSION_CMB.Ls_Icn_Ecu_Num = Ls_Icn_Ecu_Num;
+  msg_LS_ID_TARA_VERSION_CMB.Ls_Icn_Sw_Ver_Day = Ls_Icn_Sw_Ver_Day;
+  msg_LS_ID_TARA_VERSION_CMB.Ls_Icn_Sw_Ver_Month = Ls_Icn_Sw_Ver_Month;
+  msg_LS_ID_TARA_VERSION_CMB.Ls_Icn_Sw_Ver_Year = Ls_Icn_Sw_Ver_Year;
+  msg_LS_ID_TARA_VERSION_CMB.Ls_Icn_Sw_Ident = Ls_Icn_Sw_Ident;
+  msg_LS_ID_TARA_VERSION_CMB.Ls_Icn_Msg_Tab_Dig1 = Ls_Icn_Msg_Tab_Dig1;
+  msg_LS_ID_TARA_VERSION_CMB.Ls_Icn_Msg_Tab_Dig2 = Ls_Icn_Msg_Tab_Dig2;
+  msg_LS_ID_TARA_VERSION_CMB.Ls_Icn_Msg_Tab_Edition = Ls_Icn_Msg_Tab_Edition;
+  output(msg_LS_ID_TARA_VERSION_CMB);
+}
+
+void Send_LS_ID_TARA_SUPERVISION_CMB()
+{
+  if (OFFLINE_ICN) return;
+  msg_LS_ID_TARA_SUPERVISION_CMB.Ls_Icn_Comloss_Fault = Ls_Icn_Comloss_Fault;
+  msg_LS_ID_TARA_SUPERVISION_CMB.Ls_Icn_Nerr = Ls_Icn_Nerr;
+  msg_LS_ID_TARA_SUPERVISION_CMB.Ls_Icn_Nm_St = Ls_Icn_Nm_St;
+  msg_LS_ID_TARA_SUPERVISION_CMB.Ls_Icn_Nerr_Cnt = Ls_Icn_Nerr_Cnt;
+  msg_LS_ID_TARA_SUPERVISION_CMB.Ls_Icn_Nas_Cnt = Ls_Icn_Nas_Cnt;
+  msg_LS_ID_TARA_SUPERVISION_CMB.Ls_Icn_Busoff_Cnt = Ls_Icn_Busoff_Cnt;
+  msg_LS_ID_TARA_SUPERVISION_CMB.Ls_Icn_Comloss_Cnt = Ls_Icn_Comloss_Cnt;
+  msg_LS_ID_TARA_SUPERVISION_CMB.Ls_Icn_Abs_Unit1 = Ls_Icn_Abs_Unit1;
+  msg_LS_ID_TARA_SUPERVISION_CMB.Ls_Icn_Abs_Unit2 = Ls_Icn_Abs_Unit2;
+  msg_LS_ID_TARA_SUPERVISION_CMB.Ls_Icn_Abs_Unit3 = Ls_Icn_Abs_Unit3;
+  output(msg_LS_ID_TARA_SUPERVISION_CMB);
+}
+
+void Send_LS_ID_TARA_REP_DIAG_CMB()
+{
+  if (OFFLINE_ICN) return;
+  msg_LS_ID_TARA_REP_DIAG_CMB.Ls_Icn_Uds_Resp = Ls_Icn_Uds_Resp;
+  output(msg_LS_ID_TARA_REP_DIAG_CMB);
+}
+
+void Send_LS_ID_TARA_KM_SAUV_CMB()
+{
+  if (OFFLINE_ICN) return;
+  msg_LS_ID_TARA_KM_SAUV_CMB.Ls_Icn_Mileage = Ls_Icn_Mileage;
+  msg_LS_ID_TARA_KM_SAUV_CMB.Ls_Icn_Mileage_Comp = Ls_Icn_Mileage_Comp;
+  output(msg_LS_ID_TARA_KM_SAUV_CMB);
+}
+
+void Send_LS_ID_DENA_ICN_INFO1_IC()
+{
+  if (OFFLINE_ICN) return;
+  msg_LS_ID_DENA_ICN_INFO1_IC.LS_ICN_MAINT_DIST = LS_ICN_MAINT_DIST;
+  msg_LS_ID_DENA_ICN_INFO1_IC.LS_ICN_AVS = LS_ICN_AVS;
+  output(msg_LS_ID_DENA_ICN_INFO1_IC);
+}
+
+void Send_LS_ID_DENA_MAINT_INFO_IC()
+{
+  if (OFFLINE_ICN) return;
+  msg_LS_ID_DENA_MAINT_INFO_IC.LS_ICN_CHANGE_OIL = LS_ICN_CHANGE_OIL;
+  msg_LS_ID_DENA_MAINT_INFO_IC.LS_ICN_CHANGE_AIRF = LS_ICN_CHANGE_AIRF;
+  msg_LS_ID_DENA_MAINT_INFO_IC.LS_ICN_CHANGE_OILF = LS_ICN_CHANGE_OILF;
+  output(msg_LS_ID_DENA_MAINT_INFO_IC);
+}
+
+void Send_LS_ID_TARA__EVT_DEFAUT_CMB()
+{
+  if (OFFLINE_ICN) return;
+  msg_LS_ID_TARA__EVT_DEFAUT_CMB.Ls_Icn_Frame_Nb = Ls_Icn_Frame_Nb;
+  msg_LS_ID_TARA__EVT_DEFAUT_CMB.Ls_Icn_Frame_Index = Ls_Icn_Frame_Index;
+  msg_LS_ID_TARA__EVT_DEFAUT_CMB.Ls_Icn_Dtc_Info = Ls_Icn_Dtc_Info;
+  output(msg_LS_ID_TARA__EVT_DEFAUT_CMB);
+}
+
+void Send_LS_ID_TARA__ETAT_COMBINE()
+{
+  if (OFFLINE_ICN) return;
+  msg_LS_ID_TARA__ETAT_COMBINE.Ls_Icn_Maint_Reset_Req = Ls_Icn_Maint_Reset_Req;
+  msg_LS_ID_TARA__ETAT_COMBINE.Ls_Icn_Rbg_Inhib_St = Ls_Icn_Rbg_Inhib_St;
+  msg_LS_ID_TARA__ETAT_COMBINE.Ls_Icn_Rbg_Fault_St = Ls_Icn_Rbg_Fault_St;
+  msg_LS_ID_TARA__ETAT_COMBINE.Ls_Icn_Reset_Tot_Trip1 = Ls_Icn_Reset_Tot_Trip1;
+  msg_LS_ID_TARA__ETAT_COMBINE.Ls_Icn_Reset_Partial_Odo = Ls_Icn_Reset_Partial_Odo;
+  msg_LS_ID_TARA__ETAT_COMBINE.Ls_Icn_Dist_Unit = Ls_Icn_Dist_Unit;
+  msg_LS_ID_TARA__ETAT_COMBINE.Ls_Icn_Esp_Sw_Req = Ls_Icn_Esp_Sw_Req;
+  msg_LS_ID_TARA__ETAT_COMBINE.Ls_Icn_Speed_Display = Ls_Icn_Speed_Display;
+  output(msg_LS_ID_TARA__ETAT_COMBINE);
+}
+
+void Send_LS_ID_DENA_BACKLIGHT_IC()
+{
+  if (OFFLINE_ICN) return;
+  msg_LS_ID_DENA_BACKLIGHT_IC.LS_ICN_BACKLIGHT = LS_ICN_BACKLIGHT;
+  output(msg_LS_ID_DENA_BACKLIGHT_IC);
+}
+
+void Send_LS_ID_DENA_TIME_IC()
+{
+  if (OFFLINE_ICN) return;
+  msg_LS_ID_DENA_TIME_IC.LS_ICN_TIME_SECONDS = LS_ICN_TIME_SECONDS;
+  msg_LS_ID_DENA_TIME_IC.LS_ICN_TIME_MINUTES = LS_ICN_TIME_MINUTES;
+  msg_LS_ID_DENA_TIME_IC.LS_ICN_TIME_HOURS = LS_ICN_TIME_HOURS;
+  msg_LS_ID_DENA_TIME_IC.LS_ICN_DATE_DAY = LS_ICN_DATE_DAY;
+  msg_LS_ID_DENA_TIME_IC.LS_ICN_DATE_MONTH = LS_ICN_DATE_MONTH;
+  msg_LS_ID_DENA_TIME_IC.LS_ICN_DATE_YEAR = LS_ICN_DATE_YEAR;
+  output(msg_LS_ID_DENA_TIME_IC);
+}
+
+void Send_LS_ID_ICNI2_IC()
+{
+  if (OFFLINE_ICN) return;
+  msg_LS_ID_ICNI2_IC.LS_ICN_ODO = LS_ICN_ODO;
+  msg_LS_ID_ICNI2_IC.LS_ICN_BACKLIGHT = LS_ICN_BACKLIGHT;
+  msg_LS_ID_ICNI2_IC.LS_ICN_LOW_FLW = LS_ICN_LOW_FLW;
+  msg_LS_ID_ICNI2_IC.LS_ICN_SPD_GWY = LS_ICN_SPD_GWY;
+  output(msg_LS_ID_ICNI2_IC);
+}
+
+void Send_LS_ID_DIAG_RESP_IC()
+{
+  if (OFFLINE_ICN) return;
+  msg_LS_ID_DIAG_RESP_IC.LS_ICN_DIAG_RESP = LS_ICN_DIAG_RESP;
+  output(msg_LS_ID_DIAG_RESP_IC);
+}
+
+void Send_LS_ID_DENA_ODO_IC()
+{
+  if (OFFLINE_ICN) return;
+  msg_LS_ID_DENA_ODO_IC.LS_ICN_ODO = LS_ICN_ODO;
+  output(msg_LS_ID_DENA_ODO_IC);
+}
+
+void Send_LS_ID_DENA_DIAG_RESP_IC()
+{
+  if (OFFLINE_ICN) return;
+  msg_LS_ID_DENA_DIAG_RESP_IC.LS_ICN_DIAG_RESP = LS_ICN_DIAG_RESP;
+  output(msg_LS_ID_DENA_DIAG_RESP_IC);
+}
+
+void Send_LS_ID_SUP_IC()
+{
+  if (OFFLINE_ICN) return;
+  msg_LS_ID_SUP_IC.LS_ICN_DIAG_MODE = LS_ICN_DIAG_MODE;
+  msg_LS_ID_SUP_IC.LS_ICN_COM_LOSS = LS_ICN_COM_LOSS;
+  msg_LS_ID_SUP_IC.LS_ICN_NM_STATE = LS_ICN_NM_STATE;
+  msg_LS_ID_SUP_IC.LS_ICN_BUS_ERROR = LS_ICN_BUS_ERROR;
+  msg_LS_ID_SUP_IC.LS_ICN_VERSION_MAJOR = LS_ICN_VERSION_MAJOR;
+  msg_LS_ID_SUP_IC.LS_ICN_BUS_ERROR_COUNTER = LS_ICN_BUS_ERROR_COUNTER;
+  msg_LS_ID_SUP_IC.LS_ICN_TX_TIMEOUT_COUNTER = LS_ICN_TX_TIMEOUT_COUNTER;
+  msg_LS_ID_SUP_IC.LS_ICN_BUSOFF_COUNTER = LS_ICN_BUSOFF_COUNTER;
+  msg_LS_ID_SUP_IC.LS_ICN_COM_LOSS_COUNTER = LS_ICN_COM_LOSS_COUNTER;
+  msg_LS_ID_SUP_IC.LS_ICN_NBCM_DYN_ABSENT = LS_ICN_NBCM_DYN_ABSENT;
+  msg_LS_ID_SUP_IC.LS_ICN_NBCM_STATIC_ABSENT = LS_ICN_NBCM_STATIC_ABSENT;
+  msg_LS_ID_SUP_IC.LS_ICN_VERSION_MINOR = LS_ICN_VERSION_MINOR;
+  output(msg_LS_ID_SUP_IC);
+}
+
+void Send_LS_ID_DENA_SUP_IC()
+{
+  if (OFFLINE_ICN) return;
+  msg_LS_ID_DENA_SUP_IC.LS_ICN_DIAG_MODE = LS_ICN_DIAG_MODE;
+  msg_LS_ID_DENA_SUP_IC.LS_ICN_COM_LOSS = LS_ICN_COM_LOSS;
+  msg_LS_ID_DENA_SUP_IC.LS_ICN_NM_STATE = LS_ICN_NM_STATE;
+  msg_LS_ID_DENA_SUP_IC.LS_ICN_BUS_ERROR = LS_ICN_BUS_ERROR;
+  msg_LS_ID_DENA_SUP_IC.LS_ICN_BUS_ERROR_COUNTER = LS_ICN_BUS_ERROR_COUNTER;
+  msg_LS_ID_DENA_SUP_IC.LS_ICN_TX_TIMEOUT_COUNTER = LS_ICN_TX_TIMEOUT_COUNTER;
+  msg_LS_ID_DENA_SUP_IC.LS_ICN_BUSOFF_COUNTER = LS_ICN_BUSOFF_COUNTER;
+  msg_LS_ID_DENA_SUP_IC.LS_ICN_COM_LOSS_COUNTER = LS_ICN_COM_LOSS_COUNTER;
+  msg_LS_ID_DENA_SUP_IC.LS_ICN_NBCM_DYN_ABSENT = LS_ICN_NBCM_DYN_ABSENT;
+  msg_LS_ID_DENA_SUP_IC.LS_ICN_NBCM_STATIC_ABSENT = LS_ICN_NBCM_STATIC_ABSENT;
+  output(msg_LS_ID_DENA_SUP_IC);
+}
+
+void Send_LS_ID_DENA_FR_IC()
+{
+  if (OFFLINE_ICN) return;
+  msg_LS_ID_DENA_FR_IC.LS_ICN_FAULT_ID = LS_ICN_FAULT_ID;
+  msg_LS_ID_DENA_FR_IC.LS_ICN_FAULT_STATUS = LS_ICN_FAULT_STATUS;
+  output(msg_LS_ID_DENA_FR_IC);
+}
+
+void Send_LS_ID_FR_IC()
+{
+  if (OFFLINE_ICN) return;
+  msg_LS_ID_FR_IC.LS_ICN_FAULT_ID = LS_ICN_FAULT_ID;
+  msg_LS_ID_FR_IC.LS_ICN_FAULT_STATUS = LS_ICN_FAULT_STATUS;
+  output(msg_LS_ID_FR_IC);
+}
+
+/*============================================================================
+  گره: ICU  (HS-CAN)  -  9 پیام
+============================================================================*/
+void Send_HS_ID_ICU_RESET_REQ()
+{
+  if (OFFLINE_ICU) return;
+  msg_HS_ID_ICU_RESET_REQ.Hs_Icu_Reset_Req_1 = Hs_Icu_Reset_Req_1;
+  msg_HS_ID_ICU_RESET_REQ.Hs_Icu_Reset_Req_2 = Hs_Icu_Reset_Req_2;
+  output(msg_HS_ID_ICU_RESET_REQ);
+}
+
+void Send_HS_ID_IMM_LearnSKReq()
+{
+  if (OFFLINE_ICU) return;
+  msg_HS_ID_IMM_LearnSKReq.Hs_Imm_LearnSKReq_1 = Hs_Imm_LearnSKReq_1;
+  msg_HS_ID_IMM_LearnSKReq.Hs_Imm_LearnSKReq_2 = Hs_Imm_LearnSKReq_2;
+  output(msg_HS_ID_IMM_LearnSKReq);
+}
+
+void Send_HS_ID_IMM_TeachPINReq()
+{
+  if (OFFLINE_ICU) return;
+  msg_HS_ID_IMM_TeachPINReq.Hs_Imm_TeachPINReq_1 = Hs_Imm_TeachPINReq_1;
+  msg_HS_ID_IMM_TeachPINReq.Hs_Imm_TeachPINReq_2 = Hs_Imm_TeachPINReq_2;
+  output(msg_HS_ID_IMM_TeachPINReq);
+}
+
+void Send_HS_ID_IMM_TeachSKReq()
+{
+  if (OFFLINE_ICU) return;
+  msg_HS_ID_IMM_TeachSKReq.Hs_Imm_TeachSKReq = Hs_Imm_TeachSKReq;
+  output(msg_HS_ID_IMM_TeachSKReq);
+}
+
+void Send_HS_ID_IMM_AUTH()
+{
+  if (OFFLINE_ICU) return;
+  msg_HS_ID_IMM_AUTH.Hs_Imm_Auth_1 = Hs_Imm_Auth_1;
+  msg_HS_ID_IMM_AUTH.Hs_Imm_Auth_2 = Hs_Imm_Auth_2;
+  output(msg_HS_ID_IMM_AUTH);
+}
+
+void Send_HS_ID_ICU_SUP()
+{
+  if (OFFLINE_ICU) return;
+  msg_HS_ID_ICU_SUP.Hs_Icu_Diag_Mode = Hs_Icu_Diag_Mode;
+  msg_HS_ID_ICU_SUP.Hs_Icu_Com_Loss = Hs_Icu_Com_Loss;
+  msg_HS_ID_ICU_SUP.Hs_Icu_Net_Management_State = Hs_Icu_Net_Management_State;
+  msg_HS_ID_ICU_SUP.Hs_Icu_Tx_TimeOut_Counter = Hs_Icu_Tx_TimeOut_Counter;
+  msg_HS_ID_ICU_SUP.Hs_Icu_Bus_OFF_Counter = Hs_Icu_Bus_OFF_Counter;
+  msg_HS_ID_ICU_SUP.Hs_Icu_Com_Loss_Counter = Hs_Icu_Com_Loss_Counter;
+  msg_HS_ID_ICU_SUP.Hs_Icu_Ecu_Dynamic_States = Hs_Icu_Ecu_Dynamic_States;
+  msg_HS_ID_ICU_SUP.Hs_Icu_Ecu_Static_States = Hs_Icu_Ecu_Static_States;
+  output(msg_HS_ID_ICU_SUP);
+}
+
+void Send_HS_ID_ICU_DIAG_REQ()
+{
+  if (OFFLINE_ICU) return;
+  msg_HS_ID_ICU_DIAG_REQ.Hs_Icu_Diagnostic_Request = Hs_Icu_Diagnostic_Request;
+  output(msg_HS_ID_ICU_DIAG_REQ);
+}
+
+void Send_HS_ID_ICU_E1()
+{
+  if (OFFLINE_ICU) return;
+  msg_HS_ID_ICU_E1.Hs_Icu_Ems_dialog = Hs_Icu_Ems_dialog;
+  output(msg_HS_ID_ICU_E1);
+}
+
+void Send_HS_ID_ICU_INFO()
+{
+  if (OFFLINE_ICU) return;
+  msg_HS_ID_ICU_INFO.Hs_Icu_Ems_Status = Hs_Icu_Ems_Status;
+  msg_HS_ID_ICU_INFO.Hs_Icu_Immo_Lamp_Command = Hs_Icu_Immo_Lamp_Command;
+  msg_HS_ID_ICU_INFO.Hs_Icu_Key_Inside = Hs_Icu_Key_Inside;
+  msg_HS_ID_ICU_INFO.Hs_Icu_Tp_Position = Hs_Icu_Tp_Position;
+  msg_HS_ID_ICU_INFO.Hs_Icu_Immo_Output_Lamp_St = Hs_Icu_Immo_Output_Lamp_St;
+  msg_HS_ID_ICU_INFO.Hs_Icu_Immo_Production_Date = Hs_Icu_Immo_Production_Date;
+  msg_HS_ID_ICU_INFO.Hs_Icu_Immo_Software_Version = Hs_Icu_Immo_Software_Version;
+  msg_HS_ID_ICU_INFO.Hs_Icu_Immo_Hardware_Version = Hs_Icu_Immo_Hardware_Version;
+  output(msg_HS_ID_ICU_INFO);
+}
+
+/*============================================================================
+  گره: ITPMS  (HS-CAN)  -  1 پیام
+============================================================================*/
+void Send_HS_ID_ITPMS_INFO()
+{
+  if (OFFLINE_ITPMS) return;
+  msg_HS_ID_ITPMS_INFO.Hs_iTPMS_Tire_Pressure_Reg = Hs_iTPMS_Tire_Pressure_Reg;
+  msg_HS_ID_ITPMS_INFO.Hs_iTPMS_Check_Tire_Pressure = Hs_iTPMS_Check_Tire_Pressure;
+  msg_HS_ID_ITPMS_INFO.Hs_iTPMS_Reset_Condition_NO = Hs_iTPMS_Reset_Condition_NO;
+  msg_HS_ID_ITPMS_INFO.Hs_iTMPS_Fault_MMS = Hs_iTMPS_Fault_MMS;
+  msg_HS_ID_ITPMS_INFO.Hs_iTPMS_Fault_ICN = Hs_iTPMS_Fault_ICN;
+  output(msg_HS_ID_ITPMS_INFO);
+}
+
+/*============================================================================
+  گره: MMS  (LS-CAN)  -  9 پیام
+============================================================================*/
+void Send_LS_ID_SUP_MMS()
+{
+  if (OFFLINE_MMS) return;
+  output(msg_LS_ID_SUP_MMS);
+}
+
+void Send_LS_ID_DIAG_RESP_MMS()
+{
+  if (OFFLINE_MMS) return;
+  msg_LS_ID_DIAG_RESP_MMS.LS_MMS_DIAG_RESP = LS_MMS_DIAG_RESP;
+  output(msg_LS_ID_DIAG_RESP_MMS);
+}
+
+void Send_LS_ID_TARA_VERSION_MMS()
+{
+  if (OFFLINE_MMS) return;
+  msg_LS_ID_TARA_VERSION_MMS.Ls_Mms_Ecu_Num = Ls_Mms_Ecu_Num;
+  msg_LS_ID_TARA_VERSION_MMS.Ls_Mms_Sw_Ver_Day = Ls_Mms_Sw_Ver_Day;
+  msg_LS_ID_TARA_VERSION_MMS.Ls_Mms_Sw_Ver_Month = Ls_Mms_Sw_Ver_Month;
+  msg_LS_ID_TARA_VERSION_MMS.Ls_Mms_Sw_Ver_Year = Ls_Mms_Sw_Ver_Year;
+  msg_LS_ID_TARA_VERSION_MMS.Ls_Mms_Sw_Ident = Ls_Mms_Sw_Ident;
+  msg_LS_ID_TARA_VERSION_MMS.Ls_Mms_Msg_Tab_Dig1 = Ls_Mms_Msg_Tab_Dig1;
+  msg_LS_ID_TARA_VERSION_MMS.Ls_Mms_Msg_Tab_Dig2 = Ls_Mms_Msg_Tab_Dig2;
+  msg_LS_ID_TARA_VERSION_MMS.Ls_Mms_Msg_Tab_Edition = Ls_Mms_Msg_Tab_Edition;
+  output(msg_LS_ID_TARA_VERSION_MMS);
+}
+
+void Send_LS_ID_TARA_SUPERVISION_MMS()
+{
+  if (OFFLINE_MMS) return;
+  msg_LS_ID_TARA_SUPERVISION_MMS.Ls_Mms_Comloss_Fault = Ls_Mms_Comloss_Fault;
+  msg_LS_ID_TARA_SUPERVISION_MMS.Ls_Mms_Nerr = Ls_Mms_Nerr;
+  msg_LS_ID_TARA_SUPERVISION_MMS.Ls_Mms_Nm_St = Ls_Mms_Nm_St;
+  msg_LS_ID_TARA_SUPERVISION_MMS.Ls_Mms_Nerr_Cnt = Ls_Mms_Nerr_Cnt;
+  msg_LS_ID_TARA_SUPERVISION_MMS.Ls_Mms_Nas_Cnt = Ls_Mms_Nas_Cnt;
+  msg_LS_ID_TARA_SUPERVISION_MMS.Ls_Mms_Busoff_Cnt = Ls_Mms_Busoff_Cnt;
+  msg_LS_ID_TARA_SUPERVISION_MMS.Ls_Mms_Comloss_Cnt = Ls_Mms_Comloss_Cnt;
+  msg_LS_ID_TARA_SUPERVISION_MMS.Ls_Mms_Abs_Unit1 = Ls_Mms_Abs_Unit1;
+  msg_LS_ID_TARA_SUPERVISION_MMS.Ls_Mms_Abs_Unit2 = Ls_Mms_Abs_Unit2;
+  msg_LS_ID_TARA_SUPERVISION_MMS.Ls_Mms_Abs_Unit3 = Ls_Mms_Abs_Unit3;
+  output(msg_LS_ID_TARA_SUPERVISION_MMS);
+}
+
+void Send_LS_ID_TARA_REP_DIAG_MMS()
+{
+  if (OFFLINE_MMS) return;
+  msg_LS_ID_TARA_REP_DIAG_MMS.Ls_Mms_Uds_Resp = Ls_Mms_Uds_Resp;
+  output(msg_LS_ID_TARA_REP_DIAG_MMS);
+}
+
+void Send_LS_ID_TARA_EVT_DEFAUT_MMS()
+{
+  if (OFFLINE_MMS) return;
+  msg_LS_ID_TARA_EVT_DEFAUT_MMS.Ls_Mms_Frame_Nb = Ls_Mms_Frame_Nb;
+  msg_LS_ID_TARA_EVT_DEFAUT_MMS.Ls_Mms_Frame_Index = Ls_Mms_Frame_Index;
+  msg_LS_ID_TARA_EVT_DEFAUT_MMS.Ls_Mms_Dtc_Info = Ls_Mms_Dtc_Info;
+  output(msg_LS_ID_TARA_EVT_DEFAUT_MMS);
+}
+
+void Send_LS_ID_TARA_ECRAN_INFO_PROFILS()
+{
+  if (OFFLINE_MMS) return;
+  msg_LS_ID_TARA_ECRAN_INFO_PROFILS.Ls_Mms_Bluetooth_Active = Ls_Mms_Bluetooth_Active;
+  msg_LS_ID_TARA_ECRAN_INFO_PROFILS.Ls_Mms_Esc_Active = Ls_Mms_Esc_Active;
+  msg_LS_ID_TARA_ECRAN_INFO_PROFILS.Ls_Mms_Amb_Bkl_Level = Ls_Mms_Amb_Bkl_Level;
+  msg_LS_ID_TARA_ECRAN_INFO_PROFILS.Ls_Mms_Config_Valid = Ls_Mms_Config_Valid;
+  msg_LS_ID_TARA_ECRAN_INFO_PROFILS.Ls_Mms_Drl_Active = Ls_Mms_Drl_Active;
+  msg_LS_ID_TARA_ECRAN_INFO_PROFILS.Ls_Mms_Road_Finder_Active = Ls_Mms_Road_Finder_Active;
+  msg_LS_ID_TARA_ECRAN_INFO_PROFILS.Ls_Mms_Road_Finder_Time = Ls_Mms_Road_Finder_Time;
+  msg_LS_ID_TARA_ECRAN_INFO_PROFILS.Ls_Mms_Pas_Func_Permanent = Ls_Mms_Pas_Func_Permanent;
+  msg_LS_ID_TARA_ECRAN_INFO_PROFILS.Ls_Mms_Pas_Func_Temporary = Ls_Mms_Pas_Func_Temporary;
+  msg_LS_ID_TARA_ECRAN_INFO_PROFILS.Ls_Mms_Recognize_Trip = Ls_Mms_Recognize_Trip;
+  msg_LS_ID_TARA_ECRAN_INFO_PROFILS.Ls_Mms_Tpms_Active_Req = Ls_Mms_Tpms_Active_Req;
+  msg_LS_ID_TARA_ECRAN_INFO_PROFILS.Ls_Mms_Request_Trip2_reset = Ls_Mms_Request_Trip2_reset;
+  msg_LS_ID_TARA_ECRAN_INFO_PROFILS.Ls_Mms_Request_Trip1_reset = Ls_Mms_Request_Trip1_reset;
+  output(msg_LS_ID_TARA_ECRAN_INFO_PROFILS);
+}
+
+void Send_LS_ID_TARA_DMD_MAJ_DATE_HEURE()
+{
+  if (OFFLINE_MMS) return;
+  msg_LS_ID_TARA_DMD_MAJ_DATE_HEURE.Ls_Mms_Icn_Set_Hour_Mode = Ls_Mms_Icn_Set_Hour_Mode;
+  msg_LS_ID_TARA_DMD_MAJ_DATE_HEURE.Ls_Mms_Icn_Set_Year = Ls_Mms_Icn_Set_Year;
+  msg_LS_ID_TARA_DMD_MAJ_DATE_HEURE.Ls_Mms_Icn_Set_Month = Ls_Mms_Icn_Set_Month;
+  msg_LS_ID_TARA_DMD_MAJ_DATE_HEURE.Ls_Mms_Icn_Set_Day = Ls_Mms_Icn_Set_Day;
+  msg_LS_ID_TARA_DMD_MAJ_DATE_HEURE.Ls_Mms_Icn_Set_Hour = Ls_Mms_Icn_Set_Hour;
+  msg_LS_ID_TARA_DMD_MAJ_DATE_HEURE.Ls_Mms_Icn_Set_Min = Ls_Mms_Icn_Set_Min;
+  output(msg_LS_ID_TARA_DMD_MAJ_DATE_HEURE);
+}
+
+void Send_LS_ID_TIME_MMS()
+{
+  if (OFFLINE_MMS) return;
+  msg_LS_ID_TIME_MMS.LS_ICN_TIME_SECONDS = LS_ICN_TIME_SECONDS;
+  msg_LS_ID_TIME_MMS.LS_ICN_TIME_MINUTES = LS_ICN_TIME_MINUTES;
+  msg_LS_ID_TIME_MMS.LS_ICN_TIME_HOURS = LS_ICN_TIME_HOURS;
+  msg_LS_ID_TIME_MMS.LS_ICN_DATE_DAY = LS_ICN_DATE_DAY;
+  msg_LS_ID_TIME_MMS.LS_ICN_DATE_MONTH = LS_ICN_DATE_MONTH;
+  msg_LS_ID_TIME_MMS.LS_ICN_DATE_YEAR = LS_ICN_DATE_YEAR;
+  output(msg_LS_ID_TIME_MMS);
+}
+
+/*============================================================================
+  گره: PEPS  (HS-CAN)  -  1 پیام
+============================================================================*/
+void Send_HS_ID_PEPS_1()
+{
+  if (OFFLINE_PEPS) return;
+  msg_HS_ID_PEPS_1.Hs_Peps_BrakeSwitchSt = Hs_Peps_BrakeSwitchSt;
+  msg_HS_ID_PEPS_1.Hs_Peps_ClutchSwitchSt = Hs_Peps_ClutchSwitchSt;
+  msg_HS_ID_PEPS_1.Hs_Peps_PasserngerButtonSt = Hs_Peps_PasserngerButtonSt;
+  msg_HS_ID_PEPS_1.Hs_Peps_DriverButtonSt = Hs_Peps_DriverButtonSt;
+  msg_HS_ID_PEPS_1.Hs_Peps_AuthenticationSt = Hs_Peps_AuthenticationSt;
+  msg_HS_ID_PEPS_1.Hs_Peps_VehSpdVD = Hs_Peps_VehSpdVD;
+  msg_HS_ID_PEPS_1.Hs_Peps_LearntMode = Hs_Peps_LearntMode;
+  msg_HS_ID_PEPS_1.Hs_Peps_ESCLLearntMode = Hs_Peps_ESCLLearntMode;
+  msg_HS_ID_PEPS_1.Hs_Peps_SysPowMode = Hs_Peps_SysPowMode;
+  msg_HS_ID_PEPS_1.Hs_Peps_SSB_SW1St = Hs_Peps_SSB_SW1St;
+  msg_HS_ID_PEPS_1.Hs_Peps_SSB_SW2St = Hs_Peps_SSB_SW2St;
+  msg_HS_ID_PEPS_1.Hs_Peps_ESCLMotorPowerSupplySt = Hs_Peps_ESCLMotorPowerSupplySt;
+  msg_HS_ID_PEPS_1.Hs_Peps_ESCLUnlockSt = Hs_Peps_ESCLUnlockSt;
+  msg_HS_ID_PEPS_1.Hs_Peps_ESCLLockEnPowerSupplySt = Hs_Peps_ESCLLockEnPowerSupplySt;
+  msg_HS_ID_PEPS_1.Hs_Peps_VehSpd = Hs_Peps_VehSpd;
+  msg_HS_ID_PEPS_1.Hs_Peps_FOB_ID = Hs_Peps_FOB_ID;
+  msg_HS_ID_PEPS_1.Hs_Peps_keyComdInfo = Hs_Peps_keyComdInfo;
+  msg_HS_ID_PEPS_1.Hs_Peps_DoorLockReq = Hs_Peps_DoorLockReq;
+  msg_HS_ID_PEPS_1.Hs_Peps_DoorUnlockReq = Hs_Peps_DoorUnlockReq;
+  msg_HS_ID_PEPS_1.Hs_Peps_TrunkReq = Hs_Peps_TrunkReq;
+  msg_HS_ID_PEPS_1.Hs_Peps_VehSpdWarning = Hs_Peps_VehSpdWarning;
+  msg_HS_ID_PEPS_1.Hs_Peps_AuthFailWarning = Hs_Peps_AuthFailWarning;
+  msg_HS_ID_PEPS_1.Hs_Peps_OpIndicationWarning = Hs_Peps_OpIndicationWarning;
+  msg_HS_ID_PEPS_1.Hs_Peps_DeactivationWarning = Hs_Peps_DeactivationWarning;
+  msg_HS_ID_PEPS_1.Hs_Peps_SSBWarning = Hs_Peps_SSBWarning;
+  msg_HS_ID_PEPS_1.Hs_Peps_ESCLWarning = Hs_Peps_ESCLWarning;
+  msg_HS_ID_PEPS_1.Hs_Peps_KeyOutWarning = Hs_Peps_KeyOutWarning;
+  msg_HS_ID_PEPS_1.Hs_Peps_FobBattLowWarning = Hs_Peps_FobBattLowWarning;
+  msg_HS_ID_PEPS_1.Hs_Peps_DoorLockWarning = Hs_Peps_DoorLockWarning;
+  output(msg_HS_ID_PEPS_1);
+}
+
+/*============================================================================
+  گره: RBG  (LS-CAN)  -  6 پیام
+============================================================================*/
+void Send_LS_ID_TARA_CRH_RBG()
+{
+  if (OFFLINE_RBG) return;
+  msg_LS_ID_TARA_CRH_RBG.Ls_Rbg_Crash_Info = Ls_Rbg_Crash_Info;
+  output(msg_LS_ID_TARA_CRH_RBG);
+}
+
+void Send_LS_ID_TARA_EVT_DEFAUT_RBG()
+{
+  if (OFFLINE_RBG) return;
+  msg_LS_ID_TARA_EVT_DEFAUT_RBG.Ls_Rbg_Frame_Nb = Ls_Rbg_Frame_Nb;
+  msg_LS_ID_TARA_EVT_DEFAUT_RBG.Ls_Rbg_Frame_Index = Ls_Rbg_Frame_Index;
+  msg_LS_ID_TARA_EVT_DEFAUT_RBG.Ls_Rbg_Dtc_Info = Ls_Rbg_Dtc_Info;
+  output(msg_LS_ID_TARA_EVT_DEFAUT_RBG);
+}
+
+void Send_LS_ID_TARA_REP_DIAG_RBG()
+{
+  if (OFFLINE_RBG) return;
+  msg_LS_ID_TARA_REP_DIAG_RBG.Ls_Rbg_Uds_Resp = Ls_Rbg_Uds_Resp;
+  output(msg_LS_ID_TARA_REP_DIAG_RBG);
+}
+
+void Send_LS_ID_TARA_VERSION_RBG()
+{
+  if (OFFLINE_RBG) return;
+  msg_LS_ID_TARA_VERSION_RBG.Ls_Rbg_Ecu_Num = Ls_Rbg_Ecu_Num;
+  msg_LS_ID_TARA_VERSION_RBG.Ls_Rbg_Sw_Ver_Day = Ls_Rbg_Sw_Ver_Day;
+  msg_LS_ID_TARA_VERSION_RBG.Ls_Rbg_Sw_Ver_Month = Ls_Rbg_Sw_Ver_Month;
+  msg_LS_ID_TARA_VERSION_RBG.Ls_Rbg_Sw_Ver_Year = Ls_Rbg_Sw_Ver_Year;
+  msg_LS_ID_TARA_VERSION_RBG.Ls_Rbg_Sw_Ident = Ls_Rbg_Sw_Ident;
+  msg_LS_ID_TARA_VERSION_RBG.Ls_Rbg_Msg_Tab_Dig1 = Ls_Rbg_Msg_Tab_Dig1;
+  msg_LS_ID_TARA_VERSION_RBG.Ls_Rbg_Msg_Tab_Dig2 = Ls_Rbg_Msg_Tab_Dig2;
+  msg_LS_ID_TARA_VERSION_RBG.Ls_Rbg_Msg_Tab_Edition = Ls_Rbg_Msg_Tab_Edition;
+  output(msg_LS_ID_TARA_VERSION_RBG);
+}
+
+void Send_LS_ID_TARA_SUPERVISION_RBG()
+{
+  if (OFFLINE_RBG) return;
+  msg_LS_ID_TARA_SUPERVISION_RBG.Ls_Rbg_Comloss_Fault = Ls_Rbg_Comloss_Fault;
+  msg_LS_ID_TARA_SUPERVISION_RBG.Ls_Rbg_Nerr = Ls_Rbg_Nerr;
+  msg_LS_ID_TARA_SUPERVISION_RBG.Ls_Rbg_Nm_St = Ls_Rbg_Nm_St;
+  msg_LS_ID_TARA_SUPERVISION_RBG.Ls_Rbg_Nerr_Cnt = Ls_Rbg_Nerr_Cnt;
+  msg_LS_ID_TARA_SUPERVISION_RBG.Ls_Rbg_Nas_Cnt = Ls_Rbg_Nas_Cnt;
+  msg_LS_ID_TARA_SUPERVISION_RBG.Ls_Rbg_Busoff_Cnt = Ls_Rbg_Busoff_Cnt;
+  msg_LS_ID_TARA_SUPERVISION_RBG.Ls_Rbg_Comloss_Cnt = Ls_Rbg_Comloss_Cnt;
+  msg_LS_ID_TARA_SUPERVISION_RBG.Ls_Rbg_Abs_Unit1 = Ls_Rbg_Abs_Unit1;
+  msg_LS_ID_TARA_SUPERVISION_RBG.Ls_Rbg_Abs_Unit2 = Ls_Rbg_Abs_Unit2;
+  msg_LS_ID_TARA_SUPERVISION_RBG.Ls_Rbg_Abs_Unit3 = Ls_Rbg_Abs_Unit3;
+  output(msg_LS_ID_TARA_SUPERVISION_RBG);
+}
+
+void Send_LS_ID_TARA_INFO_RBG()
+{
+  if (OFFLINE_RBG) return;
+  msg_LS_ID_TARA_INFO_RBG.Ls_Rbg_Pass_Inhib = Ls_Rbg_Pass_Inhib;
+  msg_LS_ID_TARA_INFO_RBG.Ls_Rbg_Fault = Ls_Rbg_Fault;
+  msg_LS_ID_TARA_INFO_RBG.Ls_Rbg_Process_Cnt = Ls_Rbg_Process_Cnt;
+  msg_LS_ID_TARA_INFO_RBG.Ls_Rbg_Checksum = Ls_Rbg_Checksum;
+  output(msg_LS_ID_TARA_INFO_RBG);
+}
+
+/*============================================================================
+  گره: TCU  (HS-CAN)  -  5 پیام
+============================================================================*/
+void Send_HS_ID_TCU_SUP()
+{
+  if (OFFLINE_TCU) return;
+  msg_HS_ID_TCU_SUP.Hs_Tcu_Diag_Mode = Hs_Tcu_Diag_Mode;
+  msg_HS_ID_TCU_SUP.Hs_Tcu_Com_Loss = Hs_Tcu_Com_Loss;
+  msg_HS_ID_TCU_SUP.Hs_Tcu_Network_Management_State = Hs_Tcu_Network_Management_State;
+  msg_HS_ID_TCU_SUP.Hs_Tcu_Tx_TimeOut_Counter = Hs_Tcu_Tx_TimeOut_Counter;
+  msg_HS_ID_TCU_SUP.Hs_Tcu_Bus_OFF_Counter = Hs_Tcu_Bus_OFF_Counter;
+  msg_HS_ID_TCU_SUP.Hs_Tcu_Com_Loss_Counter = Hs_Tcu_Com_Loss_Counter;
+  msg_HS_ID_TCU_SUP.Hs_Tcu_Ecu_Dynamic_States = Hs_Tcu_Ecu_Dynamic_States;
+  msg_HS_ID_TCU_SUP.Hs_Tcu_Ecu_Static_States = Hs_Tcu_Ecu_Static_States;
+  output(msg_HS_ID_TCU_SUP);
+}
+
+void Send_HS_ID_TCU_DIAG_REQ()
+{
+  if (OFFLINE_TCU) return;
+  msg_HS_ID_TCU_DIAG_REQ.Hs_Tcu_Diagnostic_Request = Hs_Tcu_Diagnostic_Request;
+  output(msg_HS_ID_TCU_DIAG_REQ);
+}
+
+void Send_HS_ID_TCU_INFO_3()
+{
+  if (OFFLINE_TCU) return;
+  msg_HS_ID_TCU_INFO_3.Hs_Tcu_IdleControlLoadTorque = Hs_Tcu_IdleControlLoadTorque;
+  msg_HS_ID_TCU_INFO_3.Hs_Tcu_IdleContLoadTorqInvalid = Hs_Tcu_IdleContLoadTorqInvalid;
+  msg_HS_ID_TCU_INFO_3.Hs_Tcu_CrankingEnable = Hs_Tcu_CrankingEnable;
+  msg_HS_ID_TCU_INFO_3.Hs_Tcu_DesiredEngIdlSpdReqActive = Hs_Tcu_DesiredEngIdlSpdReqActive;
+  msg_HS_ID_TCU_INFO_3.Hs_Tcu_OvertempLevel = Hs_Tcu_OvertempLevel;
+  msg_HS_ID_TCU_INFO_3.Hs_Tcu_LaunchVehicle = Hs_Tcu_LaunchVehicle;
+  msg_HS_ID_TCU_INFO_3.Hs_Tcu_DesiredEngIdlSpdReq = Hs_Tcu_DesiredEngIdlSpdReq;
+  msg_HS_ID_TCU_INFO_3.Hs_Tcu_MaxEngSpeedLimReq = Hs_Tcu_MaxEngSpeedLimReq;
+  msg_HS_ID_TCU_INFO_3.Hs_Tcu_OutputShaftSpeed = Hs_Tcu_OutputShaftSpeed;
+  output(msg_HS_ID_TCU_INFO_3);
+}
+
+void Send_HS_ID_TCU_INFO_2()
+{
+  if (OFFLINE_TCU) return;
+  msg_HS_ID_TCU_INFO_2.Hs_Tcu_TorqConvTurbineSpeed = Hs_Tcu_TorqConvTurbineSpeed;
+  msg_HS_ID_TCU_INFO_2.Hs_Tcu_ShiftPositionValid = Hs_Tcu_ShiftPositionValid;
+  msg_HS_ID_TCU_INFO_2.Hs_Tcu_CoolFanReq = Hs_Tcu_CoolFanReq;
+  msg_HS_ID_TCU_INFO_2.Hs_Tcu_TorqReductReq = Hs_Tcu_TorqReductReq;
+  msg_HS_ID_TCU_INFO_2.Hs_Tcu_TorqIncreReq = Hs_Tcu_TorqIncreReq;
+  msg_HS_ID_TCU_INFO_2.Hs_Tcu_EngBrkTorqIncreValue = Hs_Tcu_EngBrkTorqIncreValue;
+  msg_HS_ID_TCU_INFO_2.Hs_Tcu_Info_2_RollCntr = Hs_Tcu_Info_2_RollCntr;
+  msg_HS_ID_TCU_INFO_2.Hs_Tcu_Info_2_Checksum = Hs_Tcu_Info_2_Checksum;
+  output(msg_HS_ID_TCU_INFO_2);
+}
+
+void Send_HS_ID_TCU_INFO1()
+{
+  if (OFFLINE_TCU) return;
+  msg_HS_ID_TCU_INFO1.Hs_Tcu_N_EngBrkTorqLimitValue = Hs_Tcu_N_EngBrkTorqLimitValue;
+  msg_HS_ID_TCU_INFO1.Hs_Tcu_EngBrkTorqReductValue = Hs_Tcu_EngBrkTorqReductValue;
+  msg_HS_ID_TCU_INFO1.Hs_Tcu_Current_Gear = Hs_Tcu_Current_Gear;
+  msg_HS_ID_TCU_INFO1.Hs_Tcu_TargetGear = Hs_Tcu_TargetGear;
+  msg_HS_ID_TCU_INFO1.Hs_Tcu_Gear_Lever_Pos = Hs_Tcu_Gear_Lever_Pos;
+  msg_HS_ID_TCU_INFO1.Hs_Tcu_TorqConvClutchStatus = Hs_Tcu_TorqConvClutchStatus;
+  msg_HS_ID_TCU_INFO1.Hs_Tcu_TransmissionFailureStatus = Hs_Tcu_TransmissionFailureStatus;
+  msg_HS_ID_TCU_INFO1.Hs_Tcu_TransmissionOilTemp = Hs_Tcu_TransmissionOilTemp;
+  msg_HS_ID_TCU_INFO1.Hs_Tcu_Mil_Req_Mil_On = Hs_Tcu_Mil_Req_Mil_On;
+  msg_HS_ID_TCU_INFO1.Hs_Tcu_ShiftInProgress = Hs_Tcu_ShiftInProgress;
+  msg_HS_ID_TCU_INFO1.Hs_Tcu_DriverMode = Hs_Tcu_DriverMode;
+  msg_HS_ID_TCU_INFO1.Hs_Tcu_ReverseControl = Hs_Tcu_ReverseControl;
+  msg_HS_ID_TCU_INFO1.Hs_Tcu_TorqLimitationReq = Hs_Tcu_TorqLimitationReq;
+  msg_HS_ID_TCU_INFO1.Hs_Tcu_ActualGearValid = Hs_Tcu_ActualGearValid;
+  msg_HS_ID_TCU_INFO1.Hs_Tcu_TargetGearValid = Hs_Tcu_TargetGearValid;
+  msg_HS_ID_TCU_INFO1.Hs_Tcu_Info_1_RollCntr = Hs_Tcu_Info_1_RollCntr;
+  msg_HS_ID_TCU_INFO1.Hs_Tcu_Info_1_Checksum = Hs_Tcu_Info_1_Checksum;
+  output(msg_HS_ID_TCU_INFO1);
+}
+
+/*============================================================================
+  گره: TPMS  (HS-CAN)  -  3 پیام
+============================================================================*/
+void Send_HS_ID_TPMS_DIAG_REQ()
+{
+  if (OFFLINE_TPMS) return;
+  msg_HS_ID_TPMS_DIAG_REQ.Hs_Tpms_Diagnostic_Request = Hs_Tpms_Diagnostic_Request;
+  output(msg_HS_ID_TPMS_DIAG_REQ);
+}
+
+void Send_HS_ID_TPMS_SUP()
+{
+  if (OFFLINE_TPMS) return;
+  msg_HS_ID_TPMS_SUP.Hs_Tpms_Diag_Mode = Hs_Tpms_Diag_Mode;
+  msg_HS_ID_TPMS_SUP.Hs_Tpms_COM_Loss = Hs_Tpms_COM_Loss;
+  msg_HS_ID_TPMS_SUP.Hs_Tpms_Network_Management_State = Hs_Tpms_Network_Management_State;
+  msg_HS_ID_TPMS_SUP.Hs_Tpms_Tx_TimeOut_Counter = Hs_Tpms_Tx_TimeOut_Counter;
+  msg_HS_ID_TPMS_SUP.Hs_Tpms_Bus_OFF_Counter = Hs_Tpms_Bus_OFF_Counter;
+  msg_HS_ID_TPMS_SUP.Hs_Tpms_Com_Loss_Counter = Hs_Tpms_Com_Loss_Counter;
+  msg_HS_ID_TPMS_SUP.Hs_Tpms_ECU_Dynamic_States = Hs_Tpms_ECU_Dynamic_States;
+  msg_HS_ID_TPMS_SUP.Hs_Tpms_ECU_Static_States = Hs_Tpms_ECU_Static_States;
+  output(msg_HS_ID_TPMS_SUP);
+}
+
+void Send_HS_ID_TPMS_INFO()
+{
+  if (OFFLINE_TPMS) return;
+  msg_HS_ID_TPMS_INFO.Hs_Tpms_SystemSt = Hs_Tpms_SystemSt;
+  msg_HS_ID_TPMS_INFO.Hs_Tpms_TireId = Hs_Tpms_TireId;
+  msg_HS_ID_TPMS_INFO.Hs_Tpms_TireInfoInvalid = Hs_Tpms_TireInfoInvalid;
+  msg_HS_ID_TPMS_INFO.Hs_Tpms_TireLeakage = Hs_Tpms_TireLeakage;
+  msg_HS_ID_TPMS_INFO.Hs_TpmsLearningSt = Hs_TpmsLearningSt;
+  msg_HS_ID_TPMS_INFO.Hs_Tpms_TirePressureSt = Hs_Tpms_TirePressureSt;
+  msg_HS_ID_TPMS_INFO.Hs_Tpms_TireTemperatureSt = Hs_Tpms_TireTemperatureSt;
+  msg_HS_ID_TPMS_INFO.Hs_Tpms_TirePressure = Hs_Tpms_TirePressure;
+  msg_HS_ID_TPMS_INFO.Hs_Tpms_TireTemperature = Hs_Tpms_TireTemperature;
+  msg_HS_ID_TPMS_INFO.Hs_Tpms_TireBatteryPowerSt = Hs_Tpms_TireBatteryPowerSt;
+  output(msg_HS_ID_TPMS_INFO);
+}
+
+/*============================================================================
+  تایمرها - هر گروه، پیام‌های هم‌دوره را با Cycle Time واقعی DBC ارسال می‌کند
+============================================================================*/
+on timer tmr10
+{
+  Send_HS_ID_SAS();
+  Send_HS_ID_TCU_INFO_3();
+  Send_HS_ID_TCU_INFO_2();
+  Send_HS_ID_EMS11();
+  Send_HS_ID_EMS10();
+  Send_HS_ID_EMS9();
+  Send_HS_ID_EMS1();
+  Send_HS_ID_ABS_BRAKE();
+  Send_HS_ID_TCU_INFO1();
+  Send_HS_ID_EMS7();
+  Send_HS_ID_EMS6();
+  Send_HS_ID_EMS2();
+}
+
+on timer tmr20
+{
+  Send_HS_ID_ABS_INFO2();
+  Send_HS_ID_EMS8();
+  Send_HS_ID_ABS();
+}
+
+on timer tmr100
+{
+  Send_HS_ID_ITPMS_INFO();
+  Send_HS_ID_PEPS_1();
+  Send_HS_ID_ESP_1();
+  Send_HS_ID_ESC_ITPMS();
+  Send_HS_ID_TPMS_INFO();
+  Send_HS_ID_EPS1();
+  Send_LS_ID_INFO_HVAC();
+  Send_LS_ID_TARA__ETAT_COMBINE();
+}
+
+on timer tmr200
+{
+  Send_HS_ID_ICU_INFO();
+  Send_HS_ID_ABS_PULSE();
+  Send_LS_ID_TARA_ICU_INFO();
+  Send_LS_ID_TARA_INFO_RBG();
+}
+
+on timer tmr500
+{
+  Send_LS_ID_ICNI2_IC();
+}
+
+on timer tmr1000
+{
+  Send_HS_ID_ICU_SUP();
+  Send_HS_ID_TPMS_SUP();
+  Send_HS_ID_EPS_SUP();
+  Send_HS_ID_TCU_SUP();
+  Send_HS_ID_EMS_SUP();
+  Send_HS_ID_ABS_ESP_SUP();
+  Send_LS_ID_SUP_MMS();
+  Send_LS_ID_ICNI1_IC();
+  Send_LS_ID_SUP_HVAC();
+  Send_LS_ID_DEBUG_IC();
+  Send_LS_ID_TARA_CMB_CFG_VOY();
+  Send_LS_ID_TARA_SUPERVISION_MMS();
+  Send_LS_ID_TARA_SUPERVISION_CMB();
+  Send_LS_ID_TARA_SUPERVISION_RBG();
+  Send_LS_ID_TIME_MMS();
+  Send_LS_ID_SUP_IC();
+}
+
+on timer tmr5000
+{
+  Send_HS_ID_EMS_T_AMB();
+}
+
+on timer tmrEvent  // پیام‌های Event-based در DBC - این‌جا هر 1s برای پوشش تست
+{
+  Send_HS_ID_ICU_RESET_REQ();
+  Send_HS_ID_IMM_LearnSKReq();
+  Send_HS_ID_IMM_TeachPINReq();
+  Send_HS_ID_IMM_TeachSKReq();
+  Send_HS_ID_IMM_AUTH();
+  Send_HS_ID_EMS_RESET_RESP();
+  Send_HS_ID_EMS_TeachSKResp();
+  Send_HS_ID_EMS_LearnPINResp();
+  Send_HS_ID_EMS_LearnSKResp();
+  Send_HS_ID_EMS_CHALL();
+  Send_HS_ID_ICU_DIAG_REQ();
+  Send_HS_ID_ICU_DIAG_ANS();
+  Send_HS_ID_ICU_E1();
+  Send_HS_ID_TPMS_DIAG_REQ();
+  Send_HS_ID_TPMS_DIAG_ANS();
+  Send_HS_ID_EPS_DIAG_REQ();
+  Send_HS_ID_EPS_DIAG_ANS();
+  Send_HS_ID_TCU_DIAG_REQ();
+  Send_HS_ID_TCU_DIAG_ANS();
+  Send_HS_ID_EMS_DIAG_REQ();
+  Send_HS_ID_EMS_DIAG_ANS();
+  Send_HS_ID_EMS_ICU_1();
+  Send_HS_ID_DIAG_REQ_BROADCAST();
+  Send_HS_ID_DIAG_REQ_RBG();
+  Send_HS_ID_DIAG_REQ_MMS();
+  Send_HS_ID_DIAG_REQ_ICN();
+  Send_HS_ID_DIAG_REQ_NBCM();
+  Send_LS_ID_FR_HVAC();
+  Send_LS_ID_DIAG_RESP_HVAC();
+  Send_LS_ID_DIAG_RESP_MMS();
+  Send_LS_ID_TARA_CRH_RBG();
+  Send_LS_ID_TARA_VERSION_MMS();
+  Send_LS_ID_TARA_REP_DIAG_MMS();
+  Send_LS_ID_TARA_EVT_DEFAUT_MMS();
+  Send_LS_ID_TARA_ECRAN_INFO_PROFILS();
+  Send_LS_ID_TARA_DMD_MAJ_DATE_HEURE();
+  Send_LS_ID_TARA_EVT_DEFAUT_RBG();
+  Send_LS_ID_TARA_VERSION_CMB();
+  Send_LS_ID_TARA_REP_DIAG_CMB();
+  Send_LS_ID_TARA_KM_SAUV_CMB();
+  Send_LS_ID_DENA_ICN_INFO1_IC();
+  Send_LS_ID_DENA_MAINT_INFO_IC();
+  Send_LS_ID_TARA__EVT_DEFAUT_CMB();
+  Send_LS_ID_TARA_REP_DIAG_RBG();
+  Send_LS_ID_TARA_VERSION_RBG();
+  Send_LS_ID_DENA_BACKLIGHT_IC();
+  Send_LS_ID_DENA_TIME_IC();
+  Send_LS_ID_DIAG_RESP_IC();
+  Send_LS_ID_DENA_ODO_IC();
+  Send_LS_ID_DENA_DIAG_RESP_IC();
+  Send_LS_ID_DENA_SUP_IC();
+  Send_LS_ID_DENA_FR_IC();
+  Send_LS_ID_FR_IC();
+}

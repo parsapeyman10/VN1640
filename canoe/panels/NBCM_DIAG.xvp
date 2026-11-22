@@ -1,0 +1,408 @@
+<?xml version="1.0"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Panel" Children="Controls" ControlName="NBCM DIAG">
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="TxtTitle" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">TxtTitle</Property>
+      <Property Name="Size">210, 20</Property>
+      <Property Name="Location">10, 8</Property>
+      <Property Name="Text">DIAG  -  HS-CAN  -  10 messages / 10 signals</Property>
+      <Property Name="CustomToolTipText">DIAG — درخواست تشخیص عیب
+فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
+10 پیام · 10 سیگنال · HS-CAN</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Node" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Node</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">224, 7</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">DIAG — درخواست تشخیص عیب
+فریم‌های درخواست UDS/OBD را می‌فرستد تا ECUها پاسخ عیب و شناسه بدهند.
+10 پیام · 10 سیگنال · HS-CAN</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Diag_Req_Broadcast" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Diag_Req_Broadcast</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 40</Property>
+      <Property Name="Text">Hs_Diag_Req_Broadcast</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_BROADCAST · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Diag_Req_Broadcast" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Diag_Req_Broadcast</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 39</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_BROADCAST · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Diag_Req_Broadcast" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Diag_Req_Broadcast</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 38</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Diag_Req_Broadcast;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_BROADCAST · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Diag_Req_Icn_Data" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Diag_Req_Icn_Data</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 66</Property>
+      <Property Name="Text">Hs_Diag_Req_Icn_Data</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_ICN · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Diag_Req_Icn_Data" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Diag_Req_Icn_Data</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 65</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_ICN · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Diag_Req_Icn_Data" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Diag_Req_Icn_Data</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 64</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Diag_Req_Icn_Data;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_ICN · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Diag_Req_Mms_Data" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Diag_Req_Mms_Data</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 92</Property>
+      <Property Name="Text">Hs_Diag_Req_Mms_Data</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_MMS · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Diag_Req_Mms_Data" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Diag_Req_Mms_Data</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 91</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_MMS · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Diag_Req_Mms_Data" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Diag_Req_Mms_Data</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 90</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Diag_Req_Mms_Data;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_MMS · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Diag_Req_Nbcm_Data" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Diag_Req_Nbcm_Data</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 118</Property>
+      <Property Name="Text">Hs_Diag_Req_Nbcm_Data</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_NBCM · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Diag_Req_Nbcm_Data" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Diag_Req_Nbcm_Data</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 117</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_NBCM · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Diag_Req_Nbcm_Data" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Diag_Req_Nbcm_Data</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 116</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Diag_Req_Nbcm_Data;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_NBCM · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Diag_Req_Rbg_Data" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Diag_Req_Rbg_Data</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 144</Property>
+      <Property Name="Text">Hs_Diag_Req_Rbg_Data</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_RBG · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Diag_Req_Rbg_Data" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Diag_Req_Rbg_Data</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 143</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_RBG · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Diag_Req_Rbg_Data" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Diag_Req_Rbg_Data</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 142</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Diag_Req_Rbg_Data;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_DIAG_REQ_RBG · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Ems_Diagnostic_Answer" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Ems_Diagnostic_Answer</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 170</Property>
+      <Property Name="Text">Hs_Ems_Diagnostic_Answer</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_EMS_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Ems_Diagnostic_Answer" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Ems_Diagnostic_Answer</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 169</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_EMS_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Ems_Diagnostic_Answer" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Ems_Diagnostic_Answer</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 168</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Ems_Diagnostic_Answer;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_EMS_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Eps_Diagnostic_Answer" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Eps_Diagnostic_Answer</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 196</Property>
+      <Property Name="Text">Hs_Eps_Diagnostic_Answer</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_EPS_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Eps_Diagnostic_Answer" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Eps_Diagnostic_Answer</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 195</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_EPS_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Eps_Diagnostic_Answer" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Eps_Diagnostic_Answer</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 194</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Eps_Diagnostic_Answer;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_EPS_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Icu_Diagnostic_Answer" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Icu_Diagnostic_Answer</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 222</Property>
+      <Property Name="Text">Hs_Icu_Diagnostic_Answer</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_ICU_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Icu_Diagnostic_Answer" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Icu_Diagnostic_Answer</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 221</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_ICU_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Icu_Diagnostic_Answer" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Icu_Diagnostic_Answer</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 220</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Icu_Diagnostic_Answer;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_ICU_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Tcu_Diagnostic_Answer" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Tcu_Diagnostic_Answer</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 248</Property>
+      <Property Name="Text">Hs_Tcu_Diagnostic_Answer</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_TCU_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Tcu_Diagnostic_Answer" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Tcu_Diagnostic_Answer</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 247</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_TCU_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Tcu_Diagnostic_Answer" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Tcu_Diagnostic_Answer</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 246</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Tcu_Diagnostic_Answer;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_TCU_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Txt_Hs_Tpms_Diagnostic_Answer" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">Txt_Hs_Tpms_Diagnostic_Answer</Property>
+      <Property Name="Size">138, 18</Property>
+      <Property Name="Location">10, 274</Property>
+      <Property Name="Text">Hs_Tpms_Diagnostic_Answer</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_TPMS_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="I_Hs_Tpms_Diagnostic_Answer" Children="Controls" ControlName="Static Text">
+      <Property Name="Name">I_Hs_Tpms_Diagnostic_Answer</Property>
+      <Property Name="Size">13, 16</Property>
+      <Property Name="Location">150, 273</Property>
+      <Property Name="Text">(i)</Property>
+      <Property Name="Font">Microsoft Sans Serif, 7.5pt</Property>
+      <Property Name="ForeColor">0, 90, 170</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_TPMS_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=8.5.80.0, Culture=neutral, PublicKeyToken=null" Name="Sw_Hs_Tpms_Diagnostic_Answer" Children="Controls" ControlName="Switch/Indicator">
+      <Property Name="Name">Sw_Hs_Tpms_Diagnostic_Answer</Property>
+      <Property Name="Size">20, 24</Property>
+      <Property Name="Location">172, 272</Property>
+      <Property Name="StateCnt">2</Property>
+      <Property Name="Activation">Left</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SymbolConfiguration">4;16;NBCM_Test;;;Hs_Tpms_Diagnostic_Answer;1;;;-1</Property>
+      <Property Name="CustomToolTipText">مقادیر: 0 = بی‌فعالیت | 1 = فعال
+اثر: اگر این بیت ۱ بماند و پاسخ نیاید، ECU در حالت دیاگ گیر کرده و ممکن است فریم‌های عادی‌اش را کم کند.
+(از نام سیگنال؛ DBC جدول مقدار ندارد)
+درخواست یا پاسخ تشخیصی (UDS/OBD). این‌ها داده‌ی عادی خودرو نیستند
+پیام: HS_ID_TPMS_DIAG_ANS · HS-CAN · هر 1000 ms · 0..1</Property>
+    </Object>
+    <Property Name="Name">NBCM DIAG</Property>
+    <Property Name="Size">262, 926</Property>
+    <Property Name="BackColor">White</Property>
+  </Object>
+</Panel>

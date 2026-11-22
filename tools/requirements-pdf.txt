@@ -1,0 +1,8 @@
+# only needed to rebuild the PDFs (docs/pdf/).  The tester itself needs nothing
+# from this list -- the bridge and tools/*.py use the standard library only.
+fpdf2>=2.8
+pypdfium2>=4.30
+uharfbuzz>=0.39
+python-bidi>=0.5
+arabic-reshaper>=3.0
+fonttools>=4.50
