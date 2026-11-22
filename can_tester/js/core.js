@@ -60,6 +60,7 @@
     if (!meta[s.sig]) meta[s.sig] = { overridden: false, ts: 0, src: 'init' };
   });
 
+  const lastSeen = Object.create(null);   // "NET:MSG" -> epoch ms (liveness)
   const offline = Object.create(null);
   DATA.nodes.forEach((n) => { offline[n.node] = false; });
 
@@ -252,13 +253,31 @@
       stats.connected = true; stats.source = 'sim'; stats.lastError = '';
       // Publish every restbus frame once per tick so echo / timeout monitoring
       // behaves exactly like the real bridge does.
+      const react = global.React && global.React.init(DATA);
+      if (react) scenario.react = react;
       timer = setInterval(() => {
+        const now = Date.now();
+        const incoming = {};
         byMsg.forEach((m) => {
           const node = m.sigs[0].node;
           if (offline[node]) return;
           stats.rx += 1;
+          incoming[m.key] = now;
+          lastSeen[m.key] = now;
           emit('busframe', m.key);
         });
+        // Same rules as tools/behaviour.py: loss flags, counters, substitutes
+        // and cascades.  Without this the offline switch only froze values.
+        if (react) {
+          const res = react.compute({ values, offline, lastSeen, now });
+          Object.keys(res.values).forEach((name) => {
+            if (values[name] !== res.values[name]) {
+              setValue(name, res.values[name], { src: 'behaviour' });
+            }
+          });
+          scenario.reasons = res.reasons;
+          emit('reasons', res.reasons);
+        }
         emit('tick', stats);
       }, 1000);
       emit('connection', stats);

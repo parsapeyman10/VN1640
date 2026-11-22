@@ -346,6 +346,13 @@ def build(out: Path, with_tester: bool = False) -> dict:
     shutil.copy2(ROOT / "canoe" / "NBCM_TesterBridge.can", out / "Nodes" / "TesterBridge.can")
     add("Nodes/TesterBridge.can", "system variable <-> restbus bridge")
 
+    # The restbus #includes this file, so the package is broken without it.
+    if (ROOT / "canoe" / "NBCM_Behaviour.can").exists():
+        shutil.copy2(ROOT / "canoe" / "NBCM_Behaviour.can",
+                     out / "Nodes" / "NBCM_Behaviour.can")
+        add("Nodes/NBCM_Behaviour.can",
+            "reaction rules: absent nodes report, substitute, cascade")
+
     # --- panel -------------------------------------------------------------
     panels = out / "Panels"
     panels.mkdir()

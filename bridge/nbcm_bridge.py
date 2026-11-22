@@ -330,13 +330,24 @@ class CanoeLink:
 
 
 class SimLink:
-    """Stand-in for CanoeLink so the bridge can be tested without CANoe."""
+    """Stand-in for CanoeLink so the bridge can be tested without CANoe.
+
+    In simulator mode this link is also the *behaviour* engine: it owns the
+    reaction rules from tools/behaviour.py, so cutting a node off in the browser
+    produces the same consequences the CAPL produces in CANoe (Com_Loss flags,
+    counters, substitutes, cascades).  One rule table, two runtimes.
+    """
 
     def __init__(self, cfg: dict):
         self.cfg = cfg
         self.available = True
         self.error = ""
         self.meas_running = True
+        self.model = None          # behaviour.Model, set by the bridge
+        self.values: dict[str, float] = {}
+        self.last_seen: dict[str, float] = {}
+        self.last_tick = 0.0
+        self.reasons: list[dict] = []
 
     def connect(self): return True
     def start_measurement(self): self.meas_running = True; return True
@@ -352,6 +363,25 @@ class SimLink:
     def publish_verdict(self, passed, failed, last_pass, last_fail):
         # nothing to write to without CANoe; the hub keeps it for the UI
         return True
+
+    # -- behaviour -------------------------------------------------------
+    def step(self, now: float, offline: dict, incoming: dict) -> dict:
+        """Run one reaction tick and return the values the sim now holds.
+
+        ``offline``  {node: bool}   from the UI switches
+        ``incoming`` {(net, msg): epoch_ms}  frames the tester just pushed
+        """
+        if self.model is None:
+            return {}
+        self.last_seen.update(incoming)
+        out = self.model.compute(
+            {"values": self.values, "offline": offline,
+             "last_seen": self.last_seen},
+            now_ms=now * 1000.0,
+            cfg={"never_seen_is_absent": False})
+        self.values.update(out["values"])
+        self.reasons = out["reasons"]
+        return out["values"]
 
 
 # --------------------------------------------------------------------------- #
@@ -372,6 +402,7 @@ class Hub:
         self.watch = set(cfg["canoe"].get("poll_signals") or [])
         self.msg_last = {}            # message key "NET:MSG" -> last seen (epoch)
         self.clients = set()
+        self.link = None              # set by main(); state() reads its reasons
         for s in data.get("signals", []):
             self.meta.setdefault(s["sig"], s)
             self.signals.setdefault(s["sig"], s["def"])
@@ -437,6 +468,7 @@ class Hub:
                 "driveMode": self.drive_mode,
                 "verdict": dict(self.verdict),
                 "msgAge": ages,
+                "reasons": list(getattr(self.link, "reasons", []) or []),
                 "t": time.time(),
             }
 
@@ -479,9 +511,20 @@ def poll_loop(hub: Hub, link, stop: threading.Event):
         t0 = time.time()
         try:
             if is_sim:
+                # A node that is online is "seen" every tick; a node that is off
+                # is not, so the reaction rules can time it out.
+                incoming = {}
                 for node, key in all_msgs:
                     if not hub.offline.get(node, False):
+                        incoming[key] = time.time() * 1000.0
                         hub.mark_msg(key)
+                with hub.lock:
+                    offline = dict(hub.offline)
+                # one reaction tick: loss flags, counters, substitutes, cascades
+                changes = link.step(time.time(), offline, incoming)
+                for name, val in changes.items():
+                    hub.signals[name] = val
+                    hub.watch.add(name)
                 with hub.lock:
                     watch = list(hub.watch)
                     frames = [[name, hub.signals.get(name, 0.0)] for name in watch]
@@ -978,6 +1021,7 @@ def main(argv=None) -> int:
         return 2
 
     hub = Hub(data, cfg)
+    hub.link = None            # set below; state() reports its reasons
 
     link = SimLink(cfg) if not cfg["canoe"]["enabled"] else CanoeLink(cfg["canoe"])
     if isinstance(link, CanoeLink):
@@ -989,6 +1033,17 @@ def main(argv=None) -> int:
             log(f"defined {n} system variables in {cfg['canoe']['offline_namespace']}")
 
     hub.link = link                                            # type: ignore
+    if isinstance(link, SimLink):
+        # simulator mode is also a behaviour bench: same rules as the CAPL
+        try:
+            sys.path.insert(0, str(ROOT / "tools"))
+            import behaviour
+            link.model = behaviour.build_from_model(data)
+            link.values = dict(hub.signals)
+            log(f"sim behaviour model: {len(link.model.sup_of)} supervision frames, "
+                f"{len(link.model.substitutes)} substitutes")
+        except Exception:                                         # noqa: BLE001
+            log("sim behaviour model unavailable:", traceback.format_exc(limit=1))
     if isinstance(link, CanoeLink) and link.available and cfg["canoe"].get("take_control"):
         hub.drive_mode = 1
         link.set_drive_mode(True)

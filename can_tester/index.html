@@ -265,6 +265,20 @@ textarea.err{border-color:var(--bad)}
 .helptbl td.infocell{width:26px;text-align:center}
 .helptbl .sub{font-size:11.5px;color:#a8b3c4;margin-top:3px}
 .helptbl .sub .k{color:#8fb4ff}
+
+/* ---- the "why did it change" table ----------------------------------- */
+.reacttbl{width:100%;border-collapse:collapse;font-size:12px}
+.reacttbl th{text-align:right;color:#8b95a8;font-size:11px;font-weight:600;
+  padding:4px 6px;border-bottom:1px solid #2b3547}
+.reacttbl td{border-top:1px solid #232d3c;padding:4px 6px;vertical-align:top;line-height:1.6}
+.reacttbl td.rule{white-space:nowrap;font-weight:600;width:74px}
+.reacttbl td.rule.r-substitute{color:#ffd479}
+.reacttbl td.rule.r-cascade{color:#ff9e7a}
+.reacttbl td.rule.r-inhibit{color:#c9a45c}
+.reacttbl td.rule.r-recover{color:#8fd7b0}
+.reacttbl td.node{color:#8fb4ff;white-space:nowrap;width:52px}
+.reacttbl td.sig{color:#c9d4e4;white-space:nowrap;width:210px;direction:ltr;text-align:left}
+.reacttbl td.why{color:#a8b3c4}
 </style>
 </head>
 <body>
@@ -373,6 +387,16 @@ textarea.err{border-color:var(--bad)}
           <tbody></tbody>
         </table>
       </div>
+    </div>
+    <div class="card" style="margin-top:12px">
+      <h3>واکنش شبکه — چرا این مقدارها عوض شدند
+        <span class="count" id="reactCount"></span></h3>
+      <p class="hint" style="font-size:12px;margin-top:0">
+        همان قواعدی که در CANoe اجرا می‌شود: گرهی که فریمش نرسد غایب می‌شود،
+        پرچم <code>Com_Loss</code> می‌دهد، مقدار جانشین می‌گذارد و گره‌های وابسته
+        هم واکنش نشان می‌دهند.
+      </p>
+      <div id="reactList" style="max-height:34vh;overflow:auto"></div>
     </div>
   </section>
 
@@ -581,6 +605,7 @@ textarea.err{border-color:var(--bad)}
 
 <script src="assets/data.js"></script>
 <script src="assets/descriptions.js"></script>
+<script src="js/react.js"></script>
 <script src="js/core.js"></script>
 <script src="js/info.js"></script>
 <script src="js/ui.js"></script>

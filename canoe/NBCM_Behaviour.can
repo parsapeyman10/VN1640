@@ -1,0 +1,375 @@
+/*@!Encoding:65001*/
+/*============================================================================
+  NBCM Behaviour Model  --  generated, do not edit by hand
+  ============================================================================
+  Written by tools/build_behaviour_capl.py from tools/behaviour.py.
+
+  A restbus that only holds values never reacts: switch a node off and every
+  other node keeps reporting "fine".  This file makes the simulated ECUs react
+  the way the network map's own supervision frames describe:
+
+    1  absence    a node is absent when its frame has not been seen for
+                  500 ms, or when its OFFLINE switch is on
+    2  report     the absent node still sends its *_SUP frame, with
+                  Com_Loss = 1 and Com_Loss_Counter counting up (saturating)
+    3  substitute missing data is replaced (speed -> 0, torque -> 0, ...)
+                  instead of freezing at the last value
+    4  cascade    a node that needs the missing data reports its own loss
+    5  inhibit    a dependent function switches itself off and says why
+
+  Add this file to the same network node as NBCM_Full_Restbus_Simulation.can.
+  Nothing here needs a system variable; the switches are the restbus globals.
+
+  NOTE: strings written to the Write window are English on purpose -- the
+  restbus header records that Persian text in a CANoe label renders as empty
+  boxes.  The Persian explanation is in the PDF guide.
+============================================================================*/
+
+variables
+{
+  const dword BEHAVIOUR_ABSENT_MS = 500;
+  dword gBehaviourLastSeen[88];
+  long  gBehaviourLost[13];
+}
+/* the frame table: one row per liveness source */
+char gBehaviourFrameNode[88][17] = {
+  "ABS",
+  "ABS",
+  "ABS",
+  "ABS",
+  "ABS",
+  "ABS",
+  "DIAG",
+  "DIAG",
+  "DIAG",
+  "DIAG",
+  "DIAG",
+  "DIAG",
+  "DIAG",
+  "DIAG",
+  "DIAG",
+  "DIAG",
+  "EMS",
+  "EMS",
+  "EMS",
+  "EMS",
+  "EMS",
+  "EMS",
+  "EMS",
+  "EMS",
+  "EMS",
+  "EMS",
+  "EMS",
+  "EMS",
+  "EMS",
+  "EMS",
+  "EMS",
+  "EPS",
+  "EPS",
+  "EPS",
+  "HVAC",
+  "HVAC",
+  "HVAC",
+  "HVAC",
+  "ICN",
+  "ICN",
+  "ICN",
+  "ICN",
+  "ICN",
+  "ICN",
+  "ICN",
+  "ICN",
+  "ICN",
+  "ICN",
+  "ICN",
+  "ICN",
+  "ICN",
+  "ICN",
+  "ICN",
+  "ICN",
+  "ICN",
+  "ICN",
+  "ICN",
+  "ICN",
+  "ICN",
+  "ICU",
+  "ICU",
+  "ICU",
+  "ICU",
+  "ICU",
+  "ICU",
+  "ICU",
+  "ICU",
+  "ITPMS",
+  "MMS",
+  "MMS",
+  "MMS",
+  "MMS",
+  "MMS",
+  "MMS",
+  "MMS",
+  "PEPS",
+  "PEPS",
+  "RBG",
+  "RBG",
+  "RBG",
+  "RBG",
+  "RBG",
+  "TCU",
+  "TCU",
+  "TCU",
+  "TCU",
+  "TPMS",
+  "TPMS"
+};
+
+char gBehaviourFrameMsg[88][33] = {
+  "HS_ID_ABS",
+  "HS_ID_ABS_BRAKE",
+  "HS_ID_ABS_INFO2",
+  "HS_ID_ABS_PULSE",
+  "HS_ID_ESC_ITPMS",
+  "HS_ID_ESP_1",
+  "HS_ID_DIAG_REQ_BROADCAST",
+  "HS_ID_DIAG_REQ_ICN",
+  "HS_ID_DIAG_REQ_MMS",
+  "HS_ID_DIAG_REQ_NBCM",
+  "HS_ID_DIAG_REQ_RBG",
+  "HS_ID_EMS_DIAG_ANS",
+  "HS_ID_EPS_DIAG_ANS",
+  "HS_ID_ICU_DIAG_ANS",
+  "HS_ID_TCU_DIAG_ANS",
+  "HS_ID_TPMS_DIAG_ANS",
+  "HS_ID_EMS1",
+  "HS_ID_EMS10",
+  "HS_ID_EMS11",
+  "HS_ID_EMS2",
+  "HS_ID_EMS6",
+  "HS_ID_EMS7",
+  "HS_ID_EMS8",
+  "HS_ID_EMS9",
+  "HS_ID_EMS_CHALL",
+  "HS_ID_EMS_DIAG_REQ",
+  "HS_ID_EMS_ICU_1",
+  "HS_ID_EMS_LearnPINResp",
+  "HS_ID_EMS_LearnSKResp",
+  "HS_ID_EMS_RESET_RESP",
+  "HS_ID_EMS_TeachSKResp",
+  "HS_ID_EPS1",
+  "HS_ID_EPS_DIAG_REQ",
+  "HS_ID_SAS",
+  "LS_ID_DIAG_RESP_HVAC",
+  "LS_ID_FR_HVAC",
+  "LS_ID_INFO_HVAC",
+  "LS_ID_SUP_HVAC",
+  "LS_ID_DEBUG_IC",
+  "LS_ID_DENA_BACKLIGHT_IC",
+  "LS_ID_DENA_DIAG_RESP_IC",
+  "LS_ID_DENA_FR_IC",
+  "LS_ID_DENA_ICN_INFO1_IC",
+  "LS_ID_DENA_MAINT_INFO_IC",
+  "LS_ID_DENA_ODO_IC",
+  "LS_ID_DENA_SUP_IC",
+  "LS_ID_DENA_TIME_IC",
+  "LS_ID_DIAG_RESP_IC",
+  "LS_ID_FR_IC",
+  "LS_ID_ICNI1_IC",
+  "LS_ID_ICNI2_IC",
+  "LS_ID_SUP_IC",
+  "LS_ID_TARA_CMB_CFG_VOY",
+  "LS_ID_TARA_ICU_INFO",
+  "LS_ID_TARA_KM_SAUV_CMB",
+  "LS_ID_TARA_REP_DIAG_CMB",
+  "LS_ID_TARA_VERSION_CMB",
+  "LS_ID_TARA__ETAT_COMBINE",
+  "LS_ID_TARA__EVT_DEFAUT_CMB",
+  "HS_ID_ICU_DIAG_REQ",
+  "HS_ID_ICU_E1",
+  "HS_ID_ICU_INFO",
+  "HS_ID_ICU_RESET_REQ",
+  "HS_ID_IMM_AUTH",
+  "HS_ID_IMM_LearnSKReq",
+  "HS_ID_IMM_TeachPINReq",
+  "HS_ID_IMM_TeachSKReq",
+  "HS_ID_ITPMS_INFO",
+  "LS_ID_DIAG_RESP_MMS",
+  "LS_ID_TARA_DMD_MAJ_DATE_HEURE",
+  "LS_ID_TARA_ECRAN_INFO_PROFILS",
+  "LS_ID_TARA_EVT_DEFAUT_MMS",
+  "LS_ID_TARA_REP_DIAG_MMS",
+  "LS_ID_TARA_VERSION_MMS",
+  "LS_ID_TIME_MMS",
+  "HS_ID_PEPS_1",
+  "LS_ID_TARA_PEPS_1",
+  "LS_ID_TARA_CRH_RBG",
+  "LS_ID_TARA_EVT_DEFAUT_RBG",
+  "LS_ID_TARA_INFO_RBG",
+  "LS_ID_TARA_REP_DIAG_RBG",
+  "LS_ID_TARA_VERSION_RBG",
+  "HS_ID_TCU_DIAG_REQ",
+  "HS_ID_TCU_INFO1",
+  "HS_ID_TCU_INFO_2",
+  "HS_ID_TCU_INFO_3",
+  "HS_ID_TPMS_DIAG_REQ",
+  "HS_ID_TPMS_INFO"
+};
+
+
+/*----------------------------------------------------------------------------
+  1) freshness: the restbus calls this for every frame it sends.
+----------------------------------------------------------------------------*/
+void BehaviourMarkSent(char nodeName[], char msgName[])
+{
+  int i;
+  for (i = 0; i < 88; i++)
+  {
+    if (strncmp(gBehaviourFrameNode[i], nodeName, 16) == 0 &&
+        strncmp(gBehaviourFrameMsg[i], msgName, 32) == 0)
+    {
+      gBehaviourLastSeen[i] = 0;   /* 0 = seen in this tick */
+      return;
+    }
+  }
+}
+
+/*----------------------------------------------------------------------------
+  2) one tick, called every 100 ms from on timer
+----------------------------------------------------------------------------*/
+void BehaviourTick()
+{
+  int i;
+  int lost;
+  int frames_of_node;
+  /* ---- absence ---- */
+  /* ABS */
+  gBehaviourLastSeen[0]++, gBehaviourLastSeen[1]++, gBehaviourLastSeen[2]++, gBehaviourLastSeen[3]++, gBehaviourLastSeen[4]++, gBehaviourLastSeen[5]++;
+  lost = (gBehaviourLastSeen[0] > 0 && gBehaviourLastSeen[1] > 0 && gBehaviourLastSeen[2] > 0 && gBehaviourLastSeen[3] > 0 && gBehaviourLastSeen[4] > 0 && gBehaviourLastSeen[5] > 0) ? 1 : 0;
+  if (OFFLINE_ABS) lost = 1;
+  gBehaviourLost[0] = lost;
+  /* DIAG */
+  gBehaviourLastSeen[6]++, gBehaviourLastSeen[7]++, gBehaviourLastSeen[8]++, gBehaviourLastSeen[9]++, gBehaviourLastSeen[10]++, gBehaviourLastSeen[11]++, gBehaviourLastSeen[12]++, gBehaviourLastSeen[13]++, gBehaviourLastSeen[14]++, gBehaviourLastSeen[15]++;
+  lost = (gBehaviourLastSeen[6] > 0 && gBehaviourLastSeen[7] > 0 && gBehaviourLastSeen[8] > 0 && gBehaviourLastSeen[9] > 0 && gBehaviourLastSeen[10] > 0 && gBehaviourLastSeen[11] > 0 && gBehaviourLastSeen[12] > 0 && gBehaviourLastSeen[13] > 0 && gBehaviourLastSeen[14] > 0 && gBehaviourLastSeen[15] > 0) ? 1 : 0;
+  if (OFFLINE_DIAG) lost = 1;
+  gBehaviourLost[1] = lost;
+  /* EMS */
+  gBehaviourLastSeen[16]++, gBehaviourLastSeen[17]++, gBehaviourLastSeen[18]++, gBehaviourLastSeen[19]++, gBehaviourLastSeen[20]++, gBehaviourLastSeen[21]++, gBehaviourLastSeen[22]++, gBehaviourLastSeen[23]++, gBehaviourLastSeen[24]++, gBehaviourLastSeen[25]++, gBehaviourLastSeen[26]++, gBehaviourLastSeen[27]++, gBehaviourLastSeen[28]++, gBehaviourLastSeen[29]++, gBehaviourLastSeen[30]++;
+  lost = (gBehaviourLastSeen[16] > 0 && gBehaviourLastSeen[17] > 0 && gBehaviourLastSeen[18] > 0 && gBehaviourLastSeen[19] > 0 && gBehaviourLastSeen[20] > 0 && gBehaviourLastSeen[21] > 0 && gBehaviourLastSeen[22] > 0 && gBehaviourLastSeen[23] > 0 && gBehaviourLastSeen[24] > 0 && gBehaviourLastSeen[25] > 0 && gBehaviourLastSeen[26] > 0 && gBehaviourLastSeen[27] > 0 && gBehaviourLastSeen[28] > 0 && gBehaviourLastSeen[29] > 0 && gBehaviourLastSeen[30] > 0) ? 1 : 0;
+  if (OFFLINE_EMS) lost = 1;
+  gBehaviourLost[2] = lost;
+  /* EPS */
+  gBehaviourLastSeen[31]++, gBehaviourLastSeen[32]++, gBehaviourLastSeen[33]++;
+  lost = (gBehaviourLastSeen[31] > 0 && gBehaviourLastSeen[32] > 0 && gBehaviourLastSeen[33] > 0) ? 1 : 0;
+  if (OFFLINE_EPS) lost = 1;
+  gBehaviourLost[3] = lost;
+  /* HVAC */
+  gBehaviourLastSeen[34]++, gBehaviourLastSeen[35]++, gBehaviourLastSeen[36]++, gBehaviourLastSeen[37]++;
+  lost = (gBehaviourLastSeen[34] > 0 && gBehaviourLastSeen[35] > 0 && gBehaviourLastSeen[36] > 0 && gBehaviourLastSeen[37] > 0) ? 1 : 0;
+  if (OFFLINE_HVAC) lost = 1;
+  gBehaviourLost[4] = lost;
+  /* ICN */
+  gBehaviourLastSeen[38]++, gBehaviourLastSeen[39]++, gBehaviourLastSeen[40]++, gBehaviourLastSeen[41]++, gBehaviourLastSeen[42]++, gBehaviourLastSeen[43]++, gBehaviourLastSeen[44]++, gBehaviourLastSeen[45]++, gBehaviourLastSeen[46]++, gBehaviourLastSeen[47]++, gBehaviourLastSeen[48]++, gBehaviourLastSeen[49]++, gBehaviourLastSeen[50]++, gBehaviourLastSeen[51]++, gBehaviourLastSeen[52]++, gBehaviourLastSeen[53]++, gBehaviourLastSeen[54]++, gBehaviourLastSeen[55]++, gBehaviourLastSeen[56]++, gBehaviourLastSeen[57]++, gBehaviourLastSeen[58]++;
+  lost = (gBehaviourLastSeen[38] > 0 && gBehaviourLastSeen[39] > 0 && gBehaviourLastSeen[40] > 0 && gBehaviourLastSeen[41] > 0 && gBehaviourLastSeen[42] > 0 && gBehaviourLastSeen[43] > 0 && gBehaviourLastSeen[44] > 0 && gBehaviourLastSeen[45] > 0 && gBehaviourLastSeen[46] > 0 && gBehaviourLastSeen[47] > 0 && gBehaviourLastSeen[48] > 0 && gBehaviourLastSeen[49] > 0 && gBehaviourLastSeen[50] > 0 && gBehaviourLastSeen[51] > 0 && gBehaviourLastSeen[52] > 0 && gBehaviourLastSeen[53] > 0 && gBehaviourLastSeen[54] > 0 && gBehaviourLastSeen[55] > 0 && gBehaviourLastSeen[56] > 0 && gBehaviourLastSeen[57] > 0 && gBehaviourLastSeen[58] > 0) ? 1 : 0;
+  if (OFFLINE_ICN) lost = 1;
+  gBehaviourLost[5] = lost;
+  /* ICU */
+  gBehaviourLastSeen[59]++, gBehaviourLastSeen[60]++, gBehaviourLastSeen[61]++, gBehaviourLastSeen[62]++, gBehaviourLastSeen[63]++, gBehaviourLastSeen[64]++, gBehaviourLastSeen[65]++, gBehaviourLastSeen[66]++;
+  lost = (gBehaviourLastSeen[59] > 0 && gBehaviourLastSeen[60] > 0 && gBehaviourLastSeen[61] > 0 && gBehaviourLastSeen[62] > 0 && gBehaviourLastSeen[63] > 0 && gBehaviourLastSeen[64] > 0 && gBehaviourLastSeen[65] > 0 && gBehaviourLastSeen[66] > 0) ? 1 : 0;
+  if (OFFLINE_ICU) lost = 1;
+  gBehaviourLost[6] = lost;
+  /* ITPMS */
+  gBehaviourLastSeen[67]++;
+  lost = (gBehaviourLastSeen[67] > 0) ? 1 : 0;
+  if (OFFLINE_ITPMS) lost = 1;
+  gBehaviourLost[7] = lost;
+  /* MMS */
+  gBehaviourLastSeen[68]++, gBehaviourLastSeen[69]++, gBehaviourLastSeen[70]++, gBehaviourLastSeen[71]++, gBehaviourLastSeen[72]++, gBehaviourLastSeen[73]++, gBehaviourLastSeen[74]++;
+  lost = (gBehaviourLastSeen[68] > 0 && gBehaviourLastSeen[69] > 0 && gBehaviourLastSeen[70] > 0 && gBehaviourLastSeen[71] > 0 && gBehaviourLastSeen[72] > 0 && gBehaviourLastSeen[73] > 0 && gBehaviourLastSeen[74] > 0) ? 1 : 0;
+  if (OFFLINE_MMS) lost = 1;
+  gBehaviourLost[8] = lost;
+  /* PEPS */
+  gBehaviourLastSeen[75]++, gBehaviourLastSeen[76]++;
+  lost = (gBehaviourLastSeen[75] > 0 && gBehaviourLastSeen[76] > 0) ? 1 : 0;
+  if (OFFLINE_PEPS) lost = 1;
+  gBehaviourLost[9] = lost;
+  /* RBG */
+  gBehaviourLastSeen[77]++, gBehaviourLastSeen[78]++, gBehaviourLastSeen[79]++, gBehaviourLastSeen[80]++, gBehaviourLastSeen[81]++;
+  lost = (gBehaviourLastSeen[77] > 0 && gBehaviourLastSeen[78] > 0 && gBehaviourLastSeen[79] > 0 && gBehaviourLastSeen[80] > 0 && gBehaviourLastSeen[81] > 0) ? 1 : 0;
+  if (OFFLINE_RBG) lost = 1;
+  gBehaviourLost[10] = lost;
+  /* TCU */
+  gBehaviourLastSeen[82]++, gBehaviourLastSeen[83]++, gBehaviourLastSeen[84]++, gBehaviourLastSeen[85]++;
+  lost = (gBehaviourLastSeen[82] > 0 && gBehaviourLastSeen[83] > 0 && gBehaviourLastSeen[84] > 0 && gBehaviourLastSeen[85] > 0) ? 1 : 0;
+  if (OFFLINE_TCU) lost = 1;
+  gBehaviourLost[11] = lost;
+  /* TPMS */
+  gBehaviourLastSeen[86]++, gBehaviourLastSeen[87]++;
+  lost = (gBehaviourLastSeen[86] > 0 && gBehaviourLastSeen[87] > 0) ? 1 : 0;
+  if (OFFLINE_TPMS) lost = 1;
+  gBehaviourLost[12] = lost;
+
+  /* ---- report: Com_Loss and its counter, for every node with a SUP frame ---- */
+  Hs_Abs_Com_Loss = gBehaviourLost[0];
+  if (gBehaviourLost[0]) { if (Hs_Abs_Com_Loss_Counter < 255) Hs_Abs_Com_Loss_Counter++; }
+  else Hs_Abs_Com_Loss_Counter = 0;
+  Hs_Ems_Com_Loss = gBehaviourLost[2];
+  if (gBehaviourLost[2]) { if (Hs_Ems_Com_Loss_Counter < 255) Hs_Ems_Com_Loss_Counter++; }
+  else Hs_Ems_Com_Loss_Counter = 0;
+  Hs_Eps_COM_Loss = gBehaviourLost[3];
+  if (gBehaviourLost[3]) { if (Hs_Eps_Com_Loss_Counter < 255) Hs_Eps_Com_Loss_Counter++; }
+  else Hs_Eps_Com_Loss_Counter = 0;
+  Hs_Icu_Com_Loss = gBehaviourLost[6];
+  if (gBehaviourLost[6]) { if (Hs_Icu_Com_Loss_Counter < 255) Hs_Icu_Com_Loss_Counter++; }
+  else Hs_Icu_Com_Loss_Counter = 0;
+  Hs_Tcu_Com_Loss = gBehaviourLost[11];
+  if (gBehaviourLost[11]) { if (Hs_Tcu_Com_Loss_Counter < 255) Hs_Tcu_Com_Loss_Counter++; }
+  else Hs_Tcu_Com_Loss_Counter = 0;
+  Hs_Tpms_COM_Loss = gBehaviourLost[12];
+  if (gBehaviourLost[12]) { if (Hs_Tpms_Com_Loss_Counter < 255) Hs_Tpms_Com_Loss_Counter++; }
+  else Hs_Tpms_Com_Loss_Counter = 0;
+
+  /* ---- substitute: missing data is replaced, never frozen ---- */
+  if (gBehaviourLost[0]) Hs_Abs_Wheel_Speed_Fl = 0;   /* speed -> 0 when the sender is gone */
+  if (gBehaviourLost[0]) Hs_Abs_Wheel_Speed_Fr = 0;   /* speed -> 0 when the sender is gone */
+  if (gBehaviourLost[0]) Hs_Abs_Wheel_Speed_Rl = 0;   /* speed -> 0 when the sender is gone */
+  if (gBehaviourLost[0]) Hs_Abs_Wheel_Speed_Rr = 0;   /* speed -> 0 when the sender is gone */
+  if (gBehaviourLost[0]) Hs_Esc_TorqueReductValue = 0;   /* torque -> 0, no pedal input */
+  if (gBehaviourLost[0]) Hs_Abs_VehicleSpeed = 0;   /* speed -> 0 when the sender is gone */
+  if (gBehaviourLost[2]) Hs_Ems_EngineActualTorque = 0;   /* torque -> 0, no pedal input */
+  if (gBehaviourLost[2]) Hs_Ems_EngineFrictionTorque = 0;   /* torque -> 0, no pedal input */
+  if (gBehaviourLost[2]) Hs_Ems_IndicatedEngineTorque1 = 0;   /* torque -> 0, no pedal input */
+  if (gBehaviourLost[2]) Hs_Ems_MaxBrkTorq = 0;   /* torque -> 0, no pedal input */
+  if (gBehaviourLost[2]) Hs_Ems_DriverReqTorq = 0;   /* torque -> 0, no pedal input */
+  if (gBehaviourLost[2]) Hs_Ems_EngBrkTorqwithoutTCU = 0;   /* torque -> 0, no pedal input */
+  if (gBehaviourLost[2]) Hs_Ems_EngineIdleTargetSpeed = 0;   /* speed -> 0 when the sender is gone */
+  if (gBehaviourLost[2]) Hs_Ems_MinlndicatedTorq = 0;   /* torque -> 0, no pedal input */
+  if (gBehaviourLost[2]) Hs_Ems_Rpm = 0;   /* rpm -> 0, engine seen as stopped */
+  if (gBehaviourLost[2]) Hs_Ems_BrakeEngineTorque2 = 0;   /* torque -> 0, no pedal input */
+  if (gBehaviourLost[2]) Hs_Ems_BrakeTorqueConstant = 0;   /* torque -> 0, no pedal input */
+  if (gBehaviourLost[2]) Hs_Ems_FrictionalTorq = 0;   /* torque -> 0, no pedal input */
+  if (gBehaviourLost[3]) Hs_Sas_Speed = 0;   /* speed -> 0 when the sender is gone */
+  if (gBehaviourLost[5]) LS_ICN_SPD_GWY = 0;   /* speed -> 0 when the sender is gone */
+  if (gBehaviourLost[5]) Ls_Icn_Speed_Display = 0;   /* speed -> 0 when the sender is gone */
+  if (gBehaviourLost[9]) Hs_Peps_VehSpd = 0;   /* speed -> 0 when the sender is gone */
+  if (gBehaviourLost[11]) Hs_Tcu_EngBrkTorqReductValue = 0;   /* torque -> 0, no pedal input */
+  if (gBehaviourLost[11]) Hs_Tcu_N_EngBrkTorqLimitValue = 0;   /* torque -> 0, no pedal input */
+  if (gBehaviourLost[11]) Hs_Tcu_EngBrkTorqIncreValue = 0;   /* torque -> 0, no pedal input */
+  if (gBehaviourLost[11]) Hs_Tcu_TorqConvTurbineSpeed = 0;   /* speed -> 0 when the sender is gone */
+  if (gBehaviourLost[11]) Hs_Tcu_DesiredEngIdlSpdReq = 0;   /* speed -> 0 when the sender is gone */
+  if (gBehaviourLost[11]) Hs_Tcu_IdleControlLoadTorque = 0;   /* torque -> 0, no pedal input */
+  if (gBehaviourLost[11]) Hs_Tcu_MaxEngSpeedLimReq = 0;   /* speed -> 0 when the sender is gone */
+  if (gBehaviourLost[11]) Hs_Tcu_OutputShaftSpeed = 0;   /* speed -> 0 when the sender is gone */
+
+  /* ---- cascade: a node that needs what is missing reports its own loss ---- */
+  /* ABS needs ABS */
+  if (gBehaviourLost[0]) Hs_Abs_Com_Loss = 1;
+  if (gBehaviourLost[0]) Hs_Abs_VehicleSpeed_Invalid = 1;
+  /* ICU needs ABS */
+  if (gBehaviourLost[0]) Hs_Icu_Com_Loss = 1;
+  /* TCU needs EMS */
+  if (gBehaviourLost[2]) Hs_Tcu_Com_Loss = 1;
+  /* ICU needs EMS */
+  if (gBehaviourLost[2]) Hs_Icu_Com_Loss = 1;
+  /* ICN needs EMS */
+  /* ICN needs ABS */
+}
+

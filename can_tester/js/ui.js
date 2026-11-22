@@ -278,6 +278,39 @@
     renderEcho();
   }
 
+  /* --------------------------------------------------- why values changed */
+  // The reaction rules return a reason per changed signal (see js/react.js and
+  // tools/behaviour.py).  Showing them is the point: a number that changed
+  // without an explanation is indistinguishable from a bug.
+  const RULE_FA = { substitute: 'جانشین', cascade: 'زنجیره', inhibit: 'غیرفعال',
+                    report: 'گزارش', recover: 'بازگشت' };
+  function renderReasons(list) {
+    const host = document.getElementById('reactList');
+    if (!host) return;
+    const badge = document.getElementById('reactCount');
+    const items = list || [];
+    if (badge) badge.textContent = items.length ? '(' + items.length + ')' : '';
+    host.textContent = '';
+    if (!items.length) {
+      host.appendChild(el('p', { class: 'hint', text:
+        'همه‌ی گره‌ها سالم‌اند؛ هیچ واکنشی لازم نیست. یک گره را از تب «گره‌ها» قطع کنید تا زنجیره را ببینید.' }));
+      return;
+    }
+    const tbl = el('table', { class: 'reacttbl' });
+    const hr = el('tr');
+    ['قاعده', 'گره', 'سیگنال', 'چرا'].forEach((h) => hr.appendChild(el('th', { text: h })));
+    tbl.appendChild(hr);
+    items.slice(0, 60).forEach((r) => {
+      const tr = el('tr');
+      tr.appendChild(el('td', { class: 'rule r-' + r.rule, text: RULE_FA[r.rule] || r.rule }));
+      tr.appendChild(el('td', { class: 'node', text: r.node || '' }));
+      tr.appendChild(el('td', { class: 'sig mono', text: r.signal || '' }));
+      tr.appendChild(el('td', { class: 'why', text: r.text || '' }));
+      tbl.appendChild(tr);
+    });
+    host.appendChild(tbl);
+  }
+
   /* --------------------------------------------------- echo / monitoring */
   // last-seen timestamp per message key, driven by real frames from the adapter
   const echo = new Map();   // key -> { msg, net, node, cycle, last, count, miss }
@@ -514,6 +547,8 @@
     // live updates
     C.on('connection', () => { renderConn(); if (UI.view === 'link') renderLink(); });
     UI._echoFor = echoFor;
+    C.on('reasons', renderReasons);
+    renderReasons(C.scenario && C.scenario.reasons);   // show the empty state before the first tick
     C.on('meas', renderMeas);
     C.on('health', renderHealth);
     C.on('drive', renderDrive);

@@ -33,6 +33,7 @@ python bridge/nbcm_bridge.py --sim
 ```bash
 pip install pywin32
 python tools/build_capl.py
+python tools/build_behaviour_capl.py   # reaction rules -> canoe/NBCM_Behaviour.can
 python bridge/nbcm_bridge.py --canoe --canoe-config "C:\CANoe\NBCM\NBCM.cfg"
 ```
 
